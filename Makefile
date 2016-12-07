@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2016/11/30 11:14:33 by mgautier         ###   ########.fr       *#
+#*   Updated: 2016/12/07 16:32:09 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -23,10 +23,10 @@ PART_2 = ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c ft_strclr.c \
 		 ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c \
 		 ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c \
 		 ft_putchar_fd.c ft_putstr_fd.c ft_putnbr_fd.c ft_putendl_fd.c
-PART_3 = ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c \
-		 ft_lstmap.c
-PART_4 = ft_add_end_list.c
-SRC := $(PART_1) $(PART_2) $(PART_3) $(PART_4)
+LIST_FUNC = ft_lstadd.c ft_lstcheck.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c \
+			ft_lstmap.c ft_lstnew.c ft_lstpop.c ft_lstpopdata.c ft_lstpush.c \
+			ft_lstpushdata.c
+SRC := $(PART_1) $(PART_2) $(LIST_FUNCT)
 DEP := $(SRC:.c=.d)
 OBJ := $(SRC:.c=.o)
 TEST_OBJ = main.c tests.c list_test.c
@@ -64,7 +64,7 @@ re: fclean all
 	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
 	$(RM) $@.$$$$
 
-include $(DEP)
+-include $(DEP)
 
 #
 # Rules for test
