@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2016/12/07 16:32:09 by mgautier         ###   ########.fr       *#
+#*   Updated: 2016/12/08 14:28:23 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -23,14 +23,14 @@ PART_2 = ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c ft_strclr.c \
 		 ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c \
 		 ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c \
 		 ft_putchar_fd.c ft_putstr_fd.c ft_putnbr_fd.c ft_putendl_fd.c
-LIST_FUNC = ft_lstadd.c ft_lstcheck.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c \
+LIST_FUNCT = ft_lstadd.c ft_lstcheck.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c \
 			ft_lstmap.c ft_lstnew.c ft_lstpop.c ft_lstpopdata.c ft_lstpush.c \
 			ft_lstpushdata.c
-SRC := $(PART_1) $(PART_2) $(LIST_FUNCT)
+DB_FUNCT = database.c
+SRC := $(PART_1) $(PART_2) $(LIST_FUNCT) $(DB_FUNCT)
 DEP := $(SRC:.c=.d)
 OBJ := $(SRC:.c=.o)
 TEST_OBJ = main.c tests.c list_test.c
-
 
 ARCH_MEMBER := $(TARGET)($(SRC:.c=.o)) 
 TEST_TARGET = my_test
@@ -55,7 +55,7 @@ fclean: clean cleantest
 re: fclean all
 
 # 
-# Implicit rules
+# Pattern rules
 #
 
 %.d: %.c

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/23 13:13:28 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/08 15:19:37 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putendl_fd(char *s, int fd);
 
 /*
-** Part Three (bonus)
+** List functions
 */
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
@@ -105,5 +105,17 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_add_end_list(t_list *last_link, const void *content,
 									size_t content_size);
 unsigned int		ft_check_list(t_list list, t_bool (*f)(t_list *elem));
+
+/*
+** Database interface
+*/
+
+typedef	enum	e_db_type
+{
+	DB_FILO_LIST,
+	DB_TYPE_COUNT,
+}				t_db_type;
+typedef	struct s_database	t_database;
+t_database			*new_database(t_db_type type);
 
 #endif
