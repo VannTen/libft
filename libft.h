@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/12 17:01:18 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/12 17:24:20 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,11 +99,18 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putendl_fd(char *s, int fd);
 
 /*
-** More functions
+** String functions
 */
 
-t_lst				ft_strsplit_lst(char const *str, size_t size);
-t_lst				ft_add_end_lst(t_lst last_link, void *content);
+t_lst				*ft_strsplit_lst(char const *str);
+char				*ft_strtjoin(char const *str, char const *str2,
+									size_t size);
+/*
+** Some lst functions
+*/
+
+t_lst				*ft_add_end_lst(t_lst last_link, void *content);
+void				*ft_pop(t_lst *list);
 
 /*
 ** List functions
