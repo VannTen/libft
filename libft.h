@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/08 15:19:37 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/12 17:01:18 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_lst
+{
+	void			*content;
+	struct s_lst	*next;
+}					t_lst;
 
 /*
 ** Part One
@@ -91,6 +97,13 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putendl_fd(char *s, int fd);
+
+/*
+** More functions
+*/
+
+t_lst				ft_strsplit_lst(char const *str, size_t size);
+t_lst				ft_add_end_lst(t_lst last_link, void *content);
 
 /*
 ** List functions
