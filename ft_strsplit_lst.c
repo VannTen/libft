@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 13:14:05 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/13 13:54:02 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/13 14:44:58 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ static char		*new_split(char const *src, size_t size)
 	return (split);
 }
 
-char			**ft_strsplit(char const *s, char c)
+t_lst	*ft_strsplit_lst(char const *s, const char c)
 {
 	size_t	index;
 	size_t	index_current;
 	t_lst	*strsplit;
 	t_lst	*last;
 
-	strsplit == NULL;
-	last == NULL;
+	strsplit = NULL;
+	last = NULL;
 	index = 0;
 	while (s[index] != '\0')
 	{
@@ -54,7 +54,7 @@ char			**ft_strsplit(char const *s, char c)
 		last = ft_add_end_lst(last,
 				new_split(s + index_current, index - index_current));
 		if (strsplit == NULL)
-			strsplit == last;
+			strsplit = last;
 		if (s[index] != '\0')
 			index++;
 	}
