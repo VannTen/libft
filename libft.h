@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/13 15:06:06 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/13 16:59:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,14 +110,15 @@ char				*f_strtjoin(char const *str, char const *str2,
 */
 
 t_lst				*f_add_end_lst(t_lst *last_link, void *content);
-t_lst				*f_add_begin_lst(t_lst *last_link, void *content);
+t_lst				*f_add_begin_lst(t_lst **begin_list, void *content);
 t_lst				*f_lstnew(void const *content);
 void				f_lstdelone(t_lst **alst, void (*del)(void*));
 void				f_lstdel(t_lst **alst, void (*del)(void*));
 void				f_lstiter(t_lst *lst, void (*f)(t_lst *elem));
 t_lst				*f_lstmap(t_lst *lst, t_lst *(*f)(t_lst *elem));
 unsigned int		f_check_list(t_lst list, t_bool (*f)(t_lst *elem));
-void				*f_search_list(t_lst *last_link, (*match)(void *content));
+void				*f_search_list(t_lst *last_link,
+									int (*match)(void *content));
 void				*f_pop(t_lst *list);
 
 /*
