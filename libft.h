@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/13 13:55:59 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/13 15:06:06 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,23 +102,23 @@ void				ft_putendl_fd(char *s, int fd);
 ** String functions
 */
 
-t_lst				*ft_strsplit_lst(char const *str);
-char				*ft_strtjoin(char const *str, char const *str2,
+t_lst				*f_strsplit_lst(char const *str);
+char				*f_strtjoin(char const *str, char const *str2,
 									size_t size);
 /*
 ** Some lst functions
 */
 
-t_lst				*ft_add_end_lst(t_lst *last_link, void *content);
-t_lst				*ft_add_begin_lst(t_lst *last_link, void *content);
-t_lst				*ft_lstnew_ncpy(void const *content);
-void				ft_lstdelone(t_list **alst, void (*del)(void*));
-void				ft_lstdel(t_list **alst, void (*del)(void*));
-void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-unsigned int		ft_check_list(t_list list, t_bool (*f)(t_list *elem));
-void				*ft_search_list(t_lst *last_link, (*match)(void *content));
-void				*ft_pop(t_lst *list);
+t_lst				*f_add_end_lst(t_lst *last_link, void *content);
+t_lst				*f_add_begin_lst(t_lst *last_link, void *content);
+t_lst				*f_lstnew(void const *content);
+void				f_lstdelone(t_lst **alst, void (*del)(void*));
+void				f_lstdel(t_lst **alst, void (*del)(void*));
+void				f_lstiter(t_lst *lst, void (*f)(t_lst *elem));
+t_lst				*f_lstmap(t_lst *lst, t_lst *(*f)(t_lst *elem));
+unsigned int		f_check_list(t_lst list, t_bool (*f)(t_lst *elem));
+void				*f_search_list(t_lst *last_link, (*match)(void *content));
+void				*f_pop(t_lst *list);
 
 /*
 ** List functions

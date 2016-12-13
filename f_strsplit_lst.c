@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit_lst.c                                  :+:      :+:    :+:   */
+/*   f_strsplit_lst.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 13:14:05 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/12 16:53:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/13 15:05:40 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static char		*new_split(char const *src, size_t size)
 	return (split);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char			**f_strsplit(char const *s, char c)
 {
 	size_t	index;
 	size_t	index_current;
@@ -55,7 +55,7 @@ char			**ft_strsplit(char const *s, char c)
 	{
 		if (s[index] == c)
 		{
-			last = ft_add_end_lst(last,
+			last = f_add_end_lst(last,
 					new_split(s + index_current, index - index_current));
 			index++;
 			index_current = index;
@@ -64,7 +64,7 @@ char			**ft_strsplit(char const *s, char c)
 		}
 		index++;
 	}
-	last = ft_add_end_lst(last,
+	last = f_add_end_lst(last,
 			new_split(s + index_current, index - index_current));
 	return (strsplit);
 }
