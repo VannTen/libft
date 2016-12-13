@@ -26,8 +26,9 @@ PART_2 = ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c ft_strclr.c \
 LIST_FUNCT = ft_lstadd.c ft_lstcheck.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c \
 			ft_lstmap.c ft_lstnew.c ft_lstpop.c ft_lstpopdata.c ft_lstpush.c \
 			ft_lstpushdata.c
+LST_FUNCT = f_add_end_lst.c f_lstiter.c f_strljoin.c f_strsplit_lst.c
 DB_FUNCT = database.c
-SRC := $(PART_1) $(PART_2) $(LIST_FUNCT) $(DB_FUNCT)
+SRC := $(PART_1) $(PART_2) $(LIST_FUNCT) $(LST_FUNCT) $(DB_FUNCT)
 DEP := $(SRC:.c=.d)
 OBJ := $(SRC:.c=.o)
 TEST_OBJ = main.c tests.c list_test.c
