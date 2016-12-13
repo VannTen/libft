@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_strsplit_lst.c                                  :+:      :+:    :+:   */
+/*   f_strsplit_lst.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 13:14:05 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/13 15:05:40 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/13 15:16:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,13 @@
 
 /*
 ** The function proceeds with a loop performing the folowing actions :
-** advance until the current characther is different from the separator
-** if the string is not finished : count one field
-** advance until the separator is found or the string ends
-** repeat
-** That is use to count the number of split to be created ; the function then
-** allocates an array of strings of the appropriate size.
-** The same loop (only difference is that the number of field is used for end
-** condition) is then used to allocates each split.
-** If any allocation fail, all allocated memory (previous allocated splits and
-** the containing array) are freed and their pointers set to NULL, and NULL is
-** returned.
+** advance until the current characther is different from the separator,
+** while keeping an index to the previous separator (first being the beginning
+** of the string).
+** Then, send to new_split the adress of the first character of the current
+** string split, and the size of the split (the current index minus the index of
+** the previous separator).
+** new_split then produces a lst link, which is put at the end of the list.
 */
 
 static char		*new_split(char const *src, size_t size)
@@ -40,31 +36,27 @@ static char		*new_split(char const *src, size_t size)
 	return (split);
 }
 
-char			**f_strsplit(char const *s, char c)
+t_lst	*f_strsplit_lst(char const *s, const char c)
 {
 	size_t	index;
 	size_t	index_current;
 	t_lst	*strsplit;
 	t_lst	*last;
 
-	strsplit == NULL;
-	last == NULL;
+	strsplit = NULL;
+	last = NULL;
 	index = 0;
-	index_current = 0;
 	while (s[index] != '\0')
 	{
-		if (s[index] == c)
-		{
-			last = f_add_end_lst(last,
-					new_split(s + index_current, index - index_current));
+		index_current = index;
+		while (s[index] != c && s[index] != '\0')
 			index++;
-			index_current = index;
-			if (strsplit == NULL)
-				strsplit == last;
-		}
-		index++;
+		last = ft_add_end_lst(last,
+				new_split(s + index_current, index - index_current));
+		if (strsplit == NULL)
+			strsplit = last;
+		if (s[index] != '\0')
+			index++;
 	}
-	last = f_add_end_lst(last,
-			new_split(s + index_current, index - index_current));
 	return (strsplit);
 }
