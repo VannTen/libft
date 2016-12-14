@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 10:18:16 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 18:21:55 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/14 16:53:49 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 		mem_dst[index] = mem_src[index];
 		index++;
 		if ((unsigned char)mem_src[index - 1] == check)
-			return (dst + index);
+			return ((void*)(mem_dst + index));
 	}
 	return (NULL);
 }

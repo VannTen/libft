@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/13 16:59:31 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/14 17:29:35 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,14 +102,14 @@ void				ft_putendl_fd(char *s, int fd);
 ** String functions
 */
 
-t_lst				*f_strsplit_lst(char const *str);
+t_lst				*f_strsplit_lst(char const *str, char c);
 char				*f_strtjoin(char const *str, char const *str2,
 									size_t size);
 /*
 ** Some lst functions
 */
 
-t_lst				*f_add_end_lst(t_lst *last_link, void *content);
+t_lst				*f_add_end_lst(t_lst *last_link,const void *content);
 t_lst				*f_add_begin_lst(t_lst **begin_list, void *content);
 t_lst				*f_lstnew(void const *content);
 void				f_lstdelone(t_lst **alst, void (*del)(void*));
@@ -119,7 +119,7 @@ t_lst				*f_lstmap(t_lst *lst, t_lst *(*f)(t_lst *elem));
 unsigned int		f_check_list(t_lst list, t_bool (*f)(t_lst *elem));
 void				*f_search_list(t_lst *last_link,
 									int (*match)(void *content));
-void				*f_pop(t_lst *list);
+void				*f_lstpop(t_lst **list);
 
 /*
 ** List functions
@@ -133,7 +133,7 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_add_end_list(t_list *last_link, const void *content,
 									size_t content_size);
-unsigned int		ft_check_list(t_list list, t_bool (*f)(t_list *elem));
+unsigned int		ft_check_list(t_list *list, t_bool (*f)(t_list *elem));
 
 /*
 ** Database interface
@@ -142,7 +142,7 @@ unsigned int		ft_check_list(t_list list, t_bool (*f)(t_list *elem));
 typedef	enum	e_db_type
 {
 	DB_FILO_LIST,
-	DB_TYPE_COUNT,
+	DB_TYPE_COUNT
 }				t_db_type;
 typedef	struct s_database	t_database;
 t_database			*new_database(t_db_type type);

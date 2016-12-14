@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 11:36:25 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 18:24:41 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/14 16:56:12 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (index < n)
 	{
 		if ((unsigned char)mem[index] == match)
-			return ((void*)s + index);
+			return ((void*)(mem + index));
 		index++;
 	}
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 13:14:05 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/13 15:16:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/14 17:30:00 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_lst	*f_strsplit_lst(char const *s, const char c)
 		index_current = index;
 		while (s[index] != c && s[index] != '\0')
 			index++;
-		last = ft_add_end_lst(last,
+		last = f_add_end_lst(last,
 				new_split(s + index_current, index - index_current));
 		if (strsplit == NULL)
 			strsplit = last;

@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpop.c                                        :+:      :+:    :+:   */
+/*   f_lstpop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 14:58:59 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/07 15:03:11 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/14 17:16:43 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_list	*ft_lstpop(t_list **first_link)
+#include "libft.h"
+
+void	*f_lstpop(t_lst **first_link)
 {
-	t_list	pop;
+	t_lst	*pop;
+	void	*content;
 
 	pop = *first_link;
 	if (pop != NULL)
-		*first_link = first_link->next;
-	return (NULL);
+		*first_link = (*first_link)->next;
+	content = pop->content;
+	free(pop);
+	return (pop->content);
 }

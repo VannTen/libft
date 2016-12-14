@@ -6,13 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 11:04:12 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/08 14:24:24 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/14 17:31:00 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "database.h"
 #include "libft.h"
+#include "database.h"
 
 /*
 ** fill_types
