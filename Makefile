@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2016/12/13 20:08:25 by mgautier         ###   ########.fr       *#
+#*   Updated: 2016/12/14 16:09:13 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -17,17 +17,23 @@
 
 AR = ar 
 ARFLAGS = rc
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -ansi -pedantic-errors
 CFLAGS += $(CFLAGS_TGT)
+
+DEPFLAGS = -MT $@ -MP -MMD $(word 2,$^)T
+
 COMPILE = $(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
-POSTCOMPILE = mv -f $(DEPDIR_LOC)/$*.Td $(DEPDIR_LOC)/$*.d
+POSTCOMPILE = mv -f $(word 2,$^)T $(word 2,$^)
+
+OBJ_DIR = bin
+SRC_DIR = src
+DEP_DIR = .dep
+DIRECTORIES =
+
 OBJ = $(SRC:.c=.o)
-
 DEP = $(SRC:.c=.d)
-DEPFLAGS = -MT $@ -MP -MMD $(DEPDIR_LOC)/$*.Td 
-DEPDIR = $(DIR)/.d
-
 #
 # General rules (will be specified by user)
 #
@@ -52,35 +58,13 @@ debug: CFLAGS+=-g -pg
 # General pattern rules
 #
 
-%.o: %.c $(DEPDIR)/%.d | $(DEPDIR)
+.SECONDEXPANSION:
+
+%.o: $$(dir $$(dir $$@))/$(SRC_DIR)/$$(F*).c $$(dir $$(dir $$@))/$(DEP_DIR)/$$(*F).d | $$(dir $$(dir $$@))/$(DEP_DIR) $$(dir $@)
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 
-$(DEPDIR):
-	$(shell mkdir $(DEPDIR))
-#
-# Local rules
-#
+$(DIRECTORIES):
+	mkdir $@
 
-$(TARGET): $(ARCH_MEMBER)
-	ranlib $@
-# 
-# Pattern rules
-#
-
--include $(DEP)
-
-#
-# Rules for test
-#
-
-cleantest:
-	$(RM) $(TEST_TARGET) $(TEST_OBJ)
-
-retest: fclean test
-
-test: $(TEST_TARGET)
-
-$(TEST_TARGET): $(TARGET) $(TEST_OBJ) $(HEADERS_TEST)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -L. -l$(LIB) $(TEST_OBJ)
-
+include Rules.mk
