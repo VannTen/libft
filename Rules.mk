@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/12/13 19:41:31 by mgautier          #+#    #+#             *#
-#*   Updated: 2016/12/13 20:10:22 by mgautier         ###   ########.fr       *#
+#*   Updated: 2016/12/15 16:02:02 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -28,29 +28,29 @@ PART_2 = ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c ft_strclr.c \
 		 ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c \
 		 ft_putchar_fd.c ft_putstr_fd.c ft_putnbr_fd.c ft_putendl_fd.c
 LIST_FUNCT = ft_lstadd.c ft_lstcheck.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c \
-			ft_lstmap.c ft_lstnew.c ft_lstpop.c ft_lstpopdata.c ft_lstpush.c \
-			ft_lstpushdata.c
+			ft_lstmap.c ft_lstnew.c ft_lstpop.c
 LST_FUNCT = f_add_end_lst.c f_lstiter.c f_strljoin.c f_strsplit_lst.c
 DB_FUNCT = database.c
 
 SRC := $(PART_1) $(PART_2) $(LIST_FUNCT) $(LST_FUNCT) $(DB_FUNCT)
-OBJ_$(DIR) := $(addprefix $(DIR),$(OBJ))
-DEP_$(DIR) := $(addprefix $(DIR),$(DEP))
-DEPDIR_LOC := $(DIR)$(DEPDIR)
 
-CLEAN += $(OBJ_$(DIR)) $(DEP_$(DIR))
-FCLEAN += $(TARGET_$(DIR))
+# Standard expansion of the SRC into the local OBJ and DEP
+# + add them to clean-up vairables
+
+OBJ_$(DIR) := $(OBJ)
+DEP_$(DIR) := $(DEP)
+TARGET_$(DIR) := $(DIR)$(TARGET)
+CLEAN += $(OBJ_$(DIR))
+FCLEAN += $(TARGET_$(DIR)) $(DEP_$(DIR))
+
+
+-include $(DEP_$(DIR))
 
 #
-# Local rules
+#Local rules
 #
+
+$(TARGET): $(OBJ_$(DIR))
+	$(LINK_STATIC_LIB)
 
 OBJ_$(DIR): CFLAGS_TGT := -iquote$(DIR)$(HEADER_DIR)
-
-TEST_OBJ = main.c tests.c list_test.c
-
-ARCH_MEMBER := $(TARGET)($(SRC:.c=.o)) 
-TEST_TARGET = my_test
-TEST_DIR = ./test
-HEADERS = libft.h
-HEADERS_TEST = tests.h
