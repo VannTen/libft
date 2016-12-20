@@ -6,7 +6,7 @@
 #    By: mgautier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2016/12/20 18:06:41 by mgautier         ###   ########.fr       *#
+#*   Updated: 2016/12/20 18:52:11 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC := database.c f_add_end_lst.c f_lstiter.c f_strljoin.c f_strsplit_lst.c \
 	ft_strncat.c ft_strncmp.c ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c \
 	ft_strrchr.c ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtrim.c \
 	ft_tolower.c ft_toupper.c \
+	f_lstpush.c f_lstnew.c
 
 # Dependencies
 

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/14 17:29:35 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/20 18:59:41 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,12 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "list.h"
 
 typedef enum		e_bool{
 	FALSE = 0,
 	TRUE = !FALSE
 }					t_bool;
-
-typedef struct		s_list
-{
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
-
-typedef struct		s_lst
-{
-	void			*content;
-	struct s_lst	*next;
-}					t_lst;
 
 /*
 ** Part One
@@ -112,6 +100,7 @@ char				*f_strtjoin(char const *str, char const *str2,
 t_lst				*f_add_end_lst(t_lst *last_link,const void *content);
 t_lst				*f_add_begin_lst(t_lst **begin_list, void *content);
 t_lst				*f_lstnew(void const *content);
+t_lst				*f_lstpush(void const *content, t_lst **list);
 void				f_lstdelone(t_lst **alst, void (*del)(void*));
 void				f_lstdel(t_lst **alst, void (*del)(void*));
 void				f_lstiter(t_lst *lst, void (*f)(t_lst *elem));
