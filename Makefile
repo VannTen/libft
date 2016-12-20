@@ -6,37 +6,40 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2016/12/15 18:13:01 by mgautier         ###   ########.fr       *#
+#*   Updated: 2016/12/20 14:59:07 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
-
-#
-# General variables (compiling and such). Will be kept in the local Makefile
-#
-
-.SUFFIXES:
-
 .DEFAULT_GOAL:= all
-# Static libary maintainer
-# -U option is to be sure that library is created in non-deterministic mode
-#  (aka with a timestamp which is not set to 0)
+
+# Build tools
+
+SYSTEM = $(shell uname)
 AR = ar 
 ARFLAGS = rc
-LINK_STATIC_LIB = $(AR) $(ARFLAGS) $@ $?
+ifeq ($(SYSTEM),Linux)
+	ARFLAGS += -U
+endif
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -ansi -pedantic-errors
 CFLAGS += $(CFLAGS_TGT)
+CPPFLAGS :=
 
-DEPFLAGS = -MT $(notdir $@) -MP -MMD -MF $(word 2,$^)T
+DEPFLAGS = -MT $@ -MP -MMD -MF $(word 2,$^).tmp
 
-COMPILE = $(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c -o $@
-POSTCOMPILE = echo -E "s/[a-z],.,_,:]+/\$$(DIR)&/g" $(word 2,$^)T > $(word 2,$^)
-$(info $(POSTCOMPILE))
-DIR = ./
+COMPILE = $(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
+POSTCOMPILE = sed -E 's|([0-9a-z_.:]*/)?([0-9a-z_.:]+)|$$(DIR)\2|g' $(word 2,$^).tmp > $(word 2,$^)
 
-# These variables are used to obtain the .o and .dep files
+# DIRECTORY TARGETS RECIPES
+
+# Static libary maintainer
+LINK_STATIC_LIB = $(AR) $(ARFLAGS) $@ $?
+
+# Executable linker
+LINK_EXE = $(CC) $(LDFLAGS) $^ -o $@ $(LDFLAGS_TGT)
+
+# These variables are used to obtain the .o and .dep files list
 # for each level of the projet, by using the current value of SRC.
 
 OBJ = $(patsubst %.c,$(DIR).%.o,$(SRC))
@@ -48,42 +51,57 @@ DEP = $(patsubst %.c,$(DIR).%.dep,$(SRC))
 
 CLEAN :=
 FCLEAN :=
+MKCLEAN :=
 
-
-#
 # Compilation rule
 # Generate dependencies as a side effet
-# 
 
 %.o: %.c
 .%.o: %.c .%.dep
-	$(COMPILE) $<
+	$(COMPILE)
 	$(POSTCOMPILE)
+	$(RM) $(word 2,$^).tmp
 
 %.dep: ;
 
 .PRECIOUS: %.dep
-.SECONDARY: %.d
-.SECONDARY: %.o
 
+# Rules to generate the needed Makefiles in the subdirectories
+
+%/Rules.mk: | %/Makefile
+	ln Rules.mk $@
+%/Makefile:
+	ln Makefile $(dir $@)Makefile
+.PRECIOUS: %/Makefile
+# Functions
+
+define INCLUDE_SUBDIRS
+include $(DIR)$(SUBDIR)Rules.mk
+endef
+
+define TARGET_ERROR
+$$(error $$(DIR) : No target if indicated for that directory))
+endef
+
+DIR = 
 include Rules.mk
 
-#
 # Mandatory rules
-#
+# These are the rules which will be specified by the user as arguments to make
 
-all: $(TARGET)
+all: $(TARGET_$(DIR))
 
 clean:
 	$(RM) $(CLEAN)
+	
+mkclean:
+	$(RM) $(MKCLEAN)
 
 fclean: clean
 	$(RM) $(FCLEAN)
+	
+mrproper: fclean mkclean
 
 re: fclean all
 
-debug: CFLAGS+=-g -pg
-
-debug: $(TARGET)
-
-.PHONY: debug all clean fclean re
+.PHONY: debug all clean fclean mkclean re
