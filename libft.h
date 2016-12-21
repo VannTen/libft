@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/21 12:42:22 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/21 15:04:06 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ char				*f_strtjoin(char const *str, char const *str2,
 ** Some lst functions
 */
 
-t_lst				*f_add_end_lst(t_lst *last_link,const void *content);
+t_lst				*f_add_end_lst(t_lst *last_link, const void *content);
 t_lst				*f_add_begin_lst(t_lst **begin_list, void *content);
 t_lst				*f_lstnew(void const *content);
 t_lst				*f_lstpush(void const *content, t_lst **list);

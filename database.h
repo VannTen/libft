@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 10:44:15 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/14 17:32:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/21 15:03:14 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** type, constructor, destructor, comparator (aka the function used
 ** to distinguish objects stored in the database
 */
-#include "libft.h"
+# include "libft.h"
 
 typedef	void	(*t_destructor)(t_database *db);
 typedef	void	(*t_constructor)(t_database *db);
