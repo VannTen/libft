@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/21 12:25:33 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/21 12:42:22 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ void				f_lstdel(t_lst **alst, void (*del)(void*));
 void				f_lstiter(t_lst *lst, void (*f)(t_lst *elem));
 t_lst				*f_lstmap(t_lst *lst, t_lst *(*f)(t_lst *elem));
 unsigned int		f_check_list(t_lst list, t_bool (*f)(t_lst *elem));
+t_lst				*f_lst_every_valid(t_lst *list,
+										t_bool (*test)(const t_lst *link));
 void				*f_search_list(t_lst *last_link,
 									int (*match)(void *content));
 void				*f_lstpop(t_lst **list);
