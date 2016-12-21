@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/20 18:59:41 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/21 12:25:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "list.h"
-
-typedef enum		e_bool{
-	FALSE = 0,
-	TRUE = !FALSE
-}					t_bool;
+# include "bool.h"
 
 /*
 ** Part One
