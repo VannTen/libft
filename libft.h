@@ -6,13 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/21 15:04:06 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/21 22:06:21 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "fifo.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -107,6 +108,15 @@ t_lst				*f_lst_every_valid(t_lst *list,
 void				*f_search_list(t_lst *last_link,
 									int (*match)(void *content));
 void				*f_lstpop(t_lst **list);
+
+/*
+** Fifo functions
+*/
+
+t_fifo				*f_fifo_create(void);
+t_fifo				*f_fifo_destroy(t_fifo **fifo, void (*del)(void *content));
+t_fifo				*f_fifo_add(t_fifo *fifo, const void *content);
+void				*f_fifo_take(t_fifo *fifo);
 
 /*
 ** List functions
