@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 21:40:35 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/21 22:09:50 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/22 18:14:41 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	f_lstdelone(t_lst **alst, void (*del)(void *content))
 {
 	if (alst != NULL && del != NULL)
 	{
-		del((*alst)->content);
+		del(&(*alst)->content);
 		free(*alst);
 		*alst = NULL;
 	}
