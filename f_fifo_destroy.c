@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 21:22:03 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/21 22:14:23 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/23 12:11:24 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,3 @@ t_fifo	*f_fifo_destroy(t_fifo **fifo, void (*del)(void *content))
 	*fifo = NULL;
 	return (NULL);
 }
-
