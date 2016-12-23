@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 13:14:05 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/18 10:44:43 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/23 16:14:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,6 @@
 ** the containing array) are freed and their pointers set to NULL, and NULL is
 ** returned.
 */
-
-static char		**ft_free_all(char ***tab)
-{
-	char	**to_free;
-
-	to_free = *tab;
-	while (*to_free != NULL)
-	{
-		ft_strdel(to_free);
-		to_free++;
-	}
-	free(*tab);
-	*tab = NULL;
-	return (*tab);
-}
 
 static size_t	ft_strsublen(char const *s, char c)
 {
@@ -94,7 +79,7 @@ char			**ft_strsplit(char const *s, char c)
 			index++;
 		strsplit[field_n] = ft_strsub(s, index, ft_strsublen((s + index), c));
 		if (strsplit[field_n] == NULL)
-			return (ft_free_all(&strsplit));
+			return (ft_free_string_array(&strsplit));
 		while ((s[index] != c) && (s[index] != '\0'))
 			index++;
 		field_n++;

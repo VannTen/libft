@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/21 22:06:21 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/23 16:14:15 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
+char				**ft_free_string_array(char ***tab);
 char				*ft_itoa(int n);
 void				ft_putchar(char c);
 void				ft_putstr(char *s);
