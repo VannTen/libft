@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 18:45:21 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/23 18:54:46 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/24 00:42:50 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** Same as lstmap, but gives an index to the function parameter as well
 */
 
-t_lst	*f_lstmap(t_lst *lst, t_lst *(*change)(t_lst *elem, unsigned int index))
+t_lst	*f_lstmapi(t_lst *lst, t_lst *(*change)(t_lst *elem, unsigned int index))
 {
 	t_lst			*new_lst;
 	t_lst			*new_elem;
