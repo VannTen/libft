@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 18:24:24 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 18:54:36 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/25 17:31:50 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 
 static void	ft_positive(int n, int fd)
 {
-	if (n >= 10 != 0)
+	if (n >= 10)
 		ft_positive(n / 10, fd);
 	ft_putchar_fd(n % 10 + '0', fd);
 }
 
 static void	ft_negative(int n, int fd)
 {
-	if (n <= -10 != 0)
+	if (n <= -10)
 		ft_negative(n / 10, fd);
 	ft_putchar_fd(-(n % 10) + '0', fd);
 }

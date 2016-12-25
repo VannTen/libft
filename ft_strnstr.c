@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 12:26:45 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/17 10:47:55 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/25 17:34:04 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,11 @@ static	t_bool	ft_compare(const char *search, const char *pattern)
 char			*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	little_len;
-	size_t	big_len;
 	size_t	index;
 
 	if (*little == '\0')
 		return ((char*)big);
 	little_len = ft_strlen(little);
-	big_len = ft_strlen(big);
 	index = 0;
 	while (big[index] != '\0')
 	{
