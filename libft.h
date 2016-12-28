@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/28 13:13:38 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/28 15:23:58 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,12 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putendl_fd(char *s, int fd);
 
 /*
+** Maths functions
+*/
+
+unsigned int	ft_int_square_root(unsigned int square):
+
+/*
 ** String functions
 */
 
@@ -111,6 +117,7 @@ t_lst				*f_lst_every_valid(t_lst *list,
 void				*f_search_list(t_lst *last_link,
 									int (*match)(void *content));
 void				*f_lstpop(t_lst **list);
+unsigned int		f_lst_len(t_lst	*lst);
 
 /*
 ** Fifo functions
