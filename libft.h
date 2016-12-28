@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/24 00:39:40 by                  ###   ########.fr       */
+/*   Updated: 2016/12/28 13:13:38 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,8 @@ t_lst				*f_add_end_lst(t_lst *last_link, const void *content);
 t_lst				*f_add_begin_lst(t_lst **begin_list, void *content);
 t_lst				*f_lstnew(void const *content);
 t_lst				*f_lstpush(void const *content, t_lst **list);
-void				f_lstdelone(t_lst **alst, void (*del)(void*));
-void				f_lstdel(t_lst **alst, void (*del)(void*));
+void				f_lstdelone(t_lst **alst, void (*del)());
+void				f_lstdel(t_lst **alst, void (*del)());
 void				f_lstiter(t_lst *lst, void (*f)(t_lst *elem));
 t_lst				*f_lstmap(t_lst *lst, t_lst *(*f)(t_lst *elem));
 t_lst				*f_lstmapi(t_lst *lst,
@@ -117,7 +117,7 @@ void				*f_lstpop(t_lst **list);
 */
 
 t_fifo				*f_fifo_create(void);
-t_fifo				*f_fifo_destroy(t_fifo **fifo, void (*del)(void *content));
+t_fifo				*f_fifo_destroy(t_fifo **fifo, void (*del)());
 t_fifo				*f_fifo_add(t_fifo *fifo, const void *content);
 void				*f_fifo_take(t_fifo *fifo);
 

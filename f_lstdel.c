@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 21:38:41 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/21 22:08:18 by mgautier         ###   ########.fr       */
+/*   Updated: 2016/12/28 13:13:47 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-void	f_lstdel(t_lst **alst, void (*del)(void *content))
+void	f_lstdel(t_lst **alst, void (*del)())
 {
 	t_lst	*new;
 	t_lst	*to_del;
