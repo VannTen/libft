@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 14:53:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/03 14:57:29 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/03 15:06:51 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 ** is applied to it
 */
 
-t_lst	*f_lstsearch(t_lst *list, int ref, int (*match)(t_lst *elem))
+t_lst	*f_lstsearch(const t_lst *list, const int ref,
+						int (*match)(const t_lst *elem))
 {
 	while (list != NULL)
 	{

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/03 15:00:54 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/03 15:07:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,8 @@ t_lst				*f_lstmapi(t_lst *lst,
 unsigned int		f_check_list(t_lst list, t_bool (*f)(t_lst *elem));
 t_lst				*f_lst_every_valid(t_lst *list,
 										t_bool (*test)(const t_lst *link));
-t_lst				*f_lstsearch(t_lst *last_link, int ref,
-									int (*match)(void *content));
+t_lst				*f_lstsearch(const t_lst *list, const int ref,
+									int (*match)(const t_lst *elem));
 void				*f_lstpop(t_lst **list);
 unsigned int		f_lst_len(t_lst	*lst);
 
