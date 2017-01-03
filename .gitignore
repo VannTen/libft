@@ -7,3 +7,6 @@
 *.vim
 a.out
 *.dep
+*.tmp
+.*
+!.gitignore
