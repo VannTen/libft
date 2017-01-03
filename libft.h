@@ -88,7 +88,7 @@ void				ft_putendl_fd(char *s, int fd);
 ** Maths functions
 */
 
-unsigned int	ft_int_square_root(unsigned int square):
+unsigned int	ft_int_square_root(unsigned int square);
 
 /*
 ** String functions
