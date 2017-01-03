@@ -6,7 +6,7 @@
 #    By: mgautier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2016/12/28 15:24:38 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/03 14:53:09 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC := database.c f_add_end_lst.c f_lstiter.c f_strljoin.c f_strsplit_lst.c \
 	ft_strrchr.c ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtrim.c \
 	ft_tolower.c ft_toupper.c \
 	f_lstpush.c f_lstnew.c f_lst_every_valid.c f_lstmap.c f_lstdelone.c f_lstdel.c \
-	f_lstmapi.c f_lst_len.c \
+	f_lstmapi.c f_lst_len.c f_lstsearch.c\
 	f_fifo_add.c f_fifo_create.c f_fifo_take.c f_fifo_destroy.c \
 	ft_free_string_array.c \
 	ft_int_square_root.c
