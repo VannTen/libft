@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/28 15:23:58 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/03 13:55:36 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ unsigned int		f_lst_len(t_lst	*lst);
 
 t_fifo				*f_fifo_create(void);
 t_fifo				*f_fifo_destroy(t_fifo **fifo, void (*del)());
+t_lst				*f_fifo_extract(t_fifo **fifo);
 t_fifo				*f_fifo_add(t_fifo *fifo, const void *content);
 void				*f_fifo_take(t_fifo *fifo);
 
