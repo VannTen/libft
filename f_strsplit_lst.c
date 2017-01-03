@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 13:14:05 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/21 15:03:37 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/03 18:28:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ static char		*new_split(char const *src, size_t size)
 	index = 0;
 	split = (char*)malloc(sizeof(char) * (size + 1));
 	while (index < size)
+	{
 		split[index] = src[index];
+		index++;
+	}
 	split[size] = '\0';
 	return (split);
 }
