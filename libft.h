@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/04 11:47:14 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/04 15:06:34 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void				ft_putendl_fd(char *s, int fd);
 ** Maths functions
 */
 
-unsigned int	ft_int_square_root(unsigned int square);
+unsigned int		ft_int_square_root(unsigned int square);
 
 /*
 ** String functions
