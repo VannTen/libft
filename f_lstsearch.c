@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 14:53:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/03 16:46:19 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/04 17:23:24 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ void	*f_lstsearch(const t_lst *list, const int ref,
 	while (list != NULL)
 	{
 		if (ref == match(list))
-			break ;
+			return (list->content);
+		list = list->next;
 	}
-	if (list != NULL)
-		return (list->content);
-	else
-		return (NULL);
+	return (NULL);
 }
