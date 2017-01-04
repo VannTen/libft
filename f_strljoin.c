@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 13:38:47 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/13 15:06:54 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/04 11:59:24 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,27 @@
 ** not terminated.
 */
 
-char	*f_strljoin(const char *str_1, const char *str_2, const size_t size)
+char	*f_strljoin(const char *str_1, const char *str_2,
+					const size_t size_1, const size_t size_2)
 {
 	char	*join;
-	size_t	index;
+	size_t	index_1;
+	size_t	index_2;
 
-	index = 0;
-	join = (char*)malloc(sizeof(char) * (size + 1));
+	index_1 = 0;
+	index_2 = 0;
+	join = (char*)malloc(sizeof(char) * (size_1 + size_2 + 1));
 	if (join == NULL)
 		return (NULL);
-	while (str_1 != '\0' && index < size)
+	while (index_1 < size_1)
 	{
-		join[index] = str_1[index];
-		index++;
+		join[index_1] = str_1[index_1];
+		index_1++;
 	}
-	while (index <= size)
+	while (index_2 <= size_2)
 	{
-		join[index] = *str_2;
-		index++;
+		join[index_2 + index_1] = *str_2;
+		index_2++;
 		str_2++;
 	}
 	return (join);
