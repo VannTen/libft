@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Srcs.mk                                            :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mgautier <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/01/05 16:11:48 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/10 21:07:53 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,14 @@ SRC := database.c f_add_end_lst.c f_lstiter.c f_strljoin.c f_strsplit_lst.c \
 	f_fifo_add.c f_fifo_create.c f_fifo_take.c f_fifo_destroy.c f_fifo_extract.c \
 	ft_free_string_array.c \
 	ft_int_square_root.c
+
+# Directories
+
+SRC_DIR :=
+OBJ_DIR := object
+INC_DIR :=
+DEP_DIR := .dep
+TEST_DIR := test
 
 # Dependencies
 
