@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/12/13 19:41:31 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/01/10 18:12:01 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/11 13:34:47 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -87,7 +87,11 @@ $(eval $(STATIC_OBJ_RULE))
 # If the target requiers a library, add its directory too.
 
 $(TARGET_$(DIR)): DIR := $(DIR)
-$(TARGET_$(DIR)): INCLUDE := $(INC_LOCAL_$(DIR))
+ifneq ($(INC_LOCAL_$(DIR)),)
+$(TARGET_$(DIR)): INCLUDE := -iquote$(INC_LOCAL_$(DIR))
+else
+$(TARGET_$(DIR)): INCLUDE :=
+endif
 
 ifdef LIBRARIES
 $(DIR)_LIBS := $(LIBRARIES)
