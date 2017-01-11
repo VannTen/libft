@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/07 18:31:41 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/11 16:00:28 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,8 +105,8 @@ t_lst				*f_add_end_lst(t_lst *last_link, const void *content);
 t_lst				*f_add_begin_lst(t_lst **begin_list, void *content);
 t_lst				*f_lstnew(void const *content);
 t_lst				*f_lstpush(void const *content, t_lst **list);
-void				f_lstdelone(t_lst **alst, void (*del)());
-void				f_lstdel(t_lst **alst, void (*del)());
+void				f_lstdelone(t_lst **alst, void (*del)(void*));
+void				f_lstdel(t_lst **alst, void (*del)(void*));
 void				f_lstiter(t_lst *lst, void (*f)(t_lst *elem));
 t_lst				*f_lstmap(t_lst *lst, t_lst *(*f)(t_lst *elem));
 t_lst				*f_lstmapi(t_lst *lst,
@@ -116,6 +116,8 @@ t_lst				*f_lst_every_valid(t_lst *list,
 										t_bool (*test)(const t_lst *link));
 void				*f_lstsearch(const t_lst *list, const int ref,
 									int (*match)(const t_lst *elem));
+t_bool				f_lstremoveif_one(t_lst **lst, int ref,
+					int (*match)(const t_lst *elem), void (*del)(void*));
 void				*f_lstpop(t_lst **list);
 unsigned int		f_lst_len(const t_lst *lst);
 
@@ -124,8 +126,8 @@ unsigned int		f_lst_len(const t_lst *lst);
 */
 
 t_fifo				*f_fifo_create(void);
-t_fifo				*f_fifo_destroy(t_fifo **fifo, void (*del)());
 t_lst				*f_fifo_extract(t_fifo **fifo);
+t_fifo				*f_fifo_destroy(t_fifo **fifo, void (*del)(void *content));
 t_fifo				*f_fifo_add(t_fifo *fifo, const void *content);
 void				*f_fifo_take(t_fifo *fifo);
 
