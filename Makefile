@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/01/11 13:28:25 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/12 15:46:46 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -38,7 +38,9 @@ SYSTEM = $(shell uname)
 ##
 
 # Compiler flags
-CFLAGS := -Wall -Wextra -Werror -ansi -pedantic-errors
+ERROR_FLAGS := -Wall -Wextra -Werror -ansi -pedantic-errors
+DEBUG_FLAGS := -g
+CFLAGS += $(ERROR_FLAGS) $(DEBUG_FLAGS)
 
 CPPFLAGS += $(INCLUDE) $(foreach INC_LIB,$(LIB_INCLUDES),-iquote$(INC_LIB))
 DEPFLAGS = -MT $@ -MP -MMD -MF $(word 2,$^).tmp
