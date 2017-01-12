@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/11 18:26:13 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/12 18:00:03 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ unsigned int		ft_int_square_root(unsigned int square);
 t_lst				*f_strsplit_lst(char const *str, char c);
 char				*f_strljoin(char const *str_1, char const *str_2,
 									size_t size_1, size_t size_2);
+char				*ft_strnew_char(size_t size, char c);
 /*
 ** Some lst functions
 */
