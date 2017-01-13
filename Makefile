@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/01/13 13:05:58 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/13 18:52:04 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -40,11 +40,15 @@ SYSTEM = $(shell uname)
 # Compiler flags
 ERROR_FLAGS := -Wall -Wextra -Werror -ansi -pedantic-errors
 DEBUG_FLAGS := -g -fsanitize=address -fno-omit-frame-pointer
-CFLAGS += $(ERROR_FLAGS) $(DEBUG_FLAGS)
+PROFILE_FLAGS := -pg
+CFLAGS += $(ERROR_FLAGS) $(DEBUG_FLAGS) $(PROFILE_FLAGS)
 
 CPPFLAGS += $(INCLUDE) $(foreach INC_LIB,$(LIB_INCLUDES),-iquote$(INC_LIB))
 DEPFLAGS = -MT $@ -MP -MMD -MF $(word 2,$^).tmp
 
+# Linker flags
+
+LDFLAGS += $(DEBUG_FLAGS) $(PROFILE_FLAGS)
 # Archive maintainer flags
 ARFLAGS = rc
 ifeq ($(SYSTEM),Linux)
@@ -71,7 +75,7 @@ $(AR) $(ARFLAGS) $@ $?
 $(RANLIB) $@
 endef
 # Linker
-LINK_EXE = $(CC) $(LDFLAGS) $(DEBUG_FLAGS) $^ -o $@ $(LDFLAGS_TGT)
+LINK_EXE = $(CC) $(LDFLAGS) $^ -o $@ $(LDFLAGS_TGT)
 
 
 ##
