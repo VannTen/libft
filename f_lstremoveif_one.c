@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 14:15:24 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/12 13:51:02 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/13 16:30:52 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_bool	f_lstremoveif_one(t_lst **lst, int ref, int (*match)(const t_lst *elem),
 		return (TRUE);
 	}
 	loc_lst = *lst;
-	while(loc_lst->next != NULL)
+	while (loc_lst->next != NULL)
 	{
 		if (ref == match(loc_lst->next))
 		{
