@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/01/13 18:52:04 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/13 20:24:20 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -39,7 +39,7 @@ SYSTEM = $(shell uname)
 
 # Compiler flags
 ERROR_FLAGS := -Wall -Wextra -Werror -ansi -pedantic-errors
-DEBUG_FLAGS := -g -fsanitize=address -fno-omit-frame-pointer
+DEBUG_FLAGS := -g -fsanitize=undefined -fsanitize=address -fno-omit-frame-pointer
 PROFILE_FLAGS := -pg
 CFLAGS += $(ERROR_FLAGS) $(DEBUG_FLAGS) $(PROFILE_FLAGS)
 
@@ -49,6 +49,7 @@ DEPFLAGS = -MT $@ -MP -MMD -MF $(word 2,$^).tmp
 # Linker flags
 
 LDFLAGS += $(DEBUG_FLAGS) $(PROFILE_FLAGS)
+
 # Archive maintainer flags
 ARFLAGS = rc
 ifeq ($(SYSTEM),Linux)
@@ -153,39 +154,53 @@ endef
 
 # These three variables collect respectively : all object files, target files and depency files,
 # and submakefiles (that can be generated).
+#
 CLEAN :=
 FCLEAN :=
 MKCLEAN :=
 
-# This variable collect all directory that are (or may be) created by make,
-# meaning object and dependency directories
-GENERATED_SUBDIRS :=
-
-#
-# This one collect the paths for library headers, required for object files compilation
+# Initializes as simple variables collector for, respectively, library path (used for compilation rules)
+# directories that may not exist (objects directories and dependencies directories)
+# and dependencies files.
 
 LIBPATH_INC :=
+GENERATED_SUBDIRS :=
+DEP_FILES :=
+
 ##
 ## Inclusion of subdirectories Makefiles (Rules.mk)
 ##
 
 # Initialize the DIR variable, which tracks the directory whose make is parsing the Rules.mk
+# One option could be to initializes it with the value of $(CURDIR) or $(shell pwd), to get the 
+# absolute path.
+# However, that could cause trouble to produce a separate build tree.
+
 DIR := 
-DEP_FILES :=
+
 # Includes the local Rules.mk, which will include all the subdirectories Rules.mk
 # (It could eventually include itself, since the DIR is independant from the actual location
-# of Rules.mk)
+# of Rules.mk ; to think about)
+
 include Rules.mk
--include $(DEP_FILES)
+
+# Include all dependency files collected from sub makfiles
+
+include $(DEP_FILES)
 
 # After having included all sub-Rules.mk, define the rules to create new directories if needed.
 # (the directories are order-only prerequisites on build rules)
+
 $(GENERATED_SUBDIRS):
 	+$(MKDIR) $@
 
 ##
 ## Standard rules for users
 ##
+
+# $(TARGET_$(DIR) will expand in $(TARGET_), since DIR will recover its initial value
+# and the end of the parsing of the Rules.mk files (see the standard entry and exit gates
+# on Rules.mk)
 
 all: $(TARGET_$(DIR))
 
@@ -212,5 +227,7 @@ re: fclean all
 
 # This is for be sure that the top level directory does not count
 # on the last value of DIR (the directory from where make is invoked)
+#
 DIR := THIS_IS_A_BUG	
+
 $(info End of parsing)
