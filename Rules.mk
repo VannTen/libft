@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/12/13 19:41:31 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/01/14 12:54:06 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/14 17:50:40 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -14,8 +14,10 @@
 ## Rules.mk
 ## One instance of this file is included for every subdirectory of the project
 ## which produces one target (directory that hold specific type of files, such
-## as source directory, includes directory, or objetc directory, aren't concerned
+## as source directory, includes directory, or objects directory,
+## aren't concerned
 ##
+
 STACK_POINTER := $(STACK_POINTER).x
 DIR_$(STACK_POINTER) := $(DIR)
 DIR := $(DIR)$(SUBDIR)
@@ -30,8 +32,10 @@ $(foreach VARIABLE,$(EMPTY_SRCS.MK),$(eval $(VARIABLE):= ))
 include $(DIR)Srcs.mk
 
 # Give the full path to the locals directories (by appending DIR before them)
-# add a slash only if necessary (alway adding a slash cause trouble in the top level
-# directory if subdirs are not defined (which means SRC_DIR (or another one)= DIR)
+# add a slash only if necessary
+# (alway adding a slash cause trouble in the top level
+# directory if subdirs are not defined
+# (which means SRC_DIR (or another one)= DIR)
 
 $(foreach TYPE,SRC OBJ DEP INC,$(eval $(call ADD_SLASH,$(TYPE))))
 
@@ -100,9 +104,9 @@ $(TARGET_$(DIR)): LIB_INCLUDES = $(foreach XXX,$($(DIR)_LIBS),$($(XXX)_PATH))
 endif
 
 # Clean variables 
-# If this is not the top level (the one where make is invoked) do add the Makefile
+# If this is not the top level (the one where make is invoked) add the Makefile
 # and the Rules.mk files to MKCLEAN
-# That way, we're sure that not all Makfiles can be erased.
+# That way, we're sure that the top level Makefiles are preserved.
 
 CLEAN += $(OBJ_$(DIR))
 FCLEAN += $(TARGET_$(DIR)) $(DEP_$(DIR))

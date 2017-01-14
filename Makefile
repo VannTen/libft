@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/01/14 14:21:23 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/14 17:47:42 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -60,15 +60,18 @@ endif
 ## Build tools
 ##
 
-# Object file compilation and dependency generation (as a side effect, see DEPFLAGS)
+# Object file compilation and dependency generation
+# (as a side effect, see DEPFLAGS)
 COMPILE = $(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 
 # Post processing on depencency file (done after compilation) for relative path.
-POSTCOMPILE = $(SED) -e 's|$(OBJ_LOCAL_$(DIR))\([$(FILE_CHAR_RANGE)]*\.o\)|$$(OBJ_LOCAL_$(DIR))\1|g'\
-				-e 's|$(SRC_LOCAL_$(DIR))\([$(FILE_CHAR_RANGE)]*\.c\)|$$(SRC_LOCAL_$(DIR))\1|g'\
-				-e 's|$(INC_LOCAL_$(DIR))\([$(FILE_CHAR_RANGE)]*\.h\)|$$(INC_LOCAL_$(DIR))\1|g'\
-				$(foreach LIB,$($(DIR)_LIBS),-e 's|$($(LIB)_PATH)\([$(FILE_CHAR_RANGE)]*\.h\)|$$($(LIB)_PATH)\1|g')\
-				$(word 2,$^).tmp > $(word 2,$^)
+POSTCOMPILE = $(SED)\
+-e 's|$(OBJ_LOCAL_$(DIR))\([$(FILE_CHAR_RANGE)]*\.o\)|$$(OBJ_LOCAL_$(DIR))\1|g'\
+-e 's|$(SRC_LOCAL_$(DIR))\([$(FILE_CHAR_RANGE)]*\.c\)|$$(SRC_LOCAL_$(DIR))\1|g'\
+-e 's|$(INC_LOCAL_$(DIR))\([$(FILE_CHAR_RANGE)]*\.h\)|$$(INC_LOCAL_$(DIR))\1|g'\
+$(foreach LIB,$($(DIR)_LIBS),-e \
+'s|$($(LIB)_PATH)\([$(FILE_CHAR_RANGE)]*\.h\)|$$($(LIB)_PATH)\1|g')\
+$(word 2,$^).tmp > $(word 2,$^)
 
 # Add objects files to archive (static library)
 define LINK_STATIC_LIB
@@ -128,7 +131,8 @@ EMPTY_SRCS.MK := TARGET \
 %.o: %.c
 
 define	STATIC_OBJ_RULE
-$(OBJ_$(DIR)): $(OBJ_LOCAL_$(DIR))%.o: $(SRC_LOCAL_$(DIR))%.c $(DEP_LOCAL_$(DIR))%.dep | $(OBJ_LOCAL_$(DIR)) $(DEP_LOCAL_$(DIR))
+$(OBJ_$(DIR)): $(OBJ_LOCAL_$(DIR))%.o: $(SRC_LOCAL_$(DIR))%.c\
+$(DEP_LOCAL_$(DIR))%.dep | $(OBJ_LOCAL_$(DIR)) $(DEP_LOCAL_$(DIR))
 	$(QUIET) $$(COMPILE)
 	$(QUIET) $$(POSTCOMPILE)
 	$(QUIET) $(RM) $$(word 2,$$^).tmp
@@ -139,7 +143,8 @@ endef
 
 .PRECIOUS: %.dep
 
-# Rules to generate the needed Makefiles in the subdirectories and update them if necessary.
+# Rules to generate the needed Makefiles in the subdirectories 
+# and update them if necessary.
 
 %/Rules.mk: Rules.mk | %/Makefile
 	+$(QUIET) $(LN) $< $@
@@ -149,18 +154,21 @@ endef
 .PRECIOUS: %/Makefile
 
 ##
-## Collecting variables (filled during the parsing of the Makefile with relevant files)
+## Collecting variables (filled during the parsing of Rules.mk and sub-Rules.mk)
 ##
 
-# These three variables collect respectively : all object files, target files and depency files,
+# These three variables collect respectively : 
+# all object files, target files and dependencies files, 
 # and submakefiles (that can be generated).
-#
+
 CLEAN :=
 FCLEAN :=
 MKCLEAN :=
 
-# Initializes as simple variables collector for, respectively, library path (used for compilation rules)
-# directories that may not exist (objects directories and dependencies directories)
+# Initializes as simple variables collector for, respectively,
+# library path (used for compilation rules)
+# directories that may not exist at build time and are required 
+# (objects directories and dependencies directories)
 # and dependencies files.
 
 LIBPATH_INC :=
@@ -171,16 +179,18 @@ DEP_FILES :=
 ## Inclusion of subdirectories Makefiles (Rules.mk)
 ##
 
-# Initialize the DIR variable, which tracks the directory whose make is parsing the Rules.mk
-# One option could be to initializes it with the value of $(CURDIR) or $(shell pwd), to get the 
-# absolute path.
+# Initialize the DIR variable, which tracks the directory 
+# whose make is parsing the Rules.mk
+# One option could be to initializes it with the value of 
+# $(CURDIR) or $(shell pwd), to get the absolute path.
 # However, that could cause trouble to produce a separate build tree.
 
 DIR := 
 
-# Includes the local Rules.mk, which will include all the subdirectories Rules.mk
-# (It could eventually include itself, since the DIR is independant from the actual location
-# of Rules.mk ; to think about)
+# Includes the local Rules.mk, 
+# which will include all the subdirectories Rules.mk
+# (It could eventually include itself, since the DIR variable is independant
+# from the actual location # of Rules.mk ; to think about)
 
 include Rules.mk
 
@@ -188,7 +198,8 @@ include Rules.mk
 
 include $(DEP_FILES)
 
-# After having included all sub-Rules.mk, define the rules to create new directories if needed.
+# After having included all sub-Rules.mk, define the rules
+# to create new directories if needed.
 # (the directories are order-only prerequisites on build rules)
 
 $(GENERATED_SUBDIRS):
@@ -198,11 +209,14 @@ $(GENERATED_SUBDIRS):
 ## Standard rules for users
 ##
 
-# $(TARGET_$(DIR) will expand in $(TARGET_), since DIR will recover its initial value
-# and the end of the parsing of the Rules.mk files (see the standard entry and exit gates
-# on Rules.mk)
+# $(TARGET_$(DIR) will expand in $(TARGET_), since DIR will recover 
+# its initial value and the end of the parsing of the Rules.mk files
+# (see the standard entry and exit gates on Rules.mk)
 
-all: $(TARGET_$(DIR))
+# Because the Norm said so.................
+
+NAME = $(TARGET_$(DIR))
+all: $(NAME)
 
 # Make sure the default target is always all
 .DEFAULT_GOAL:= all
