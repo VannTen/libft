@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/01/13 20:24:20 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/14 14:21:23 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -40,7 +40,7 @@ SYSTEM = $(shell uname)
 # Compiler flags
 ERROR_FLAGS := -Wall -Wextra -Werror -ansi -pedantic-errors
 DEBUG_FLAGS := -g -fsanitize=undefined -fsanitize=address -fno-omit-frame-pointer
-PROFILE_FLAGS := -pg
+PROFILE_FLAGS :=
 CFLAGS += $(ERROR_FLAGS) $(DEBUG_FLAGS) $(PROFILE_FLAGS)
 
 CPPFLAGS += $(INCLUDE) $(foreach INC_LIB,$(LIB_INCLUDES),-iquote$(INC_LIB))
@@ -225,9 +225,9 @@ re: fclean all
 
 .PHONY: debug all clean fclean mkclean dirclean re
 
-# This is for be sure that the top level directory does not count
+# This is for be sure that the top level directory reecipes do not count
 # on the last value of DIR (the directory from where make is invoked)
-#
+
 DIR := THIS_IS_A_BUG	
 
-$(info End of parsing)
+$(info End of Makefile parsing)

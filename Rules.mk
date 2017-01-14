@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/12/13 19:41:31 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/01/11 13:34:47 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/14 12:54:06 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -20,6 +20,7 @@ STACK_POINTER := $(STACK_POINTER).x
 DIR_$(STACK_POINTER) := $(DIR)
 DIR := $(DIR)$(SUBDIR)
 
+$(info Begin parsing $(DIR)Rules.mk)
 # Inlcudes Srcs.mk, which defines directory data (source files, target name,
 # additional dependencies, libraries needed)
 # Clean variables before, so we dont catch some from a previous dir
@@ -119,5 +120,6 @@ $(foreach SUBDIR,$(addsuffix /,$(SUBDIRS)),$(eval $(INCLUDE_SUBDIRS)))
 
 # Tracking current directory
 
+$(info Finish parsing $(DIR)Rules.mk)
 DIR := $(DIR_$(STACK_POINTER))
 STACK_POINTER := $(basename $(STACK_POINTER))
