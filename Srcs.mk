@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/01/14 14:20:25 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/16 13:33:50 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ LIB_BOOLEAN ?=\
 LIB_MATH ?=\
 	ft_int_square_root.c ft_square_root_round_up.c
 LIB_MISCELLANEOUS ?=\
-	database.c 
+	database.c do_nothing.c
 SRC := $(LIB_LST) $(LIB_LIST) $(LIB_FIFO)\
 	$(LIB_STR) $(LIB_DISPLAY) $(LIB_MEM)\
 	$(LIB_CONVERT) $(LIB_BOOLEAN) $(LIB_MATH)\

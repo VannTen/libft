@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/12 20:47:15 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/16 13:33:26 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,12 @@ t_list				*ft_lstmapi(t_list *lst,
 t_list				*ft_add_end_list(t_list *last_link, const void *content,
 									size_t content_size);
 unsigned int		ft_check_list(t_list *list, t_bool (*f)(t_list *elem));
+
+/*
+** Miscellaneous
+*/
+
+void				do_nothing(const void *precious_content);
 
 /*
 ** Database interface
