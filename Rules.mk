@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/12/13 19:41:31 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/01/14 17:50:40 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/16 15:55:47 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -37,6 +37,7 @@ include $(DIR)Srcs.mk
 # directory if subdirs are not defined
 # (which means SRC_DIR (or another one)= DIR)
 
+OBJ_DIR := $(BUILD_PREFIX)$(OBJ_DIR)
 $(foreach TYPE,SRC OBJ DEP INC,$(eval $(call ADD_SLASH,$(TYPE))))
 
 # Add the obj and dependency dir to the list of generated dir
@@ -60,8 +61,8 @@ DEP_$(DIR) := $(DEP)
 # as a prerequisites to locate it easily
 
 ifdef TARGET
-TARGET_$(DIR) := $(DIR)$(TARGET)
-vpath $(TARGET) $(DIR)
+TARGET_$(DIR) := $(DIR)$(BUILD_PREFIX)$(TARGET)
+vpath $(TARGET_$(DIR)) $(DIR)
 $(basename $(TARGET))_PATH := $(DIR)
 else
 $(eval $(TARGET_ERROR))
@@ -82,7 +83,7 @@ endif
 
 # Local rules
 
-$(TARGET_$(DIR)): $(OBJ_$(DIR)) $(ELSE) $(subst lib,-l,$(LIBRARIES))
+$(TARGET_$(DIR)): $(OBJ_$(DIR)) $(ELSE) $(patsubst lib%,-l$(BUILD_PREFIX)%,$(LIBRARIES))
 	$(QUIET) $(RECIPE)
 
 $(eval $(STATIC_OBJ_RULE))

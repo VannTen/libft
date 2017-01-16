@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/01/14 17:47:42 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/16 15:56:50 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -41,14 +41,12 @@ SYSTEM = $(shell uname)
 ERROR_FLAGS := -Wall -Wextra -Werror -ansi -pedantic-errors
 DEBUG_FLAGS := -g -fsanitize=undefined -fsanitize=address -fno-omit-frame-pointer
 PROFILE_FLAGS :=
-CFLAGS += $(ERROR_FLAGS) $(DEBUG_FLAGS) $(PROFILE_FLAGS)
+CFLAGS := $(CFLAGS) $(ERROR_FLAGS)
 
 CPPFLAGS += $(INCLUDE) $(foreach INC_LIB,$(LIB_INCLUDES),-iquote$(INC_LIB))
 DEPFLAGS = -MT $@ -MP -MMD -MF $(word 2,$^).tmp
 
 # Linker flags
-
-LDFLAGS += $(DEBUG_FLAGS) $(PROFILE_FLAGS)
 
 # Archive maintainer flags
 ARFLAGS = rc
@@ -237,6 +235,15 @@ mrproper: fclean mkclean
 
 re: fclean all
 
+debug: all
+
+profile: all
+debug: CFLAGS := $(CFLAGS) $(DEBUG_FLAGS)
+debug: LDFLAGS := $(LDFLAGS) $(DEBUG_FLAGS)
+debug: BUILD_PREFIX := debug_
+profile: CFLAGS := $(CFLAGS) $(PROFILE_FLAGS)
+profile: LDFLAGS := $(LDFLAGS) $(PROFILE_FLAGS)
+profile: BUILD_PREFIX := debug_
 .PHONY: debug all clean fclean mkclean dirclean re
 
 # This is for be sure that the top level directory reecipes do not count
