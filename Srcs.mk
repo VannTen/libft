@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/01/16 13:33:50 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/16 14:59:50 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ TARGET := libft.a
 #LIB_DISPLAY = $(NOTHING)
 #LIB_MEM = $(NOTHING)
 #LIB_CONVERT = $(NOTHING)
-#LIB_BOOLEAN = $(NOTHING)
+#LIB_IS_OF = $(NOTHING)
 #LIB_MATH = $(NOTHING)
 #LIB_MISCELLANEOUS = $(NOTHING)
 
@@ -55,7 +55,7 @@ LIB_MEM ?=\
 	ft_bzero.c 
 LIB_CONVERT ?=\
 	ft_atoi.c ft_itoa.c ft_tolower.c ft_toupper.c 
-LIB_BOOLEAN ?=\
+LIB_IS_OF ?=\
 	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c
 LIB_MATH ?=\
 	ft_int_square_root.c ft_square_root_round_up.c
@@ -63,7 +63,7 @@ LIB_MISCELLANEOUS ?=\
 	database.c do_nothing.c
 SRC := $(LIB_LST) $(LIB_LIST) $(LIB_FIFO)\
 	$(LIB_STR) $(LIB_DISPLAY) $(LIB_MEM)\
-	$(LIB_CONVERT) $(LIB_BOOLEAN) $(LIB_MATH)\
+	$(LIB_CONVERT) $(LIB_IS_OF) $(LIB_MATH)\
 	$(LIB_MISCELLANEOUS)
 
 # Directories

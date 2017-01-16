@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_list.c                                    :+:      :+:    :+:   */
+/*   ft_lstcheck.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/23 13:07:34 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/14 17:09:16 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/16 14:48:18 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** number of elements who return TRUE
 */
 
-unsigned int	ft_check_list(t_list *list, t_bool (*f)(t_list *elem))
+unsigned int	ft_lstcheck(t_list *list, t_bool (*f)(t_list *elem))
 {
 	unsigned int	is_true;
 
