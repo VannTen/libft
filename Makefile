@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/01/16 15:56:50 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/23 15:35:08 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -240,10 +240,8 @@ debug: all
 profile: all
 debug: CFLAGS := $(CFLAGS) $(DEBUG_FLAGS)
 debug: LDFLAGS := $(LDFLAGS) $(DEBUG_FLAGS)
-debug: BUILD_PREFIX := debug_
 profile: CFLAGS := $(CFLAGS) $(PROFILE_FLAGS)
 profile: LDFLAGS := $(LDFLAGS) $(PROFILE_FLAGS)
-profile: BUILD_PREFIX := debug_
 .PHONY: debug all clean fclean mkclean dirclean re
 
 # This is for be sure that the top level directory reecipes do not count
