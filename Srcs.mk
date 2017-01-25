@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/01/16 14:59:50 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/25 15:16:14 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,7 @@ SRC := $(LIB_LST) $(LIB_LIST) $(LIB_FIFO)\
 
 SRC_DIR :=
 OBJ_DIR := object
-INC_DIR :=
+INC_DIR := includes
 DEP_DIR := .dep
 TEST_DIR := test
 
