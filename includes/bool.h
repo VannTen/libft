@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 12:25:47 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/21 12:25:57 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/25 15:44:52 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define BOOL_H
 
 typedef enum		e_bool{
-	FALSE = 0,
+	FALSE = (1 == 0),
 	TRUE = !FALSE
 }					t_bool;
 
