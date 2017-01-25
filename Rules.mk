@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/12/13 19:41:31 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/01/16 15:55:47 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/25 15:35:09 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -94,7 +94,7 @@ $(eval $(STATIC_OBJ_RULE))
 
 $(TARGET_$(DIR)): DIR := $(DIR)
 ifneq ($(INC_LOCAL_$(DIR)),)
-$(TARGET_$(DIR)): INCLUDE := -iquote$(INC_LOCAL_$(DIR))
+$(TARGET_$(DIR)): INCLUDE := $(INC_LOCAL_$(DIR)) $(if $(DIR),$(DIR),.)
 else
 $(TARGET_$(DIR)): INCLUDE :=
 endif

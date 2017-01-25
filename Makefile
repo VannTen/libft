@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/01/23 15:35:08 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/01/25 15:33:50 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -43,7 +43,8 @@ DEBUG_FLAGS := -g -fsanitize=undefined -fsanitize=address -fno-omit-frame-pointe
 PROFILE_FLAGS :=
 CFLAGS := $(CFLAGS) $(ERROR_FLAGS)
 
-CPPFLAGS += $(INCLUDE) $(foreach INC_LIB,$(LIB_INCLUDES),-iquote$(INC_LIB))
+CPPFLAGS += $(foreach INC,$(INCLUDE),-iquote$(INC))\
+			$(foreach INC_LIB,$(LIB_INCLUDES),-iquote$(INC_LIB))
 DEPFLAGS = -MT $@ -MP -MMD -MF $(word 2,$^).tmp
 
 # Linker flags
