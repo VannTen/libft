@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:03:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/25 18:32:33 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/26 10:38:54 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,18 @@ static t_conversion	*ctor(void)
 	return (conversion);
 }
 
-t_conversion		*parser(char **conversion_begin)
+t_conversion		*parser(char **conversion_text)
 {
 	t_conversion	*conversion;
 
 	conversion = ctor();
 	if (conversion == NULL)
 		return (NULL);
+	set_arg(conversion_text, conversion);
+	set_flags(conversion_text, conversion);
+	set_field_width(conversion_text, conversion);
+	set_precision(conversion_text, conversion);
+	set_length_modifier(conversion_text, conversion);
+	set_type_conversion(conversion_text, conversion);
+	return (conversion);
 }
