@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:58:40 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/26 15:00:50 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/27 19:30:35 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,33 +20,26 @@
 typedef	struct	s_req_arg
 {
 	unsigned int	arg_index;
-	t_bool			required;
-	void			*data;
+	unsigned int	required;
 }				t_req_arg;
+
 
 typedef struct	s_format_string
 {
-	t_lst		*required_arguments;
-	void		*arguments;
-	t_bool		positional_args;
-	va_list		*arg_list;
+	t_lst			*conversion_list;
+	void			*arguments;
+	unsigned int	last_required_arg;
+	unsigned int	arg_count;
+	va_list			arg_list;
 }				t_format_string;
-
-struct			s_flags
-{
-	t_bool	alternate_form;
-	t_bool	zero_padding;
-	t_bool	inverse_padding;
-	t_bool	blank_before_signed;
-	t_bool	explicit_signed;
-	t_bool	thousands_grouping;
-};
 
 typedef struct	s_conversion t_conversion;
 struct	s_conversion
 {
-	struct s_flags		flags;
+	t_bool				flags[NBR_OF_FLAGS];
 	unsigned int		arg_index;
+	t_bool				field_width_is_arg;
+	t_bool				precision_is_arg;
 	int					field_width;
 	int					precision;
 	short				length_modifier;

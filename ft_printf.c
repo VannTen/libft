@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:03:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/26 10:38:54 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/27 19:33:08 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,17 @@
 static t_conversion	*ctor(void)
 {
 	t_conversion	*conversion;
+	size_t			index;
 
 	conversion = malloc(sizeof(t_conversion));
 	if (conversion != NULL)
 	{
-		conversion->flags.alternate_form = FALSE;
-		conversion->flags.zero_padding = FALSE;
-		conversion->flags.inverse_padding = FALSE;
-		conversion->flags.blank_before_signed = FALSE;
-		conversion->flags.explicit_signed = FALSE;
-		conversion->flags.thousands_grouping = FALSE;
+		index = 0;
+		while (index < NBR_OF_FLAGS)
+		{
+			conversion->flags[index] = FALSE;
+			index++;
+		}
 		conversion->field_width = 0;
 		conversion->precision = 0;
 		conversion->length_modifier = 0;
