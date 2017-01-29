@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:58:40 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/27 19:30:35 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/29 17:22:41 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef	struct	s_req_arg
 	unsigned int	arg_index;
 	unsigned int	required;
 }				t_req_arg;
-
 
 typedef struct	s_format_string
 {
