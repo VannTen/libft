@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:03:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/30 15:10:07 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/30 17:57:02 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,21 @@ size_t		parser(const char *conversion_text, size_t index
 	conversion = ctor(format_string);
 	if (conversion == NULL)
 		return (NULL);
-	while (index_functions < PARAMS_NBR)
+	if (conversion[index] != CONVERSION_INDICATOR)
 	{
-		index = params[index_functions](conversion_text, index, conversion);
-		index_functions++;
+	index = ft_set_arg_positional(conversion_text, index, conversion);
+	index = set_flags(conversion_text, index, conversion);
+	index = set_field_width(conversion_text, index, conversion);
+	index = set_precision(conversion_text, index, conversion);
+	index = set_length_modifier(conversion_text, index, conversion);
+	index = set_type_conversion(conversion_text, index, conversion);
 	}
-	/*
-	index+= ft_set_arg_positional(conversion_text, conversion);
-	set_flags(conversion_text, conversion);
-	set_field_width(conversion_text, conversion);
-	set_precision(conversion_text, conversion);
-	set_length_modifier(conversion_text, conversion);
-	set_type_conversion(conversion_text, conversion);
-	*/
+	else
+	{
+		conversion->convert_count = &no_conversion;
+		conversion->convert = &no_conversion;
+		index++;
+	}
 	f_fifo_add(format_string->conversion_list, conversion);
 	return (index);
 }
