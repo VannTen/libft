@@ -6,14 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/29 16:04:52 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/30 14:57:46 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/30 18:50:40 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t			ft_set_arg_positional(const char *arg_specifier, size_t index,
-										int *conv_spec)
+static size_t			ft_set_arg_positional(const char *arg_specifier,
+		size_t index, int *conv_spec)
 {
 	size_t	param_length;
 
@@ -35,6 +35,20 @@ static size_t	ft_is_positionnal(const char *arg_specifier)
 	else
 		return (0);
 }
+
+size_t			set_positional_arg(const char *conversion_specifier,
+		size_t index, t_conversion *convers_specs)
+{
+	return (ft_set_arg_positional(conversion_specifier, index,
+				&convers_specs->arg_index));
+}
+
+/*
+** This functions is used to determine field width and precision
+** Since there is some similarity with positional arugments
+** and because it use ft_is_positional
+** it is placed here
+*/
 
 size_t		set_int_args(const char *conversion_specifier, size_t index,
 		t_int_arg *int_arg, t_format_string *format_string)
