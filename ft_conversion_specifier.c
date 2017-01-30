@@ -6,19 +6,15 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 18:45:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/30 18:21:57 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/30 19:17:37 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# include "ft_conversion_specifier.h"
+# include "ft_argument.h"
 # include "ft_printf.h"
 # include "libft.h"
-
-size_t			set_positional_arg(const char *conversion_specifier,
-		size_t index, t_conversion *convers_specs)
-{
-	return (ft_set_arg_positional(conversion_specifier, index,
-				&convers_specs->arg_index));
-}
+# include <stdlib.h>
 
 size_t			set_field_width(const char *conversion_specifier, size_t index,
 		t_conversion *convers_specs)
@@ -47,13 +43,13 @@ size_t			set_length_modifier(const char *conversion_specifier,
 	modifier_index = 0;
 	while (modifier_index < LENGTH_MODIFIER_NBR
 			&& length_modifier[modifier_index] != conversion_specifier[index])
-		modifier_index;
-	if (modifier_index != LENGHT_MODIFIER_NBR)
+		modifier_index++;
+	if (modifier_index != LENGTH_MODIFIER_NBR)
 	{
 		convers_specs->length_modifier = modifier_index;
 		index++;
 	}
-	if ((modifier_index == SHORTER || modifier_index == LONGER)
+	if ((modifier_index == SHORT || modifier_index == LONG)
 			&& conversion_specifier[index] == conversion_specifier[index - 1])
 	{
 		convers_specs->length_modifier++;
@@ -77,5 +73,7 @@ size_t		set_type_conversion(const char *conversion_specifier, size_t index,
 		convers_specs->convert_count = convert_count[type_index];
 		convers_specs->convert = convert[type_index];
 	}
+	if (convers_specs->arg_index = 0)
+
 	return (index);
 }
