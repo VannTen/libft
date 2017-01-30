@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:58:40 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/30 15:00:05 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/30 16:24:46 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 # include "bool.h"
-# include "list.h"
+# include "fifo.h"
 # include <stdarg.h>
 
 typedef	struct	s_req_arg
@@ -37,7 +37,7 @@ typedef struct	s_int_arg
 {
 	t_bool	is_arg;
 	int		value;
-}				t_int_arg
+}				t_int_arg;
 
 typedef struct	s_conversion t_conversion;
 struct	s_conversion
