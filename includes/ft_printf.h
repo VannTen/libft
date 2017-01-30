@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:58:40 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/29 17:22:41 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/30 11:26:11 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef	struct	s_req_arg
 
 typedef struct	s_format_string
 {
+	char			*string;
 	t_lst			*conversion_list;
 	void			*arguments;
 	unsigned int	last_required_arg;
