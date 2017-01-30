@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:58:40 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/30 18:24:29 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/30 18:34:17 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 # include "ft_flags.h"
 # include "bool.h"
-# include "fifo.h"
+# include "libft.h"
 # include <stdarg.h>
+# define CONVERSION_INDICATOR '%'
+# define PRECISION_INDICATOR '.'
 
 typedef	struct	s_req_arg
 {

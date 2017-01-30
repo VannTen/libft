@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:03:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/30 17:57:02 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/30 18:35:50 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "ft_set_params.h"
 #include <stdlib.h>
 
 /*
@@ -29,7 +30,7 @@ static t_conversion	*ctor(t_format_string *format_string)
 	if (conversion != NULL)
 	{
 		index = 0;
-		while (index < NBR_OF_FLAGS)
+		while (index < FLAGS_NBR)
 		{
 			conversion->flags[index] = FALSE;
 			index++;
@@ -44,17 +45,17 @@ static t_conversion	*ctor(t_format_string *format_string)
 	return (conversion);
 }
 
-size_t		parser(const char *conversion_text, size_t index
+size_t		parser(const char *conversion_text, size_t index,
 							t_format_string *format_string)
 {
 	t_conversion	*conversion;
 
 	conversion = ctor(format_string);
 	if (conversion == NULL)
-		return (NULL);
-	if (conversion[index] != CONVERSION_INDICATOR)
+		return (0);
+	if (conversion_text[index] != CONVERSION_INDICATOR)
 	{
-	index = ft_set_arg_positional(conversion_text, index, conversion);
+	index = set_positional_arg(conversion_text, index, conversion);
 	index = set_flags(conversion_text, index, conversion);
 	index = set_field_width(conversion_text, index, conversion);
 	index = set_precision(conversion_text, index, conversion);
