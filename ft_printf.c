@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:03:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/30 14:59:45 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/30 15:10:07 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ size_t		parser(const char *conversion_text, size_t index
 		return (NULL);
 	while (index_functions < PARAMS_NBR)
 	{
-		index = params[index_functions](conversion_text + index, conversion);
+		index = params[index_functions](conversion_text, index, conversion);
 		index_functions++;
 	}
 	/*
