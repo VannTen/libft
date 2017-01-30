@@ -6,13 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:58:40 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/30 16:24:46 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/30 18:24:29 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include "ft_flags.h"
 # include "bool.h"
 # include "fifo.h"
 # include <stdarg.h>
@@ -42,7 +43,7 @@ typedef struct	s_int_arg
 typedef struct	s_conversion t_conversion;
 struct	s_conversion
 {
-	t_bool				flags[NBR_OF_FLAGS];
+	t_bool				flags[FLAGS_NBR];
 	unsigned int		arg_index;
 	t_int_arg			field_width;
 	t_int_arg			precision;
