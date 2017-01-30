@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:03:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/27 19:33:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/30 12:14:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 ** of a conversion.
 */
 
-static t_conversion	*ctor(void)
+static t_conversion	*ctor(t_format_string *format_string)
 {
 	t_conversion	*conversion;
 	size_t			index;
@@ -37,22 +37,32 @@ static t_conversion	*ctor(void)
 		conversion->field_width = 0;
 		conversion->precision = 0;
 		conversion->length_modifier = 0;
+		conversion->format_string = format_string;
 	}
 	return (conversion);
 }
 
-t_conversion		*parser(char **conversion_text)
+size_t		parser(const char *conversion_text, size_t index
+							t_format_string *format_string)
 {
 	t_conversion	*conversion;
 
-	conversion = ctor();
+	conversion = ctor(format_string);
 	if (conversion == NULL)
 		return (NULL);
-	set_arg(conversion_text, conversion);
+	while (index_functions < PARAMS_NBR)
+	{
+		index+= params[index_functions](conversion_text + index, conversion);
+		index_functions++;
+	}
+	/*
+	index+= ft_set_arg_positional(conversion_text, conversion);
 	set_flags(conversion_text, conversion);
 	set_field_width(conversion_text, conversion);
 	set_precision(conversion_text, conversion);
 	set_length_modifier(conversion_text, conversion);
 	set_type_conversion(conversion_text, conversion);
-	return (conversion);
+	*/
+	f_fifo_add(format_string->conversion_list, conversion);
+	return (index);
 }
