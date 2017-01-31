@@ -6,11 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 18:17:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/30 18:19:44 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/31 13:18:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_flags.h"
+#include "ft_flags.h"
+#include "ft_printf.h"
+#include <stdlib.h>
 
 static t_bool	set_one_flag(const char *conversion_specifier, size_t index,
 		t_conversion *convers_specs)
@@ -19,7 +21,7 @@ static t_bool	set_one_flag(const char *conversion_specifier, size_t index,
 
 	index_flags = 0;
 	while (index_flags < FLAGS_NBR
-			&& conversion_specifier[index] != flags[index_flags])
+			&& conversion_specifier[index] != g_flags[index_flags])
 		index_flags++;
 	if (index_flags != FLAGS_NBR)
 	{

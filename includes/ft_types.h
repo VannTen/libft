@@ -1,23 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_argument.h                                      :+:      :+:    :+:   */
+/*   ft_types.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/30 19:01:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/31 14:02:51 by mgautier         ###   ########.fr       */
+/*   Created: 2017/01/31 12:50:58 by mgautier          #+#    #+#             */
+/*   Updated: 2017/01/31 13:13:39 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARGUMENT_H
-# define FT_ARGUMENT_H
+#ifndef FT_TYPES_H
+# define FT_TYPES_H
 
-# include "ft_printf.h"
-# include <stdlib.h>
-# define IS_ARG_INDICATOR '*'
+enum	e_conv_type
+{
+	D,
+	I = D,
+	O,
+	U,
+	X,
+	X_MAJ,
+	E,
+	E_MAJ,
+	F,
+	F_MAJ = F,
+	G,
+	G_MAJ,
+	A,
+	A_MAJ,
+	C,
+	S,
+	P,
+	N,
+	NO_CONVERSION,
+	TYPE_NBR
+};
 
-size_t		set_int_args(const char *conversion_specifier, size_t index,
-		t_int_arg *int_arg, t_format_string *format_string);
-
+static const char g_types[] = "diouxXeEfFgGaAcspn%";
 #endif
