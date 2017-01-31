@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 18:45:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/31 18:39:51 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/31 19:06:13 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,9 @@ size_t			set_length_modifier(const char *conversion_specifier,
 	while (modifier_index < LENGTH_MODIFIER_NBR
 			&& g_length_modifier[modifier_index] != conversion_specifier[index])
 		modifier_index++;
+	convers_specs->length_modifier = modifier_index;
 	if (modifier_index != LENGTH_MODIFIER_NBR)
-	{
-		convers_specs->length_modifier = modifier_index;
 		index++;
-	}
 	if ((modifier_index == SHORT || modifier_index == LONG)
 			&& conversion_specifier[index] == conversion_specifier[index - 1])
 	{
