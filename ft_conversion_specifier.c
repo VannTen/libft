@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 18:45:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/31 17:45:29 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/31 18:39:51 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,21 +63,27 @@ size_t		set_type_conversion(const char *conversion_specifier, size_t index,
 		t_conversion *convers_specs)
 {
 	size_t	type_index;
+	char	type;
 
 	type_index = 0;
 	while ((type_index < UNKNOWN_CONVERSION)
 			&& conversion_specifier[index] != g_types[type_index])
 		type_index++;
+	if (type_index > NO_CONVERSION && type_index < UNKNOWN_CONVERSION)
+	{
+		convers_specs->length_modifier = LONG;
+		type = g_types[type_index] - 'A' + 'a';
+		type_index = 0;
+		while (g_types[type_index] != type)
+			type_index++;
+	}
 	convers_specs->type = type_index;
 	if (type_index != UNKNOWN_CONVERSION)
 	{
 		index++;
 		if (convers_specs->arg_index == 0)
-		{
-			convers_specs->format_string->arg_count++;
 			convers_specs->arg_index =
-				convers_specs->format_string->arg_count;
-		}
+				ft_request_arg(convers_specs->format_string);
 	}
 	return (index);
 }

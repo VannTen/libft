@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 12:50:58 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/31 17:47:44 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/31 17:59:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,13 @@ enum	e_conv_type
 	P,
 	N,
 	NO_CONVERSION,
-	UNKNOWN_CONVERSION
-};
-
-enum	e_conv_type_supp
-{
 	D_MAJ,
 	O_MAJ,
 	U_MAJ,
 	C_MAJ,
-	S_MAJ
+	S_MAJ,
+	UNKNOWN_CONVERSION
 };
 
-
-static const char g_types[] = "diouxXeEfFgGaAcspn%";
+static const char g_types[] = "diouxXeEfFgGaAcspn%DOUCS";
 #endif
