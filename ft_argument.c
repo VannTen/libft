@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/29 16:04:52 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/31 14:06:23 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/31 16:04:30 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static size_t			ft_set_arg_positional(const char *arg_specifier,
 
 	param_length = ft_is_positional(arg_specifier + index);
 	if (param_length != 0)
-		*conv_spec = ft_atoi_strict(arg_specifier + index);
-	return (index + param_length);
+		*conv_spec = ft_atoi(arg_specifier + index);
+	return (index + param_length + 1);
 }
 
 size_t			set_positional_arg(const char *conversion_specifier,
@@ -70,7 +70,7 @@ size_t		set_int_args(const char *conversion_specifier, size_t index,
 	else
 	{
 		numeric_param->is_arg = FALSE;
-		numeric_param->value = ft_atoi_strict(conversion_specifier + index);
+		numeric_param->value = ft_atoi(conversion_specifier + index);
 		while (ft_isdigit(conversion_specifier[index])
 				|| conversion_specifier[index] == '-')
 			index++;
