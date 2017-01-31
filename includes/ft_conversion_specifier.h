@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 19:03:56 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/31 14:05:30 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/31 14:36:41 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ enum	e_lenght_modifier
 	LENGTH_MODIFIER_NBR
 };
 
-const static char	length_modifier[LENGTH_MODIFIER_NBR] = "hhlljtzq";
+const static char	g_length_modifier[LENGTH_MODIFIER_NBR] = "hhlljtzq";
 #endif

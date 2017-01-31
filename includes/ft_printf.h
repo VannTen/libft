@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:58:40 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/31 14:05:54 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/31 14:42:39 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,11 @@ struct	s_conversion
 	int					arg_index;
 	t_int_arg			field_width;
 	t_int_arg			precision;
-	short				length_modifier;
+	int					length_modifier;
 	enum e_conv_type	type;
 	t_format_string		*format_string;
 };
 
+size_t		parser(const char *conversion_text, size_t index,
+							t_format_string *format_string);
 #endif
