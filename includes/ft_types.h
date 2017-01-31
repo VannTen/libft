@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 12:50:58 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/31 13:13:39 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/01/31 17:10:14 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 enum	e_conv_type
 {
 	D,
-	I = D,
+	I,
 	O,
 	U,
 	X,
@@ -24,7 +24,7 @@ enum	e_conv_type
 	E,
 	E_MAJ,
 	F,
-	F_MAJ = F,
+	F_MAJ,
 	G,
 	G_MAJ,
 	A,
