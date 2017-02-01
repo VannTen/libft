@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:58:40 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/01 12:45:48 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/01 12:53:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct	s_conversion
 	int					length_modifier;
 	enum e_conv_type	type;
 	t_format_string		*format_string;
-};				t_conversion
+}				t_conversion;
 
 size_t			conversion_parser(const char *conversion_text, size_t index,
 							t_format_string *format_string);
