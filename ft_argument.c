@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/29 16:04:52 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/01 12:47:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/01 15:11:57 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,9 @@ size_t			set_int_args(const char *conversion_specifier, size_t index,
 
 int				ft_request_arg(t_format_string *format)
 {
+	int		index;
+
+	index = format->arg_count;
 	format->arg_count++;
-	return (format->arg_count);
+	return (index);
 }
