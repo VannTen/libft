@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/01 11:49:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/01 12:07:21 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_lst				*f_lstpush(void const *content, t_lst **list);
 void				f_lstdelone(t_lst **alst, void (*del)(void*));
 void				f_lstdel(t_lst **alst, void (*del)(void*));
 void				f_lstiter(t_lst *lst, void (*f)(t_lst *elem));
+void				f_lstiter_content(t_lst *lst, void (*f)(void *content));
 t_lst				*f_lstmap(t_lst *lst, t_lst *(*f)(t_lst *elem));
 t_lst				*f_lstmapi(t_lst *lst,
 								t_lst *(*f)(t_lst *elem, unsigned int index));
