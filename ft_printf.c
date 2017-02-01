@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:52:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/01 11:50:16 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/01 12:47:50 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static t_format_string	*ctor(void)
 	return (format_string);
 }
 
-t_format_string				*ft_format_string_parser(const char *string)
+t_format_string			*ft_format_string_parser(const char *string)
 {
 	size_t			index;
 	t_format_string	*format_string;

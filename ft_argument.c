@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/29 16:04:52 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/31 18:38:42 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/01 12:47:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static size_t	ft_is_positional(const char *arg_specifier)
 		return (0);
 }
 
-static size_t			ft_set_arg_positional(const char *arg_specifier,
+static size_t	ft_set_arg_positional(const char *arg_specifier,
 		size_t index, int *conv_spec)
 {
 	size_t	param_length;
@@ -52,7 +52,7 @@ size_t			set_positional_arg(const char *conversion_specifier,
 ** it is placed here
 */
 
-size_t		set_int_args(const char *conversion_specifier, size_t index,
+size_t			set_int_args(const char *conversion_specifier, size_t index,
 		t_int_arg *numeric_param, t_format_string *format_string)
 {
 	if (conversion_specifier[index] == IS_ARG_INDICATOR)
@@ -75,7 +75,7 @@ size_t		set_int_args(const char *conversion_specifier, size_t index,
 	return (index);
 }
 
-int			ft_request_arg(t_format_string *format)
+int				ft_request_arg(t_format_string *format)
 {
 	format->arg_count++;
 	return (format->arg_count);

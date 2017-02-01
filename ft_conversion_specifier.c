@@ -6,25 +6,25 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 18:45:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/31 19:06:13 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/01 12:47:02 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_types.h"
-# include "ft_conversion_specifier.h"
-# include "ft_argument.h"
-# include "ft_printf.h"
-# include "libft.h"
-# include <stdlib.h>
+#include "ft_types.h"
+#include "ft_conversion_specifier.h"
+#include "ft_argument.h"
+#include "ft_printf.h"
+#include "libft.h"
+#include <stdlib.h>
 
-size_t			set_field_width(const char *conversion_specifier, size_t index,
+size_t	set_field_width(const char *conversion_specifier, size_t index,
 		t_conversion *convers_specs)
 {
 	return (set_int_args(conversion_specifier, index,
 				&convers_specs->field_width, convers_specs->format_string));
 }
 
-size_t			set_precision(const char *conversion_specifier, size_t index,
+size_t	set_precision(const char *conversion_specifier, size_t index,
 		t_conversion *convers_specs)
 {
 	if (conversion_specifier[index] == PRECISION_INDICATOR)
@@ -36,7 +36,7 @@ size_t			set_precision(const char *conversion_specifier, size_t index,
 	return (index);
 }
 
-size_t			set_length_modifier(const char *conversion_specifier,
+size_t	set_length_modifier(const char *conversion_specifier,
 		size_t index, t_conversion *convers_specs)
 {
 	size_t	modifier_index;
@@ -57,7 +57,7 @@ size_t			set_length_modifier(const char *conversion_specifier,
 	return (index);
 }
 
-size_t		set_type_conversion(const char *conversion_specifier, size_t index,
+size_t	set_type_conversion(const char *conversion_specifier, size_t index,
 		t_conversion *convers_specs)
 {
 	size_t	type_index;

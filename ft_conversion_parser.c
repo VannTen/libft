@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:03:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/01 11:42:07 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/01 12:44:25 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static t_conversion	*ctor(t_format_string *format_string)
 	return (conversion);
 }
 
-size_t		conversion_parser(const char *conversion_text, size_t index,
+size_t				conversion_parser(const char *conversion_text, size_t index,
 							t_format_string *format_string)
 {
 	t_conversion	*conversion;
