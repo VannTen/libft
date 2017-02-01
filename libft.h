@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/16 14:59:25 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/01 11:49:49 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,7 @@ unsigned int		ft_square_root_round_up(unsigned int square);
 */
 
 void				do_nothing(const void *precious_content);
+void				no_destroy(void	*precious_content);
 t_database			*new_database(t_db_type type);
 
 #endif
