@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:58:40 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/31 14:42:39 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/01 12:10:14 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,9 @@ typedef	struct	s_req_arg
 
 typedef struct	s_format_string
 {
-	char			*string;
 	t_fifo			*conversion_list;
 	void			*arguments;
 	int				arg_count;
-	va_list			arg_list;
 }				t_format_string;
 
 typedef struct	s_int_arg
@@ -53,6 +51,7 @@ struct	s_conversion
 	t_format_string		*format_string;
 };
 
-size_t		parser(const char *conversion_text, size_t index,
+size_t			conversion_parser(const char *conversion_text, size_t index,
 							t_format_string *format_string);
+t_format_string	*ft_format_string_parser(const char *string);
 #endif
