@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:52:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/01 12:47:50 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/02 17:15:24 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static t_format_string	*ctor(void)
 			return (NULL);
 		}
 		format_string->arg_count = 0;
+		format_string->conversions_length;
 	}
 	return (format_string);
 }
@@ -44,8 +45,9 @@ static t_format_string	*ctor(void)
 t_format_string			*ft_format_string_parser(const char *string)
 {
 	size_t			index;
-	t_format_string	*format_string;
+	size_t			index_before;
 
+	t_format_string	*format_string;
 	format_string = ctor();
 	if (format_string == NULL)
 		return (NULL);
@@ -54,8 +56,10 @@ t_format_string			*ft_format_string_parser(const char *string)
 	{
 		if (string[index] == CONVERSION_INDICATOR)
 		{
+			index_before = index;
 			index++;
 			index = conversion_parser(string, index, format_string);
+			format_string->conversions_lenght += index - index_before;
 		}
 		else
 			index++;
