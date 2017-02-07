@@ -1,46 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_types.h                                         :+:      :+:    :+:   */
+/*   ft_variadic_args.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/31 12:50:58 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/07 13:55:16 by mgautier         ###   ########.fr       */
+/*   Created: 2017/02/07 12:48:04 by mgautier          #+#    #+#             */
+/*   Updated: 2017/02/07 14:11:11 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_TYPES_H
-# define FT_TYPES_H
-
-typedef enum	e_conv_type
+typedef enum	e_type
 {
-	D,
-	I,
-	O,
-	U,
-	X,
-	X_MAJ,
-	E,
-	E_MAJ,
-	F,
-	F_MAJ,
-	G,
-	G_MAJ,
-	A,
-	A_MAJ,
-	C,
-	S,
-	P,
-	N,
-	NO_CONVERSION,
-	D_MAJ,
-	O_MAJ,
-	U_MAJ,
-	C_MAJ,
-	S_MAJ,
-	UNKNOWN_CONVERSION
-}				t_conv_type;
+	UNKNOWN,
+	INT,
+	CHAR,
+	SHORT,
+	LONG,
+	LONG_LONG,
+	INTMAX,
+	PTRDIFF,
+	SIZE,
+	QUAD,
+	U_INT,
+	U_CHAR,
+	U_SHORT,
+	U_LONG,
+	U_LONG_LONG,
+	U_INTMAX,
+	U_PTRDIFF,
+	U_SIZE,
+	U_QUAD,
+	PTR_INT,
+	PTR_CHAR,
+	PTR_SHORT,
+	PTR_LONG,
+	PTR_LONG_LONG,
+	PTR_INTMAX,
+	PTR_PTRDIFF,
+	PTR_SIZE,
+	PTR_QUAD
+}				t_type;
 
-static const char g_types[] = "diouxXeEfFgGaAcspn%DOUCS";
-#endif
+typedef struct	s_var_arg
+{
+	void	*arg;
+	t_type	type;
+}				t_var_arg;
