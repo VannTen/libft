@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:52:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/01 12:47:50 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/07 12:23:44 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ t_format_string			*ft_format_string_parser(const char *string)
 		else
 			index++;
 	}
+	format_string->length == index;
 	return (format_string);
 }
