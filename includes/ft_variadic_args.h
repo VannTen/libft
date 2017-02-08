@@ -6,12 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 12:48:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/08 15:30:57 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/08 16:43:30 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_VARIADIC_ARGS_H
 # define FT_VARIADIC_ARGS_H
+# include <stdarg.h>
 
 typedef enum	e_type
 {
