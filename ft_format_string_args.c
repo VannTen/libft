@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 12:28:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/07 14:06:42 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/08 15:21:29 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static t_type ft_conv_to_type(t_conversion *conversion)
 	else if (conversion->type >= O && conversion->type <= X_MAJ)
 		type = U_INT + conversion->length_modifier;
 	else if (conversion->type == N)
-		type = U_INT + conversion->length_modifier;
+		type = PTR_INT + conversion->length_modifier;
 	return (type);
 }
 
