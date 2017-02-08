@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:58:40 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/08 12:39:19 by                  ###   ########.fr       */
+/*   Updated: 2017/02/08 18:03:13 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,9 @@
 # include <stdarg.h>
 # define CONVERSION_INDICATOR '%'
 
-/*
-typedef struct	s_arg
-{
-	void	*content;
-	t_type	type;
-}				t_arg;
-*/
 typedef struct	s_format_string
 {
 	t_fifo			*conversion_list;
-	t_arg			*arguments;
 	int				arg_count;
 	size_t			length;
 }				t_format_string;

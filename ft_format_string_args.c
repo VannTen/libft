@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 12:28:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/08 18:08:52 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/08 18:13:44 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-static t_type ft_conv_to_type(t_var_arg *variadic, t_conversion *conversion)
+t_type ft_conv_to_type(t_var_arg *variadic, t_conversion *conversion)
 {
 	if (conversion->type == D || conversion->type == I)
 		variadic[conversion->arg_index].type =
@@ -48,15 +48,16 @@ void		*args_array_ctor(size_t args_number)
 	}
 }
 
-unsigned int	get_arg_index(void *_conversion)
+unsigned int	get_arg_index(const void *_conversion)
 {
-	t_conversion	*conversion;
+	const t_conversion	*conversion;
 
 	conversion = _conversion;
 	return (conversion->arg_index);
 }
 
-void	ft_get_args(t_var_arg *args_array, size_t arg_count, va_list arg_list)
+static void	ft_get_args(t_var_arg *args_array, size_t arg_count,
+		va_list arg_list)
 {
 	size_t	index;
 
@@ -69,7 +70,7 @@ void	ft_get_args(t_var_arg *args_array, size_t arg_count, va_list arg_list)
 	}
 }
 
-void	ft_set_types(t_var_arg *args_array, t_lst *conversion_list,
+static void	ft_set_types(t_var_arg *args_array, t_lst *conversion_list,
 		size_t args_number)
 {
 	size_t	arg_count;
@@ -88,7 +89,7 @@ void	ft_set_types(t_var_arg *args_array, t_lst *conversion_list,
 		while (arg_count < args_number)
 		{
 			if (args_array[arg_count].type == UNKNOWN_TYPE)
-				args_array[arg_count].type == INT;
+				args_array[arg_count].type = INT;
 			arg_count++;
 		}
 	}
@@ -102,5 +103,6 @@ void		*ft_format_string_args(t_lst *conversion_list, va_list list)
 	args_number = f_lstmax(conversion_list, &get_arg_index);
 	args_array = args_array_ctor(args_number);
 	ft_set_types(args_array, conversion_list, args_number);
+	ft_get_args(args_array, args_number, list);
 	return (args_array);
 }
