@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/02 17:47:14 by                  ###   ########.fr       */
+/*   Updated: 2017/02/08 18:09:56 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ t_bool				f_lstremoveif_one(t_lst **lst, int ref,
 void				*f_lstpop(t_lst **list);
 unsigned int		f_lst_len(const t_lst *lst);
 int					f_lstsum_content(t_lst *list, int (*f)(const void *));
+unsigned int		f_lstmax(t_lst *list,
+							unsigned int (*get_max)(const void *));
 
 /*
 ** List functions

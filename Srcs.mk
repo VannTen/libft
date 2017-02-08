@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/01/25 15:16:14 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/02/08 17:43:12 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ TARGET := libft.a
 LIB_LST ?=\
 	f_lstpush.c f_lstnew.c f_lst_every_valid.c f_lstmap.c\
 	f_lstmapi.c f_lst_len.c f_lstsearch.c f_lstremoveif_one.c f_add_end_lst.c\
-	f_lstiter.c f_strljoin.c f_strsplit_lst.c f_lstdelone.c f_lstdel.c 
+	f_lstiter.c f_strljoin.c f_strsplit_lst.c f_lstdelone.c f_lstdel.c f_lstmax.c
 LIB_LIST ?=\
 	ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c ft_lstnew.c \
 	f_lstpop.c  ft_lstpushdata.c ft_memalloc.c ft_memset.c \
