@@ -6,13 +6,16 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 12:48:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/07 14:11:11 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/08 15:30:57 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FT_VARIADIC_ARGS_H
+# define FT_VARIADIC_ARGS_H
+
 typedef enum	e_type
 {
-	UNKNOWN,
+	UNKNOWN_TYPE,
 	INT,
 	CHAR,
 	SHORT,
@@ -44,6 +47,8 @@ typedef enum	e_type
 
 typedef struct	s_var_arg
 {
-	void	*arg;
+	va_list	arg;
 	t_type	type;
 }				t_var_arg;
+
+#endif
