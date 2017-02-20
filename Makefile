@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/02/20 15:09:13 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/02/20 15:13:10 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -133,10 +133,10 @@ EMPTY_SRCS.MK := TARGET \
 define	STATIC_OBJ_RULE
 $(OBJ_$(DIR)): $(OBJ_LOCAL_$(DIR))%.o: $(SRC_LOCAL_$(DIR))%.c\
 $(DEP_LOCAL_$(DIR))%.dep | $(OBJ_LOCAL_$(DIR)) $(DEP_LOCAL_$(DIR))
-	$(QUIET) $$(COMPILE)
-	$(QUIET) $$(POSTCOMPILE)
-	$(QUIET) $(RM) $$(word 2,$$^).tmp
-	$(QUIET) $(TOUCH) $$@
+	$$(QUIET) $$(COMPILE)
+	$$(QUIET) $$(POSTCOMPILE)
+	$$(QUIET) $(RM) $$(word 2,$$^).tmp
+	$$(QUIET) $(TOUCH) $$@
 endef
 
 %.dep: ;
