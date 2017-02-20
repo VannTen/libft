@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/02/08 17:43:12 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/02/20 14:30:28 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ TARGET := libft.a
 #LIB_IS_OF = $(NOTHING)
 #LIB_MATH = $(NOTHING)
 #LIB_MISCELLANEOUS = $(NOTHING)
+#LIB_PRINTF = $(NOTHING)
 
 LIB_LST ?=\
 	f_lstpush.c f_lstnew.c f_lst_every_valid.c f_lstmap.c\
@@ -54,17 +55,24 @@ LIB_MEM ?=\
 	ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memdel.c ft_memmove.c \
 	ft_bzero.c 
 LIB_CONVERT ?=\
-	ft_atoi.c ft_itoa.c ft_tolower.c ft_toupper.c 
+	ft_atoi.c ft_itoa.c ft_tolower.c ft_toupper.c ft_itoa_base.c
 LIB_IS_OF ?=\
 	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c
 LIB_MATH ?=\
 	ft_int_square_root.c ft_square_root_round_up.c
 LIB_MISCELLANEOUS ?=\
 	database.c do_nothing.c
+LIB_PRINTF ?=\
+	ft_argument.c ft_argument_counter.c ft_conversion_parser.c ft_conversion_specifier.c\
+	ft_flags.c ft_printf.c
+LIB_VARIADIC ?=\
+	ft_variadic_get_char.c ft_variadic_get_int.c ft_variadic_get_intmax_t.c\
+	ft_variadic_get_long.c ft_variadic_get_long_long.c ft_variadic_get_ptrdiff_t.c\
+	ft_variadic_get_short.c ft_variadic_get_size_t.c ft_variadic_get_wchar_t.c
 SRC := $(LIB_LST) $(LIB_LIST) $(LIB_FIFO)\
 	$(LIB_STR) $(LIB_DISPLAY) $(LIB_MEM)\
 	$(LIB_CONVERT) $(LIB_IS_OF) $(LIB_MATH)\
-	$(LIB_MISCELLANEOUS)
+	$(LIB_MISCELLANEOUS) $(LIB_PRINTF) $(LIB_VARIADIC)
 
 # Directories
 
