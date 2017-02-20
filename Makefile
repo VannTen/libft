@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/02/20 15:13:10 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/02/20 15:24:13 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -28,6 +28,7 @@ RANLIB = ranlib
 ##
 
 FILE_CHAR_RANGE := a-z0-9._
+STANDARD = -std=c99
 
 # Extern variables (depending on build environnement)
 
@@ -38,7 +39,7 @@ SYSTEM = $(shell uname)
 ##
 
 # Compiler flags
-ERROR_FLAGS := -Wall -Wextra -Werror -ansi -pedantic-errors
+ERROR_FLAGS := -Wall -Wextra -Werror $(STANDARD) -pedantic-errors
 DEBUG_FLAGS := -g -fsanitize=undefined -fsanitize=address -fno-omit-frame-pointer
 SYNTAX_FLAGS := -fsyntax-only -ferror-limit=0
 PROFILE_FLAGS :=
@@ -241,11 +242,11 @@ debug: all
 
 profile: all
 
-syntax: all
+syn: all
 
-syntax: CFLAGS := $(CFLAGS) $(SYNTAX_FLAGS)
-syntax: QUIET := @
-syntax: LDFLAGS := $(LDFLAGS) $(SYNTAX_FLAGS)
+syn: CFLAGS := $(CFLAGS) $(syn_FLAGS)
+syn: QUIET := @
+syn: LDFLAGS := $(LDFLAGS) $(syn_FLAGS)
 debug: CFLAGS := $(CFLAGS) $(DEBUG_FLAGS)
 debug: LDFLAGS := $(LDFLAGS) $(DEBUG_FLAGS)
 profile: CFLAGS := $(CFLAGS) $(PROFILE_FLAGS)
