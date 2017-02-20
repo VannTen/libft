@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/02/20 15:24:13 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/02/20 15:42:34 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -244,9 +244,9 @@ profile: all
 
 syn: all
 
-syn: CFLAGS := $(CFLAGS) $(syn_FLAGS)
+syn: CFLAGS := $(CFLAGS) $(SYNTAX_FLAGS)
 syn: QUIET := @
-syn: LDFLAGS := $(LDFLAGS) $(syn_FLAGS)
+syn: LDFLAGS := $(LDFLAGS) $(SYNTAX_FLAGS)
 debug: CFLAGS := $(CFLAGS) $(DEBUG_FLAGS)
 debug: LDFLAGS := $(LDFLAGS) $(DEBUG_FLAGS)
 profile: CFLAGS := $(CFLAGS) $(PROFILE_FLAGS)
