@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/01/25 15:33:50 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/02/20 14:42:48 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -40,6 +40,7 @@ SYSTEM = $(shell uname)
 # Compiler flags
 ERROR_FLAGS := -Wall -Wextra -Werror -ansi -pedantic-errors
 DEBUG_FLAGS := -g -fsanitize=undefined -fsanitize=address -fno-omit-frame-pointer
+SYNTAX_FLAGS := -fsyntax-only
 PROFILE_FLAGS :=
 CFLAGS := $(CFLAGS) $(ERROR_FLAGS)
 
@@ -239,6 +240,12 @@ re: fclean all
 debug: all
 
 profile: all
+
+syntax: all
+
+syntax: CFLAGS := $(CFLAGS) $(SYNTAX_FLAGS)
+syntax: QUIET := @
+syntax: LDFLAGS := $(LDFLAGS) $(SYNTAX_FLAGS)
 debug: CFLAGS := $(CFLAGS) $(DEBUG_FLAGS)
 debug: LDFLAGS := $(LDFLAGS) $(DEBUG_FLAGS)
 profile: CFLAGS := $(CFLAGS) $(PROFILE_FLAGS)
