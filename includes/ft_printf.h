@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:58:40 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/20 15:15:53 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/21 18:01:08 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 typedef struct	s_format_string
 {
 	t_fifo			*conversion_list;
+	t_var_arg		*arg_list;
 	int				arg_count;
 	size_t			length;
 	size_t			conversions_length;
