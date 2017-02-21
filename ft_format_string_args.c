@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 12:28:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/21 16:54:31 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/21 16:59:01 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,19 @@
 #include "ft_variadic_args.h"
 #include <stdlib.h>
 #include <stdarg.h>
+
+void				ft_arg_list_dtor(t_var_arg *array, size_t size)
+{
+	size_t	index;
+
+	index = 0;
+	while (index < size)
+	{
+		va_end(array[index].arg);
+		index++;
+	}
+	free(array);
+}
 
 static t_var_arg	*ft_arg_list_ctor(size_t arg_nbr)
 {
