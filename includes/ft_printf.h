@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:58:40 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/21 18:01:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/21 18:01:42 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,5 @@ typedef struct	s_conversion
 size_t			conversion_parser(const char *conversion_text, size_t index,
 							t_format_string *format_string);
 t_format_string	*ft_format_string_parser(const char *string);
+t_var_arg		*ft_get_var_args(t_fifo *conv_list, va_list *var_arg_list);
 #endif
