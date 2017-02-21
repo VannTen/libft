@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 12:28:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/21 16:01:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/21 16:54:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,46 +15,6 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-static t_type ft_conv_to_type(t_var_arg *variadic, t_conversion *conversion)
-{
-	if (conversion->type == D || conversion->type == I)
-		variadic[conversion->arg_index].type =
-			INT + conversion->length_modifier;
-	else if (conversion->type >= O && conversion->type <= X_MAJ)
-		variadic[conversion->arg_index].type =
-			U_INT + conversion->length_modifier;
-	else if (conversion->type == N)
-		variadic[conversion->arg_index].type =
-			PTR_INT + conversion->length_modifier;
-	else
-		variadic[conversion->arg_index].type = UNKNOWN_TYPE;
-	return (variadic[conversion->arg_index].type);
-}
-
-static void	ft_set_types(t_var_arg *args_array, t_lst *conversion_list,
-		size_t args_number)
-{
-	size_t	arg_count;
-
-	arg_count = args_number;
-	while (arg_count != 0 && conversion_list != NULL)
-	{
-		if (ft_conv_to_type(args_array, conversion_list->content)
-				== UNKNOWN_TYPE)
-			arg_count--;
-		conversion_list = conversion_list->next;
-	}
-	if (arg_count != 0)
-	{
-		arg_count = 0;
-		while (arg_count < args_number)
-		{
-			if (args_array[arg_count].type == UNKNOWN_TYPE)
-				args_array[arg_count].type = INT;
-			arg_count++;
-		}
-	}
-}
 static t_var_arg	*ft_arg_list_ctor(size_t arg_nbr)
 {
 	t_var_arg	*arg_array;
@@ -71,6 +31,54 @@ static t_var_arg	*ft_arg_list_ctor(size_t arg_nbr)
 		}
 	}
 	return (arg_array);
+}
+
+static t_bool ft_conv_to_type(t_var_arg *variadic, t_conversion *conversion)
+{
+	if (variadic->type != UNKNOWN_TYPE)
+		return (FALSE);
+	if (conversion->type == D || conversion->type == I)
+		variadic[conversion->arg_index].type =
+			INT + conversion->length_modifier;
+	else if (conversion->type >= O && conversion->type <= X_MAJ)
+		variadic[conversion->arg_index].type =
+			U_INT + conversion->length_modifier;
+	else if (conversion->type == N)
+		variadic[conversion->arg_index].type =
+			PTR_INT + conversion->length_modifier;
+	else
+		return (FALSE);
+	return (TRUE);
+}
+
+/*
+** Set the types for each required element using the conversion list
+** if the function has set all arguments, it stops (in the case of positional
+** args, that avoids repeated calls for arg that are required more than once
+*/
+
+static void	ft_set_types(t_var_arg *args_array, t_lst *conversion_list,
+		size_t args_number)
+{
+	size_t	arg_count;
+
+	arg_count = args_number;
+	while (arg_count != 0 && conversion_list != NULL)
+	{
+		if (ft_conv_to_type(args_array, conversion_list->content))
+			arg_count--;
+		conversion_list = conversion_list->next;
+	}
+	if (arg_count != 0)
+	{
+		arg_count = 0;
+		while (arg_count < args_number)
+		{
+			if (args_array[arg_count].type == UNKNOWN_TYPE)
+				args_array[arg_count].type = INT;
+			arg_count++;
+		}
+	}
 }
 
 static void			ft_fill_args_array(t_var_arg *arg_list, va_list *var_args,
