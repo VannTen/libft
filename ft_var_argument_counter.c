@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 14:32:52 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/20 15:51:12 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/21 12:01:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_max_arg_required(void *_conversion)
 		conversion->format_string->arg_count = conversion->arg_index;
 }
 
-t_var_arg		*ft_var_argument_counter(t_format_string *format_string)
+t_var_arg		*ft_get_args(t_format_string *format_string)
 {
 	t_var_arg	*arg_array;
 	int		index;

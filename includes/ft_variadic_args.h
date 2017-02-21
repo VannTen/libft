@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 12:48:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/09 17:58:11 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/21 11:56:29 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ static const t_var_advance	g_advance_by[] = {
 	&put_ptr_size_t_arg,
 	NULL
 };
-
 
 typedef struct	s_var_arg
 {
