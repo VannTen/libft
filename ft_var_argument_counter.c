@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 14:32:52 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/21 12:01:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/21 12:32:16 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_max_arg_required(void *_conversion)
 		conversion->format_string->arg_count = conversion->arg_index;
 }
 
-t_var_arg		*ft_get_args(t_format_string *format_string)
+t_var_arg		*ft_arg_list_ctor(t_format_string *format_string)
 {
 	t_var_arg	*arg_array;
 	int		index;
@@ -45,4 +45,17 @@ t_var_arg		*ft_get_args(t_format_string *format_string)
 		}
 	}
 	return (arg_array);
+}
+
+void	ft_fill_args_array(t_var_arg *arg_list, va_list *var_args, size_t size)
+{
+	size_t	index;
+
+	index = 0;
+	while (index < size)
+	{
+		va_copy(arg_list[index].arg, *var_args);
+		g_advance_by[arg_list[index].type](var_args);
+		index++;
+	}
 }
