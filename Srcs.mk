@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/02/21 11:51:15 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/02/21 14:36:26 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ LIB_LIST ?=\
 	f_lstpop.c  ft_lstpushdata.c ft_memalloc.c ft_memset.c \
 	ft_lstadd.c ft_lstcheck.c ft_add_end_list.c 
 LIB_FIFO ?=\
-	f_fifo_add.c f_fifo_create.c f_fifo_take.c f_fifo_destroy.c f_fifo_extract.c
+	f_fifo_add.c f_fifo_create.c f_fifo_take.c f_fifo_destroy.c f_fifo_extract.c\
+	f_fifo_lstrelay.c
 LIB_STR ?=\
 	ft_strcat.c ft_strchr.c ft_strclr.c \
 	ft_strcmp.c ft_strcpy.c ft_strdel.c ft_strdup.c ft_strequ.c ft_striter.c \

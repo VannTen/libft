@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/08 18:09:56 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/21 14:40:05 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ t_lst				*f_fifo_extract(t_fifo **fifo);
 t_fifo				*f_fifo_destroy(t_fifo **fifo, void (*del)(void *content));
 t_fifo				*f_fifo_add(t_fifo *fifo, const void *content);
 void				*f_fifo_take(t_fifo *fifo);
+unsigned int		f_fifomax(t_fifo *fifo,
+		unsigned int (*get_max)(const void*));
 
 /*
 ** Str functions
