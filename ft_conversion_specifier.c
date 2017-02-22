@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 18:45:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 13:21:47 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/22 17:45:01 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 #include <stdlib.h>
 
 size_t	set_field_width(const char *conversion_specifier, size_t index,
-		t_conversion *convers_specs)
+		t_conversion *convers_specs, t_format_string *fmt)
 {
 	return (set_int_params(conversion_specifier, index,
-				&convers_specs->field_width, convers_specs->format_string));
+				&convers_specs->field_width, fmt));
 }
 
 size_t	set_precision(const char *conversion_specifier, size_t index,
-		t_conversion *convers_specs)
+		t_conversion *convers_specs, t_format_string *fmt)
 {
 	if (conversion_specifier[index] == PRECISION_INDICATOR)
 	{
 		index++;
 		index = set_int_params(conversion_specifier, index,
-				&convers_specs->precision, convers_specs->format_string);
+				&convers_specs->precision, fmt);
 	}
 	return (index);
 }
@@ -55,7 +55,7 @@ size_t	set_length_modifier(const char *conversion_specifier,
 }
 
 size_t	set_type_conversion(const char *conversion_specifier, size_t index,
-		t_conversion *convers_specs)
+		t_conversion *convers_specs, t_format_string *fmt)
 {
 	size_t	type_index;
 	char	type;
@@ -78,7 +78,7 @@ size_t	set_type_conversion(const char *conversion_specifier, size_t index,
 		index++;
 		if (convers_specs->arg_index == 0)
 			convers_specs->arg_index =
-				ft_request_arg(convers_specs->format_string);
+				ft_request_arg(fmt);
 	}
 	return (index);
 }
