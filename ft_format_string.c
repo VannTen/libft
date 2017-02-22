@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:52:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 15:04:45 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/22 15:55:37 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void				dtor(t_format_string *to_destroy)
 	}
 }
 
-static t_format_string	*ctor(void)
+t_format_string	*fmt_ctor(void)
 {
 	t_format_string *format_string;
 
@@ -44,32 +44,6 @@ static t_format_string	*ctor(void)
 	return (format_string);
 }
 
-t_format_string			*ft_format_string_parser(const char *string)
-{
-	size_t			index;
-	size_t			index_before;
-
-	t_format_string	*format_string;
-	format_string = ctor();
-	if (format_string == NULL)
-		return (NULL);
-	index = 0;
-	while (string[index] != '\0')
-	{
-		if (string[index] == CONVERSION_INDICATOR)
-		{
-			index_before = index;
-			index++;
-			index = conversion_parser(string, index, format_string);
-			format_string->conversions_length += index - index_before;
-		}
-		else
-			index++;
-	}
-	format_string->length = index;
-	return (format_string);
-}
-
 int				ft_request_arg(t_format_string *format)
 {
 	int		index;
@@ -79,10 +53,14 @@ int				ft_request_arg(t_format_string *format)
 	return (index);
 }
 
-t_bool	f_push_conv_to_fmt(t_format_string *fmt, t_conversion *conversion)
+t_bool	f_add_conv_to_fmt(t_format_string *fmt, t_conversion *conversion,
+		size_t index)
 {
 	if (f_fifo_add(fmt->conversion_list, conversion) != NULL)
+	{
+		fmt->conversions_length += index;
 		return (TRUE);
+	}
 	else
 		return (FALSE);
 }
