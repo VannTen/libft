@@ -6,12 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 12:27:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 12:28:42 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/22 18:20:43 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "int_params_defs.h"
 #include "format_string_interface.h"
+#include "printf_constants.h"
+#include "libft.h"
 #include <stdlib.h>
 
 /*
