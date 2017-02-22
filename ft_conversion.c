@@ -6,17 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 12:23:57 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 15:49:52 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/22 16:41:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "format_string_interface.h"
 #include "conversion_interface.h"
 #include "ft_set_params.h"
 #include <stdlib.h>
-
-size_t	*conversion_parser(const char *conversion_text, index)
-{
-}
 
 size_t	ft_add_conversion(const char *conv_text, t_format_string *fmt)
 {
@@ -24,15 +21,15 @@ size_t	ft_add_conversion(const char *conv_text, t_format_string *fmt)
 	t_conversion	*conversion;
 
 	index = 1;
-	conversion = ctor();
+	conversion = conversion_ctor();
 	if (conversion == NULL)
 		return (0);
-	index = set_positional_arg(conversion_text, index, conversion);
-	index = set_flags(conversion_text, index, conversion);
-	index = set_field_width(conversion_text, index, conversion);
-	index = set_precision(conversion_text, index, conversion);
-	index = set_length_modifier(conversion_text, index, conversion);
-	index = set_type_conversion(conversion_text, index, conversion);
+	index = set_positional_arg(conv_text, index, conversion);
+	index = set_flags(conv_text, index, conversion);
+	index = set_field_width(conv_text, index, conversion);
+	index = set_precision(conv_text, index, conversion);
+	index = set_length_modifier(conv_text, index, conversion);
+	index = set_type_conversion(conv_text, index, conversion);
 	if (!f_add_conv_to_fmt(fmt, conversion, index))
 		return (0);
 	return (index);

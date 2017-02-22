@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 12:28:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 16:19:12 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/22 16:21:49 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "libft.h"
 #include <stdlib.h>
 #include <stdarg.h>
-
 
 /*
 ** Set the types for each required element using the conversion list
