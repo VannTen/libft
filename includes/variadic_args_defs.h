@@ -6,13 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:32:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 10:56:22 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/22 18:31:34 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VARIADIC_ARGS_DEFS_H
 # define VARIADIC_ARGS_DEFS_H
-# include "variadic_args_defs.h"
+# include "variadic_args_interface.h"
 # include <stdarg.h>
 
 typedef enum	e_type

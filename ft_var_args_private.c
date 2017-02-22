@@ -6,11 +6,17 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 16:17:05 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/22 18:42:24 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "variadic_args_defs.h"
+#include "conv_types_defs.h"
+#include "ft_variadic_args.h"
+#include "conversion_interface.h"
+#include "bool.h"
+#include <stdlib.h>
+#include <stdarg.h>
 
 void				ft_arg_list_dtor(t_var_arg *array, size_t size)
 {
