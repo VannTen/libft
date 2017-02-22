@@ -1,32 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion_specifier.h                          :+:      :+:    :+:   */
+/*   conv_types_defs.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/30 19:03:56 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/07 13:55:45 by mgautier         ###   ########.fr       */
+/*   Created: 2017/02/22 10:44:57 by mgautier          #+#    #+#             */
+/*   Updated: 2017/02/22 10:45:19 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_CONVERSION_SPECIFIER_H
-# define FT_CONVERSION_SPECIFIER_H
-# define PRECISION_INDICATOR '.'
+#ifndef CONV_TYPES_DEFS_H
+# define CONV_TYPES_DEFS_H
 
-enum	e_lenght_modifier
+typedef enum	e_conv_type
 {
-	NONE,
-	SHORT,
-	VERY_SHORT,
-	LONG,
-	VERY_LONG,
-	MAX_INT,
-	PTR_DIFF,
-	SIZE,
-	QUAD,
-	LENGTH_MODIFIER_NBR
-};
+	D,
+	I,
+	O,
+	U,
+	X,
+	X_MAJ,
+	E,
+	E_MAJ,
+	F,
+	F_MAJ,
+	G,
+	G_MAJ,
+	A,
+	A_MAJ,
+	C,
+	S,
+	P,
+	N,
+	NO_CONVERSION,
+	D_MAJ,
+	O_MAJ,
+	U_MAJ,
+	C_MAJ,
+	S_MAJ,
+	UNKNOWN_CONVERSION
+}				t_conv_type;
 
-const static char	g_length_modifier[] = "\0hHlLjtzq";
+static const char g_conv_types[] = "diouxXeEfFgGaAcspn%DOUCS";
+
 #endif

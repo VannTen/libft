@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_argument.h                                      :+:      :+:    :+:   */
+/*   flags_defs.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/30 19:01:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 11:59:41 by mgautier         ###   ########.fr       */
+/*   Created: 2017/01/30 18:16:22 by mgautier          #+#    #+#             */
+/*   Updated: 2017/02/22 10:54:23 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARGUMENT_H
-# define FT_ARGUMENT_H
-# include <stdlib.h>
-# include "format_string_interface.h"
-# include "int_params_interface.h"
+#ifndef FLAGS_DEFS_H
+# define FLAGS_DEFS_H
 
-size_t		set_int_params(const char *conversion_specifier, size_t index,
-		t_int_param *int_param, t_format_string *format_string);
+enum	e_flags
+{
+	ALTERNATE_FORM,
+	ZERO_PADDING,
+	NEGATIVE_FIELD_WIDTH,
+	BLANK,
+	ALWAYS_SIGN,
+	THOUSANDS_SEP,
+	FLAGS_NBR
+};
 
-int			ft_request_arg(t_format_string *format);
+static const char g_flags[] = "#0- +'";
 #endif

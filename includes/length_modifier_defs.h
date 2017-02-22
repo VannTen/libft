@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_argument.h                                      :+:      :+:    :+:   */
+/*   length_modifier_defs.h                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/30 19:01:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 11:59:41 by mgautier         ###   ########.fr       */
+/*   Created: 2017/01/30 19:03:56 by mgautier          #+#    #+#             */
+/*   Updated: 2017/02/22 11:06:28 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARGUMENT_H
-# define FT_ARGUMENT_H
-# include <stdlib.h>
-# include "format_string_interface.h"
-# include "int_params_interface.h"
+#ifndef LENGTH_MODIFIER_DEFS_H
+# define LENGTH_MODIFIER_DEFS_H
 
-size_t		set_int_params(const char *conversion_specifier, size_t index,
-		t_int_param *int_param, t_format_string *format_string);
+typedef enum	e_lenght_modifier
+{
+	NONE,
+	SHORT,
+	VERY_SHORT,
+	LONG,
+	VERY_LONG,
+	MAX_INT,
+	PTR_DIFF,
+	SIZE,
+	QUAD,
+	LENGTH_MODIFIER_NBR
+}			t_length_modifier;
 
-int			ft_request_arg(t_format_string *format);
+const static char	g_length_modifier[] = "\0hHlLjtzq";
 #endif

@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_argument.h                                      :+:      :+:    :+:   */
+/*   conversion_interface.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/30 19:01:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 11:59:41 by mgautier         ###   ########.fr       */
+/*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
+/*   Updated: 2017/02/22 10:29:24 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARGUMENT_H
-# define FT_ARGUMENT_H
-# include <stdlib.h>
+#ifndef CONVERSION_INTERFACE_H
+# define CONVERSION_INTERFACE_H
 # include "format_string_interface.h"
-# include "int_params_interface.h"
+# include <stdlib.h>
 
-size_t		set_int_params(const char *conversion_specifier, size_t index,
-		t_int_param *int_param, t_format_string *format_string);
+struct	s_conversion;
+typedef struct	s_conversion t_conversion;
 
-int			ft_request_arg(t_format_string *format);
+size_t			conversion_parser(const char *conversion_text, size_t index,
+							t_format_string *format_string);
+
 #endif

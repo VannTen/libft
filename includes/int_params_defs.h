@@ -1,46 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_types.h                                         :+:      :+:    :+:   */
+/*   int_params_defs.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/31 12:50:58 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/07 13:55:16 by mgautier         ###   ########.fr       */
+/*   Created: 2017/02/22 10:25:10 by mgautier          #+#    #+#             */
+/*   Updated: 2017/02/22 10:39:18 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_TYPES_H
-# define FT_TYPES_H
+#ifndef INT_PARAMS_DEFS_H
+# define INT_PARAMS_DEFS_H
+# include "int_params_interface.h"
+# include "bool.h"
 
-typedef enum	e_conv_type
+struct	s_int_param
 {
-	D,
-	I,
-	O,
-	U,
-	X,
-	X_MAJ,
-	E,
-	E_MAJ,
-	F,
-	F_MAJ,
-	G,
-	G_MAJ,
-	A,
-	A_MAJ,
-	C,
-	S,
-	P,
-	N,
-	NO_CONVERSION,
-	D_MAJ,
-	O_MAJ,
-	U_MAJ,
-	C_MAJ,
-	S_MAJ,
-	UNKNOWN_CONVERSION
-}				t_conv_type;
+	t_bool	is_arg;
+	int		value;
+};
 
-static const char g_types[] = "diouxXeEfFgGaAcspn%DOUCS";
 #endif

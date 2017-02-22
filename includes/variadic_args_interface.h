@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_argument.h                                      :+:      :+:    :+:   */
+/*   variadic_args_interface.h                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/30 19:01:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 11:59:41 by mgautier         ###   ########.fr       */
+/*   Created: 2017/02/22 10:34:04 by mgautier          #+#    #+#             */
+/*   Updated: 2017/02/22 10:35:34 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARGUMENT_H
-# define FT_ARGUMENT_H
-# include <stdlib.h>
-# include "format_string_interface.h"
-# include "int_params_interface.h"
+#ifndef VARIADIC_ARGS_INTERFACE_H
+# define VARIADIC_ARGS_INTERFACE_H
+# include "fifo.h"
+# include <stdarg.h>
 
-size_t		set_int_params(const char *conversion_specifier, size_t index,
-		t_int_param *int_param, t_format_string *format_string);
+struct	s_var_arg;
+typedef struct s_var_arg t_var_arg;
 
-int			ft_request_arg(t_format_string *format);
+t_var_arg		*ft_get_var_args(t_fifo *conv_list, va_list *var_arg_list);
 #endif

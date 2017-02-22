@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags.h                                         :+:      :+:    :+:   */
+/*   int_params_interface.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/30 18:16:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/31 13:17:46 by mgautier         ###   ########.fr       */
+/*   Created: 2017/02/22 10:26:32 by mgautier          #+#    #+#             */
+/*   Updated: 2017/02/22 10:27:57 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FLAGS_H
-# define FT_FLAGS_H
+#ifndef INT_PARAMS_INTERFACE_H
+# define INT_PARAMS_INTERFACE_H
 
-enum	e_flags
-{
-	ALTERNATE_FORM,
-	ZERO_PADDING,
-	NEGATIVE_FIELD_WIDTH,
-	BLANK,
-	ALWAYS_SIGN,
-	THOUSANDS_SEP,
-	FLAGS_NBR
-};
+struct	s_int_param;
+typedef struct s_int_param t_int_param;
 
-static const char g_flags[] = "#0- +'";
 #endif
