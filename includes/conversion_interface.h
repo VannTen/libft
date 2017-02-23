@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/23 12:11:22 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/23 12:52:54 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_conversion	*conversion_ctor(void);
 t_bool			set_one_flag(const char *conv_string, size_t index,
 		t_conversion *conv);
 unsigned int	ft_arg_required(const void *conversion);
-unsigned int	get_modifier(t_conversion *conversion);
+unsigned int	get_modifier(const t_conversion *conversion);
 
 t_bool			is_signed_integer_conv(const t_conversion* conversion);
 t_bool			is_unsigned_integer_conv(const t_conversion* conversion);

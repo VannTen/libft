@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:45:19 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/23 12:10:01 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/23 12:52:16 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ size_t			set_positional_arg(const char *conversion_specifier,
 				&convers_specs->arg_index));
 }
 
-t_conversion	*conversion_ctor(t_format_string *format_string)
+t_conversion	*conversion_ctor(void)
 {
 	t_conversion	*conversion;
 	size_t			index;
@@ -57,7 +57,6 @@ t_conversion	*conversion_ctor(t_format_string *format_string)
 		conversion->field_width.is_arg = FALSE;
 		conversion->precision.is_arg = FALSE;
 		conversion->length_modifier = 0;
-		conversion->format_string = format_string;
 	}
 	return (conversion);
 }
