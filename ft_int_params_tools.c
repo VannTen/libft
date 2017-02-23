@@ -6,10 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:49:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 18:25:34 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/23 12:55:28 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
 static size_t	ft_is_positional(const char *arg_specifier)
