@@ -6,13 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:45:19 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/23 12:52:16 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/23 13:09:45 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
 
-t_bool	set_one_flag(const char *conversion_specifier, size_t index,
+t_bool			set_one_flag(const char *conversion_specifier, size_t index,
 		t_conversion *convers_specs)
 {
 	size_t	index_flags;

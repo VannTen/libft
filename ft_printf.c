@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 15:12:26 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/21 18:03:19 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/23 13:05:07 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #include "ft_printf.h"
 #include <stdarg.h>
 
-
-int ft_vprintf(const char *format_string, va_list *var_arg_list)
+int	ft_vprintf(const char *format_string, va_list *var_arg_list)
 {
 	t_format_string	*fmt;
 

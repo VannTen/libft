@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/02/23 12:55:02 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/02/23 13:09:15 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ LIB_MATH ?=\
 LIB_MISCELLANEOUS ?=\
 	database.c do_nothing.c
 LIB_PRINTF ?=\
-	ft_conversion_parser.c ft_conversion_specifier.c\
+	ft_conversion_specifier.c\
 	ft_flags.c ft_format_string.c ft_format_string_args.c\
 	ft_format_string_parser.c\
 	ft_conversion.c ft_int_params.c ft_int_params_tools.c ft_var_args_private.c\

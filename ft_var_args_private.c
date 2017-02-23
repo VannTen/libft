@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/23 12:19:53 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/23 13:05:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-void				ft_arg_list_dtor(t_var_arg *array, size_t size)
+void			ft_arg_list_dtor(t_var_arg *array, size_t size)
 {
 	size_t	index;
 
@@ -30,7 +30,7 @@ void				ft_arg_list_dtor(t_var_arg *array, size_t size)
 	free(array);
 }
 
-t_var_arg	*ft_arg_list_ctor(size_t arg_nbr)
+t_var_arg		*ft_arg_list_ctor(size_t arg_nbr)
 {
 	t_var_arg	*arg_array;
 	size_t		index;
@@ -48,7 +48,7 @@ t_var_arg	*ft_arg_list_ctor(size_t arg_nbr)
 	return (arg_array);
 }
 
-static t_bool ft_conv_to_type(t_var_arg *variadic, t_conversion *conversion)
+static t_bool	ft_conv_to_type(t_var_arg *variadic, t_conversion *conversion)
 {
 	size_t	arg_index;
 	t_type	base_type;
@@ -68,7 +68,7 @@ static t_bool ft_conv_to_type(t_var_arg *variadic, t_conversion *conversion)
 	return (TRUE);
 }
 
-void	ft_set_types(t_var_arg *args_array, t_lst *conversion_list,
+void			ft_set_types(t_var_arg *args_array, t_lst *conversion_list,
 		size_t args_number)
 {
 	size_t	arg_count;
@@ -105,4 +105,3 @@ void			ft_fill_args_array(t_var_arg *arg_list, va_list *var_args,
 		index++;
 	}
 }
-

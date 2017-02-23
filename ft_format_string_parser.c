@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 15:31:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 16:34:38 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/23 13:02:06 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ t_format_string			*ft_format_string_parser(const char *string)
 {
 	size_t			index;
 	size_t			conv_len;
-
 	t_format_string	*format_string;
+
 	format_string = fmt_ctor();
 	if (format_string == NULL)
 		return (NULL);

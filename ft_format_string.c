@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:52:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 16:31:14 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/23 13:07:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-void				fmt_dtor(t_format_string *to_destroy)
+void			fmt_dtor(t_format_string *to_destroy)
 {
 	if (to_destroy != NULL)
 	{
@@ -53,8 +53,8 @@ int				ft_request_arg(t_format_string *format)
 	return (index);
 }
 
-t_bool	f_add_conv_to_fmt(t_format_string *fmt, t_conversion *conversion,
-		size_t index)
+t_bool			f_add_conv_to_fmt(t_format_string *fmt,
+									t_conversion *conversion, size_t index)
 {
 	if (f_fifo_add(fmt->conversion_list, conversion) != NULL)
 	{
@@ -65,7 +65,7 @@ t_bool	f_add_conv_to_fmt(t_format_string *fmt, t_conversion *conversion,
 		return (FALSE);
 }
 
-void	set_fmt_length(t_format_string *fmt, size_t length)
+void			set_fmt_length(t_format_string *fmt, size_t length)
 {
 	fmt->length = length;
 }

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 12:28:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 16:21:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/23 13:02:43 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 ** args, that avoids repeated calls for arg that are required more than once
 */
 
-t_var_arg			*ft_get_var_args(t_fifo *conv_list, va_list *var_arg_list)
+t_var_arg	*ft_get_var_args(t_fifo *conv_list, va_list *var_arg_list)
 {
 	t_var_arg			*arg_array;
 	unsigned int		arg_nbr;
@@ -31,7 +31,9 @@ t_var_arg			*ft_get_var_args(t_fifo *conv_list, va_list *var_arg_list)
 	arg_nbr = f_fifomax(conv_list, &ft_arg_required);
 	arg_array = ft_arg_list_ctor(arg_nbr);
 	if (arg_array != NULL)
+	{
 		ft_set_types(arg_array, conv_list->begin_lst, arg_nbr);
 		ft_fill_args_array(arg_array, var_arg_list, arg_nbr);
+	}
 	return (arg_array);
 }

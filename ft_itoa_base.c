@@ -6,7 +6,7 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 10:03:02 by exam              #+#    #+#             */
-/*   Updated: 2017/02/02 14:13:34 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/23 13:21:29 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	negative(char *str, intmax_t number, int base, char after_digits)
 	if (number == 0)
 	{
 		*str = '-';
-		return;
+		return ;
 	}
 	digit = -(number % base);
 	if (digit < 10)
@@ -63,7 +63,7 @@ void	positive(char *str, uintmax_t number, int base, char after_digits)
 	char digit;
 
 	if (number == 0)
-		return;
+		return ;
 	digit = number % base;
 	if (digit < 10)
 		*str = digit + '0';
