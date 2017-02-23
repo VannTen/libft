@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:32:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 18:31:34 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/23 18:22:08 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef enum	e_type
 
 struct	s_var_arg
 {
-	va_list	arg;
+	void	*arg;
 	t_type	type;
 };
 
