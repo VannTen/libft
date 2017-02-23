@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 19:03:56 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 11:06:28 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/23 15:49:50 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 typedef enum	e_lenght_modifier
 {
 	NONE,
-	SHORT,
 	VERY_SHORT,
+	SHORT,
 	LONG,
 	VERY_LONG,
 	MAX_INT,
@@ -27,5 +27,5 @@ typedef enum	e_lenght_modifier
 	LENGTH_MODIFIER_NBR
 }			t_length_modifier;
 
-const static char	g_length_modifier[] = "\0hHlLjtzq";
+const static char	g_length_modifier[] = "\0HhlLjtzq";
 #endif
