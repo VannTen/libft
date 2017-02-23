@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/23 13:05:31 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/23 15:23:56 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_var_arg		*ft_arg_list_ctor(size_t arg_nbr)
 	size_t		index;
 
 	index = 0;
-	arg_array = malloc(sizeof(t_var_arg) * (arg_nbr + 1));
+	arg_array = malloc(sizeof(t_var_arg) * (arg_nbr));
 	if (arg_array != NULL)
 	{
 		while (index < arg_nbr)
