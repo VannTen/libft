@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/02/22 16:08:47 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/02/23 12:21:43 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,8 @@ LIB_MISCELLANEOUS ?=\
 LIB_PRINTF ?=\
 	ft_conversion_parser.c ft_conversion_specifier.c\
 	ft_flags.c ft_format_string.c ft_format_string_args.c ft_format_string_parser.c\
-	ft_conversion.c ft_int_params.c ft_var_args_private.c
+	ft_conversion.c ft_int_params.c ft_var_args_private.c\
+	ft_conversion_private_is_conv.c
 LIB_VARIADIC ?=\
 	ft_variadic_get_char.c ft_variadic_get_int.c ft_variadic_get_intmax_t.c\
 	ft_variadic_get_long.c ft_variadic_get_long_long.c ft_variadic_get_ptrdiff_t.c\

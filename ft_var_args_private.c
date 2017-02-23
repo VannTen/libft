@@ -6,12 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 18:42:24 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/23 12:19:53 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "variadic_args_defs.h"
-#include "conv_types_defs.h"
 #include "ft_variadic_args.h"
 #include "conversion_interface.h"
 #include "bool.h"
@@ -51,19 +50,21 @@ t_var_arg	*ft_arg_list_ctor(size_t arg_nbr)
 
 static t_bool ft_conv_to_type(t_var_arg *variadic, t_conversion *conversion)
 {
-	if (variadic->type != UNKNOWN_TYPE)
+	size_t	arg_index;
+	t_type	base_type;
+
+	arg_index = ft_arg_required(conversion);
+	if (variadic[arg_index].type != UNKNOWN_TYPE)
 		return (FALSE);
-	if (conversion->type == D || conversion->type == I)
-		variadic[conversion->arg_index].type =
-			INT + conversion->length_modifier;
-	else if (conversion->type >= O && conversion->type <= X_MAJ)
-		variadic[conversion->arg_index].type =
-			U_INT + conversion->length_modifier;
-	else if (conversion->type == N)
-		variadic[conversion->arg_index].type =
-			PTR_INT + conversion->length_modifier;
+	if (is_signed_integer_conv(conversion))
+		base_type = INT;
+	else if (is_unsigned_integer_conv(conversion))
+		base_type = U_INT;
+	else if (is_ptr_conv(conversion))
+		base_type = PTR_INT;
 	else
 		return (FALSE);
+	variadic[arg_index].type = base_type + get_modifier(conversion);
 	return (TRUE);
 }
 

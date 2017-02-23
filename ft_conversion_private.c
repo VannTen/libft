@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:45:19 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 16:14:32 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/23 12:10:01 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,3 +67,7 @@ unsigned int	ft_arg_required(const void *conversion)
 	return (((const t_conversion*)conversion)->arg_index);
 }
 
+unsigned int	get_modifier(const t_conversion *conversion)
+{
+	return (conversion->length_modifier);
+}
