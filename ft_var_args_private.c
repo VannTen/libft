@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/24 16:57:03 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/24 18:44:30 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "ft_variadic_params.h"
 #include "conversion_interface.h"
 #include "bool.h"
+#include "libft.h"
 #include <stdlib.h>
 #include <stdarg.h>
 
@@ -49,11 +50,15 @@ t_var_arg		*ft_arg_list_ctor(size_t arg_nbr)
 	return (arg_array);
 }
 
-static t_bool	ft_conv_to_type(t_var_arg *variadic, t_conversion *conversion)
+static t_bool	ft_conv_to_type(const void *v_conversion, void *v_variadic)
 {
-	size_t	arg_index;
-	t_type	base_type;
+	size_t				arg_index;
+	t_type				base_type;
+	const t_conversion	*conversion;
+	t_var_arg			*variadic;
 
+	conversion = v_conversion;
+	variadic = v_variadic;
 	arg_index = ft_arg_required(conversion);
 	if (variadic[arg_index].type != UNKNOWN_TYPE)
 		return (FALSE);
@@ -76,13 +81,8 @@ void			ft_set_types(t_var_arg *args_array, t_lst *conversion_list,
 {
 	size_t	arg_count;
 
-	arg_count = args_number;
-	while (arg_count != 0 && conversion_list != NULL)
-	{
-		if (ft_conv_to_type(args_array, conversion_list->content))
-			arg_count--;
-		conversion_list = conversion_list->next;
-	}
+	arg_count = f_lstarray_end_early(args_array, conversion_list, args_number,
+			&ft_conv_to_type);
 	if (arg_count != 0)
 	{
 		arg_count = 0;

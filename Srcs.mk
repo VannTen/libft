@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/02/23 14:44:09 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/02/24 18:47:17 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,9 @@ TARGET := libft.a
 LIB_LST ?=\
 	f_lstpush.c f_lstnew.c f_lst_every_valid.c f_lstmap.c\
 	f_lstmapi.c f_lst_len.c f_lstsearch.c f_lstremoveif_one.c f_add_end_lst.c\
-	f_lstiter.c f_strljoin.c f_strsplit_lst.c f_lstdelone.c f_lstdel.c f_lstmax.c
+	f_lstiter.c f_strljoin.c f_strsplit_lst.c f_lstdelone.c f_lstdel.c\
+	f_lstmax.c f_lstarray.c
+
 LIB_LIST ?=\
 	ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c ft_lstnew.c \
 	f_lstpop.c  ft_lstpushdata.c ft_memalloc.c ft_memset.c \
@@ -65,7 +67,7 @@ LIB_MISCELLANEOUS ?=\
 	database.c do_nothing.c
 LIB_PRINTF ?=\
 	ft_conversion_specifier.c\
-	ft_flags.c ft_format_string.c ft_format_string_args.c\
+	ft_flags.c ft_format_string_private.c ft_format_string_args.c\
 	ft_format_string_parser.c\
 	ft_conversion.c ft_int_params.c ft_int_params_tools.c ft_var_args_private.c\
 	ft_conversion_private_is_conv.c ft_conversion_private.c\
