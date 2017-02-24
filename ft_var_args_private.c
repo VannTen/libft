@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/24 12:34:56 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/24 16:57:03 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ static t_bool	ft_conv_to_type(t_var_arg *variadic, t_conversion *conversion)
 		base_type = U_INT;
 	else if (is_ptr_conv(conversion))
 		base_type = PTR_INT;
+	else if (is_string_conv(conversion))
+		base_type = PTR_CHAR;
 	else
 		return (FALSE);
 	variadic[arg_index].type = base_type + get_modifier(conversion);
