@@ -6,17 +6,17 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:10:08 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 16:34:18 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/24 12:24:26 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORMAT_STRING_INTERFACE_H
 # define FORMAT_STRING_INTERFACE_H
-#include "conversion_interface.h"
-#include "bool.h"
+# include "conversion_interface.h"
+# include "bool.h"
 
 struct s_format_string;
-typedef struct s_format_string t_format_string;
+typedef struct s_format_string	t_format_string;
 
 /*
 ** Functions acting on the internal of the object
@@ -34,5 +34,5 @@ void			set_fmt_length(t_format_string *fmt, size_t length);
 ** Others functions
 */
 
-size_t	ft_add_conversion(const char *conv_text, t_format_string *fmt);
+size_t			ft_add_conversion(const char *conv_text, t_format_string *fmt);
 #endif

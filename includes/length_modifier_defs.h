@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   length_modifier_defs.h                          :+:      :+:    :+:   */
+/*   length_modifier_defs.h	                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 19:03:56 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/23 15:49:50 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/24 12:20:22 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef enum	e_lenght_modifier
 	SIZE,
 	QUAD,
 	LENGTH_MODIFIER_NBR
-}			t_length_modifier;
+}				t_length_modifier;
 
 const static char	g_length_modifier[] = "\0HhlLjtzq";
 #endif

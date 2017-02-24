@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 18:03:13 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 18:15:53 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/24 12:25:08 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ size_t			set_precision(const char *format_string, size_t index,
 		t_conversion *conversion, t_format_string *fmt);
 size_t			set_length_modifier(const char *format_string, size_t index,
 		t_conversion *conversion, t_format_string *fmt);
-size_t		set_type_conversion(const char *conversion_specifier, size_t index,
-		t_conversion *conversion, t_format_string *fmt);
+size_t			set_type_conversion(const char *conversion_specifier,
+		size_t index, t_conversion *conversion, t_format_string *fmt);
 
 #endif

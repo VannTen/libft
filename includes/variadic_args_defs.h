@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:32:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/24 12:04:48 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/24 12:36:43 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stddef.h>
 # include <wchar.h>
 
-typedef enum	e_type
+typedef enum				e_type
 {
 	UNKNOWN_TYPE,
 	INT,
@@ -47,9 +47,9 @@ typedef enum	e_type
 	PTR_PTRDIFF,
 	PTR_SIZE,
 	PTR_QUAD
-}				t_type;
+}							t_type;
 
-struct			s_var_arg
+struct						s_var_arg
 {
 	union
 	{
@@ -73,8 +73,8 @@ struct			s_var_arg
 		size_t				*t_ptr_size_t;
 		wint_t				t_wint_t;
 		wchar_t				*t_wstring;
-	}			parameter;
-	t_type		type;
+	}						parameter;
+	t_type					type;
 };
 
 #endif
