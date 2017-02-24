@@ -1,43 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_variadic_get_int.c                              :+:      :+:    :+:   */
+/*   ft_ptr_variadic_get_int.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/09 12:43:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/23 18:43:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/24 11:56:07 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "variadic_args_defs.h"
 #include <stdarg.h>
 
-void	*put_int_param(va_list *arg_list)
+void	put_int_param(t_var_arg *param, va_list *arg_list)
 {
-	int *ptr;
 
-	ptr = malloc(sizeof(int));
-	if(ptr != NULL)
-		*ptr = va_arg(*arg_list, int);
-	return (ptr);
-}
+	param->parameter.t_int = va_arg(*arg_list, int);
+	}
 
-void	*put_uint_param(va_list *arg_list)
+void	put_uint_param(t_var_arg *param, va_list *arg_list)
 {
-	unsigned int *ptr;
 
-	ptr = malloc(sizeof(unsigned int));
-	if(ptr != NULL)
-		*ptr = va_arg(*arg_list, unsigned int);
-	return (ptr);
-}
+	param->parameter.t_uint = va_arg(*arg_list, unsigned int);
+	}
 
-void	*put_int_ptr_param(va_list *arg_list)
+void	put_int_ptr_param(t_var_arg *param, va_list *arg_list)
 {
-	int* *ptr;
 
-	ptr = malloc(sizeof(int*));
-	if(ptr != NULL)
-		*ptr = va_arg(*arg_list, int*);
-	return (ptr);
-}
+	param->parameter.t_ptr_int = va_arg(*arg_list, int*);
+	}

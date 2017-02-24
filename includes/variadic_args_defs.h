@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:32:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/23 18:22:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/24 12:04:48 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define VARIADIC_ARGS_DEFS_H
 # include "variadic_args_interface.h"
 # include <stdarg.h>
+# include <stddef.h>
+# include <wchar.h>
 
 typedef enum	e_type
 {
@@ -47,10 +49,32 @@ typedef enum	e_type
 	PTR_QUAD
 }				t_type;
 
-struct	s_var_arg
+struct			s_var_arg
 {
-	void	*arg;
-	t_type	type;
+	union
+	{
+		int					t_int;
+		long int			t_long_int;
+		long long int		t_long_long_int;
+		intmax_t			t_intmax_t;
+		ptrdiff_t			t_ptrdiff_t;
+		size_t				t_size_t;
+		unsigned int		t_uint;
+		unsigned int		t_ulong_int;
+		unsigned long int	t_ulong_long_int;
+		uintmax_t			t_uintmax_t;
+		char				*t_ptr_char;
+		short				*t_ptr_short;
+		int					*t_ptr_int;
+		long int			*t_ptr_long_int;
+		long long int		*t_ptr_long_long_int;
+		intmax_t			*t_ptr_intmax_t;
+		ptrdiff_t			*t_ptr_ptrdiff_t;
+		size_t				*t_ptr_size_t;
+		wint_t				t_wint_t;
+		wchar_t				*t_wstring;
+	}			parameter;
+	t_type		type;
 };
 
 #endif

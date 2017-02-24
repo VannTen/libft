@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/23 18:20:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/24 10:32:40 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void			ft_arg_list_dtor(t_var_arg *array, size_t size)
 	index = 0;
 	while (index < size)
 	{
-		va_end(array[index].arg);
+		array[index].parameter.t_intmax_t = 0;
+		array[index].type = UNKNOWN_TYPE;
 		index++;
 	}
 	free(array);
@@ -100,7 +101,7 @@ void			ft_fill_args_array(t_var_arg *arg_list, va_list *var_args,
 	index = 0;
 	while (index < size)
 	{
-		arg_list.arg = g_get_arg_of_type[arg_list[index].type](var_args);
+		g_get_arg_of_type[arg_list[index].type](arg_list + index, var_args);
 		index++;
 	}
 }
