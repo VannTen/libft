@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:45:19 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/23 16:48:42 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/24 13:51:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ t_bool			set_one_flag(const char *conversion_specifier, size_t index,
 size_t			set_positional_arg(const char *conversion_text,
 		size_t index, t_conversion *convers_specs)
 {
-	index = ft_set_arg_positional(conversion_text, index,
-				&convers_specs->arg_index);
-	convers_specs->arg_index--;
-	return (index);
+	return (ft_set_arg_positional(conversion_text, index,
+				&convers_specs->arg_index));
 }
 
 t_conversion	*conversion_ctor(void)
