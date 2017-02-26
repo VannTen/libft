@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:32:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/24 12:36:43 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/26 14:40:40 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <stddef.h>
 # include <wchar.h>
+# include <stdint.h>
 
 typedef enum				e_type
 {
