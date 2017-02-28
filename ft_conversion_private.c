@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:45:19 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/26 15:02:13 by                  ###   ########.fr       */
+/*   Updated: 2017/02/28 10:29:00 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,4 @@ unsigned int	ft_arg_required(const void *conversion)
 unsigned int	get_modifier(const t_conversion *conversion)
 {
 	return (conversion->length_modifier);
-}
-
-#include "variadic_args_defs.h"
-typedef size_t (*ft)(t_var_arg *arg);
-ft	get_funct(t_conversion *conv);
-
-size_t			ft_conv_result_len(t_conversion *conv, t_var_arg *arg_list)
-{
-		size_t	result;
-
-		result = (get_funct(conv))(arg_list + ft_arg_required(conv));
-		return (result);
 }
