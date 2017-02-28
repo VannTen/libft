@@ -6,7 +6,7 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 10:03:02 by exam              #+#    #+#             */
-/*   Updated: 2017/02/23 13:21:29 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/28 12:44:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,43 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+size_t	itoa_len_signed(intmax_t number, int base)
+{
+	size_t	size;
+
+	size = 0;
+	if (number < 0)
+		size++;
+	while (number != 0)
+	{
+		number = number / base;
+		size++;
+	}
+	return (size);
+}
+
+size_t	itoa_len_unsigned(uintmax_t number, int base)
+{
+	size_t	size;
+
+	size = 0;
+	while (number != 0)
+	{
+		number = number / base;
+		size++;
+	}
+	return (size);
+}
+
 size_t	itoa_length(t_integer number, int base, t_bool is_signed)
 {
 	size_t	size;
 
 	size = 0;
 	if (is_signed)
-	{
-		if (number.negative < 0)
-			size++;
-		while (number.negative != 0)
-		{
-			number.negative = number.negative / base;
-			size++;
-		}
-	}
+		size = itoa_len_signed(number.negative, base);
 	else
-	{
-		while (number.positive != 0)
-		{
-			number.positive = number.positive / base;
-			size++;
-		}
-	}
+		size = itoa_len_unsigned(number.positive, base);
 	return (size);
 }
 
