@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:10:08 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/24 12:24:26 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/28 17:29:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ t_bool			f_add_conv_to_fmt(t_format_string *fmt, t_conversion *conv,
 t_format_string	*fmt_ctor(void);
 void			fmt_dtor(t_format_string *to_destroy);
 void			set_fmt_length(t_format_string *fmt, size_t length);
+
+/*
+** Functions accessing but not modifing the object
+*/
+
+size_t			ft_fmt_plain_text_len(const t_format_string *fmt);
+size_t			ft_conversions_length(const t_format_string *fmt);
 
 /*
 ** Others functions
