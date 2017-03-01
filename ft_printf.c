@@ -1,4 +1,5 @@
 /* ************************************************************************** */
+
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
@@ -6,7 +7,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 15:12:26 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/24 18:48:43 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/01 10:23:55 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +25,7 @@ int	ft_vprintf(const char *format_string, va_list *var_arg_list)
 	written = 0;
 	fmt = ft_format_string_parser(format_string);
 	fmt->arg_list = ft_get_var_args(fmt->conversion_list, var_arg_list);
-//	written = ft_get_resulting_length(fmt);
+	written = ft_get_resulting_length(fmt);
 	return (written);
 }
 
