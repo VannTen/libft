@@ -6,15 +6,21 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 10:29:12 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/28 18:00:54 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/01 10:21:26 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "conv_len_interface.h"
 #include "variadic_args_interface.h"
 #include "conversion_interface.h"
 #include "format_string_interface.h"
 #include <stdlib.h>
 
+size_t	ft_printf_len_unsupported(const t_conversion *conv)
+{
+	(void)conv;
+	return (sizeof(UNSUPPORTED_CONVERSION_STRING));
+}
 /*
 typedef size_t (*mesure_length)(t_var_arg *arg, size_t index);
 mesure_length	get_funct(t_conversion *conv);
