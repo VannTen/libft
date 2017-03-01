@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:10:08 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/01 10:34:34 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/01 15:22:17 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void			set_fmt_length(t_format_string *fmt, size_t length);
 
 size_t			ft_fmt_plain_text_len(const t_format_string *fmt);
 size_t			ft_conversions_length(const t_format_string *fmt);
+size_t			ft_get_current_conv_text_len(t_format_string *fmt);
 
 /*
 ** Others functions
@@ -43,4 +44,7 @@ size_t			ft_conversions_length(const t_format_string *fmt);
 
 size_t			ft_add_conversion(const char *conv_text, t_format_string *fmt);
 size_t			ft_get_resulting_length(const t_format_string *fmt);
+void			ft_write_result_string(const char *fmt, char *final_string,
+		t_format_string *fmt_tokens);
+size_t			ft_write_next_conversion(char *to_write, t_format_string *fmt);
 #endif

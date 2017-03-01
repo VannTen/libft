@@ -17,6 +17,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <limits.h>
+#include "libft.h"
 
 int	ft_vprintf(const char *format_string, va_list *var_arg_list)
 {
@@ -26,13 +27,13 @@ int	ft_vprintf(const char *format_string, va_list *var_arg_list)
 	char			*final_string;
 
 	written = 0;
-	fd = STDIN_FILENO;
+	fd = STDOUT_FILENO;
 	fmt = ft_format_string_parser(format_string);
 	fmt->arg_list = ft_get_var_args(fmt->conversion_list, var_arg_list);
 	written = ft_get_resulting_length(fmt);
-	final_string = malloc(sizeof(char) * (written + 1));
+	final_string = ft_strnew(written);
 	if (final_string != NULL)
-		ft_write_final_string(final_string, fmt);
+		ft_write_result_string(format_string, final_string, fmt);
 	final_string[written] = '\0';
 	write(fd, final_string, written);
 	return (written);
