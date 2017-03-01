@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/01 09:55:29 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/01 15:47:58 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ t_bool			set_one_flag(const char *conv_string, size_t index,
 		t_conversion *conv);
 unsigned int	ft_arg_required(const void *conversion);
 unsigned int	get_modifier(const t_conversion *conversion);
+void			set_conversion_spec_len(t_conversion *conv, size_t index);
+void			set_conversion_result_length(t_conversion *conv, size_t index);
 
 t_bool			is_signed_integer_conv(const t_conversion *conversion);
 t_bool			is_unsigned_integer_conv(const t_conversion *conversion);
@@ -40,6 +42,8 @@ t_bool			is_string_conv(const t_conversion *conversion);
 */
 
 size_t			ft_get_conv_len(const t_conversion *conv);
+size_t			ft_write_conversion(char *to_write, const t_conversion *conv);
+size_t			ft_get_conv_text_len(const t_conversion *conv);
 
 /*
 ** Others

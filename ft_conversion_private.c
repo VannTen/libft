@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:45:19 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/28 10:29:00 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/01 15:47:48 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ t_conversion	*conversion_ctor(void)
 	return (conversion);
 }
 
-unsigned int	ft_arg_required(const void *conversion)
+void			set_conversion_spec_len(t_conversion *conv, size_t index)
 {
-	return (((const t_conversion*)conversion)->arg_index);
+	conv->specifier_length = index;
 }
 
-unsigned int	get_modifier(const t_conversion *conversion)
+void			set_conversion_result_length(t_conversion *conv, size_t index)
 {
-	return (conversion->length_modifier);
+	conv->result_length = index;
 }
