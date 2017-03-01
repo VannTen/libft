@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:10:08 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/28 17:29:59 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/01 10:34:34 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,5 @@ size_t			ft_conversions_length(const t_format_string *fmt);
 */
 
 size_t			ft_add_conversion(const char *conv_text, t_format_string *fmt);
+size_t			ft_get_resulting_length(const t_format_string *fmt);
 #endif
