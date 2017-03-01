@@ -14,6 +14,7 @@
 #include "format_string_defs.h"
 #include "variadic_args_defs.h"
 #include <stdarg.h>
+#include <unistd.h>
 #include <stdio.h>
 #include <limits.h>
 
@@ -21,11 +22,19 @@ int	ft_vprintf(const char *format_string, va_list *var_arg_list)
 {
 	t_format_string	*fmt;
 	int				written;
+	int				fd;
+	char			*final_string;
 
 	written = 0;
+	fd = STDIN_FILENO;
 	fmt = ft_format_string_parser(format_string);
 	fmt->arg_list = ft_get_var_args(fmt->conversion_list, var_arg_list);
 	written = ft_get_resulting_length(fmt);
+	final_string = malloc(sizeof(char) * (written + 1));
+	if (final_string != NULL)
+		ft_write_final_string(final_string, fmt);
+	final_string[written] = '\0';
+	write(fd, final_string, written);
 	return (written);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 14:58:59 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/03 16:51:00 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/01 15:17:50 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,9 @@ void	*f_lstpop(t_lst **first_link)
 	else
 		content = NULL;
 	return (content);
+}
+
+void	*f_lst_first_elem(const t_lst *lst)
+{
+	return (lst->content);
 }
