@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/24 16:56:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/01 09:55:29 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ t_bool			is_signed_integer_conv(const t_conversion *conversion);
 t_bool			is_unsigned_integer_conv(const t_conversion *conversion);
 t_bool			is_ptr_conv(const t_conversion *conversion);
 t_bool			is_string_conv(const t_conversion *conversion);
+
+/*
+** Functions not modifing the object
+*/
+
+size_t			ft_get_conv_len(const t_conversion *conv);
 
 /*
 ** Others
