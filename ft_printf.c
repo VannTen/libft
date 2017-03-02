@@ -30,6 +30,8 @@ int	ft_vprintf(const char *format_string, va_list *var_arg_list)
 	fd = STDOUT_FILENO;
 	fmt = ft_format_string_parser(format_string);
 	fmt->arg_list = ft_get_var_args(fmt->conversion_list, var_arg_list);
+	ft_attributes_var_args(fmt);
+	ft_compute_convs_length(fmt);
 	written = ft_get_resulting_length(fmt);
 	final_string = ft_strnew(written);
 	if (final_string != NULL)
