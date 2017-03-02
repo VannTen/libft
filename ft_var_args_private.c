@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/24 18:44:30 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 15:02:41 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,12 @@ static t_bool	ft_conv_to_type(const void *v_conversion, void *v_variadic)
 	return (TRUE);
 }
 
-void			ft_set_types(t_var_arg *args_array, t_lst *conversion_list,
+void			ft_set_types(t_var_arg *args_array, t_fifo *conversion_list,
 		size_t args_number)
 {
 	size_t	arg_count;
 
-	arg_count = f_lstarray_end_early(args_array, conversion_list, args_number,
+	arg_count = f_fifoarray_end_early(args_array, conversion_list, args_number,
 			&ft_conv_to_type);
 	if (arg_count != 0)
 	{
