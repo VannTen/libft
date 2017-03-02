@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/01 15:16:39 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 13:58:18 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ size_t				f_lstarray_end_early(void *array, t_lst *lst, size_t size,
 size_t				f_lstsumsize_t_content(t_lst *list,
 		size_t (*f)(const void *));
 void				*f_lst_first_elem(const t_lst *lst);
+void				f_lstiterarray(void *array, t_lst *lst,
+		void (*apply)(void *lst_content, void *array));
 
 /*
 ** List functions
@@ -87,6 +89,8 @@ unsigned int		f_fifomax(t_fifo *fifo,
 size_t				f_fifosumsize_t_content(t_fifo *fifo,
 		size_t (*add)(const void*));
 void				*f_fifo_first_elem(const t_fifo *fifo);
+void				f_fifoiterarray(void *array, t_fifo *fifo,
+		void (*apply)(void *lst_content, void *array));
 
 /*
 ** Str functions

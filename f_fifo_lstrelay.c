@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 14:19:23 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/01 15:15:44 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 14:00:14 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,10 @@ size_t			f_fifosumsize_t_content(t_fifo *fifo,
 void			*f_fifo_first_elem(const t_fifo *fifo)
 {
 	return (f_lst_first_elem(fifo->begin_lst));
+}
+
+void			f_fifoiterarray(void *array, t_fifo *fifo,
+		void (*apply)(void *lst_content, void *array))
+{
+	f_lstiterarray(array, fifo->begin_lst, apply);
 }

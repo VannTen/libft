@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 18:10:01 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/24 18:46:10 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 13:45:52 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,14 @@ size_t	f_lstarray_end_early(void *array, t_lst *lst, size_t size,
 		lst = lst->next;
 	}
 	return (count);
+}
+
+void	f_lstiterarray(void *array, t_lst *lst,
+		void (*apply)(void *lst_content, void *array))
+{
+	while (lst != NULL)
+	{
+		apply(lst->content, array);
+		lst = lst->next;
+	}
 }
