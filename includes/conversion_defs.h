@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:13:24 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/01 15:37:44 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 12:38:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "int_params_defs.h"
 # include "flags_defs.h"
 # include "length_modifier_defs.h"
+# include "variadic_args_interface.h"
 # include "bool.h"
 
 struct	s_conversion
@@ -29,6 +30,7 @@ struct	s_conversion
 	t_conv_type			type;
 	size_t				result_length;
 	size_t				specifier_length;
+	t_var_arg			*arg;
 };
 
 #endif
