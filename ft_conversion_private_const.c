@@ -6,17 +6,17 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:30:48 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/01 15:56:35 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 12:34:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
-#include "conv_len_interface.h"
 #include "conv_write_interface.h"
 
 size_t	ft_get_conv_len(const t_conversion *conv)
 {
-	return (g_print_len[conv->type](conv));
+	return (conv->result_length > conv->field_width ?
+			conv->result_length : conv->field_width);
 }
 
 size_t	ft_get_conv_text_len(const t_conversion *conv)

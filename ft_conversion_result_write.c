@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:39:57 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/01 15:01:12 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 11:54:47 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "conv_len_interface.h"
 #include "libft.h"
 
-size_t	ft_print_to_unsupported( char *to_write, const t_conversion *conv)
+size_t	ft_print_to_unsupported(char *to_write, const t_conversion *conv)
 {
 	const char	str[] = UNSUPPORTED_CONVERSION_STRING;
 
