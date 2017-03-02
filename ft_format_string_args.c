@@ -6,10 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 12:28:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/23 15:23:46 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 14:01:06 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "format_string_defs.h"
 #include "conversion_interface.h"
 #include "variadic_args_interface.h"
 #include "bool.h"
@@ -36,4 +37,14 @@ t_var_arg	*ft_get_var_args(t_fifo *conv_list, va_list *var_arg_list)
 		ft_fill_args_array(arg_array, var_arg_list, arg_nbr);
 	}
 	return (arg_array);
+}
+
+static void	conv_attribute_arg(void *conv, void *array)
+{
+	ft_conv_attribute_arg((t_conversion*)conv, (t_var_arg*)array);
+}
+
+void		ft_attributes_var_args(t_format_string *fmt)
+{
+	f_fifoiterarray(fmt->arg_list, fmt->conversion_list, &conv_attribute_arg);
 }
