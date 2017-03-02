@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 16:00:06 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/01 10:23:24 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 16:21:46 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "conversion_interface.h"
 # define UNSUPPORTED_CONVERSION_STRING "\nConversion is not supported\n"
 
-typedef	size_t (*t_print_len)(const t_conversion *);
+typedef	size_t	(*t_print_len)(const t_conversion *);
 size_t	ft_printf_len_di(const t_conversion *conv);
 size_t	ft_printf_len_o(const t_conversion *conv);
 size_t	ft_printf_len_u(const t_conversion *conv);

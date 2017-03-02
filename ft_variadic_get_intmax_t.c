@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ptr_variadic_get_intmax_t.c                         :+:      :+:    :+:   */
+/*   ft_ptr_variadic_get_intmax_t.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/09 12:43:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/24 11:56:37 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 16:02:49 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 void	put_intmax_t_param(t_var_arg *param, va_list *arg_list)
 {
-
 	param->parameter.t_intmax_t = va_arg(*arg_list, intmax_t);
 }
 

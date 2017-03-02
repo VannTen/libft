@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 18:10:01 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 13:45:52 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 16:06:55 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	f_lstarray_end_early(void *array, t_lst *lst, size_t size,
 	while (count != 0 && lst != NULL)
 	{
 		if (put_lst_on_array(lst->content, array))
-				count--;
+			count--;
 		lst = lst->next;
 	}
 	return (count);

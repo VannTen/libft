@@ -6,14 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 13:17:23 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/28 16:30:03 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 16:07:14 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
 #include <stddef.h>
 
-int	f_lstsum_content(t_lst *list, int (*f)(const void *))
+int		f_lstsum_content(t_lst *list, int (*f)(const void *))
 {
 	int	sum;
 

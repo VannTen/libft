@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 12:13:35 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/01 15:22:04 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 16:00:36 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_write_result_string(const char *fmt, char *final_string,
 	{
 		if (fmt[index_fmt] == CONVERSION_INDICATOR)
 		{
-			index_fmt+= ft_get_current_conv_text_len(fmt_tokens);
+			index_fmt += ft_get_current_conv_text_len(fmt_tokens);
 			index_final += ft_write_next_conversion(final_string + index_final,
 					fmt_tokens);
 		}

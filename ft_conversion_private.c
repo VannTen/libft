@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:45:19 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 12:50:59 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 16:10:26 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,6 @@ t_bool			set_one_flag(const char *conversion_specifier, size_t index,
 	}
 	else
 		return (FALSE);
-}
-
-size_t			set_positional_arg(const char *conversion_text,
-		size_t index, t_conversion *convers_specs)
-{
-	return (ft_set_arg_positional(conversion_text, index,
-				&convers_specs->arg_index));
 }
 
 t_conversion	*conversion_ctor(void)
@@ -70,15 +63,4 @@ void			set_conversion_spec_len(t_conversion *conv, size_t index)
 void			set_conversion_result_length(t_conversion *conv)
 {
 	conv->result_length = g_print_len[conv->type](conv);
-}
-
-void			ft_conv_attribute_arg(t_conversion *conv, t_var_arg *arg_array)
-{
-	if (conv->field_width.is_arg)
-		conv->field_width.value =
-			ft_get_int(ft_get_address(arg_array, conv->field_width.value));
-	if (conv->precision.is_arg)
-		conv->precision.value =
-			ft_get_int(ft_get_address(arg_array, conv->precision.value));
-	conv->arg = ft_get_address(arg_array, conv->arg_index);
 }

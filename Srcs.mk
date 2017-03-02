@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/02 13:22:22 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/02 16:11:34 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,15 +65,15 @@ LIB_MATH ?=\
 LIB_MISCELLANEOUS ?=\
 	database.c do_nothing.c
 LIB_PRINTF ?=\
-	\
+	ft_printf.c\
 	ft_conversion_specifier.c\
-	ft_flags.c ft_format_string_private.c ft_format_string_args.c\
+	ft_flags.c ft_format_string_private.c ft_format_string_private_args.c\
 	ft_format_string_parser.c ft_format_string_private_const.c\
 	ft_conversion.c ft_int_params.c ft_int_params_tools.c ft_var_args_private.c\
 	ft_conversion_private_is_conv.c ft_conversion_private.c ft_conversion_private_const.c\
 	ft_conversion_result_len.c ft_format_string_result_length.c\
 	ft_conversion_result_write.c ft_write_result_string.c\
-	ft_var_args_private_const.c
+	ft_var_args_private_const.c ft_conversion_private_args.c
 LIB_VARIADIC ?=\
 	ft_variadic_get_char.c ft_variadic_get_int.c ft_variadic_get_intmax_t.c\
 	ft_variadic_get_long.c ft_variadic_get_long_long.c ft_variadic_get_ptrdiff_t.c\

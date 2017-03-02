@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:39:57 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 11:54:47 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 16:04:05 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,3 @@ size_t	ft_print_to_unsupported(char *to_write, const t_conversion *conv)
 	ft_strcpy(to_write, str);
 	return (sizeof(str));
 }
-
