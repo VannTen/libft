@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:30:48 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 12:34:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 13:10:47 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 size_t	ft_get_conv_len(const t_conversion *conv)
 {
-	return (conv->result_length > conv->field_width ?
-			conv->result_length : conv->field_width);
+	return (conv->result_length > conv->field_width.value ?
+			conv->result_length : conv->field_width.value);
 }
 
 size_t	ft_get_conv_text_len(const t_conversion *conv)

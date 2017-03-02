@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:34:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/24 12:19:28 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 13:27:02 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,10 @@ void			ft_set_types(t_var_arg *args_array, t_lst *conversion_list,
 		size_t args_number);
 void			ft_fill_args_array(t_var_arg *arg_list, va_list *var_args,
 		size_t size);
+/*
+** Const functions
+*/
+
+int				ft_get_int(const t_var_arg *var_arg);
+const t_var_arg	*ft_get_address(const t_var_arg *array, size_t index);
 #endif
