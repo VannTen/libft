@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 16:09:15 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 16:10:22 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 19:21:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void			ft_conv_attribute_arg(t_conversion *conv, t_var_arg *arg_array)
 size_t			set_positional_arg(const char *conversion_text,
 		size_t index, t_conversion *convers_specs)
 {
-	return (ft_set_arg_positional(conversion_text, index,
+	return (ft_set_arg_positional(conversion_text + index,
 				&convers_specs->arg_index));
 }

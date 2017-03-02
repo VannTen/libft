@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 12:27:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 18:20:43 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/02 19:20:29 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,17 @@
 size_t			set_int_params(const char *conversion_specifier, size_t index,
 		t_int_param *numeric_param, t_format_string *format_string)
 {
+	size_t	index_param;
 	if (conversion_specifier[index] == IS_ARG_INDICATOR)
 	{
 		numeric_param->is_arg = TRUE;
 		index++;
-		index = ft_set_arg_positional(conversion_specifier, index,
+		index_param = ft_set_arg_positional(conversion_specifier + index,
 				&numeric_param->value);
-		if (numeric_param->value == 0)
+		if (index_param == 0)
 			numeric_param->value = ft_request_arg(format_string);
+		else
+			index += index_param;
 	}
 	else
 	{
