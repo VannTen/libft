@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/03 16:48:45 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/03 17:24:38 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ t_bool				f_lstremoveif_one(t_lst **lst, int ref,
 void				*f_lstpop(t_lst **list);
 unsigned int		f_lst_len(const t_lst *lst);
 int					f_lstsum_content(t_lst *list, int (*f)(const void *));
-unsigned int		f_lstmax(t_lst *list,
-							unsigned int (*get_max)(const void *));
+int					f_lstmax(t_lst *list, int (*get_max)(const void *));
 size_t				f_lstarray_end_early(void *array, t_lst *lst, size_t size,
 		t_bool (*put_lst_on_array)(const void *lst_content, void *array));
 size_t				f_lstsumsize_t_content(t_lst *list,
@@ -85,8 +84,7 @@ t_lst				*f_fifo_extract(t_fifo **fifo);
 void				f_fifo_destroy(t_fifo *fifo, void (*del)(void *content));
 t_fifo				*f_fifo_add(t_fifo *fifo, const void *content);
 void				*f_fifo_take(t_fifo *fifo);
-unsigned int		f_fifomax(t_fifo *fifo,
-		unsigned int (*get_max)(const void*));
+int					f_fifomax(t_fifo *fifo, int (*get_max)(const void*));
 size_t				f_fifosumsize_t_content(t_fifo *fifo,
 		size_t (*add)(const void*));
 void				*f_fifo_first_elem(const t_fifo *fifo);

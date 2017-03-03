@@ -24,7 +24,7 @@
 ** args, that avoids repeated calls for arg that are required more than once
 */
 
-static unsigned int	bigger_arg(const void *conv)
+static int	bigger_arg(const void *conv)
 {
 		return (bigger_arg_required((const t_conversion*)conv));
 }

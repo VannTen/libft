@@ -6,20 +6,20 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 17:33:54 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/08 18:09:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/03 17:23:52 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
 #include <stdlib.h>
+#include <limits.h>
 
-unsigned int	f_lstmax(t_lst *list,
-		unsigned int (*get_max)(const void *content))
+int	f_lstmax(t_lst *list, int (*get_max)(const void *content))
 {
-	unsigned int	max;
-	unsigned int	result;
+	int	max;
+	int	result;
 
-	max = 0;
+	max = INT_MIN;
 	while (list != NULL)
 	{
 		result = get_max(list->content);

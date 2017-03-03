@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 14:19:23 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 16:06:29 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/03 17:22:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "fifo.h"
 #include "libft.h"
 
-unsigned int	f_fifomax(t_fifo *fifo, unsigned int (*get_max)(const void*))
+int	f_fifomax(t_fifo *fifo, int (*get_max)(const void*))
 {
 	return (f_lstmax(fifo->begin_lst, get_max));
 }
