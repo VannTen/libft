@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/03 15:24:19 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/03 16:35:55 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_conversion	t_conversion;
 */
 
 t_conversion	*conversion_ctor(void);
-void			*conversion_dtor(t_conversion *conversion);
+void			conversion_destroy(t_conversion *conversion);
 size_t			set_positional_arg(const char *conversion_specifier,
 		size_t index, t_conversion *convers_specs);
 t_bool			set_one_flag(const char *conv_string, size_t index,
