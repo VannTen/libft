@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/03/02 18:23:08 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/03 12:13:59 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -15,16 +15,16 @@ $(info Begin Makefile parsing...)
 ## Variable stuff
 ##
 
-DEFAULT_RULE := debug
-ifeq ($(MAKECMDGOALS),debug)
-BUILD_PREFIX := debug
-endif
-ifeq ($(MAKECMDGOALS),dclean)
-BUILD_PREFIX := debug
-endif
-ifeq ($(DEFAULT_RULE),debug)
-BUILD_PREFIX := debug
-endif
+DEFAULT_RULE := all
+#ifeq ($(MAKECMDGOALS),debug)
+#BUILD_PREFIX := debug
+#endif
+#ifeq ($(MAKECMDGOALS),dclean)
+#BUILD_PREFIX := debug
+#endif
+#ifeq ($(DEFAULT_RULE),debug)
+#BUILD_PREFIX := debug
+#endif
 
 ##
 ## Externals programms
