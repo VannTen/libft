@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:20:52 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 16:22:09 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/03 12:01:17 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static const t_print_to g_print_to_test[] = {
 	&ft_print_to_unsupported
 };
 
+/*
 static const t_print_to g_print_to[] = {
 	&ft_print_to_di,
 	&ft_print_to_o,
@@ -73,5 +74,6 @@ static const t_print_to g_print_to[] = {
 	&ft_print_to_no_conversion,
 	&ft_print_to_unsupported
 };
+*/
 
 #endif
