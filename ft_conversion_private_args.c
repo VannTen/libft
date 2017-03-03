@@ -6,13 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 16:09:15 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/03 13:24:43 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/03 15:17:21 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
 
-void			ft_conv_attribute_arg(t_conversion *conv, t_var_arg *arg_array)
+void	ft_conv_attribute_arg(t_conversion *conv, t_var_arg *arg_array)
 {
 	if (conv->field_width.is_arg)
 		conv->field_width.value =
@@ -23,16 +23,16 @@ void			ft_conv_attribute_arg(t_conversion *conv, t_var_arg *arg_array)
 	conv->arg = ft_get_address(arg_array, conv->arg_index);
 }
 
-size_t			set_positional_arg(const char *conversion_text,
+size_t	set_positional_arg(const char *conversion_text,
 		size_t index, t_conversion *convers_specs)
 {
 	return (index + ft_set_arg_positional(conversion_text + index,
 				&convers_specs->arg_index));
 }
 
-unsigned int	bigger_arg_required(const t_conversion *conv)
+int		bigger_arg_required(const t_conversion *conv)
 {
-	unsigned int max;
+	int max;
 
 	max = conv->arg_index;
 	if (conv->field_width.is_arg)
