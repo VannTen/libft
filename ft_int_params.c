@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 12:27:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 19:20:29 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/03 12:44:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@
 ** This functions is used to determine field width and precision
 */
 
-size_t			set_int_params(const char *conversion_specifier, size_t index,
+size_t			set_int_params(const char *conversion_specifier,
 		t_int_param *numeric_param, t_format_string *format_string)
 {
 	size_t	index_param;
+	size_t	index;
+
+	index = 0;
 	if (conversion_specifier[index] == IS_ARG_INDICATOR)
 	{
 		numeric_param->is_arg = TRUE;

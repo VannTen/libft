@@ -26,6 +26,6 @@ void			ft_conv_attribute_arg(t_conversion *conv, t_var_arg *arg_array)
 size_t			set_positional_arg(const char *conversion_text,
 		size_t index, t_conversion *convers_specs)
 {
-	return (ft_set_arg_positional(conversion_text + index,
+	return (index + ft_set_arg_positional(conversion_text + index,
 				&convers_specs->arg_index));
 }

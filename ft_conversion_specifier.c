@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 18:45:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/23 15:56:25 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/03 12:46:36 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 size_t	set_field_width(const char *conversion_specifier, size_t index,
 		t_conversion *convers_specs, t_format_string *fmt)
 {
-	return (set_int_params(conversion_specifier, index,
+	return (index + set_int_params(conversion_specifier + index,
 				&convers_specs->field_width, fmt));
 }
 
@@ -27,7 +27,7 @@ size_t	set_precision(const char *conversion_specifier, size_t index,
 	if (conversion_specifier[index] == PRECISION_INDICATOR)
 	{
 		index++;
-		index = set_int_params(conversion_specifier, index,
+		index += set_int_params(conversion_specifier + index,
 				&convers_specs->precision, fmt);
 	}
 	return (index);
