@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:25:10 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 18:27:29 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/03 11:57:39 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ struct	s_int_param
 ** This function are used internally but do not access the object
 */
 
-size_t	ft_set_arg_positional(const char *arg_specifier,
-		size_t index, int *conv_spec);
+size_t	ft_set_arg_positional(const char *arg_specifier, int *conv_spec);
 #endif

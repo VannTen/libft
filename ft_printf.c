@@ -11,14 +11,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "format_string_defs.h"
-#include "variadic_args_defs.h"
+#include "format_string_interface.h"
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <limits.h>
 #include "libft.h"
 
+t_format_string	*ft_full_fmt(const char *base_text, va_list *var_args)
+{
+	t_format_string *fmt;
+
+	fmt = ft_format_string_parser(base_text);
+	ft_get_var_args(fmt, var_args);
+	ft_attributes_var_args(fmt);
+	//ft_compute_convs_length(fmt);
+	return (fmt);
+}
 int	ft_vprintf(const char *format_string, va_list *var_arg_list)
 {
 	t_format_string	*fmt;
@@ -26,12 +35,8 @@ int	ft_vprintf(const char *format_string, va_list *var_arg_list)
 	int				fd;
 	char			*final_string;
 
-	written = 0;
+	fmt = ft_full_fmt(format_string, var_arg_list);
 	fd = STDOUT_FILENO;
-	fmt = ft_format_string_parser(format_string);
-	fmt->arg_list = ft_get_var_args(fmt->conversion_list, var_arg_list);
-	ft_attributes_var_args(fmt);
-	ft_compute_convs_length(fmt);
 	written = ft_get_resulting_length(fmt);
 	final_string = ft_strnew(written);
 	if (final_string != NULL)
