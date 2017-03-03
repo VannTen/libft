@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/03 11:51:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/03 16:48:45 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ t_lst				*f_add_end_lst(t_lst *last_link, const void *content);
 t_lst				*f_add_begin_lst(t_lst **begin_list, void *content);
 t_lst				*f_lstnew(void const *content);
 t_lst				*f_lstpush(void const *content, t_lst **list);
-void				f_lstdelone(t_lst **alst, void (*del)(void*));
-void				f_lstdel(t_lst **alst, void (*del)(void*));
+void				f_lstdelone(t_lst *alst, void (*del)(void*));
+void				f_lstdel(t_lst *alst, void (*del)(void*));
 void				f_lstiter(t_lst *lst, void (*f)(t_lst *elem));
 void				f_lstiter_content(t_lst *lst, void (*f)(void *content));
 t_lst				*f_lstmap(t_lst *lst, t_lst *(*f)(t_lst *elem));
@@ -82,7 +82,7 @@ unsigned int		ft_lstcheck(t_list *list, t_bool (*f)(t_list *elem));
 
 t_fifo				*f_fifo_create(void);
 t_lst				*f_fifo_extract(t_fifo **fifo);
-t_fifo				*f_fifo_destroy(t_fifo **fifo, void (*del)(void *content));
+void				f_fifo_destroy(t_fifo *fifo, void (*del)(void *content));
 t_fifo				*f_fifo_add(t_fifo *fifo, const void *content);
 void				*f_fifo_take(t_fifo *fifo);
 unsigned int		f_fifomax(t_fifo *fifo,
