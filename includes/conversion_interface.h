@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 13:39:32 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/03 13:23:20 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void			ft_conv_attribute_arg(t_conversion *conv, t_var_arg *arg_array);
 size_t			ft_get_conv_len(const t_conversion *conv);
 size_t			ft_write_conversion(char *to_write, const t_conversion *conv);
 size_t			ft_get_conv_text_len(const t_conversion *conv);
+unsigned int	bigger_arg_required(const t_conversion *conv);
 
 /*
 ** Others

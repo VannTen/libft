@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 16:09:15 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 19:21:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/03 13:24:43 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,18 @@ size_t			set_positional_arg(const char *conversion_text,
 {
 	return (index + ft_set_arg_positional(conversion_text + index,
 				&convers_specs->arg_index));
+}
+
+unsigned int	bigger_arg_required(const t_conversion *conv)
+{
+	unsigned int max;
+
+	max = conv->arg_index;
+	if (conv->field_width.is_arg)
+	max = max > conv->field_width.value ?
+			max : conv->field_width.value;
+	if (conv->precision.is_arg)
+	max = max > conv->precision.value ?
+			max : conv->precision.value;
+	return (max);
 }
