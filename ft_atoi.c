@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 13:31:08 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/17 13:56:32 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/03 17:36:00 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 /*
 ** Recursion is used to go down until the end of the string
@@ -46,7 +47,7 @@ static int	ft_positive(const char *str, int *n)
 
 int			ft_atoi(const char *str)
 {
-	const char	*digits;
+	char	*digits;
 	int			number;
 
 	if (str == NULL)
@@ -61,5 +62,7 @@ int			ft_atoi(const char *str)
 		ft_positive(digits + 1, &number);
 	else
 		ft_positive(digits, &number);
+	free(digits);
+	digits = NULL;
 	return (number);
 }
