@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/03 17:24:38 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/04 13:42:02 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void				f_fifoiterarray(void *array, t_fifo *fifo,
 		void (*apply)(void *lst_content, void *array));
 size_t				f_fifoarray_end_early(void *array, t_fifo *fifo,
 		size_t size, t_bool (*fifo_on_array)(const void *content, void *array));
+void				f_fifoiter(t_fifo *fifo, void (*f)(void*));
 
 /*
 ** Str functions
