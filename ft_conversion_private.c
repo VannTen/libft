@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:45:19 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/03 16:29:00 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/04 13:25:16 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "conv_len_interface.h"
 #include <stdlib.h>
 
-void	conversion_destroy(t_conversion *conversion)
+void			conversion_destroy(t_conversion *conversion)
 {
 	size_t	index;
 

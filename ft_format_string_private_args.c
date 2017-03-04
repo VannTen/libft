@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 12:28:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/03 17:05:32 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/04 13:25:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,13 @@ static void	conv_attribute_arg(void *conv, void *array)
 void		ft_attributes_var_args(t_format_string *fmt)
 {
 	f_fifoiterarray(fmt->arg_list, fmt->conversion_list, &conv_attribute_arg);
+}
+
+int			ft_request_arg(t_format_string *format)
+{
+	int		index;
+
+	index = format->arg_count;
+	format->arg_count++;
+	return (index);
 }
