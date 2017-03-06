@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:44:57 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 10:45:19 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/06 11:44:47 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef enum	e_conv_type
 	P,
 	N,
 	NO_CONVERSION,
+	UNSUPPORTED_CONVERSION,
 	D_MAJ,
 	O_MAJ,
 	U_MAJ,
@@ -42,6 +43,6 @@ typedef enum	e_conv_type
 	UNKNOWN_CONVERSION
 }				t_conv_type;
 
-static const char g_conv_types[] = "diouxXeEfFgGaAcspn%DOUCS";
+static const char g_conv_types[] = "diouxXeEfFgGaAcspn%?DOUCS";
 
 #endif
