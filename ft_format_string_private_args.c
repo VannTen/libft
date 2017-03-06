@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 12:28:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/03 17:05:32 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/06 11:31:51 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ void		ft_get_var_args(t_format_string *fmt, va_list *var_arg_list)
 {
 	int		arg_nbr;
 
-	arg_nbr = f_fifomax(fmt->conversion_list, &bigger_arg) + 1;
+	arg_nbr = f_fifomax(fmt->conversion_list, &bigger_arg);
+	if (arg_nbr < 0)
+		arg_nbr = 0;
+	else
+		arg_nbr++;
 	fmt->arg_list = ft_arg_list_ctor(arg_nbr);
 	fmt->arg_count = arg_nbr;
 	if (fmt->arg_list != NULL)
@@ -51,4 +55,13 @@ static void	conv_attribute_arg(void *conv, void *array)
 void		ft_attributes_var_args(t_format_string *fmt)
 {
 	f_fifoiterarray(fmt->arg_list, fmt->conversion_list, &conv_attribute_arg);
+}
+
+int			ft_request_arg(t_format_string *format)
+{
+	int		index;
+
+	index = format->arg_count;
+	format->arg_count++;
+	return (index);
 }

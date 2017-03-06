@@ -70,7 +70,8 @@ LIB_PRINTF ?=\
 	ft_flags.c ft_format_string_private.c ft_format_string_private_args.c\
 	ft_format_string_parser.c ft_format_string_private_const.c\
 	ft_conversion.c ft_int_params.c ft_int_params_tools.c ft_var_args_private.c\
-	ft_conversion_private_is_conv.c ft_conversion_private.c ft_conversion_private_const.c\
+	ft_conversion_private_is_conv.c ft_conversion_private.c\
+	ft_conversion_private_const.c ft_format_string_private_set_length.c\
 	ft_conversion_result_len.c ft_format_string_result_length.c\
 	ft_conversion_result_write.c ft_write_result_string.c\
 	ft_var_args_private_const.c ft_conversion_private_args.c
