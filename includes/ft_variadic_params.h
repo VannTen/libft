@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 12:48:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/24 12:21:55 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/06 19:06:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdarg.h>
 # include <stddef.h>
 
+void		put_no_param(t_var_arg *param, va_list *arg_list);
 void		put_int_param(t_var_arg *param, va_list *arg_list);
 void		put_long_param(t_var_arg *param, va_list *arg_list);
 void		put_long_long_param(t_var_arg *param, va_list *arg_list);
@@ -35,7 +36,7 @@ void		put_ptrdiff_t_ptr_param(t_var_arg *param, va_list *arg_list);
 void		put_size_t_ptr_param(t_var_arg *param, va_list *arg_list);
 typedef void	(*t_var_advance)(t_var_arg *param, va_list *);
 static const t_var_advance	g_get_arg_of_type[] = {
-	&put_int_param,
+	&put_no_param,
 	&put_int_param,
 	&put_int_param,
 	&put_int_param,

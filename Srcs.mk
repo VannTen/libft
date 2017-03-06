@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/06 16:36:20 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/06 19:05:23 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,8 +77,10 @@ LIB_PRINTF ?=\
 	ft_var_args_private_const.c ft_conversion_private_args.c
 LIB_VARIADIC ?=\
 	ft_variadic_get_char.c ft_variadic_get_int.c ft_variadic_get_intmax_t.c\
-	ft_variadic_get_long.c ft_variadic_get_long_long.c ft_variadic_get_ptrdiff_t.c\
-	ft_variadic_get_short.c ft_variadic_get_size_t.c ft_variadic_get_wchar_t.c
+	ft_variadic_get_long.c ft_variadic_get_long_long.c\
+	ft_variadic_get_ptrdiff_t.c\
+	ft_variadic_get_short.c ft_variadic_get_size_t.c ft_variadic_get_wchar_t.c\
+	ft_variadic_no_get.c
 SRC := $(LIB_LST) $(LIB_LIST) $(LIB_FIFO)\
 	$(LIB_STR) $(LIB_DISPLAY) $(LIB_MEM)\
 	$(LIB_CONVERT) $(LIB_IS_OF) $(LIB_MATH)\

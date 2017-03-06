@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 15:02:41 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/06 19:08:45 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,16 +83,6 @@ void			ft_set_types(t_var_arg *args_array, t_fifo *conversion_list,
 
 	arg_count = f_fifoarray_end_early(args_array, conversion_list, args_number,
 			&ft_conv_to_type);
-	if (arg_count != 0)
-	{
-		arg_count = 0;
-		while (arg_count < args_number)
-		{
-			if (args_array[arg_count].type == UNKNOWN_TYPE)
-				args_array[arg_count].type = INT;
-			arg_count++;
-		}
-	}
 }
 
 void			ft_fill_args_array(t_var_arg *arg_list, va_list *var_args,
