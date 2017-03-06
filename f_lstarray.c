@@ -6,12 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 18:10:01 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 16:06:55 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/06 17:17:12 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "list.h"
+#include "bool.h"
 #include <stdlib.h>
 
 size_t	f_lstarray_end_early(void *array, t_lst *lst, size_t size,
@@ -37,4 +38,11 @@ void	f_lstiterarray(void *array, t_lst *lst,
 		apply(lst->content, array);
 		lst = lst->next;
 	}
+}
+
+void	f_lstmaparray(const void *src, void *dst , t_lst *list,
+		t_bool (*advance_arrays)(const void **src, void **dst, void *modifier))
+{
+	while (advance_arrays(&src, &dst, list == NULL ? NULL : list->content))
+		list = list->next;
 }

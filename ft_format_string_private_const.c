@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 16:35:42 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/01 15:18:44 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/06 16:44:42 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,17 @@ size_t			ft_conversions_length(const t_format_string *fmt)
 	return (f_fifosumsize_t_content(fmt->conversion_list, &get_conv_len));
 }
 
-size_t			ft_write_next_conversion(char *to_write, t_format_string *fmt)
+static t_bool	write_to_next_conv(const void **fmt, void **final_string, void *conv)
 {
-	t_conversion	*conv;
-	size_t			result_length;
+	return (ft_write_next_conv((const char**)fmt, (char**)final_string,
+			(t_conversion*)conv));
+}
 
-	conv = f_fifo_take(fmt->conversion_list);
-	result_length = ft_write_conversion(to_write, conv);
-	return (result_length);
+void			ft_write_result_string(const char *fmt_src, char *final_string,
+		t_format_string *fmt)
+{
+	f_fifomaparray(fmt_src, final_string, fmt->conversion_list,
+			&write_to_next_conv);
 }
 
 size_t			ft_get_current_conv_text_len(t_format_string *fmt)

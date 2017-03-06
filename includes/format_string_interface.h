@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:10:08 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/04 14:39:20 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/06 16:40:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,9 @@ size_t			ft_get_current_conv_text_len(t_format_string *fmt);
 
 size_t			ft_add_conversion(const char *conv_text, t_format_string *fmt);
 size_t			ft_get_resulting_length(const t_format_string *fmt);
-void			ft_write_result_string(const char *fmt, char *final_string,
-		t_format_string *fmt_tokens);
-size_t			ft_write_next_conversion(char *to_write, t_format_string *fmt);
+void			ft_write_result_string(const char *fmt_src, char *final_string,
+		t_format_string *fmt);
+t_bool			ft_write_next_conv(const char **fmt_src, char **to_write,
+		t_conversion *conv);
 t_format_string	*ft_full_fmt(const char *base_text, va_list *var_args);
 #endif

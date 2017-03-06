@@ -6,34 +6,29 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 12:13:35 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 16:00:36 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/06 16:47:22 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "format_string_interface.h"
 #include "printf_constants.h"
+#include "bool.h"
 
-void	ft_write_result_string(const char *fmt, char *final_string,
-		t_format_string *fmt_tokens)
+t_bool	ft_write_next_conv(const char **fmt, char **final_string,
+		t_conversion *conv)
 {
-	size_t	index_fmt;
-	size_t	index_final;
-
-	index_fmt = 0;
-	index_final = 0;
-	while (fmt[index_fmt] != '\0')
+	while (**fmt != CONVERSION_INDICATOR && **fmt != '\0')
 	{
-		if (fmt[index_fmt] == CONVERSION_INDICATOR)
-		{
-			index_fmt += ft_get_current_conv_text_len(fmt_tokens);
-			index_final += ft_write_next_conversion(final_string + index_final,
-					fmt_tokens);
-		}
-		else
-		{
-			final_string[index_final] = fmt[index_fmt];
-			index_fmt++;
-			index_final++;
-		}
+		**final_string = **fmt;
+		*final_string += 1;
+		*fmt += 1;
 	}
+	if (**fmt == CONVERSION_INDICATOR)
+	{
+		*fmt += ft_get_conv_text_len(conv);
+		*final_string += ft_write_conversion(*final_string, conv);
+		return (TRUE);
+	}
+	else
+		return (FALSE);
 }
