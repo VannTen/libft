@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 12:13:35 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/07 17:18:04 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/07 18:19:55 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static size_t	advance_to_conv(const char *fmt, char *final_string)
 	size_t	index;
 
 	index = 0;
-	while (fmt[index] != CONVERSION_INDICATOR || fmt[index] != '\0')
+	while (fmt[index] != CONVERSION_INDICATOR && fmt[index] != '\0')
 	{
 		final_string[index] = fmt[index];
 		index++;

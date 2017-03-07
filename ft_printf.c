@@ -43,6 +43,9 @@ int	ft_vprintf(const char *format_string, va_list *var_arg_list)
 		ft_write_result_string(format_string, final_string, fmt);
 	final_string[written] = '\0';
 	write(fd, final_string, written);
+	ft_strdel(&final_string);
+	fmt_destroy(fmt);
+	fmt = NULL;
 	return (written);
 }
 
