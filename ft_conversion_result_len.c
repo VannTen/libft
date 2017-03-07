@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 10:29:12 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 11:59:31 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/07 19:27:11 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 #include "variadic_args_interface.h"
 #include "conversion_interface.h"
 #include "format_string_interface.h"
+#include "libft.h"
 #include <stdlib.h>
 
 size_t	ft_printf_len_unsupported(const t_conversion *conv)
 {
 	(void)conv;
-	return (sizeof(UNSUPPORTED_CONVERSION_STRING));
+	return (ft_strlen(UNSUPPORTED_CONVERSION_STRING));
 }
 /*
 typedef size_t (*mesure_length)(t_var_arg *arg, size_t index);
