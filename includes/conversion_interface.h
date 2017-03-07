@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/03 16:35:55 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/07 17:18:17 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ int				bigger_arg_required(const t_conversion *conv);
 /*
 ** Others
 */
+void			ft_write_field_width(char *to_write, int fill, char padding);
 
 #endif
