@@ -6,23 +6,36 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 12:13:35 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/06 16:47:22 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/07 13:36:18 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "format_string_interface.h"
 #include "printf_constants.h"
 #include "bool.h"
+#include <stddef.h>
 
-t_bool	ft_write_next_conv(const char **fmt, char **final_string,
+static size_t	advance_to_conv(const char *fmt, char *final_string)
+{
+	size_t	index;
+
+	index = 0;
+	while (fmt[index] != CONVERSION_INDICATOR || fmt[index] != '\0')
+	{
+		final_string[index] = fmt[index];
+		index++;
+	}
+	return (index);
+}
+
+t_bool			ft_write_next_conv(const char **fmt, char **final_string,
 		t_conversion *conv)
 {
-	while (**fmt != CONVERSION_INDICATOR && **fmt != '\0')
-	{
-		**final_string = **fmt;
-		*final_string += 1;
-		*fmt += 1;
-	}
+	size_t	index;
+
+	index = advance_to_conv(*fmt, *final_string);
+	*fmt += index;
+	*final_string += index;
 	if (**fmt == CONVERSION_INDICATOR)
 	{
 		*fmt += ft_get_conv_text_len(conv);
