@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 12:27:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/03 12:44:04 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/07 18:15:11 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ size_t			set_int_params(const char *conversion_specifier,
 	else
 	{
 		numeric_param->is_arg = FALSE;
-		numeric_param->value = ft_atoi(conversion_specifier + index);
+		numeric_param->value = ft_strict_atoi(conversion_specifier + index);
 		while (ft_isdigit(conversion_specifier[index])
 				|| conversion_specifier[index] == '-')
 			index++;

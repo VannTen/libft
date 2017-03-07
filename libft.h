@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/06 16:44:09 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/07 18:12:49 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,7 @@ char				*ft_itoa(int n);
 size_t				itoa_len_signed(intmax_t number, int base);
 size_t				itoa_len_unsigned(uintmax_t number, int base);
 int					ft_atoi(const char *str);
+int					ft_strict_atoi(const char *str);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 

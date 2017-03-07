@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:49:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/03 11:58:46 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/07 18:15:52 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ size_t			ft_set_arg_positional(const char *arg_specifier, int *conv_spec)
 
 	param_length = ft_is_positional(arg_specifier);
 	if (param_length != 0)
-		*conv_spec = ft_atoi(arg_specifier) - 1;
+		*conv_spec = ft_strict_atoi(arg_specifier) - 1;
 	return (param_length);
 }
