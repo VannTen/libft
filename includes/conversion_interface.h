@@ -39,6 +39,7 @@ t_bool			is_unsigned_integer_conv(const t_conversion *conversion);
 t_bool			is_ptr_conv(const t_conversion *conversion);
 t_bool			is_string_conv(const t_conversion *conversion);
 void			ft_conv_attribute_arg(t_conversion *conv, t_var_arg *arg_array);
+void			ft_post_process_conv(t_conversion *conv);
 
 /*
 ** Functions not modifing the object

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 15:31:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/23 13:02:06 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/08 14:21:35 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,19 @@
 #include "printf_constants.h"
 #include <stdlib.h>
 
-t_format_string			*ft_format_string_parser(const char *string)
+t_format_string	*ft_full_fmt(const char *base_text, va_list *var_args)
+{
+	t_format_string *fmt;
+
+	fmt = ft_format_string_parser(base_text);
+	ft_get_var_args(fmt, var_args);
+	ft_attributes_var_args(fmt);
+	ft_compute_convs_length(fmt);
+	ft_fmt_post_process(fmt);
+	return (fmt);
+}
+
+t_format_string	*ft_format_string_parser(const char *string)
 {
 	size_t			index;
 	size_t			conv_len;
