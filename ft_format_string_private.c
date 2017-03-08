@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:52:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/04 13:25:16 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/08 14:36:55 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,4 @@ t_bool			f_add_conv_to_fmt(t_format_string *fmt,
 	}
 	else
 		return (FALSE);
-}
-
-void			set_fmt_length(t_format_string *fmt, size_t length)
-{
-	fmt->length = length;
 }

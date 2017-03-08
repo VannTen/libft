@@ -25,6 +25,8 @@ size_t			ft_get_conv_len(const t_conversion *conv)
 			field_width = INT_MAX;
 			field_width++;
 		}
+		else
+			field_width = -conv->field_width.value;
 	}
 	else
 		field_width = conv->field_width.value;

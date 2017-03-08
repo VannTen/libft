@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/08 13:41:53 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/08 15:40:08 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,9 @@ LIB_PRINTF ?=\
 	ft_conversion_private_const.c ft_format_string_private_set_length.c\
 	ft_conversion_result_len.c ft_format_string_result_length.c\
 	ft_write_result_string.c ft_printf_write_special.c\
-	ft_var_args_private_const.c ft_conversion_private_args.c
+	ft_var_args_private_const.c ft_conversion_private_args.c\
+	ft_format_string_private_conv_process.c\
+	ft_conversion_private_const_field_width.c
 LIB_VARIADIC ?=\
 	ft_variadic_get_char.c ft_variadic_get_int.c ft_variadic_get_intmax_t.c\
 	ft_variadic_get_long.c ft_variadic_get_long_long.c\

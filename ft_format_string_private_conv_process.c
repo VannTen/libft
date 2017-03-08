@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_string_private_set_length.c              :+:      :+:    :+:   */
+/*   ft_format_string_private_conv_process.c            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/04 13:28:21 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/08 14:23:08 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/08 14:37:15 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/08 14:39:30 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,12 @@
 #include "conversion_interface.h"
 #include "libft.h"
 
-static void	set_conv_res_length(void *conv)
+static void		post_process_conv(void *conv)
 {
-	set_conversion_result_length((t_conversion*)conv);
+	ft_post_process_conv((t_conversion*)conv);
 }
 
-void	ft_compute_convs_length(t_format_string *fmt)
+void			ft_fmt_post_process(t_format_string *fmt)
 {
-	f_fifoiter(fmt->conversion_list, &set_conv_res_length);
-}
-
-void			set_fmt_length(t_format_string *fmt, size_t length)
-{
-	fmt->length = length;
+	f_fifoiter(fmt->conversion_list, &post_process_conv);
 }
