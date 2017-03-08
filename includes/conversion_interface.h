@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/07 17:18:17 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/08 15:48:13 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ size_t			ft_get_conv_len(const t_conversion *conv);
 size_t			ft_write_conversion(char *to_write, const t_conversion *conv);
 size_t			ft_get_conv_text_len(const t_conversion *conv);
 int				bigger_arg_required(const t_conversion *conv);
+char			*start_actual_conv(const char *global_start,
+		const t_conversion *conv);
+char			*empty_field_width(const char *global_start,
+		const t_conversion *conv);
+int				to_fill_field_width(const t_conversion *conv);
 
 /*
 ** Others
