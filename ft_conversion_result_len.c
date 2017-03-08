@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 10:29:12 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/07 19:27:11 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/08 17:28:17 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@
 #include "libft.h"
 #include <stdlib.h>
 
-size_t	ft_printf_len_unsupported(const t_conversion *conv)
-{
-	(void)conv;
-	return (ft_strlen(UNSUPPORTED_CONVERSION_STRING));
-}
 /*
 typedef size_t (*mesure_length)(t_var_arg *arg, size_t index);
 mesure_length	get_funct(t_conversion *conv);
