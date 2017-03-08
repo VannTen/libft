@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion_result_write.c                       :+:      :+:    :+:   */
+/*   ft_format_string_private_conv_process.c            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/01 14:39:57 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 16:04:05 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/08 14:37:15 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/08 14:39:30 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "conv_write_interface.h"
+#include "format_string_defs.h"
 #include "conversion_interface.h"
-#include "conv_len_interface.h"
 #include "libft.h"
 
-size_t	ft_print_to_unsupported(char *to_write, const t_conversion *conv)
+static void		post_process_conv(void *conv)
 {
-	const char	str[] = UNSUPPORTED_CONVERSION_STRING;
+	ft_post_process_conv((t_conversion*)conv);
+}
 
-	(void)conv;
-	ft_strcpy(to_write, str);
-	return (sizeof(str));
+void			ft_fmt_post_process(t_format_string *fmt)
+{
+	f_fifoiter(fmt->conversion_list, &post_process_conv);
 }

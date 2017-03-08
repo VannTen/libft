@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_string_private_set_length.c              :+:      :+:    :+:   */
+/*   ft_printf_write_special.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/04 13:28:21 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/08 14:23:08 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/08 13:32:20 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/08 17:30:07 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "format_string_defs.h"
-#include "conversion_interface.h"
+#include "printf_constants.h"
 #include "libft.h"
+#include "conversion_interface.h"
+#include <stddef.h>
 
-static void	set_conv_res_length(void *conv)
+size_t	ft_print_to_unsupported(char *to_write, const t_conversion *conv)
 {
-	set_conversion_result_length((t_conversion*)conv);
+	(void)conv;
+	ft_strcpy(to_write, UNSUPPORTED_CONVERSION_STRING);
+	return (sizeof(UNSUPPORTED_CONVERSION_STRING));
 }
 
-void	ft_compute_convs_length(t_format_string *fmt)
+size_t	ft_print_to_no_conversion(char *to_write, const t_conversion *conv)
 {
-	f_fifoiter(fmt->conversion_list, &set_conv_res_length);
-}
-
-void			set_fmt_length(t_format_string *fmt, size_t length)
-{
-	fmt->length = length;
+	(void)conv;
+	*to_write = CONVERSION_INDICATOR;
+	return (sizeof(CONVERSION_INDICATOR));
 }

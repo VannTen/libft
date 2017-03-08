@@ -19,17 +19,6 @@
 #include <stdio.h>
 #include <limits.h>
 
-t_format_string	*ft_full_fmt(const char *base_text, va_list *var_args)
-{
-	t_format_string *fmt;
-
-	fmt = ft_format_string_parser(base_text);
-	ft_get_var_args(fmt, var_args);
-	ft_attributes_var_args(fmt);
-	ft_compute_convs_length(fmt);
-	return (fmt);
-}
-
 int	ft_vasprintf(char **strp, const char *format_string, va_list *ap)
 {
 	t_format_string	*fmt;

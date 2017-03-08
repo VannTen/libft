@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 12:13:35 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/07 18:19:55 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/08 14:06:11 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void			ft_write_field_width(char *to_write, int fill, char padding)
 	add = fill < 0 ? 1 : -1;
 	while (fill != 0)
 	{
-		to_write[fill] = padding;
 		fill += add;
+		to_write[fill] = padding;
 	}
 }
