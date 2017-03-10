@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 16:09:15 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 17:45:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 18:15:30 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,10 @@ void	ft_post_process_conv(t_conversion *conv)
 	if (conv->field_width.param.value < 0)
 	{
 		conv->flags[NEGATIVE_FIELD_WIDTH] = TRUE;
-		conv->field_width.param.value = - conv->field_width.param.value;
+		conv->field_width.param.value = -conv->field_width.param.value;
 	}
+	if (conv->field_width.param.value <= conv->result_length)
+		conv->field_width.param.value = conv->result_length;
 	if (conv->flags[NEGATIVE_FIELD_WIDTH])
 		conv->flags[ZERO_PADDING] = FALSE;
 }

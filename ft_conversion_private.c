@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:45:19 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 14:58:33 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 18:20:14 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ t_conversion	*conversion_ctor(void)
 			index++;
 		}
 		conversion->arg_index = 0;
+		conversion->positional = FALSE;
+		conversion->is_valid = TRUE;
 		conversion->field_width.param.value = 0;
 		conversion->precision.param.value = 0;
 		conversion->field_width.is_arg = FALSE;
