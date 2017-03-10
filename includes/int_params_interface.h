@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:26:32 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/03 12:45:05 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 13:20:55 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 struct s_int_param;
 typedef struct s_int_param	t_int_param;
 
-size_t			set_int_params(const char *conversion_specifier,
+int			set_int_params(const char *conversion_specifier,
 		t_int_param *numeric_param, t_format_string *format_string);
 #endif

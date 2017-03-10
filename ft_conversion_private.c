@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:45:19 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/04 13:25:16 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 14:58:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void			conversion_destroy(t_conversion *conversion)
 {
-	size_t	index;
+	enum e_flags	index;
 
 	if (conversion != NULL)
 	{
@@ -27,8 +27,8 @@ void			conversion_destroy(t_conversion *conversion)
 			index++;
 		}
 		conversion->arg_index = 0;
-		conversion->field_width.value = 0;
-		conversion->precision.value = 0;
+		conversion->field_width.param.value = 0;
+		conversion->precision.param.value = 0;
 		conversion->field_width.is_arg = FALSE;
 		conversion->precision.is_arg = FALSE;
 		conversion->length_modifier = 0;
@@ -39,7 +39,7 @@ void			conversion_destroy(t_conversion *conversion)
 t_conversion	*conversion_ctor(void)
 {
 	t_conversion	*conversion;
-	size_t			index;
+	enum e_flags	index;
 
 	conversion = malloc(sizeof(t_conversion));
 	if (conversion != NULL)
@@ -51,8 +51,8 @@ t_conversion	*conversion_ctor(void)
 			index++;
 		}
 		conversion->arg_index = 0;
-		conversion->field_width.value = 0;
-		conversion->precision.value = 0;
+		conversion->field_width.param.value = 0;
+		conversion->precision.param.value = 0;
 		conversion->field_width.is_arg = FALSE;
 		conversion->precision.is_arg = FALSE;
 		conversion->length_modifier = 0;
@@ -60,14 +60,15 @@ t_conversion	*conversion_ctor(void)
 	return (conversion);
 }
 
-t_bool			set_one_flag(const char *conversion_specifier, size_t index,
+t_bool			set_one_flag(const char *conversion_specifier, int index,
 		t_conversion *convers_specs)
 {
-	size_t	index_flags;
+	enum e_flags		index_flags;
+	static const char	flags[] = "#0- +'";
 
 	index_flags = 0;
 	while (index_flags < FLAGS_NBR
-			&& conversion_specifier[index] != g_flags[index_flags])
+			&& conversion_specifier[index] != flags[index_flags])
 		index_flags++;
 	if (index_flags != FLAGS_NBR)
 	{
@@ -78,7 +79,7 @@ t_bool			set_one_flag(const char *conversion_specifier, size_t index,
 		return (FALSE);
 }
 
-void			set_conversion_spec_len(t_conversion *conv, size_t index)
+void			set_conversion_spec_len(t_conversion *conv, int index)
 {
 	conv->specifier_length = index;
 }

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 15:31:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/08 14:21:35 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 16:26:13 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ t_format_string	*ft_full_fmt(const char *base_text, va_list *var_args)
 
 t_format_string	*ft_format_string_parser(const char *string)
 {
-	size_t			index;
-	size_t			conv_len;
+	int			index;
+	int			conv_len;
 	t_format_string	*format_string;
 
 	format_string = fmt_ctor();
@@ -41,7 +41,7 @@ t_format_string	*ft_format_string_parser(const char *string)
 		if (string[index] == CONVERSION_INDICATOR)
 		{
 			conv_len = ft_add_conversion(string + index, format_string);
-			if (conv_len == 0)
+			if (conv_len == CONVERSION_PARSE_ERROR)
 				break ;
 			index += conv_len;
 		}

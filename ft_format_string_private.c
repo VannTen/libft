@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:52:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/08 14:36:55 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 14:41:16 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_format_string	*fmt_ctor(void)
 }
 
 t_bool			f_add_conv_to_fmt(t_format_string *fmt,
-		t_conversion *conversion, size_t index)
+		t_conversion *conversion, int index)
 {
 	if (f_fifo_add(fmt->conversion_list, conversion) != NULL)
 	{

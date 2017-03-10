@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 16:35:42 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/06 16:44:42 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 14:42:19 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 #include "libft.h"
 #include <stddef.h>
 
-size_t			ft_fmt_plain_text_len(const t_format_string *fmt)
+int			ft_fmt_plain_text_len(const t_format_string *fmt)
 {
 	return (fmt->length - fmt->conversions_length);
 }
 
-static size_t	get_conv_len(const void *conversion)
+static int	get_conv_len(const void *conversion)
 {
 	return (ft_get_conv_len((const t_conversion*)conversion));
 }
 
-size_t			ft_conversions_length(const t_format_string *fmt)
+int			ft_conversions_length(const t_format_string *fmt)
 {
-	return (f_fifosumsize_t_content(fmt->conversion_list, &get_conv_len));
+	return (f_fifosum_content(fmt->conversion_list, &get_conv_len));
 }
 
 static t_bool	write_to_next_conv(const void **fmt, void **final_string, void *conv)
@@ -43,7 +43,7 @@ void			ft_write_result_string(const char *fmt_src, char *final_string,
 			&write_to_next_conv);
 }
 
-size_t			ft_get_current_conv_text_len(t_format_string *fmt)
+int			ft_get_current_conv_text_len(t_format_string *fmt)
 {
 	t_conversion *conv;
 

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 12:27:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/07 18:15:11 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 15:12:55 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 ** This functions is used to determine field width and precision
 */
 
-size_t			set_int_params(const char *conversion_specifier,
+int			set_int_params(const char *conversion_specifier,
 		t_int_param *numeric_param, t_format_string *format_string)
 {
-	size_t	index_param;
-	size_t	index;
+	int	index_param;
+	int	index;
 
 	index = 0;
 	if (conversion_specifier[index] == IS_ARG_INDICATOR)
@@ -32,18 +32,19 @@ size_t			set_int_params(const char *conversion_specifier,
 		numeric_param->is_arg = TRUE;
 		index++;
 		index_param = ft_set_arg_positional(conversion_specifier + index,
-				&numeric_param->value);
+				&numeric_param->param.arg_index);
 		if (index_param == 0)
-			numeric_param->value = ft_request_arg(format_string);
+			numeric_param->param.arg_index = ft_request_arg(format_string);
 		else
 			index += index_param;
 	}
 	else
 	{
 		numeric_param->is_arg = FALSE;
-		numeric_param->value = ft_strict_atoi(conversion_specifier + index);
-		while (ft_isdigit(conversion_specifier[index])
-				|| conversion_specifier[index] == '-')
+		numeric_param->param.value = ft_strict_atoi(conversion_specifier + index);
+		if (conversion_specifier[index] == '-')
+			index++;
+		while (ft_isdigit(conversion_specifier[index]))
 			index++;
 	}
 	return (index);

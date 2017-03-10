@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:08:36 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 10:37:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 14:46:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 
 struct	s_format_string
 {
-	t_fifo			*conversion_list;
-	t_var_arg		*arg_list;
-	int				arg_count;
-	size_t			length;
-	size_t			conversions_length;
+	t_fifo		*conversion_list;
+	t_var_arg	*arg_list;
+	size_t		arg_count;
+	int			length;
+	int			conversions_length;
 };
 
 #endif

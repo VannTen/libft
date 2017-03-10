@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 18:17:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/22 13:46:56 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 15:09:10 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "bool.h"
 #include <stdlib.h>
 
-size_t			set_flags(const char *conversion_specifier, size_t index,
+int	set_flags(const char *conversion_specifier, int index,
 		t_conversion *convers_specs)
 {
 	while (set_one_flag(conversion_specifier, index, convers_specs))
