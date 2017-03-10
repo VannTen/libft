@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 16:09:15 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/08 14:19:14 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 17:45:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,34 @@ size_t		bigger_arg_required(const t_conversion *conv)
 		max = max > conv->precision.param.arg_index ?
 			max : conv->precision.param.arg_index;
 	return (max);
+}
+
+void	ft_normalize_args(t_conversion *conv)
+{
+	if (conv->arg_index != 0)
+		conv->arg_index--;
+	else
+		conv->is_valid = FALSE;
+	if (conv->field_width.is_arg)
+	{
+		if (conv->field_width.param.arg_index != 0)
+			conv->field_width.param.arg_index--;
+		else
+		{
+			conv->field_width.is_arg = FALSE;
+			conv->field_width.param.value = 0;
+		}
+	}
+	if (conv->field_width.is_arg)
+	{
+		if (conv->field_width.param.arg_index != 0)
+			conv->field_width.param.arg_index--;
+		else
+		{
+			conv->field_width.is_arg = FALSE;
+			conv->field_width.param.value = 0;
+		}
+	}
 }
 
 void	ft_post_process_conv(t_conversion *conv)
