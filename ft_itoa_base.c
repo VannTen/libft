@@ -6,7 +6,7 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 10:03:02 by exam              #+#    #+#             */
-/*   Updated: 2017/03/02 16:18:29 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 10:44:49 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-char	*ft_itoa_base(t_integer value, int base, t_bool maj, t_bool is_signed)
+char	*ft_itoa_base(t_integer value, int base, const char *base_digits,
+		t_bool is_signed)
 {
 	size_t	size;
 	char	*itoa;
@@ -29,7 +30,7 @@ char	*ft_itoa_base(t_integer value, int base, t_bool maj, t_bool is_signed)
 	if (is_signed)
 	{
 		if (value.negative < 0)
-			negative(itoa + size - 1, value.negative, base, maj ? 'A' : 'a');
+			itoa_write_signed(itoa + size - 1, value.negative, base, base_digits);
 		else
 		{
 			value.positive = value.negative;
@@ -37,6 +38,6 @@ char	*ft_itoa_base(t_integer value, int base, t_bool maj, t_bool is_signed)
 		}
 	}
 	if (!is_signed)
-		positive(itoa + size - 1, value.positive, base, maj ? 'A' : 'a');
+		itoa_write_unsigned(itoa + size - 1, value.positive, base, base_digits);
 	return (itoa);
 }
