@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion_private_args.c                       :+:      :+:    :+:   */
+/*   ft_conversion_private_set_var_args.c               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 16:09:15 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 18:15:30 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/13 16:29:11 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,31 +24,6 @@ void	ft_conv_attribute_arg(t_conversion *conv, t_var_arg *arg_array)
 			ft_get_int(ft_get_address(
 						arg_array, conv->precision.param.arg_index));
 	conv->arg = ft_get_address(arg_array, conv->arg_index);
-}
-
-int	set_positional_arg(const char *conversion_text, t_conversion *convers_specs)
-{
-	int	index;
-
-	index = ft_set_arg_positional(conversion_text,
-			&convers_specs->arg_index);
-	if (index != 0)
-		convers_specs->positional = TRUE;
-	return (index);
-}
-
-size_t		bigger_arg_required(const t_conversion *conv)
-{
-	size_t max;
-
-	max = conv->arg_index;
-	if (conv->field_width.is_arg)
-		max = max > conv->field_width.param.arg_index ?
-			max : conv->field_width.param.arg_index;
-	if (conv->precision.is_arg)
-		max = max > conv->precision.param.arg_index ?
-			max : conv->precision.param.arg_index;
-	return (max);
 }
 
 void	ft_normalize_args(t_conversion *conv)
@@ -90,4 +65,15 @@ void	ft_post_process_conv(t_conversion *conv)
 		conv->field_width.param.value = conv->result_length;
 	if (conv->flags[NEGATIVE_FIELD_WIDTH])
 		conv->flags[ZERO_PADDING] = FALSE;
+}
+
+int		set_positional_arg(const char *conversion_text, t_conversion *convers_specs)
+{
+	int	index;
+
+	index = ft_set_arg_positional(conversion_text,
+			&convers_specs->arg_index);
+	if (index != 0)
+		convers_specs->positional = TRUE;
+	return (index);
 }

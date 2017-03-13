@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion_private_const_field_width.c          :+:      :+:    :+:   */
+/*   ft_conversion_private_write.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/08 15:06:24 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 13:48:28 by mgautier         ###   ########.fr       */
+/*   Created: 2017/02/28 17:30:48 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/13 16:32:57 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
+#include "conv_write_interface.h"
 
-char	*start_actual_conv(const char *global_start, const t_conversion *conv)
+static char	*start_actual_conv(const char *global_start, const t_conversion *conv)
 {
 	const char	*start_actual_conv;
 
@@ -24,7 +25,7 @@ char	*start_actual_conv(const char *global_start, const t_conversion *conv)
 	return ((char*)start_actual_conv);
 }
 
-char	*empty_field_width(const char *global_start, const t_conversion *conv)
+static char	*empty_field_width(const char *global_start, const t_conversion *conv)
 {
 	const char	*empty_field_width;
 
@@ -35,7 +36,7 @@ char	*empty_field_width(const char *global_start, const t_conversion *conv)
 	return ((char*)empty_field_width);
 }
 
-int		to_fill_field_width(const t_conversion *conv)
+static int	to_fill_field_width(const t_conversion *conv)
 {
 	int	rest_to_fill;
 
@@ -46,3 +47,27 @@ int		to_fill_field_width(const t_conversion *conv)
 	return (rest_to_fill);
 }
 
+static void	ft_write_field_width(char *to_write, int fill, char padding)
+{
+	int	add;
+
+	add = fill < 0 ? 1 : -1;
+	while (fill != 0)
+	{
+		fill += add;
+		to_write[fill] = padding;
+	}
+}
+
+int			ft_write_conversion(char *to_write, const t_conversion *conv)
+{
+	char	*write_conv_here;
+	char	*write_field_width_here;
+
+	write_conv_here = start_actual_conv(to_write, conv);
+	write_field_width_here = empty_field_width(to_write, conv);
+	g_print_to_test[conv->type](write_conv_here, conv);
+	ft_write_field_width(write_field_width_here, to_fill_field_width(conv),
+			conv->flags[ZERO_PADDING] ? '0' : ' ');
+	return (ft_get_conv_len(conv));
+}

@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/10 11:23:15 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/13 16:48:10 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,14 +70,19 @@ LIB_PRINTF ?=\
 	ft_conversion_private_parameters.c\
 	ft_flags.c ft_format_string_private.c ft_format_string_private_args.c\
 	ft_format_string_parser.c ft_format_string_private_const.c\
-	ft_conversion.c ft_int_params.c ft_int_params_tools.c ft_var_args_private.c\
-	ft_conversion_private_is_conv.c ft_conversion_private.c\
-	ft_conversion_private_const.c ft_format_string_private_set_length.c\
+	ft_conversion.c\
+	ft_conversion_private_get_parameters.c\
+	ft_conversion_private_set_parameters.c\
+	ft_conversion_private_ressources.c\
+	ft_conversion_private_set_var_args.c\
+	ft_conversion_private_write.c\
+	ft_conversion_private_is_conv.c\
+	ft_int_params.c ft_int_params_tools.c ft_var_args_private.c\
+	ft_format_string_private_set_length.c\
 	ft_printf_len_special.c ft_format_string_result_length.c\
 	ft_write_result_string.c ft_printf_write_special.c\
-	ft_var_args_private_const.c ft_conversion_private_args.c\
+	ft_var_args_private_const.c\
 	ft_format_string_private_conv_process.c\
-	ft_conversion_private_const_field_width.c\
 	ft_printf_signed_integers.c
 LIB_VARIADIC ?=\
 	ft_variadic_get_char.c ft_variadic_get_int.c ft_variadic_get_intmax_t.c\

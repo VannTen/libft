@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion_private_const.c                      :+:      :+:    :+:   */
+/*   ft_conversion_private_get_parameters.c             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/28 17:30:48 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 13:52:42 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/13 16:12:46 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/13 16:22:16 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
-#include "conv_write_interface.h"
 #include <limits.h>
 
-int			ft_get_conv_len(const t_conversion *conv)
+int		ft_get_conv_len(const t_conversion *conv)
 {
 	int	field_width;
 
@@ -34,22 +33,9 @@ int			ft_get_conv_len(const t_conversion *conv)
 			field_width : conv->result_length);
 }
 
-int			ft_get_conv_text_len(const t_conversion *conv)
+int		ft_get_conv_text_len(const t_conversion *conv)
 {
 	return (conv->specifier_length);
-}
-
-int			ft_write_conversion(char *to_write, const t_conversion *conv)
-{
-	char	*write_conv_here;
-	char	*write_field_width_here;
-
-	write_conv_here = start_actual_conv(to_write, conv);
-	write_field_width_here = empty_field_width(to_write, conv);
-	g_print_to_test[conv->type](write_conv_here, conv);
-	ft_write_field_width(write_field_width_here, to_fill_field_width(conv),
-			conv->flags[ZERO_PADDING] ? '0' : ' ');
-	return (ft_get_conv_len(conv));
 }
 
 size_t	ft_arg_required(const void *conversion)
@@ -60,4 +46,18 @@ size_t	ft_arg_required(const void *conversion)
 size_t	get_modifier(const t_conversion *conversion)
 {
 	return (conversion->length_modifier);
+}
+
+size_t		bigger_arg_required(const t_conversion *conv)
+{
+	size_t max;
+
+	max = conv->arg_index;
+	if (conv->field_width.is_arg)
+		max = max > conv->field_width.param.arg_index ?
+			max : conv->field_width.param.arg_index;
+	if (conv->precision.is_arg)
+		max = max > conv->precision.param.arg_index ?
+			max : conv->precision.param.arg_index;
+	return (max);
 }
