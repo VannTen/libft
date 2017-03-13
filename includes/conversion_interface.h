@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/13 16:33:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/13 18:40:50 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int				ft_get_conv_text_len(const t_conversion *conv);
 */
 
 void			ft_conv_attribute_arg(t_conversion *conv, t_var_arg *arg_array);
-void			ft_post_process_conv(t_conversion *conv);
 void			ft_normalize_args(t_conversion *conv);
 
 /*

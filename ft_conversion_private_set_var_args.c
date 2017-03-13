@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 16:09:15 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/13 16:29:11 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/13 18:40:28 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,6 @@ void	ft_normalize_args(t_conversion *conv)
 			conv->field_width.param.value = 0;
 		}
 	}
-}
-
-void	ft_post_process_conv(t_conversion *conv)
-{
-	if (conv->field_width.param.value < 0)
-	{
-		conv->flags[NEGATIVE_FIELD_WIDTH] = TRUE;
-		conv->field_width.param.value = -conv->field_width.param.value;
-	}
-	if (conv->field_width.param.value <= conv->result_length)
-		conv->field_width.param.value = conv->result_length;
-	if (conv->flags[NEGATIVE_FIELD_WIDTH])
-		conv->flags[ZERO_PADDING] = FALSE;
 }
 
 int		set_positional_arg(const char *conversion_text, t_conversion *convers_specs)
