@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:12:46 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/13 18:47:51 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/13 18:48:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int		ft_get_conv_len(const t_conversion *conv)
 {
-	return (field_width);
+	return (conv->field_width.param.value);
 }
 
 int		ft_get_conv_text_len(const t_conversion *conv)
