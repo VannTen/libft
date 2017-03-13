@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 16:00:06 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 13:07:41 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/13 17:19:11 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	ft_printf_len_no_conversion(const t_conversion *conv);
 int	ft_printf_len_unknown(const t_conversion *conv);
 int	ft_printf_len_unsupported(const t_conversion *conv);
 static const t_print_len g_print_len[] = {
-	&ft_printf_len_unsupported,
-	&ft_printf_len_unsupported,
+	&ft_printf_len_di,
+	&ft_printf_len_di,
 	&ft_printf_len_unsupported,
 	&ft_printf_len_unsupported,
 	&ft_printf_len_unsupported,
