@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:34:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 10:48:02 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/13 16:46:05 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define VARIADIC_ARGS_INTERFACE_H
 # include "fifo.h"
 # include <stdarg.h>
+# include <stdint.h>
 
 struct s_var_arg;
 typedef struct s_var_arg	t_var_arg;
