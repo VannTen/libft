@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/04 13:28:21 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/08 14:23:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 14:45:05 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static void	set_conv_res_length(void *conv)
 	set_conversion_result_length((t_conversion*)conv);
 }
 
-void	ft_compute_convs_length(t_format_string *fmt)
+void		ft_compute_convs_length(t_format_string *fmt)
 {
 	f_fifoiter(fmt->conversion_list, &set_conv_res_length);
 }
 
-void			set_fmt_length(t_format_string *fmt, size_t length)
+void		set_fmt_length(t_format_string *fmt, int length)
 {
 	fmt->length = length;
 }

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:32:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 16:23:09 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/13 16:47:42 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stddef.h>
 # include <wchar.h>
 # include <stdint.h>
+# include <sys/types.h>
 
 typedef enum				e_type
 {
@@ -28,7 +29,7 @@ typedef enum				e_type
 	LONG_LONG,
 	INTMAX,
 	PTRDIFF,
-	SIZE,
+	SSIZE,
 	QUAD,
 	U_INT,
 	U_CHAR,
@@ -37,7 +38,7 @@ typedef enum				e_type
 	U_LONG_LONG,
 	U_INTMAX,
 	U_PTRDIFF,
-	U_SIZE,
+	SIZE,
 	U_QUAD,
 	PTR_INT,
 	PTR_CHAR,
@@ -59,11 +60,12 @@ struct						s_var_arg
 		long long int		t_long_long_int;
 		intmax_t			t_intmax_t;
 		ptrdiff_t			t_ptrdiff_t;
-		size_t				t_size_t;
+		ssize_t				t_ssize_t;
 		unsigned int		t_uint;
 		unsigned int		t_ulong_int;
 		unsigned long int	t_ulong_long_int;
 		uintmax_t			t_uintmax_t;
+		size_t				t_size_t;
 		char				*t_ptr_char;
 		short				*t_ptr_short;
 		int					*t_ptr_int;

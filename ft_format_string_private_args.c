@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 12:28:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/06 11:31:51 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 17:54:20 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,23 @@
 ** args, that avoids repeated calls for arg that are required more than once
 */
 
-static int	bigger_arg(const void *conv)
+static size_t	bigger_arg(const void *conv)
 {
 		return (bigger_arg_required((const t_conversion*)conv));
 }
 
-void		ft_get_var_args(t_format_string *fmt, va_list *var_arg_list)
+static void		normalize(void *conv)
 {
-	int		arg_nbr;
+	ft_normalize_args((t_conversion*)conv);
+}
+
+void			ft_get_var_args(t_format_string *fmt, va_list *var_arg_list)
+{
+	size_t	arg_nbr;
 
 	arg_nbr = f_fifomax(fmt->conversion_list, &bigger_arg);
-	if (arg_nbr < 0)
-		arg_nbr = 0;
-	else
-		arg_nbr++;
 	fmt->arg_list = ft_arg_list_ctor(arg_nbr);
+	f_fifoiter(fmt->conversion_list, &normalize);
 	fmt->arg_count = arg_nbr;
 	if (fmt->arg_list != NULL)
 	{
@@ -47,7 +49,7 @@ void		ft_get_var_args(t_format_string *fmt, va_list *var_arg_list)
 	}
 }
 
-static void	conv_attribute_arg(void *conv, void *array)
+static void		conv_attribute_arg(void *conv, void *array)
 {
 	ft_conv_attribute_arg((t_conversion*)conv, (t_var_arg*)array);
 }
@@ -57,11 +59,11 @@ void		ft_attributes_var_args(t_format_string *fmt)
 	f_fifoiterarray(fmt->arg_list, fmt->conversion_list, &conv_attribute_arg);
 }
 
-int			ft_request_arg(t_format_string *format)
+size_t			ft_request_arg(t_format_string *format)
 {
-	int		index;
+	size_t	index;
 
-	index = format->arg_count;
 	format->arg_count++;
+	index = format->arg_count;
 	return (index);
 }

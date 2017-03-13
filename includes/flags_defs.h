@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 18:16:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/24 12:23:41 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 16:03:28 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ enum	e_flags
 	FLAGS_NBR
 };
 
-static const char g_flags[] = "#0- +'";
 #endif

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 17:33:54 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/03 17:23:52 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 16:32:25 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include <stdlib.h>
 #include <limits.h>
 
-int	f_lstmax(t_lst *list, int (*get_max)(const void *content))
+size_t	f_lstmax(t_lst *list, size_t (*get_max)(const void *content))
 {
-	int	max;
-	int	result;
+	size_t	max;
+	size_t	result;
 
-	max = INT_MIN;
+	max = 0;
 	while (list != NULL)
 	{
 		result = get_max(list->content);

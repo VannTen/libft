@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/08 17:30:51 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/13 16:48:10 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,8 @@ LIB_MEM ?=\
 	ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memdel.c ft_memmove.c \
 	ft_bzero.c 
 LIB_CONVERT ?=\
-	ft_atoi.c ft_itoa.c ft_tolower.c ft_toupper.c ft_itoa_base.c
+	ft_atoi.c ft_itoa.c ft_tolower.c ft_toupper.c ft_itoa_base.c\
+	ft_itoa_tools.c
 LIB_IS_OF ?=\
 	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c
 LIB_MATH ?=\
@@ -69,20 +70,27 @@ LIB_PRINTF ?=\
 	ft_conversion_private_parameters.c\
 	ft_flags.c ft_format_string_private.c ft_format_string_private_args.c\
 	ft_format_string_parser.c ft_format_string_private_const.c\
-	ft_conversion.c ft_int_params.c ft_int_params_tools.c ft_var_args_private.c\
-	ft_conversion_private_is_conv.c ft_conversion_private.c\
-	ft_conversion_private_const.c ft_format_string_private_set_length.c\
+	ft_conversion.c\
+	ft_conversion_private_get_parameters.c\
+	ft_conversion_private_set_parameters.c\
+	ft_conversion_private_ressources.c\
+	ft_conversion_private_set_var_args.c\
+	ft_conversion_private_write.c\
+	ft_conversion_private_is_conv.c\
+	ft_int_params.c ft_int_params_tools.c ft_var_args_private.c\
+	ft_format_string_private_set_length.c\
 	ft_printf_len_special.c ft_format_string_result_length.c\
 	ft_write_result_string.c ft_printf_write_special.c\
-	ft_var_args_private_const.c ft_conversion_private_args.c\
+	ft_var_args_private_const.c\
 	ft_format_string_private_conv_process.c\
-	ft_conversion_private_const_field_width.c
+	ft_printf_signed_integers.c
 LIB_VARIADIC ?=\
 	ft_variadic_get_char.c ft_variadic_get_int.c ft_variadic_get_intmax_t.c\
 	ft_variadic_get_long.c ft_variadic_get_long_long.c\
 	ft_variadic_get_ptrdiff_t.c\
 	ft_variadic_get_short.c ft_variadic_get_size_t.c ft_variadic_get_wchar_t.c\
-	ft_variadic_no_get.c
+	ft_variadic_no_get.c\
+	ft_var_args_private_give.c
 SRC := $(LIB_LST) $(LIB_LIST) $(LIB_FIFO)\
 	$(LIB_STR) $(LIB_DISPLAY) $(LIB_MEM)\
 	$(LIB_CONVERT) $(LIB_IS_OF) $(LIB_MATH)\

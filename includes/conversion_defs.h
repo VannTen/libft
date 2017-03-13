@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:13:24 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/07 17:17:36 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 17:40:01 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,15 @@
 struct	s_conversion
 {
 	t_bool				flags[FLAGS_NBR];
-	int					arg_index;
+	size_t				arg_index;
+	t_bool				positional;
+	t_bool				is_valid;
 	t_int_param			field_width;
 	t_int_param			precision;
 	t_length_modifier	length_modifier;
 	t_conv_type			type;
-	size_t				result_length;
-	size_t				specifier_length;
+	int					result_length;
+	int					specifier_length;
 	const t_var_arg		*arg;
 };
 

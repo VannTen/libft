@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 18:03:13 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/24 12:25:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/10 16:08:03 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@
 # include "format_string_interface.h"
 # include <stdlib.h>
 
-size_t			set_positional_arg(const char *format_string, size_t index,
+int			set_positional_arg(const char *format_string,
 		t_conversion *conversion);
-size_t			set_flags(const char *format_string, size_t index,
+int			set_flags(const char *format_string,
 		t_conversion *conversion);
 
 /*
 ** Following functions needs a ref to format_string
 */
 
-size_t			set_field_width(const char *format_string, size_t index,
+int			set_field_width(const char *format_string,
 		t_conversion *conversion, t_format_string *fmt);
-size_t			set_precision(const char *format_string, size_t index,
+int			set_precision(const char *format_string,
 		t_conversion *conversion, t_format_string *fmt);
-size_t			set_length_modifier(const char *format_string, size_t index,
+int			set_length_modifier(const char *conv_specifier,
+		t_conversion *conversion);
+int			set_type_conversion(const char *conversion_specifier,
 		t_conversion *conversion, t_format_string *fmt);
-size_t			set_type_conversion(const char *conversion_specifier,
-		size_t index, t_conversion *conversion, t_format_string *fmt);
 
 #endif
