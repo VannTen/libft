@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:12:46 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/13 16:22:16 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/13 18:47:51 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,7 @@
 
 int		ft_get_conv_len(const t_conversion *conv)
 {
-	int	field_width;
-
-	if (conv->field_width.param.value < 0)
-	{
-		if (conv->field_width.param.value == INT_MIN)
-		{
-			field_width = INT_MAX;
-			field_width++;
-		}
-		else
-			field_width = -conv->field_width.param.value;
-	}
-	else
-		field_width = conv->field_width.param.value;
-	return (field_width > conv->result_length ?
-			field_width : conv->result_length);
+	return (field_width);
 }
 
 int		ft_get_conv_text_len(const t_conversion *conv)
