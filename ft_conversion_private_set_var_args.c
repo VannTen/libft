@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 16:09:15 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/13 18:40:28 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 12:25:42 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ void	ft_normalize_args(t_conversion *conv)
 			conv->field_width.param.value = 0;
 		}
 	}
-	if (conv->field_width.is_arg)
+	if (conv->precision.is_arg)
 	{
-		if (conv->field_width.param.arg_index != 0)
-			conv->field_width.param.arg_index--;
+		if (conv->precision.param.arg_index != 0)
+			conv->precision.param.arg_index--;
 		else
 		{
-			conv->field_width.is_arg = FALSE;
-			conv->field_width.param.value = 0;
+			conv->precision.is_arg = FALSE;
+			conv->precision.param.value = 0;
 		}
 	}
 }
