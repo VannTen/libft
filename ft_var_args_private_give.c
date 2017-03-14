@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 09:13:43 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 10:52:03 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 14:53:34 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ intmax_t	ft_var_signed_integers(const t_var_arg *signed_integer)
 		integer = signed_integer->parameter.t_intmax_t;
 	else if (signed_integer->type == PTRDIFF)
 		integer = signed_integer->parameter.t_ptrdiff_t;
-	else if (signed_integer->type == SIZE)
+	else if (signed_integer->type == SSIZE)
 		integer = signed_integer->parameter.t_ssize_t;
 	return (integer);
 }
