@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 18:17:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 17:09:31 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 19:12:49 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,37 @@ int				set_flags(const char *conversion_specifier,
 	return (index);
 }
 
-int				ft_write_flags(char *to_write, const t_conversion *conv)
+static int		ft_write_alternate_form(char *to_write,
+		const t_conversion *conv)
 {
 	int	flags_len;
 
 	flags_len = 0;
 	if (conv->flags[ALTERNATE_FORM])
 	{
-		if (conv->type == X || conv->type == X_MAJ)
+		if (conv->type == X)
 		{
 			ft_strcpy(to_write, HEXA_ALTERNATE_FORM);
 			flags_len += ft_strlen(HEXA_ALTERNATE_FORM);
 		}
+		else if (conv->type == X_MAJ)
+		{
+			ft_strcpy(to_write, HEXA_MAJ_ALTERNATE_FORM);
+			flags_len += ft_strlen(HEXA_ALTERNATE_FORM);
+		}
+		else if (conv->type == O)
+		{
+			ft_strcpy(to_write, OCTAL_ALTERNATE_FORM);
+			flags_len += ft_strlen(OCTAL_ALTERNATE_FORM);
+		}
 	}
+	return (flags_len);
+}
+int				ft_write_flags(char *to_write, const t_conversion *conv)
+{
+	int	flags_len;
+
+	flags_len = ft_write_alternate_form(to_write, conv);
 	if (conv->flags[ALWAYS_SIGN] && is_signed_positive(conv->arg))
 	{
 		to_write[flags_len] = '+';
@@ -83,6 +101,8 @@ int				ft_flags_len(const t_conversion *conv)
 	{
 		if (conv->type == X || conv->type == X_MAJ)
 			flags_len += ft_strlen(HEXA_ALTERNATE_FORM);
+		else if (conv->type == O)
+			flags_len += ft_strlen(OCTAL_ALTERNATE_FORM);
 	}
 	if (conv->flags[ALWAYS_SIGN] && is_signed_positive(conv->arg))
 		flags_len++;
