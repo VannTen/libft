@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 16:13:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 11:58:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 19:24:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ size_t	itoa_len_signed(intmax_t number, int base)
 	return (size);
 }
 
-size_t	itoa_len_unsigned(uintmax_t number, int base)
+size_t	itoa_len_unsigned(uintmax_t number, unsigned int base)
 {
 	size_t	size;
 
-	size = 0;
-	while (number != 0)
+	size = 1;
+	while (number >= base)
 	{
 		number = number / base;
 		size++;

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:20:52 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 17:32:18 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 19:13:12 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void ft_print_to_di(char *to_write, const t_conversion *conv);
 void ft_print_to_o(char *to_write, const t_conversion *conv);
 void ft_print_to_u(char *to_write, const t_conversion *conv);
 void ft_print_to_x(char *to_write, const t_conversion *conv);
+void ft_print_to_x_maj(char *to_write, const t_conversion *conv);
 void ft_print_to_e(char *to_write, const t_conversion *conv);
 void ft_print_to_f(char *to_write, const t_conversion *conv);
 void ft_print_to_g(char *to_write, const t_conversion *conv);
@@ -33,10 +34,10 @@ void ft_print_to_unsupported(char *to_write, const t_conversion *conv);
 # define CONST_PRINT_TO_INITIALIZER \
 	&ft_print_to_di,\
 	&ft_print_to_di,\
-	&ft_print_to_unsupported,\
-	&ft_print_to_unsupported,\
-	&ft_print_to_unsupported,\
-	&ft_print_to_unsupported,\
+	&ft_print_to_o,\
+	&ft_print_to_u,\
+	&ft_print_to_x,\
+	&ft_print_to_x_maj,\
 	&ft_print_to_unsupported,\
 	&ft_print_to_unsupported,\
 	&ft_print_to_unsupported,\
@@ -51,30 +52,5 @@ void ft_print_to_unsupported(char *to_write, const t_conversion *conv);
 	&ft_print_to_unsupported,\
 	&ft_print_to_no_conversion,\
 	&ft_print_to_unsupported
-
-/*
-static const t_print_to g_print_to[] = {
-	&ft_print_to_di,
-	&ft_print_to_di,
-	&ft_print_to_o,
-	&ft_print_to_u,
-	&ft_print_to_x,
-	&ft_print_to_x,
-	&ft_print_to_e,
-	&ft_print_to_e,
-	&ft_print_to_f,
-	&ft_print_to_f,
-	&ft_print_to_g,
-	&ft_print_to_g,
-	&ft_print_to_a,
-	&ft_print_to_a,
-	&ft_print_to_c,
-	&ft_print_to_s,
-	&ft_print_to_p,
-	&ft_print_to_n,
-	&ft_print_to_no_conversion,
-	&ft_print_to_unsupported
-};
-*/
 
 #endif

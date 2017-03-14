@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 14:40:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 17:10:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 18:43:35 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ static void	handle_negative_field_width(t_conversion *conv)
 
 static int	set_final_precision(t_conversion *conv)
 {
-	int result;
+	int				result;
+	const t_get_len	get_len[] = {CONST_GET_LEN_INITIALIZER};
 
-	result = g_print_len[conv->type](conv);
+	result = get_len[conv->type](conv);
 	conv->result_length = result;
 	if (conv->precision.param.value < result)
 		conv->precision.param.value = result;

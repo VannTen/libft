@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 16:15:30 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 11:43:51 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 19:24:50 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define HEXADECIMAL_BASE sizeof(HEXADECIMAL_DIGITS) - 1
 
 size_t	itoa_len_signed(intmax_t number, int base);
-size_t	itoa_len_unsigned(uintmax_t number, int base);
+size_t	itoa_len_unsigned(uintmax_t number, unsigned int base);
 size_t	itoa_length(t_integer number, int base, t_bool is_signed);
 void	itoa_write_signed(char *str, intmax_t number, unsigned int base,
 		const char *base_digits);
