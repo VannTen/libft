@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 08:55:33 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/13 17:37:14 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 14:00:26 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "variadic_args_interface.h"
 #include "itoa_tools.h"
 
-int	ft_printf_len_di(const t_conversion *conv)
+int		ft_printf_len_di(const t_conversion *conv)
 {
 	return (itoa_len_signed(ft_var_signed_integers(conv->arg), 10));
 }
