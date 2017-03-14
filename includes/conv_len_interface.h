@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 16:00:06 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/13 17:19:11 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 19:10:56 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CONV_LEN_INTERFACE_H
 # include "conversion_interface.h"
 
-typedef	int	(*t_print_len)(const t_conversion *);
+typedef	int	(*t_get_len)(const t_conversion *);
 int	ft_printf_len_di(const t_conversion *conv);
 int	ft_printf_len_o(const t_conversion *conv);
 int	ft_printf_len_u(const t_conversion *conv);
@@ -30,28 +30,28 @@ int	ft_printf_len_n(const t_conversion *conv);
 int	ft_printf_len_no_conversion(const t_conversion *conv);
 int	ft_printf_len_unknown(const t_conversion *conv);
 int	ft_printf_len_unsupported(const t_conversion *conv);
-static const t_print_len g_print_len[] = {
-	&ft_printf_len_di,
-	&ft_printf_len_di,
-	&ft_printf_len_unsupported,
-	&ft_printf_len_unsupported,
-	&ft_printf_len_unsupported,
-	&ft_printf_len_unsupported,
-	&ft_printf_len_unsupported,
-	&ft_printf_len_unsupported,
-	&ft_printf_len_unsupported,
-	&ft_printf_len_unsupported,
-	&ft_printf_len_unsupported,
-	&ft_printf_len_unsupported,
-	&ft_printf_len_unsupported,
-	&ft_printf_len_unsupported,
-	&ft_printf_len_unsupported,
-	&ft_printf_len_unsupported,
-	&ft_printf_len_unsupported,
-	&ft_printf_len_unsupported,
-	&ft_printf_len_no_conversion,
+
+# define CONST_GET_LEN_INITIALIZER \
+	&ft_printf_len_di,\
+	&ft_printf_len_di,\
+	&ft_printf_len_o,\
+	&ft_printf_len_u,\
+	&ft_printf_len_x,\
+	&ft_printf_len_x,\
+	&ft_printf_len_unsupported,\
+	&ft_printf_len_unsupported,\
+	&ft_printf_len_unsupported,\
+	&ft_printf_len_unsupported,\
+	&ft_printf_len_unsupported,\
+	&ft_printf_len_unsupported,\
+	&ft_printf_len_unsupported,\
+	&ft_printf_len_unsupported,\
+	&ft_printf_len_unsupported,\
+	&ft_printf_len_unsupported,\
+	&ft_printf_len_unsupported,\
+	&ft_printf_len_unsupported,\
+	&ft_printf_len_no_conversion,\
 	&ft_printf_len_unsupported
-};
 
 # define UNSUPPORTED_CONV sizeof(g_print_len)
 #endif
