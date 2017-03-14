@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 12:27:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 15:12:55 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/13 19:54:13 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,12 @@ int			set_int_params(const char *conversion_specifier,
 	}
 	return (index);
 }
+
+size_t		param_is_arg(const t_int_param *param)
+{
+	if (param.is_arg)
+		return (param.arg_index);
+	else
+		return (0);
+}
+

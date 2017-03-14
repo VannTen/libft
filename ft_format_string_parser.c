@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 15:31:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 16:26:13 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/13 18:44:08 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ t_format_string	*ft_full_fmt(const char *base_text, va_list *var_args)
 	ft_get_var_args(fmt, var_args);
 	ft_attributes_var_args(fmt);
 	ft_compute_convs_length(fmt);
-	ft_fmt_post_process(fmt);
 	return (fmt);
 }
 

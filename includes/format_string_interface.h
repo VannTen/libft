@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:10:08 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 16:37:14 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/13 18:43:50 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void			set_fmt_length(t_format_string *fmt, int length);
 void			ft_attributes_var_args(t_format_string *fmt);
 void			ft_get_var_args(t_format_string *fmt, va_list *var_arg_list);
 void			ft_compute_convs_length(t_format_string *fmt);
-void			ft_fmt_post_process(t_format_string *fmt);
 
 /*
 ** Functions accessing but not modifing the object
