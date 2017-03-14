@@ -6,13 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:34:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/13 16:46:05 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 14:56:22 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VARIADIC_ARGS_INTERFACE_H
 # define VARIADIC_ARGS_INTERFACE_H
 # include "fifo.h"
+# include "bool.h"
 # include <stdarg.h>
 # include <stdint.h>
 
@@ -32,4 +33,6 @@ void			ft_fill_args_array(t_var_arg *arg_list, va_list *var_args,
 int				ft_get_int(const t_var_arg *var_arg);
 const t_var_arg	*ft_get_address(const t_var_arg *array, size_t index);
 intmax_t		ft_var_signed_integers(const t_var_arg *signed_integer);
+t_bool			is_signed_positive(const t_var_arg *arg);
+t_bool			is_signed_negative(const t_var_arg *arg);
 #endif

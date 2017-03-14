@@ -6,16 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:45:19 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/13 19:12:28 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 14:41:40 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
-#include "conv_len_interface.h"
 #include "bool.h"
-#include <stdlib.h>
 
-t_bool		set_one_flag(const char *conversion_specifier, int index,
+t_bool	set_one_flag(const char *conversion_specifier, int index,
 		t_conversion *convers_specs)
 {
 	enum e_flags		index_flags;
@@ -34,31 +32,7 @@ t_bool		set_one_flag(const char *conversion_specifier, int index,
 		return (FALSE);
 }
 
-void		set_conversion_spec_len(t_conversion *conv, int index)
+void	set_conversion_spec_len(t_conversion *conv, int index)
 {
 	conv->specifier_length = index;
-}
-
-static void	handle_negative_field_width(t_conversion *conv)
-{
-	if (conv->field_width.param.value < 0)
-	{
-		conv->flags[NEGATIVE_FIELD_WIDTH] = TRUE;
-		conv->field_width.param.value = -conv->field_width.param.value;
-	}
-	if (conv->field_width.param.value <= conv->result_length)
-		conv->field_width.param.value = conv->result_length;
-	if (conv->flags[NEGATIVE_FIELD_WIDTH])
-		conv->flags[ZERO_PADDING] = FALSE;
-}
-
-void		set_conversion_result_length(t_conversion *conv)
-{
-	int	field_width_result;
-
-	field_width_result = g_print_len[conv->type](conv);
-	handle_negative_field_width(conv);
-	conv->result_length = field_width_result;
-	if (conv->field_width.param.value < field_width_result)
-		conv->field_width.param.value = field_width_result;
 }
