@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 12:07:19 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 14:44:23 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,13 @@ t_bool			is_string_conv(const t_conversion *conversion);
 t_bool			set_one_flag(const char *conv_string, int index,
 		t_conversion *conv);
 void			set_conversion_spec_len(t_conversion *conv, int index);
-void			set_conversion_result_length(t_conversion *conv);
+
+/*
+** Set conversion's final length
+** Implementation file : ft_conversion_private_set_final_length.c
+*/
+
+void			set_final_conversion_length(t_conversion *conv);
 
 /*
 * Get conversion parmeters

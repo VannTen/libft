@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/14 12:09:28 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/14 14:43:01 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,6 +75,7 @@ LIB_PRINTF ?=\
 	ft_conversion_private_set_parameters.c\
 	ft_conversion_private_ressources.c\
 	ft_conversion_private_set_var_args.c\
+	ft_conversion_private_set_final_length.c\
 	ft_conversion_private_write.c\
 	ft_conversion_private_is_conv.c\
 	ft_conversion_private_args_index.c\
