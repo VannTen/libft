@@ -6,12 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:12:46 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/13 18:48:59 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 11:58:35 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
-#include <limits.h>
 
 int		ft_get_conv_len(const t_conversion *conv)
 {
@@ -23,26 +22,7 @@ int		ft_get_conv_text_len(const t_conversion *conv)
 	return (conv->specifier_length);
 }
 
-size_t	ft_arg_required(const void *conversion)
-{
-	return (((const t_conversion*)conversion)->arg_index);
-}
-
 size_t	get_modifier(const t_conversion *conversion)
 {
 	return (conversion->length_modifier);
-}
-
-size_t		bigger_arg_required(const t_conversion *conv)
-{
-	size_t max;
-
-	max = conv->arg_index;
-	if (conv->field_width.is_arg)
-		max = max > conv->field_width.param.arg_index ?
-			max : conv->field_width.param.arg_index;
-	if (conv->precision.is_arg)
-		max = max > conv->precision.param.arg_index ?
-			max : conv->precision.param.arg_index;
-	return (max);
 }

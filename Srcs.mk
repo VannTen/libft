@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/13 18:44:37 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/14 12:09:28 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,6 +77,7 @@ LIB_PRINTF ?=\
 	ft_conversion_private_set_var_args.c\
 	ft_conversion_private_write.c\
 	ft_conversion_private_is_conv.c\
+	ft_conversion_private_args_index.c\
 	ft_int_params.c ft_int_params_tools.c ft_var_args_private.c\
 	ft_format_string_private_set_length.c\
 	ft_printf_len_special.c ft_format_string_result_length.c\
