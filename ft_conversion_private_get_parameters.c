@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:12:46 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 11:58:35 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 17:18:00 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,9 @@ int		ft_get_conv_text_len(const t_conversion *conv)
 size_t	get_modifier(const t_conversion *conversion)
 {
 	return (conversion->length_modifier);
+}
+
+int		ft_no_field_width_length(const t_conversion *conv)
+{
+	return (conv->precision.param.value + ft_flags_len(conv));
 }

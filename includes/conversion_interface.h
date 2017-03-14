@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 17:07:26 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 17:24:02 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,16 @@ t_bool			is_string_conv(const t_conversion *conversion);
 void			set_conversion_spec_len(t_conversion *conv, int index);
 
 /*
+** Get conversion parameters
+** Implementation file : ft_conversion_private_get_parameters.c
+*/
+
+size_t			get_modifier(const t_conversion *conversion);
+int				ft_get_conv_len(const t_conversion *conv);
+int				ft_get_conv_text_len(const t_conversion *conv);
+int				ft_no_field_width_length(const t_conversion *conv);
+
+/*
 ** Flags handlings
 ** Implementation file : ft_flags.c
 */
@@ -65,15 +75,6 @@ int				set_flags(const char *conversion_specifier,
 */
 
 void			set_final_conversion_length(t_conversion *conv);
-
-/*
-** Get conversion parmeters
-** Implementation file : ft_conversion_private_get_parameters.c
-*/
-
-size_t			get_modifier(const t_conversion *conversion);
-int				ft_get_conv_len(const t_conversion *conv);
-int				ft_get_conv_text_len(const t_conversion *conv);
 
 /*
 ** Get args index
@@ -98,8 +99,17 @@ void			ft_normalize_args(t_conversion *conv);
 ** Implementation file : ft_conversion_private_write.c
 */
 
-int			ft_write_conversion(char *to_write, const t_conversion *conv);
+int				ft_write_conversion(char *to_write, const t_conversion *conv);
 
+/*
+** Compute positions for write functions
+** Implementation file : ft_conversion_private_positions_write.c
+*/
+
+char			*start_of_conv_is(const char *global_start,
+		const t_conversion *conv);
+char			*start_of_field_width_is(const char *global_start,
+		const t_conversion *conv);
 /* Static functions for now
 void		ft_write_field_width(char *to_write, int fill, char padding);
 char			*start_actual_conv(const char *global_start,
