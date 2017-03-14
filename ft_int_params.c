@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 12:27:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/13 19:54:13 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 12:05:26 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int			set_int_params(const char *conversion_specifier,
 
 size_t		param_is_arg(const t_int_param *param)
 {
-	if (param.is_arg)
-		return (param.arg_index);
+	if (param->is_arg)
+		return (param->param.arg_index);
 	else
 		return (0);
 }
