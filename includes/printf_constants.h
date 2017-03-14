@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 11:04:30 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 16:26:05 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 15:32:20 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,9 @@
 # define IS_ARG_INDICATOR '*'
 # define UNSUPPORTED_CONVERSION_STRING "%"
 # define CONVERSION_PARSE_ERROR 0
+# define HEXA_ALTERNATE_FORM "0x"
+# define HEXA_MAJ_ALTERNATE_FORM "0X"
+# define OCTAL_ALTERNATE_FORM "0"
+# define NO_PRECISION -1
 
 #endif
