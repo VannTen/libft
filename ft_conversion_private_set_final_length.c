@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 14:40:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 15:53:43 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 17:10:49 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,6 @@
 #include "printf_constants.h"
 #include "libft.h"
 
-int	ft_flags_len(const t_conversion *conv)
-{
-	int	flags_len;
-
-	flags_len = 0;
-	if (conv->flags[ALTERNATE_FORM])
-	{
-		if (conv->type == X || conv->type == X_MAJ)
-			flags_len += ft_strlen(HEXA_ALTERNATE_FORM);
-	}
-	if (conv->flags[ALWAYS_SIGN] && is_signed_positive(conv->arg))
-		flags_len++;
-	else if (conv->flags[BLANK] && is_signed_positive(conv->arg))
-		flags_len++;
-	return (flags_len);
-}
 
 static void	handle_negative_field_width(t_conversion *conv)
 {

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:30:48 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 16:09:28 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 17:10:07 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "printf_constants.h"
 #include "libft.h"
 
-int			ft_flags_len(const t_conversion *conv);
 static int	ft_no_field_width_length(const t_conversion *conv)
 {
 	return (conv->precision.param.value + ft_flags_len(conv));
@@ -53,32 +52,6 @@ static void	ft_write_field_width(char *to_write, int fill, char padding)
 		to_write[index] = padding;
 		index++;
 	}
-}
-
-static int	ft_write_flags(char *to_write, const t_conversion *conv)
-{
-	int	flags_len;
-
-	flags_len = 0;
-	if (conv->flags[ALTERNATE_FORM])
-	{
-		if (conv->type == X || conv->type == X_MAJ)
-		{
-			ft_strcpy(to_write, HEXA_ALTERNATE_FORM);
-			flags_len += ft_strlen(HEXA_ALTERNATE_FORM);
-		}
-	}
-	if (conv->flags[ALWAYS_SIGN] && is_signed_positive(conv->arg))
-	{
-		to_write[flags_len] = '+';
-		flags_len++;
-	}
-	else if (conv->flags[BLANK] && is_signed_positive(conv->arg))
-	{
-		to_write[flags_len] = ' ';
-		flags_len++;
-	}
-	return (flags_len);
 }
 
 static int		ft_write_precision(char *to_write, const t_conversion *conv)
