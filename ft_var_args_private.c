@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/07 12:52:44 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/14 12:07:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,38 +50,68 @@ t_var_arg		*ft_arg_list_ctor(size_t arg_nbr)
 	return (arg_array);
 }
 
-static t_bool	ft_conv_to_type(const void *v_conversion, void *v_variadic)
+static t_bool	is_arg_added(size_t index, t_type type, t_var_arg *variadic)
 {
-	size_t				arg_index;
-	t_type				base_type;
-	const t_conversion	*conversion;
-	t_var_arg			*variadic;
-
-	conversion = v_conversion;
-	variadic = v_variadic;
-	arg_index = ft_arg_required(conversion);
-	if (variadic[arg_index].type != UNKNOWN_TYPE)
-		return (FALSE);
-	if (is_signed_integer_conv(conversion))
-		base_type = INT;
-	else if (is_unsigned_integer_conv(conversion))
-		base_type = U_INT;
-	else if (is_ptr_conv(conversion))
-		base_type = PTR_INT;
-	else if (is_string_conv(conversion))
-		base_type = PTR_CHAR;
+	if (variadic[index].type == UNKNOWN_TYPE)
+	{
+		variadic[index].type = type;
+		return (TRUE);
+	}
 	else
 		return (FALSE);
-	variadic[arg_index].type = base_type + get_modifier(conversion);
-	return (TRUE);
 }
 
+static t_type	ft_conv_to_type(const t_conversion *conv)
+{
+	t_type				base_type;
+
+	if (is_signed_integer_conv(conv))
+		base_type = INT;
+	else if (is_unsigned_integer_conv(conv))
+		base_type = U_INT;
+	else if (is_ptr_conv(conv))
+		base_type = PTR_INT;
+	else if (is_string_conv(conv))
+		base_type = PTR_CHAR;
+	else
+		return (UNKNOWN_TYPE);
+	return (base_type + get_modifier(conv));
+}
+
+static t_bool	how_many_arg_asked(const t_conversion *conv, t_var_arg *variadic)
+{
+	t_type	conv_type;
+	size_t	arg_index;
+	size_t	arg_added_number;
+
+
+	conv_type = ft_conv_to_type(conv);
+	arg_added_number = 0;
+	arg_index = ft_arg_required(conv);
+	if (is_arg_added(arg_index, conv_type, variadic))
+		arg_added_number++;
+	arg_index = ft_precision_arg(conv);
+	if (is_arg_added(arg_index, INT, variadic))
+		arg_added_number++;
+	arg_index = ft_field_width_arg(conv);
+	if (is_arg_added(arg_index, INT, variadic))
+		arg_added_number++;
+	if (arg_added_number != 0)
+		return (TRUE);
+	else
+		return (FALSE);
+}
+
+static t_bool	args_asked(const void *conv, void *variadic)
+{
+	return (how_many_arg_asked((const t_conversion*)conv, (t_var_arg*)variadic));
+}
 void			ft_set_types(t_var_arg *args_array, t_fifo *conversion_list,
 		size_t args_number)
 {
 
 	f_fifoarray_end_early(args_array, conversion_list, args_number,
-			&ft_conv_to_type);
+			&args_asked);
 }
 
 void			ft_fill_args_array(t_var_arg *arg_list, va_list *var_args,
