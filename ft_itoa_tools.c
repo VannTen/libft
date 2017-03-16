@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 16:13:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 19:24:32 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 12:42:56 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ size_t	itoa_len_signed(intmax_t number, int base)
 {
 	size_t	size;
 
-	size = 1;
-	while (number >= base)
+	size = 0;
+	while (number != 0)
 	{
 		number = number / base;
 		size++;
@@ -33,8 +33,8 @@ size_t	itoa_len_unsigned(uintmax_t number, unsigned int base)
 {
 	size_t	size;
 
-	size = 1;
-	while (number >= base)
+	size = 0;
+	while (number != 0)
 	{
 		number = number / base;
 		size++;
@@ -59,14 +59,13 @@ void	itoa_write_signed(char *str, intmax_t number, const unsigned int base,
 {
 	int	digit;
 
+	if (number == 0)
+		return ;
 	digit = number % base;
 	if (number < 0)
 		digit = -digit;
 	*str = base_digits[digit];
-	if (number < base)
-		return ;
-	else
-		itoa_write_signed(str - 1, number / base, base, base_digits);
+	itoa_write_signed(str - 1, number / base, base, base_digits);
 }
 
 void	itoa_write_unsigned(char *str, uintmax_t number, const unsigned int base,
@@ -74,10 +73,9 @@ void	itoa_write_unsigned(char *str, uintmax_t number, const unsigned int base,
 {
 	int digit;
 
+	if (number == 0)
+		return ;
 	digit = number % base;
 	*str = base_digits[digit];
-	if (number < base)
-		return ;
-	else
-		itoa_write_unsigned(str - 1, number / base, base, base_digits);
+	itoa_write_unsigned(str - 1, number / base, base, base_digits);
 }
