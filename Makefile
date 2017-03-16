@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/03/03 12:13:59 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/16 17:38:12 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -16,6 +16,7 @@ $(info Begin Makefile parsing...)
 ##
 
 DEFAULT_RULE := all
+QUIET := @
 #ifeq ($(MAKECMDGOALS),debug)
 #BUILD_PREFIX := debug
 #endif
@@ -213,7 +214,7 @@ include Rules.mk
 
 # Include all dependency files collected from sub makfiles
 
-include $(DEP_FILES)
+-include $(DEP_FILES)
 
 # After having included all sub-Rules.mk, define the rules
 # to create new directories if needed.
@@ -239,16 +240,16 @@ all: $(NAME)
 .DEFAULT_GOAL:= $(DEFAULT_RULE)
 
 clean:
-	$(RM) $(CLEAN)
+	$(QUIET)$(RM) $(CLEAN)
 	
 mkclean:
-	$(RM) $(MKCLEAN)
+	$(QUIET)$(RM) $(MKCLEAN)
 
 fclean: clean
-	$(RM) $(FCLEAN)
+	$(QUIET)$(RM) $(FCLEAN)
 dclean: fclean
 dirclean:
-	$(RMDIR) $(GENERATED_SUBDIRS)
+	$(QUIET)$(RMDIR) $(GENERATED_SUBDIRS)
 	
 mrproper: fclean mkclean
 

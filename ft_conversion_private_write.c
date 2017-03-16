@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:30:48 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 17:34:24 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 16:38:19 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,11 @@ static void	ft_write_conv(char *to_write, const t_conversion *conv)
 	static const t_print_to	print_to[] = {CONST_PRINT_TO_INITIALIZER};
 
 	index = 0;
-	index += ft_write_flags(to_write, conv);
-	index += ft_write_precision(to_write + index, conv);
+	if (!(is_string_conv(conv)))
+	{
+		index += ft_write_flags(to_write, conv);
+		index += ft_write_precision(to_write + index, conv);
+	}
 	print_to[conv->type](to_write + index, conv);
 }
 

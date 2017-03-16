@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:34:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 12:25:28 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 13:35:22 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int				ft_get_int(const t_var_arg *var_arg);
 const t_var_arg	*ft_get_address(const t_var_arg *array, size_t index);
 intmax_t		ft_var_signed_integers(const t_var_arg *signed_integer);
 uintmax_t		ft_var_unsigned_integers(const t_var_arg *unsigned_integer);
+void			*ft_pointer(const t_var_arg *pointer);
 t_bool			is_signed_positive(const t_var_arg *arg);
 t_bool			is_signed_negative(const t_var_arg *arg);
 t_bool			has_no_null_value(const t_var_arg *arg);

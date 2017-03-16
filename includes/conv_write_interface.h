@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:20:52 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 19:13:12 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 14:27:18 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void ft_print_to_unsupported(char *to_write, const t_conversion *conv);
 	&ft_print_to_unsupported,\
 	&ft_print_to_unsupported,\
 	&ft_print_to_unsupported,\
-	&ft_print_to_unsupported,\
-	&ft_print_to_unsupported,\
+	&ft_print_to_c,\
+	&ft_print_to_s,\
 	&ft_print_to_unsupported,\
 	&ft_print_to_unsupported,\
 	&ft_print_to_no_conversion,\

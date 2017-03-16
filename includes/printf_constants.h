@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 11:04:30 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 12:35:37 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 15:17:02 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@
 # define HEXA_MAJ_ALTERNATE_FORM "0X"
 # define OCTAL_ALTERNATE_FORM "0"
 # define NO_PRECISION -1
-# define DEFAULT_PRECISION 1
+# define INTEGER_DEFAULT_PRECISION 1
 
 #endif

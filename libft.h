@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 16:30:20 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 13:31:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void				f_fifomaparray(const void *src, void *dst , t_fifo *fifo,
 */
 
 size_t				ft_strlen(const char *str);
+size_t				ft_strnlen(const char *str, size_t size);
 char				*ft_strdup(const char *src);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);

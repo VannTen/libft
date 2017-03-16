@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 17:24:02 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 15:16:38 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void			conversion_destroy(t_conversion *conversion);
 
 t_bool			is_signed_integer_conv(const t_conversion *conversion);
 t_bool			is_unsigned_integer_conv(const t_conversion *conversion);
+t_bool			is_integer_conv(const t_conversion *conversion);
 t_bool			is_ptr_conv(const t_conversion *conversion);
 t_bool			is_string_conv(const t_conversion *conversion);
 

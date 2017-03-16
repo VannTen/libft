@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 16:08:35 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/17 15:50:55 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 16:31:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 		dst[index] = src[index];
 		index++;
 	}
-	while (index != len)
+	while (index != len && src[index] != '\0')
 	{
 		dst[index] = '\0';
 		index++;
