@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 09:13:43 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 14:36:34 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 18:30:50 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ intmax_t	ft_var_signed_integers(const t_var_arg *signed_integer)
 
 uintmax_t	ft_var_unsigned_integers(const t_var_arg *unsigned_integer)
 {
-	intmax_t	integer;
+	uintmax_t	integer;
 
 	integer = 0;
 	if (unsigned_integer->type >= U_INT && unsigned_integer->type <= U_SHORT)
