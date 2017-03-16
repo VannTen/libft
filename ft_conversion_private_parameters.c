@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 18:45:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 16:10:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 12:43:19 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	set_precision(const char *conversion_specifier,
 		index++;
 		index += set_int_params(conversion_specifier + index,
 				&convers_specs->precision, fmt);
+		if (index == 1)
+			convers_specs->precision.param.value = 0;
 	}
 	return (index);
 }
