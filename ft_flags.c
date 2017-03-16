@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 18:17:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 19:12:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 12:44:36 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,11 @@ static int		ft_write_alternate_form(char *to_write,
 	flags_len = 0;
 	if (conv->flags[ALTERNATE_FORM])
 	{
-		if (conv->type == X)
+		if ((conv->type == X || conv->type == X_MAJ)
+				&& has_no_null_value(conv->arg))
 		{
-			ft_strcpy(to_write, HEXA_ALTERNATE_FORM);
-			flags_len += ft_strlen(HEXA_ALTERNATE_FORM);
-		}
-		else if (conv->type == X_MAJ)
-		{
-			ft_strcpy(to_write, HEXA_MAJ_ALTERNATE_FORM);
+			ft_strcpy(to_write, conv->type == X ?
+					HEXA_ALTERNATE_FORM : HEXA_MAJ_ALTERNATE_FORM);
 			flags_len += ft_strlen(HEXA_ALTERNATE_FORM);
 		}
 		else if (conv->type == O)
@@ -99,7 +96,8 @@ int				ft_flags_len(const t_conversion *conv)
 	flags_len = 0;
 	if (conv->flags[ALTERNATE_FORM])
 	{
-		if (conv->type == X || conv->type == X_MAJ)
+		if ((conv->type == X || conv->type == X_MAJ)
+				&& has_no_null_value(conv->arg))
 			flags_len += ft_strlen(HEXA_ALTERNATE_FORM);
 		else if (conv->type == O)
 			flags_len += ft_strlen(OCTAL_ALTERNATE_FORM);
