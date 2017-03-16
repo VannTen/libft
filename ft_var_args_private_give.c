@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 09:13:43 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 18:30:50 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 19:00:57 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ intmax_t	ft_var_signed_integers(const t_var_arg *signed_integer)
 	intmax_t	integer;
 
 	integer = 0;
-	if (signed_integer->type >= INT && signed_integer->type <= SHORT)
+	if (signed_integer->type == INT)
 		integer = signed_integer->parameter.t_int;
+	if (signed_integer->type == SHORT)
+		integer = signed_integer->parameter.t_short;
+	if (signed_integer->type == CHAR)
+		integer = signed_integer->parameter.t_char;
 	else if (signed_integer->type == LONG)
 		integer = signed_integer->parameter.t_long_int;
 	else if (signed_integer->type == LONG_LONG)
@@ -38,8 +42,12 @@ uintmax_t	ft_var_unsigned_integers(const t_var_arg *unsigned_integer)
 	uintmax_t	integer;
 
 	integer = 0;
-	if (unsigned_integer->type >= U_INT && unsigned_integer->type <= U_SHORT)
+	if (unsigned_integer->type == U_INT)
 		integer = unsigned_integer->parameter.t_uint;
+	else if (unsigned_integer->type == U_SHORT)
+		integer = unsigned_integer->parameter.t_ushort;
+	else if (unsigned_integer->type == U_CHAR)
+		integer = unsigned_integer->parameter.t_uchar;
 	else if (unsigned_integer->type == U_LONG)
 		integer = unsigned_integer->parameter.t_ulong_int;
 	else if (unsigned_integer->type == U_LONG_LONG)

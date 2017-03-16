@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:32:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 18:27:35 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 18:45:06 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,16 @@ struct						s_var_arg
 	union
 	{
 		int						t_int;
+		char					t_char;
+		short					t_short;
 		long int				t_long_int;
 		long long int			t_long_long_int;
 		intmax_t				t_intmax_t;
 		ptrdiff_t				t_ptrdiff_t;
 		ssize_t					t_ssize_t;
 		unsigned int			t_uint;
+		unsigned char			t_uchar;
+		unsigned short			t_ushort;
 		unsigned long int		t_ulong_int;
 		unsigned long long int	t_ulong_long_int;
 		uintmax_t				t_uintmax_t;

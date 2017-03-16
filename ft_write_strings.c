@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ptr_variadic_get_short.c                        :+:      :+:    :+:   */
+/*   ft_write_strings.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/09 12:43:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 18:51:43 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/16 17:04:22 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/16 17:05:21 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "variadic_args_defs.h"
-#include <stdarg.h>
 
-void	put_short_ptr_param(t_var_arg *param, va_list *arg_list)
+static void	ft_write_conv(char *to_write, const t_conversion *conv)
 {
-	param->parameter.t_ptr_short = va_arg(*arg_list, short*);
-}
+	static const t_print_to	print_to[] = {CONST_PRINT_TO_INITIALIZER};
 
-void	put_short_param(t_var_arg *param, va_list *arg_list)
-{
-	param->parameter.t_short = va_arg(*arg_list, int);
-}
-
-void	put_ushort_param(t_var_arg *param, va_list *arg_list)
-{
-	param->parameter.t_ushort = va_arg(*arg_list, int);
+	print_to[conv->type](to_write, conv);
 }
