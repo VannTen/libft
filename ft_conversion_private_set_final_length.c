@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 14:40:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 16:52:58 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 19:26:56 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ static void	handle_negative_field_width(t_conversion *conv)
 		conv->flags[ZERO_PADDING] = FALSE;
 }
 
+static void	handle_zero_padding(t_conversion *conv)
+{
+	if (conv->flags[ZERO_PADDING] && conv->precision.param.value == NO_PRECISION)
+	{
+		conv->precision.param.value =
+			conv->field_width.param.value - ft_flags_len(conv);
+	}
+}
 static int	set_final_precision(t_conversion *conv)
 {
 	int				result;
@@ -52,6 +60,7 @@ static void	set_final_field_width(t_conversion *conv)
 {
 	int	no_field_width_result;
 
+	handle_zero_padding(conv);
 	no_field_width_result = set_final_precision(conv);
 	handle_negative_field_width(conv);
 	if (conv->field_width.param.value < no_field_width_result)
