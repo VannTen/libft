@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 14:40:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 18:43:35 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 16:52:58 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,12 @@ static int	set_final_precision(t_conversion *conv)
 	int				result;
 	const t_get_len	get_len[] = {CONST_GET_LEN_INITIALIZER};
 
+	if (conv->precision.param.value == NO_PRECISION && is_integer_conv(conv))
+		conv->precision.param.value = INTEGER_DEFAULT_PRECISION;
 	result = get_len[conv->type](conv);
 	conv->result_length = result;
-	if (conv->precision.param.value < result)
+	if ((conv->precision.param.value < result && is_integer_conv(conv))
+			|| ((conv->precision.param.value > result || conv->precision.param.value == NO_PRECISION) && is_string_conv(conv)))
 		conv->precision.param.value = result;
 	else
 		result = conv->precision.param.value;

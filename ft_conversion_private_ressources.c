@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:01:06 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 12:45:17 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 15:12:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_conversion	*conversion_ctor(void)
 		conversion->positional = FALSE;
 		conversion->is_valid = TRUE;
 		conversion->field_width.param.value = 0;
-		conversion->precision.param.value = DEFAULT_PRECISION;
+		conversion->precision.param.value = NO_PRECISION;
 		conversion->field_width.is_arg = FALSE;
 		conversion->precision.is_arg = FALSE;
 		conversion->length_modifier = 0;
