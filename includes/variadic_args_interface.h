@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:34:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 19:04:39 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/16 12:25:28 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,5 @@ intmax_t		ft_var_signed_integers(const t_var_arg *signed_integer);
 uintmax_t		ft_var_unsigned_integers(const t_var_arg *unsigned_integer);
 t_bool			is_signed_positive(const t_var_arg *arg);
 t_bool			is_signed_negative(const t_var_arg *arg);
+t_bool			has_no_null_value(const t_var_arg *arg);
 #endif
