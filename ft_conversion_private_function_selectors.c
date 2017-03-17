@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_signed_integers.c                        :+:      :+:    :+:   */
+/*   ft_conversion_private_function_selectors.c          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/10 08:55:33 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 12:14:29 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/17 10:10:57 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/17 11:59:53 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
-#include "variadic_args_interface.h"
-#include "itoa_tools.h"
+#include "conv_len_interface.h"
+#include "conv_write_interface.h"
 
-int		ft_printf_len_di(const t_conversion *conv)
+int		ft_get_len_conv(const t_conversion *conv)
 {
-	return (itoa_len_signed(ft_var_signed_integers(conv->arg), 10));
+	const t_get_len	get_len[] = {CONST_GET_LEN_INITIALIZER};
+
+	return (get_len[conv->type](conv));
 }
 
-void	ft_print_to_di(char	*to_write, const t_conversion *conv)
+void	ft_select_writer_conv(char *to_write, const t_conversion *conv)
 {
-	itoa_write_signed(to_write + conv->result_length - 1,
-				ft_var_signed_integers(conv->arg), 10, DECIMAL_DIGITS);
+	const t_print_to	print_to[] = {CONST_PRINT_TO_INITIALIZER};
+
+	print_to[conv->type](to_write, conv);
 }

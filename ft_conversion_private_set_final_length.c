@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 14:40:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 19:26:56 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/17 12:19:15 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,58 +16,18 @@
 #include "printf_constants.h"
 #include "libft.h"
 
-
-static void	handle_negative_field_width(t_conversion *conv)
-{
-	if (conv->field_width.param.value < 0)
-	{
-		conv->flags[NEGATIVE_FIELD_WIDTH] = TRUE;
-		conv->field_width.param.value = -conv->field_width.param.value;
-	}
-	if (conv->field_width.param.value <=
-			conv->precision.param.value + ft_flags_len(conv))
-		conv->flags[NEGATIVE_FIELD_WIDTH] = FALSE;
-	if (conv->flags[NEGATIVE_FIELD_WIDTH])
-		conv->flags[ZERO_PADDING] = FALSE;
-}
-
-static void	handle_zero_padding(t_conversion *conv)
-{
-	if (conv->flags[ZERO_PADDING] && conv->precision.param.value == NO_PRECISION)
-	{
-		conv->precision.param.value =
-			conv->field_width.param.value - ft_flags_len(conv);
-	}
-}
-static int	set_final_precision(t_conversion *conv)
-{
-	int				result;
-	const t_get_len	get_len[] = {CONST_GET_LEN_INITIALIZER};
-
-	if (conv->precision.param.value == NO_PRECISION && is_integer_conv(conv))
-		conv->precision.param.value = INTEGER_DEFAULT_PRECISION;
-	result = get_len[conv->type](conv);
-	conv->result_length = result;
-	if ((conv->precision.param.value < result && is_integer_conv(conv))
-			|| ((conv->precision.param.value > result || conv->precision.param.value == NO_PRECISION) && is_string_conv(conv)))
-		conv->precision.param.value = result;
-	else
-		result = conv->precision.param.value;
-	return (result + ft_flags_len(conv));
-}
-
-static void	set_final_field_width(t_conversion *conv)
+void	set_final_conversion_length(t_conversion *conv)
 {
 	int	no_field_width_result;
 
-	handle_zero_padding(conv);
-	no_field_width_result = set_final_precision(conv);
-	handle_negative_field_width(conv);
-	if (conv->field_width.param.value < no_field_width_result)
+	settle_incompatibilities(conv);
+	if (is_integer_conv(conv))
+		no_field_width_result = set_integer_length(conv);
+	else
+		no_field_width_result = ft_get_len_conv(conv);
+	if (conv->field_width.param.value <= no_field_width_result)
+	{
 		conv->field_width.param.value = no_field_width_result;
-}
-
-void		set_final_conversion_length(t_conversion *conv)
-{
-	set_final_field_width(conv);
+		conv->flags[NEGATIVE_FIELD_WIDTH] = FALSE;
+	}
 }
