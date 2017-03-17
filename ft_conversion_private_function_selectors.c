@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion_private_set_final_length.c           :+:      :+:    :+:   */
+/*   ft_conversion_private_function_selectors.c          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/14 14:40:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 10:58:08 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/17 10:10:57 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/17 11:27:26 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
-#include "variadic_args_interface.h"
 #include "conv_len_interface.h"
-#include "printf_constants.h"
-#include "libft.h"
+#include "conv_write_interface.h"
 
-void	set_final_conversion_length(t_conversion *conv)
+int		ft_get_len_conv(const t_conversion *conv)
 {
-	int	no_field_width_result;
+	const t_get_len	get_len[] = {CONST_GET_LEN_INITIALIZER};
 
-	if (is_integer_conv(conv))
-		no_field_width_result = set_integer_length(conv);
-	else
-		no_field_width_result = ft_get_len_conv(conv);
-	if (conv->field_width.param.value <= no_field_width_result)
-	{
-		conv->field_width.param.value = no_field_width_result;
-		conv->flags[NEGATIVE_FIELD_WIDTH] = FALSE;
-	}
+	return (get_len[conv->type](conv));
+}
+
+void	ft_write_conv(char *to_write, const t_conversion *conv)
+{
+	const t_print_to	print_to[] = {CONST_PRINT_TO_INITIALIZER};
+
+	print_to[conv->type](to_write, conv);
 }
