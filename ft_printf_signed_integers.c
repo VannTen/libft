@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 08:55:33 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 18:36:45 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/17 11:42:44 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,11 @@
 
 int		ft_printf_len_di(const t_conversion *conv)
 {
-	return (itoa_len_signed(ft_var_signed_integers(conv->arg), 10) +
-			(is_signed_negative(conv->arg) ? 1 : 0));
+	return (itoa_len_signed(ft_var_signed_integers(conv->arg), 10));
 }
 
 void	ft_print_to_di(char	*to_write, const t_conversion *conv)
 {
-	if (is_signed_negative(conv->arg))
-		*to_write = '-';
-	itoa_write_signed(to_write + conv->result_length - 1,
+	itoa_write_signed(to_write + conv->result_length,
 				ft_var_signed_integers(conv->arg), 10, DECIMAL_DIGITS);
 }
