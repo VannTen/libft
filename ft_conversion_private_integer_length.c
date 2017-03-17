@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 09:48:51 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 11:22:56 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/17 12:31:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,3 @@ int			set_integer_length(t_conversion *conv)
 	handle_zero_padding(conv);
 	return (total_before_padding(conv));
 }
-
