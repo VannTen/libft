@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 14:40:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 10:58:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/17 12:19:15 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	set_final_conversion_length(t_conversion *conv)
 {
 	int	no_field_width_result;
 
+	settle_incompatibilities(conv);
 	if (is_integer_conv(conv))
 		no_field_width_result = set_integer_length(conv);
 	else

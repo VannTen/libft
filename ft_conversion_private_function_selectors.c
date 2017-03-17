@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 10:10:57 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 11:27:26 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/17 11:59:53 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_get_len_conv(const t_conversion *conv)
 	return (get_len[conv->type](conv));
 }
 
-void	ft_write_conv(char *to_write, const t_conversion *conv)
+void	ft_select_writer_conv(char *to_write, const t_conversion *conv)
 {
 	const t_print_to	print_to[] = {CONST_PRINT_TO_INITIALIZER};
 

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:45:19 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 11:08:01 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/17 12:19:10 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	set_conversion_spec_len(t_conversion *conv, int index)
 	conv->specifier_length = index;
 }
 
-void	settle_incompatibilites(t_conversion *conv)
+void	settle_incompatibilities(t_conversion *conv)
 {
 	if (conv->field_width.param.value < 0)
 	{

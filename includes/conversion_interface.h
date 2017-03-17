@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 11:06:01 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/17 12:20:02 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_bool			is_numeric(const t_conversion *conv);
 */
 
 void			set_conversion_spec_len(t_conversion *conv, int index);
-void			settle_incompatibilites(t_conversion *conv);
+void			settle_incompatibilities(t_conversion *conv);
 
 /*
 ** Get conversion parameters
@@ -122,7 +122,7 @@ char			*start_of_field_width_is(const char *global_start,
 */
 
 int				ft_get_len_conv(const t_conversion *conv);
-void			ft_print_conv(const t_conversion *conv);
+void			ft_select_writer_conv(char *to_write, const t_conversion *conv);
 
 /*
 ** Specifics for integer conversion (length)
@@ -132,6 +132,13 @@ void			ft_print_conv(const t_conversion *conv);
 int				set_integer_length(t_conversion *conv);
 int				count_signedness(const t_conversion *conv);
 int				count_alternate_form(const t_conversion *conv);
+
+/*
+** Specifis for integer conversion (write)
+** Implementaton file : ft_conversion_private_integer_write.c
+*/
+
+int				ft_write_integer_conv(char *to_write, const t_conversion *conv);
 /* Static functions for now
 void		ft_write_field_width(char *to_write, int fill, char padding);
 char			*start_actual_conv(const char *global_start,
