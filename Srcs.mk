@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/20 13:20:09 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/20 13:44:52 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ LIB_MISCELLANEOUS ?=\
 LIB_PRINTF ?=\
 	ft_printf.c\
 	ft_conversion_private_parameters.c\
-	ft_flags.c ft_format_string_private.c ft_format_string_private_args.c\
+	ft_flags.c ft_format_string_private.c\
 	ft_format_string_parser.c ft_format_string_private_const.c\
 	ft_conversion.c\
 	ft_conversion_private_get_parameters.c\
@@ -88,6 +88,8 @@ LIB_PRINTF ?=\
 	ft_int_params.c ft_int_params_tools.c ft_var_args_private.c\
 	ft_format_string_private_get_length.c\
 	ft_format_string_private_set_length.c\
+	ft_format_string_private_request_args.c\
+	ft_format_string_private_arg_index.c\
 	ft_printf_len_special.c ft_format_string_result_length.c\
 	ft_write_result_string.c ft_printf_write_special.c\
 	ft_var_args_private_const.c\

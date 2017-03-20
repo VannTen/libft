@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 12:27:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 13:34:34 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 13:46:16 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	set_arg_int_param(const char *conversion_specifier,
 	index_param = ft_set_arg_positional(conversion_specifier,
 			&(numeric_param->param.arg_index));
 	if (index_param == 0)
-		numeric_param->param.arg_index = ft_request_arg(format_string);
+		numeric_param->param.arg_index = ft_get_next_arg_index(format_string);
 	return (index_param);
 }
 

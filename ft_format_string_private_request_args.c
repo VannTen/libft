@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_string_private_args.c                    :+:      :+:    :+:   */
+/*   ft_format_string_private_request_args.c            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/07 12:28:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 17:54:20 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/20 13:40:43 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/20 13:41:58 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "format_string_defs.h"
 #include "conversion_interface.h"
 #include "variadic_args_interface.h"
-#include "bool.h"
 #include "libft.h"
-#include <stdlib.h>
 #include <stdarg.h>
-
-/*
-** Set the types for each required element using the conversion list
-** if the function has set all arguments, it stops (in the case of positional
-** args, that avoids repeated calls for arg that are required more than once
-*/
+#include <stddef.h>
 
 static size_t	bigger_arg(const void *conv)
 {
@@ -57,13 +50,4 @@ static void		conv_attribute_arg(void *conv, void *array)
 void		ft_attributes_var_args(t_format_string *fmt)
 {
 	f_fifoiterarray(fmt->arg_list, fmt->conversion_list, &conv_attribute_arg);
-}
-
-size_t			ft_request_arg(t_format_string *format)
-{
-	size_t	index;
-
-	format->arg_count++;
-	index = format->arg_count;
-	return (index);
 }
