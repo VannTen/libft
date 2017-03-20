@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/09 12:43:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 16:01:07 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 11:59:37 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include <stdarg.h>
 #include <stddef.h>
 
-void	put_ptrdiff_t_param(t_var_arg *param, va_list *arg_list)
+void	get_ptrdiff_t_param(t_var_arg *param, va_list *arg_list)
 {
 	param->parameter.t_ptrdiff_t = va_arg(*arg_list, ptrdiff_t);
 }
 
-void	put_ptrdiff_t_ptr_param(t_var_arg *param, va_list *arg_list)
+void	get_ptrdiff_t_ptr_param(t_var_arg *param, va_list *arg_list)
 {
 	param->parameter.t_ptr_ptrdiff_t = va_arg(*arg_list, ptrdiff_t*);
 }

@@ -6,17 +6,15 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 11:36:34 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 12:39:23 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "variadic_args_defs.h"
-#include "ft_variadic_params.h"
 #include "conversion_interface.h"
 #include "bool.h"
 #include "libft.h"
 #include <stdlib.h>
-#include <stdarg.h>
 
 static t_bool	is_arg_added(size_t index, t_type type, t_var_arg *variadic)
 {
@@ -90,17 +88,4 @@ void			ft_set_types(t_var_arg *args_array, t_fifo *conversion_list,
 
 	f_fifoarray_end_early(args_array, conversion_list, args_number,
 			&args_asked);
-}
-
-void			ft_fill_args_array(t_var_arg *arg_list, va_list *var_args,
-		size_t size)
-{
-	size_t	index;
-
-	index = 0;
-	while (index < size)
-	{
-		g_get_arg_of_type[arg_list[index].type](arg_list + index, var_args);
-		index++;
-	}
 }

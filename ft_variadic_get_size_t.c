@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/09 12:43:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/02 16:00:52 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 11:59:37 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include <stdarg.h>
 #include <stddef.h>
 
-void	put_size_t_param(t_var_arg *param, va_list *arg_list)
+void	get_size_t_param(t_var_arg *param, va_list *arg_list)
 {
 	param->parameter.t_size_t = va_arg(*arg_list, size_t);
 }
 
-void	put_size_t_ptr_param(t_var_arg *param, va_list *arg_list)
+void	get_size_t_ptr_param(t_var_arg *param, va_list *arg_list)
 {
 	param->parameter.t_ptr_size_t = va_arg(*arg_list, size_t*);
 }

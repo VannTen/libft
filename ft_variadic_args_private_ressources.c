@@ -6,11 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 11:30:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 11:36:31 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 12:39:39 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "variadic_args_defs.h"
+#include "get_variadic_params.h"
+#include <stdarg.h>
 
 void			ft_arg_list_dtor(t_var_arg *array, size_t size)
 {
@@ -42,4 +44,18 @@ t_var_arg		*ft_arg_list_ctor(size_t arg_nbr)
 		}
 	}
 	return (arg_array);
+}
+
+void			ft_fill_args_array(t_var_arg *arg_list, va_list *var_args,
+		size_t size)
+{
+	size_t					index;
+	const t_get_variadic	get_arg_of_type [] = {CONST_GET_ARG_INITIALIZER};
+
+	index = 0;
+	while (index < size)
+	{
+		get_arg_of_type[arg_list[index].type](arg_list + index, var_args);
+		index++;
+	}
 }
