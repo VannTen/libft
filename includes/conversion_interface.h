@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 12:20:02 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 15:09:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,19 @@ void			conversion_destroy(t_conversion *conversion);
 /*
 ** Determine conversion type
 ** Implementation files :
+** ft_conversion_private_is_conv_numeric.c
 ** ft_conversion_private_is_conv.c
-** ft_conversion_private_is_conv_gen.c
 */
-
 
 t_bool			is_signed_integer_conv(const t_conversion *conversion);
 t_bool			is_unsigned_integer_conv(const t_conversion *conversion);
 t_bool			is_integer_conv(const t_conversion *conversion);
+t_bool			is_numeric(const t_conversion *conv);
+
 t_bool			is_ptr_conv(const t_conversion *conversion);
 t_bool			is_string_conv(const t_conversion *conversion);
-t_bool			is_numeric(const t_conversion *conv);
+t_bool			is_no_conv(const t_conversion *conversion);
+t_bool			is_char_conv(const t_conversion *conv);
 
 /*
 ** Set conversion parameters
@@ -90,6 +92,14 @@ size_t			ft_arg_required(const void *conversion);
 size_t			bigger_arg_required(const t_conversion *conv);
 size_t			ft_precision_arg(const t_conversion *conv);
 size_t			ft_field_width_arg(const t_conversion *conv);
+
+/*
+** Validity of arg index
+*/
+
+t_bool			ft_conversion_arg_is_valid(const t_conversion *conv);
+t_bool			ft_precision_arg_is_valid(const t_conversion *conv);
+t_bool			ft_field_width_arg_is_valid(const t_conversion *conv);
 
 /*
 ** Set conversion variadic arguments
@@ -139,17 +149,5 @@ int				count_alternate_form(const t_conversion *conv);
 */
 
 int				ft_write_integer_conv(char *to_write, const t_conversion *conv);
-/* Static functions for now
-void		ft_write_field_width(char *to_write, int fill, char padding);
-char			*start_actual_conv(const char *global_start,
-		const t_conversion *conv);
-char			*empty_field_width(const char *global_start,
-		const t_conversion *conv);
-int				to_fill_field_width(const t_conversion *conv);
-*/
-
-/*
-** Others
-*/
 
 #endif

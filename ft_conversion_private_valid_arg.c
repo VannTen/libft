@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion_private_is_conv_gen.c                :+:      :+:    :+:   */
+/*   ft_conversion_private_valid_arg.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/17 11:03:18 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 11:05:11 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/17 14:31:08 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/20 10:44:03 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
-#include "bool.h"
 
-t_bool	is_numeric(const t_conversion *conv)
+t_bool	ft_conversion_arg_is_valid(const t_conversion *conv)
 {
-	return (conv->type >= D && conv->type <= A_MAJ);
+	return (conv->is_valid);
+}
+
+t_bool	ft_precision_arg_is_valid(const t_conversion *conv)
+{
+	return (conv->precision.index_is_valid);
+}
+
+t_bool	ft_field_width_arg_is_valid(const t_conversion *conv)
+{
+	return (conv->precision.index_is_valid);
 }

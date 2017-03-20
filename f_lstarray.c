@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 18:10:01 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/06 17:17:12 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 14:59:51 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	f_lstiterarray(void *array, t_lst *lst,
 	}
 }
 
-void	f_lstmaparray(const void *src, void *dst , t_lst *list,
+void	f_lstmaparray(const void *src, void *dst, t_lst *list,
 		t_bool (*advance_arrays)(const void **src, void **dst, void *modifier))
 {
 	while (advance_arrays(&src, &dst, list == NULL ? NULL : list->content))

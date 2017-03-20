@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_write_strings.c                                 :+:      :+:    :+:   */
+/*   ft_format_string_private_arg_index.c               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/16 17:04:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 17:05:21 by mgautier         ###   ########.fr       */
+/*   Created: 2017/02/07 12:28:05 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/20 13:43:11 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "format_string_defs.h"
+#include <stdlib.h>
 
-static void	ft_write_conv(char *to_write, const t_conversion *conv)
+size_t			ft_get_next_arg_index(t_format_string *format)
 {
-	static const t_print_to	print_to[] = {CONST_PRINT_TO_INITIALIZER};
+	size_t	index;
 
-	print_to[conv->type](to_write, conv);
+	format->arg_count++;
+	index = format->arg_count;
+	return (index);
 }

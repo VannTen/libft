@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion_private_is_conv.c                    :+:      :+:    :+:   */
+/*   ft_conversion_private_is_conv_numeric.c            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/23 12:11:51 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 13:53:04 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/17 11:03:18 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/17 13:51:44 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
 #include "bool.h"
 
-t_bool	is_char_conv(const t_conversion *conv)
+t_bool	is_signed_integer_conv(const t_conversion *conversion)
 {
-	return (conv->type == C);
+	return (conversion->type <= I);
 }
 
-t_bool	is_ptr_conv(const t_conversion *conversion)
+t_bool	is_unsigned_integer_conv(const t_conversion *conversion)
 {
-	return (conversion->type == N);
+	return (conversion->type <= X_MAJ && conversion->type >= O);
 }
 
-t_bool	is_string_conv(const t_conversion *conversion)
+t_bool	is_integer_conv(const t_conversion *conversion)
 {
-	return (conversion->type == S);
+	return (is_signed_integer_conv(conversion)
+			|| is_unsigned_integer_conv(conversion));
 }
 
-t_bool	is_no_conv(const t_conversion *conversion)
+t_bool	is_numeric(const t_conversion *conv)
 {
-	return (conversion->type == NO_CONVERSION);
+	return (conv->type >= D && conv->type <= A_MAJ);
 }

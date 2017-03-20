@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 16:09:15 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 12:25:42 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 14:00:18 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
+#include "int_params_interface.h"
 #include "bool.h"
 
 void	ft_conv_attribute_arg(t_conversion *conv, t_var_arg *arg_array)
@@ -32,35 +33,16 @@ void	ft_normalize_args(t_conversion *conv)
 		conv->arg_index--;
 	else
 		conv->is_valid = FALSE;
-	if (conv->field_width.is_arg)
-	{
-		if (conv->field_width.param.arg_index != 0)
-			conv->field_width.param.arg_index--;
-		else
-		{
-			conv->field_width.is_arg = FALSE;
-			conv->field_width.param.value = 0;
-		}
-	}
-	if (conv->precision.is_arg)
-	{
-		if (conv->precision.param.arg_index != 0)
-			conv->precision.param.arg_index--;
-		else
-		{
-			conv->precision.is_arg = FALSE;
-			conv->precision.param.value = 0;
-		}
-	}
+	normalize_int_param(&(conv->field_width));
+	normalize_int_param(&(conv->precision));
 }
 
-int		set_positional_arg(const char *conversion_text, t_conversion *convers_specs)
+int		set_positional_arg(const char *conversion_text, t_conversion *conv)
 {
 	int	index;
 
-	index = ft_set_arg_positional(conversion_text,
-			&convers_specs->arg_index);
+	index = ft_set_arg_positional(conversion_text, &conv->arg_index);
 	if (index != 0)
-		convers_specs->positional = TRUE;
+		conv->positional = TRUE;
 	return (index);
 }

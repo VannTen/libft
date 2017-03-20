@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 16:13:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 12:42:56 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 13:12:49 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ void	itoa_write_signed(char *str, intmax_t number, const unsigned int base,
 	itoa_write_signed(str - 1, number / base, base, base_digits);
 }
 
-void	itoa_write_unsigned(char *str, uintmax_t number, const unsigned int base,
-		const char *base_digits)
+void	itoa_write_unsigned(char *str, uintmax_t number,
+		const unsigned int base, const char *base_digits)
 {
 	int digit;
 
