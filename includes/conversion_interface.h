@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 14:34:50 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 15:09:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,17 +149,5 @@ int				count_alternate_form(const t_conversion *conv);
 */
 
 int				ft_write_integer_conv(char *to_write, const t_conversion *conv);
-/* Static functions for now
-void		ft_write_field_width(char *to_write, int fill, char padding);
-char			*start_actual_conv(const char *global_start,
-		const t_conversion *conv);
-char			*empty_field_width(const char *global_start,
-		const t_conversion *conv);
-int				to_fill_field_width(const t_conversion *conv);
-*/
-
-/*
-** Others
-*/
 
 #endif
