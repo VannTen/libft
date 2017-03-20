@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 14:40:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 12:58:05 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/17 14:02:37 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		set_string_length(t_conversion *conv)
 
 	total = ft_get_len_conv(conv);
 	conv->precision.param.value = total;
+	conv->result_length = total;
 	return (total);
 }
 void	set_final_conversion_length(t_conversion *conv)
@@ -32,7 +33,7 @@ void	set_final_conversion_length(t_conversion *conv)
 	result = 0;
 	if (is_integer_conv(conv))
 		result = set_integer_length(conv);
-	else if (is_string_conv(conv))
+	else
 		result = set_string_length(conv);
 	if (conv->field_width.param.value <= result)
 	{

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 12:07:59 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/17 14:39:02 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ static t_type	ft_conv_to_type(const t_conversion *conv)
 		base_type = PTR_INT;
 	else if (is_string_conv(conv))
 		base_type = PTR_CHAR;
+	else if (is_char_conv(conv))
+		base_type = CHAR;
 	else
 		return (UNKNOWN_TYPE);
 	return (base_type + get_modifier(conv));
@@ -84,18 +86,26 @@ static t_bool	how_many_arg_asked(const t_conversion *conv, t_var_arg *variadic)
 	size_t	arg_index;
 	size_t	arg_added_number;
 
-
 	conv_type = ft_conv_to_type(conv);
 	arg_added_number = 0;
-	arg_index = ft_arg_required(conv);
-	if (is_arg_added(arg_index, conv_type, variadic))
-		arg_added_number++;
-	arg_index = ft_precision_arg(conv);
-	if (is_arg_added(arg_index, INT, variadic))
-		arg_added_number++;
-	arg_index = ft_field_width_arg(conv);
-	if (is_arg_added(arg_index, INT, variadic))
-		arg_added_number++;
+	if (ft_conversion_arg_is_valid(conv))
+	{
+		arg_index = ft_arg_required(conv);
+		if (is_arg_added(arg_index, conv_type, variadic))
+			arg_added_number++;
+	}
+	if (ft_precision_arg_is_valid(conv))
+	{
+		arg_index = ft_precision_arg(conv);
+		if (is_arg_added(arg_index, INT, variadic))
+			arg_added_number++;
+	}
+	if (ft_field_width_arg_is_valid(conv))
+	{
+		arg_index = ft_field_width_arg(conv);
+		if (is_arg_added(arg_index, INT, variadic))
+			arg_added_number++;
+	}
 	if (arg_added_number != 0)
 		return (TRUE);
 	else

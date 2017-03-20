@@ -81,6 +81,7 @@ LIB_PRINTF ?=\
 	ft_conversion_private_is_conv.c\
 	ft_conversion_private_is_conv_numeric.c\
 	ft_conversion_private_args_index.c\
+	ft_conversion_private_valid_arg.c\
 	ft_conversion_private_function_selectors.c\
 	ft_conversion_private_integer_length.c\
 	ft_conversion_private_integer_write.c\

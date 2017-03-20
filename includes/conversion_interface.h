@@ -94,6 +94,14 @@ size_t			ft_precision_arg(const t_conversion *conv);
 size_t			ft_field_width_arg(const t_conversion *conv);
 
 /*
+** Validity of arg index
+*/
+
+t_bool			ft_conversion_arg_is_valid(const t_conversion *conv);
+t_bool			ft_precision_arg_is_valid(const t_conversion *conv);
+t_bool			ft_field_width_arg_is_valid(const t_conversion *conv);
+
+/*
 ** Set conversion variadic arguments
 ** Implementation file : ft_conversion_private_set_var_args.c
 */
