@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 09:13:43 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 19:00:57 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 17:54:46 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "variadic_args_defs.h"
+#include <wchar.h>
 #include <stdint.h>
 
 intmax_t	ft_var_signed_integers(const t_var_arg *signed_integer)
@@ -79,5 +80,14 @@ void		*ft_pointer(const t_var_arg *pointer)
 		return (pointer->parameter.t_ptr_ptrdiff_t);
 	if (pointer->type == PTR_SIZE)
 		return (pointer->parameter.t_ptr_size_t);
+	if (pointer->type == STRING)
+		return (pointer->parameter.t_ptr_char);
+	if (pointer->type == WSTRING)
+		return (pointer->parameter.t_wstring);
 	return (NULL);
+}
+
+wint_t		ft_wint_type(const t_var_arg *wint)
+{
+	return (wint->parameter.t_wint_t);
 }
