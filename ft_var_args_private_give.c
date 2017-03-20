@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 09:13:43 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 17:54:46 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 19:15:16 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ intmax_t	ft_var_signed_integers(const t_var_arg *signed_integer)
 		integer = signed_integer->parameter.t_int;
 	if (signed_integer->type == SHORT)
 		integer = signed_integer->parameter.t_short;
-	if (signed_integer->type == CHAR)
+	if (signed_integer->type == CHAR || signed_integer->type == CARAC)
 		integer = signed_integer->parameter.t_char;
 	else if (signed_integer->type == LONG)
 		integer = signed_integer->parameter.t_long_int;
