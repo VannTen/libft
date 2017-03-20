@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 14:39:02 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 11:36:34 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,38 +17,6 @@
 #include "libft.h"
 #include <stdlib.h>
 #include <stdarg.h>
-
-void			ft_arg_list_dtor(t_var_arg *array, size_t size)
-{
-	size_t	index;
-
-	index = 0;
-	while (index < size)
-	{
-		array[index].parameter.t_intmax_t = 0;
-		array[index].type = UNKNOWN_TYPE;
-		index++;
-	}
-	free(array);
-}
-
-t_var_arg		*ft_arg_list_ctor(size_t arg_nbr)
-{
-	t_var_arg	*arg_array;
-	size_t		index;
-
-	index = 0;
-	arg_array = malloc(sizeof(t_var_arg) * (arg_nbr));
-	if (arg_array != NULL)
-	{
-		while (index < arg_nbr)
-		{
-			arg_array[index].type = UNKNOWN_TYPE;
-			index++;
-		}
-	}
-	return (arg_array);
-}
 
 static t_bool	is_arg_added(size_t index, t_type type, t_var_arg *variadic)
 {
