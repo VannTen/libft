@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 12:48:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 17:30:57 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 19:44:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ typedef void	(*t_get_variadic)(t_var_arg *param, va_list *);
 	&get_int_param,\
 	&get_long_param,\
 	&get_long_long_param,\
-	&get_char_param,\
 	&get_short_param,\
+	&get_char_param,\
 	&get_intmax_t_param,\
 	&get_ptrdiff_t_param,\
 	&get_size_t_param,\
@@ -57,8 +57,8 @@ typedef void	(*t_get_variadic)(t_var_arg *param, va_list *);
 	&get_uint_param,\
 	&get_ulong_param,\
 	&get_ulong_long_param,\
-	&get_uchar_param,\
 	&get_ushort_param,\
+	&get_uchar_param,\
 	&get_uintmax_t_param,\
 	&get_ptrdiff_t_param,\
 	&get_size_t_param,\
@@ -66,8 +66,8 @@ typedef void	(*t_get_variadic)(t_var_arg *param, va_list *);
 	&get_int_ptr_param,\
 	&get_long_ptr_param,\
 	&get_long_long_ptr_param,\
-	&get_char_ptr_param,\
 	&get_short_ptr_param,\
+	&get_char_ptr_param,\
 	&get_intmax_t_ptr_param,\
 	&get_ptrdiff_t_ptr_param,\
 	&get_size_t_ptr_param,\

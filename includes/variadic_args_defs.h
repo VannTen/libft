@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:32:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 17:26:45 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 19:43:09 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ typedef enum					e_type
 	INT,
 	LONG,
 	LONG_LONG,
-	CHAR,
 	SHORT,
+	CHAR,
 	INTMAX,
 	PTRDIFF,
 	SSIZE,
@@ -34,8 +34,8 @@ typedef enum					e_type
 	U_INT,
 	U_LONG,
 	U_LONG_LONG,
-	U_CHAR,
 	U_SHORT,
+	U_CHAR,
 	U_INTMAX,
 	U_PTRDIFF,
 	SIZE,
@@ -43,8 +43,8 @@ typedef enum					e_type
 	PTR_INT,
 	PTR_LONG,
 	PTR_LONG_LONG,
-	PTR_CHAR,
 	PTR_SHORT,
+	PTR_CHAR,
 	PTR_INTMAX,
 	PTR_PTRDIFF,
 	PTR_SIZE,
