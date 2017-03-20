@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 16:09:15 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 10:55:15 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 14:00:18 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,12 @@ void	ft_normalize_args(t_conversion *conv)
 	normalize_int_param(&(conv->precision));
 }
 
-int		set_positional_arg(const char *conversion_text, t_conversion *convers_specs)
+int		set_positional_arg(const char *conversion_text, t_conversion *conv)
 {
 	int	index;
 
-	index = ft_set_arg_positional(conversion_text,
-			&convers_specs->arg_index);
+	index = ft_set_arg_positional(conversion_text, &conv->arg_index);
 	if (index != 0)
-		convers_specs->positional = TRUE;
+		conv->positional = TRUE;
 	return (index);
 }

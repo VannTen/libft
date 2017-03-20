@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 13:40:43 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 13:41:58 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 13:52:01 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 static size_t	bigger_arg(const void *conv)
 {
-		return (bigger_arg_required((const t_conversion*)conv));
+	return (bigger_arg_required((const t_conversion*)conv));
 }
 
 static void		normalize(void *conv)
@@ -47,7 +47,7 @@ static void		conv_attribute_arg(void *conv, void *array)
 	ft_conv_attribute_arg((t_conversion*)conv, (t_var_arg*)array);
 }
 
-void		ft_attributes_var_args(t_format_string *fmt)
+void			ft_attributes_var_args(t_format_string *fmt)
 {
 	f_fifoiterarray(fmt->arg_list, fmt->conversion_list, &conv_attribute_arg);
 }

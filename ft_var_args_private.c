@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 13:07:07 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 13:09:24 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ static t_type	ft_conv_to_type(const t_conversion *conv)
 	return (base_type + get_modifier(conv));
 }
 
-static t_bool	how_many_arg_asked(const t_conversion *conv, t_var_arg *variadic)
+static t_bool	how_many_arg_asked(const t_conversion *conv,
+		t_var_arg *variadic)
 {
 	size_t	arg_added_number;
 
@@ -76,7 +77,6 @@ static t_bool	args_asked(const void *conv, void *variadic)
 void			ft_set_types(t_var_arg *args_array, t_fifo *conversion_list,
 		size_t args_number)
 {
-
 	f_fifoarray_end_early(args_array, conversion_list, args_number,
 			&args_asked);
 }

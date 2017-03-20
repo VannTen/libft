@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 11:43:33 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 12:11:41 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 14:58:36 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	write_signedness(char *to_write, const t_conversion *conv)
 		*to_write = '-';
 		index++;
 	}
-	else if	(is_signed_positive(conv->arg))
+	else if (is_signed_positive(conv->arg))
 	{
 		if (conv->flags[ALWAYS_SIGN])
 		{
@@ -37,7 +37,7 @@ int	write_signedness(char *to_write, const t_conversion *conv)
 			index++;
 		}
 	}
-		return (index);
+	return (index);
 }
 
 int	write_alternate_form(char *to_write, const t_conversion *conv)
@@ -69,8 +69,8 @@ int	ft_write_integer_conv(char *to_write, const t_conversion *conv)
 
 	index = 0;
 	if (is_signed_integer_conv(conv))
-	index += write_signedness(to_write, conv);
+		index += write_signedness(to_write, conv);
 	else
-	index += write_alternate_form(to_write, conv);
+		index += write_alternate_form(to_write, conv);
 	return (index);
 }
