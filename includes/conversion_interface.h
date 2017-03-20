@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 12:20:02 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/17 14:34:50 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,19 @@ void			conversion_destroy(t_conversion *conversion);
 /*
 ** Determine conversion type
 ** Implementation files :
+** ft_conversion_private_is_conv_numeric.c
 ** ft_conversion_private_is_conv.c
-** ft_conversion_private_is_conv_gen.c
 */
-
 
 t_bool			is_signed_integer_conv(const t_conversion *conversion);
 t_bool			is_unsigned_integer_conv(const t_conversion *conversion);
 t_bool			is_integer_conv(const t_conversion *conversion);
+t_bool			is_numeric(const t_conversion *conv);
+
 t_bool			is_ptr_conv(const t_conversion *conversion);
 t_bool			is_string_conv(const t_conversion *conversion);
-t_bool			is_numeric(const t_conversion *conv);
+t_bool			is_no_conv(const t_conversion *conversion);
+t_bool			is_char_conv(const t_conversion *conv);
 
 /*
 ** Set conversion parameters

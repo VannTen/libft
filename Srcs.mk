@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/17 12:10:20 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/20 10:42:06 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,7 @@ LIB_PRINTF ?=\
 	ft_conversion_private_write.c\
 	ft_conversion_private_positions_write.c\
 	ft_conversion_private_is_conv.c\
-	ft_conversion_private_is_conv_gen.c\
+	ft_conversion_private_is_conv_numeric.c\
 	ft_conversion_private_args_index.c\
 	ft_conversion_private_function_selectors.c\
 	ft_conversion_private_integer_length.c\
