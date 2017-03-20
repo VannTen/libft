@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 12:39:23 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 13:07:07 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,30 +48,19 @@ static t_type	ft_conv_to_type(const t_conversion *conv)
 
 static t_bool	how_many_arg_asked(const t_conversion *conv, t_var_arg *variadic)
 {
-	t_type	conv_type;
-	size_t	arg_index;
 	size_t	arg_added_number;
 
-	conv_type = ft_conv_to_type(conv);
 	arg_added_number = 0;
-	if (ft_conversion_arg_is_valid(conv))
-	{
-		arg_index = ft_arg_required(conv);
-		if (is_arg_added(arg_index, conv_type, variadic))
-			arg_added_number++;
-	}
-	if (ft_precision_arg_is_valid(conv))
-	{
-		arg_index = ft_precision_arg(conv);
-		if (is_arg_added(arg_index, INT, variadic))
-			arg_added_number++;
-	}
-	if (ft_field_width_arg_is_valid(conv))
-	{
-		arg_index = ft_field_width_arg(conv);
-		if (is_arg_added(arg_index, INT, variadic))
-			arg_added_number++;
-	}
+	if (ft_conversion_arg_is_valid(conv) &&
+			is_arg_added(ft_arg_required(conv),
+				ft_conv_to_type(conv), variadic))
+		arg_added_number++;
+	if (ft_precision_arg_is_valid(conv) &&
+			is_arg_added(ft_precision_arg(conv), INT, variadic))
+		arg_added_number++;
+	if (ft_field_width_arg_is_valid(conv) &&
+			is_arg_added(ft_field_width_arg(conv), INT, variadic))
+		arg_added_number++;
 	if (arg_added_number != 0)
 		return (TRUE);
 	else
@@ -80,8 +69,10 @@ static t_bool	how_many_arg_asked(const t_conversion *conv, t_var_arg *variadic)
 
 static t_bool	args_asked(const void *conv, void *variadic)
 {
-	return (how_many_arg_asked((const t_conversion*)conv, (t_var_arg*)variadic));
+	return (how_many_arg_asked(
+				(const t_conversion*)conv, (t_var_arg*)variadic));
 }
+
 void			ft_set_types(t_var_arg *args_array, t_fifo *conversion_list,
 		size_t args_number)
 {
