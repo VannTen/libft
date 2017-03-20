@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 13:31:08 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/07 18:13:33 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 14:59:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int			ft_atoi(const char *str)
 	return (number);
 }
 
-int		ft_strict_atoi(const char *str)
+int			ft_strict_atoi(const char *str)
 {
 	size_t	size;
 	int		number;

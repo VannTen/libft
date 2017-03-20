@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 11:57:35 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 12:07:22 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 14:58:54 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_arg_required(const void *conversion)
 	return (((const t_conversion*)conversion)->arg_index);
 }
 
-size_t		bigger_arg_required(const t_conversion *conv)
+size_t	bigger_arg_required(const t_conversion *conv)
 {
 	size_t max;
 

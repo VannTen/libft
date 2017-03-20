@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 12:27:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 10:57:14 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 13:46:16 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,34 +20,40 @@
 ** This functions is used to determine field width and precision
 */
 
-int			set_int_params(const char *conversion_specifier,
+static int	set_arg_int_param(const char *conversion_specifier,
 		t_int_param *numeric_param, t_format_string *format_string)
 {
 	int	index_param;
-	int	index;
 
-	index = 0;
-	if (conversion_specifier[index] == IS_ARG_INDICATOR)
-	{
-		numeric_param->is_arg = TRUE;
-		index++;
-		index_param = ft_set_arg_positional(conversion_specifier + index,
-				&numeric_param->param.arg_index);
-		if (index_param == 0)
-			numeric_param->param.arg_index = ft_request_arg(format_string);
-		else
-			index += index_param;
-	}
+	numeric_param->is_arg = TRUE;
+	index_param = ft_set_arg_positional(conversion_specifier,
+			&(numeric_param->param.arg_index));
+	if (index_param == 0)
+		numeric_param->param.arg_index = ft_get_next_arg_index(format_string);
+	return (index_param);
+}
+
+static int	set_non_arg_int_param(const char *conversion_specifier,
+		t_int_param *numeric_param)
+{
+	int	index_param;
+
+	index_param = 0;
+	numeric_param->is_arg = FALSE;
+	numeric_param->param.value = ft_strict_atoi(conversion_specifier);
+	while (ft_isdigit(conversion_specifier[index_param]))
+		index_param++;
+	return (index_param);
+}
+
+int			set_int_params(const char *conversion_specifier,
+		t_int_param *numeric_param, t_format_string *format_string)
+{
+	if (*conversion_specifier == IS_ARG_INDICATOR)
+		return (set_arg_int_param(conversion_specifier + 1,
+					numeric_param, format_string));
 	else
-	{
-		numeric_param->is_arg = FALSE;
-		numeric_param->param.value = ft_strict_atoi(conversion_specifier + index);
-		if (conversion_specifier[index] == '-')
-			index++;
-		while (ft_isdigit(conversion_specifier[index]))
-			index++;
-	}
-	return (index);
+		return (set_non_arg_int_param(conversion_specifier, numeric_param));
 }
 
 size_t		param_is_arg(const t_int_param *param)

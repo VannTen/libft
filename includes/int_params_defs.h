@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:25:10 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 10:57:22 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 15:11:05 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "int_params_interface.h"
 # include "bool.h"
 
-struct	s_int_param
+struct			s_int_param
 {
 	t_bool		is_arg;
 	t_bool		index_is_valid;
@@ -30,5 +30,6 @@ struct	s_int_param
 ** This function are used internally but do not access the object
 */
 
-int	ft_set_arg_positional(const char *arg_specifier, size_t *conv_spec);
+int				ft_set_arg_positional(const char *arg_specifier,
+		size_t *conv_spec);
 #endif

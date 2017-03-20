@@ -6,10 +6,9 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:01:06 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 15:12:31 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 14:55:09 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "conversion_defs.h"
 #include "printf_constants.h"

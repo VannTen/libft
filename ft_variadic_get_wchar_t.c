@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/09 13:47:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/24 12:04:38 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 11:59:37 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include <stdarg.h>
 #include <wchar.h>
 
-void	put_wint_param(t_var_arg *param, va_list *arg_list)
+void	get_wint_param(t_var_arg *param, va_list *arg_list)
 {
 	param->parameter.t_wint_t = va_arg(*arg_list, wint_t);
 }
 
-void	put_wstring_param(t_var_arg *param, va_list *arg_list)
+void	get_wstring_param(t_var_arg *param, va_list *arg_list)
 {
 	param->parameter.t_wstring = va_arg(*arg_list, wchar_t*);
 }

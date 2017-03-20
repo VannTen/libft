@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:45:19 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 12:19:10 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 14:55:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ void	settle_incompatibilities(t_conversion *conv)
 		conv->field_width.param.value = -conv->field_width.param.value;
 	}
 	if ((is_numeric(conv) && conv->precision.param.value != NO_PRECISION)
-		|| (conv->flags[NEGATIVE_FIELD_WIDTH]))
+			|| (conv->flags[NEGATIVE_FIELD_WIDTH]))
 		conv->flags[ZERO_PADDING] = FALSE;
 	if (conv->flags[ALWAYS_SIGN])
-			conv->flags[BLANK] = FALSE;
+		conv->flags[BLANK] = FALSE;
 }
-

@@ -6,14 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 09:48:51 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 12:31:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 14:57:47 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
 #include "printf_constants.h"
 #include "libft.h"
-
 
 int			count_signedness(const t_conversion *conv)
 {

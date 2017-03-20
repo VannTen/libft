@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 18:45:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 12:43:19 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 14:57:30 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 #include "printf_constants.h"
 #include <stdlib.h>
 
-int	set_field_width(const char *conversion_specifier,
+int					set_field_width(const char *conversion_specifier,
 		t_conversion *convers_specs, t_format_string *fmt)
 {
 	return (set_int_params(conversion_specifier,
 				&convers_specs->field_width, fmt));
 }
 
-int	set_precision(const char *conversion_specifier,
+int					set_precision(const char *conversion_specifier,
 		t_conversion *convers_specs, t_format_string *fmt)
 {
-	int	index;
+	int					index;
 
 	index = 0;
 	if (conversion_specifier[index] == PRECISION_INDICATOR)
@@ -39,7 +39,7 @@ int	set_precision(const char *conversion_specifier,
 	return (index);
 }
 
-int	set_length_modifier(const char *conversion_specifier,
+int					set_length_modifier(const char *conversion_specifier,
 		t_conversion *convers_specs)
 {
 	enum e_length_modifier	modifier_index;
@@ -89,7 +89,7 @@ static t_conv_type	get_conv_type(const char type_specifier, t_conversion *conv)
 	return (type_index);
 }
 
-int	set_type_conversion(const char *conversion_specifier,
+int					set_type_conversion(const char *conversion_specifier,
 		t_conversion *convers_specs, t_format_string *fmt)
 {
 	t_conv_type	type_index;
@@ -101,7 +101,7 @@ int	set_type_conversion(const char *conversion_specifier,
 	{
 		index++;
 		if (!(convers_specs->positional))
-			convers_specs->arg_index = ft_request_arg(fmt);
+			convers_specs->arg_index = ft_get_next_arg_index(fmt);
 	}
 	else
 		type_index = UNSUPPORTED_CONVERSION;

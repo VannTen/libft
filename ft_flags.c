@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 18:17:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 12:44:36 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 13:36:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ static int		ft_write_alternate_form(char *to_write,
 	}
 	return (flags_len);
 }
+
 int				ft_write_flags(char *to_write, const t_conversion *conv)
 {
 	int	flags_len;
