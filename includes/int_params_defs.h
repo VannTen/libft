@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:25:10 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 13:21:45 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 10:57:22 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 struct	s_int_param
 {
 	t_bool		is_arg;
+	t_bool		index_is_valid;
 	union
 	{
 		size_t	arg_index;

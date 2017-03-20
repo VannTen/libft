@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 12:27:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 12:05:26 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 10:57:14 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,3 +58,16 @@ size_t		param_is_arg(const t_int_param *param)
 		return (0);
 }
 
+void		normalize_int_param(t_int_param *param)
+{
+	if (param->is_arg)
+	{
+		if (param->param.arg_index != 0)
+			param->param.value--;
+		else
+		{
+			param->index_is_valid = FALSE;
+			param->param.value = 0;
+		}
+	}
+}
