@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:32:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 15:03:51 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 17:26:45 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,32 +23,36 @@ typedef enum					e_type
 {
 	UNKNOWN_TYPE,
 	INT,
-	CHAR,
-	SHORT,
 	LONG,
 	LONG_LONG,
+	CHAR,
+	SHORT,
 	INTMAX,
 	PTRDIFF,
 	SSIZE,
 	QUAD,
 	U_INT,
-	U_CHAR,
-	U_SHORT,
 	U_LONG,
 	U_LONG_LONG,
+	U_CHAR,
+	U_SHORT,
 	U_INTMAX,
 	U_PTRDIFF,
 	SIZE,
 	U_QUAD,
 	PTR_INT,
-	PTR_CHAR,
-	PTR_SHORT,
 	PTR_LONG,
 	PTR_LONG_LONG,
+	PTR_CHAR,
+	PTR_SHORT,
 	PTR_INTMAX,
 	PTR_PTRDIFF,
 	PTR_SIZE,
-	PTR_QUAD
+	PTR_QUAD,
+	CARAC,
+	WINT,
+	STRING,
+	WSTRING
 }								t_type;
 
 struct							s_var_arg

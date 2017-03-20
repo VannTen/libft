@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   length_modifier_defs.h	                            :+:      :+:    :+:   */
+/*   wide_char_interface.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/30 19:03:56 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 16:57:23 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/20 10:29:40 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/20 15:59:09 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LENGTH_MODIFIER_DEFS_H
-# define LENGTH_MODIFIER_DEFS_H
-# define CONST_LENGTH_MODIF_INTIALIZER "\0llhhjtzq"
+#ifndef WIDE_CHAR_INTERFACE_H
+# define WIDE_CHAR_INTERFACE_H
+# include <wchar.h>
 
-typedef enum	e_length_modifier
-{
-	NONE,
-	LONG,
-	VERY_LONG,
-	SHORT,
-	VERY_SHORT,
-	MAX_INT,
-	PTR_DIFF,
-	SIZE,
-	QUAD,
-	LENGTH_MODIFIER_NBR
-}				t_length_modifier;
+int	ft_wctomb_len(wchar_t wchar);
+int	ft_wctomb_write(char *dst, wchar_t wchar, int size_mb_seq);
+int ft_wctomb(char *dst, wchar_t wchar);
+int	ft_wcstrtomb_len(wchar_t *wstring);
+int	ft_wcstrtomb(char *dst, wchar_t	*wstring);
 
 #endif

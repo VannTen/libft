@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 13:09:24 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 17:02:43 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ static t_type	ft_conv_to_type(const t_conversion *conv)
 	else if (is_ptr_conv(conv))
 		base_type = PTR_INT;
 	else if (is_string_conv(conv))
-		base_type = PTR_CHAR;
+		base_type = STRING;
 	else if (is_char_conv(conv))
-		base_type = CHAR;
+		base_type = CARAC;
 	else
 		return (UNKNOWN_TYPE);
 	return (base_type + get_modifier(conv));

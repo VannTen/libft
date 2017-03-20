@@ -6,12 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 18:45:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 14:57:30 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 17:05:03 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
 #include "ft_set_params.h"
+#include "conv_types_defs.h"
 #include "printf_constants.h"
 #include <stdlib.h>
 
@@ -43,7 +44,7 @@ int					set_length_modifier(const char *conversion_specifier,
 		t_conversion *convers_specs)
 {
 	enum e_length_modifier	modifier_index;
-	static const char		length_modifier[] = "\0HhlLjtzq";
+	static const char		length_modifier[] = CONST_LENGTH_MODIF_INTIALIZER;
 	int						index;
 
 	index = 0;
@@ -61,8 +62,7 @@ int					set_length_modifier(const char *conversion_specifier,
 	if ((modifier_index == SHORT || modifier_index == LONG)
 			&& conversion_specifier[index] == conversion_specifier[index - 1])
 	{
-		modifier_index == LONG ?
-			convers_specs->length_modifier++ : convers_specs->length_modifier--;
+		convers_specs->length_modifier++;
 		index++;
 	}
 	return (index);
@@ -72,7 +72,7 @@ static t_conv_type	get_conv_type(const char type_specifier, t_conversion *conv)
 {
 	t_conv_type			type_index;
 	char				type;
-	static const char	conv_types[] = "diouxXeEfFgGaAcspn%?DOUCS";
+	static const char	conv_types[] = CONST_CONV_TYPE_INITIALIZER;
 
 	type_index = 0;
 	while ((type_index < UNKNOWN_CONVERSION)

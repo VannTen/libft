@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/09 12:43:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 11:59:36 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/20 17:05:55 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,14 @@ void	get_char_param(t_var_arg *param, va_list *arg_list)
 void	get_uchar_param(t_var_arg *param, va_list *arg_list)
 {
 	param->parameter.t_uchar = va_arg(*arg_list, int);
+}
+
+void	get_wint_param(t_var_arg *param, va_list *arg_list)
+{
+	param->parameter.t_wint_t = va_arg(*arg_list, wint_t);
+}
+
+void	get_wstring_param(t_var_arg *param, va_list *arg_list)
+{
+	param->parameter.t_wstring = va_arg(*arg_list, wchar_t*);
 }

@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/20 13:44:52 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/20 17:55:20 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,8 @@ LIB_MEM ?=\
 	ft_bzero.c 
 LIB_CONVERT ?=\
 	ft_atoi.c ft_itoa.c ft_tolower.c ft_toupper.c ft_itoa_base.c\
-	ft_itoa_tools.c
+	ft_itoa_tools.c\
+	ft_wctomb.c
 LIB_IS_OF ?=\
 	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c
 LIB_MATH ?=\
