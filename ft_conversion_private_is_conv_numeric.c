@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 11:03:18 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/21 11:13:13 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/21 12:17:40 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ t_bool	is_integer_conv(const t_conversion *conversion)
 
 t_bool	is_numeric(const t_conversion *conv)
 {
-	return (conv->type >= D && conv->type <= A_MAJ);
+	return ((conv->type >= D && conv->type <= A_MAJ) ||
+			conv->type == P);
 }

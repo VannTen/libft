@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 12:27:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 13:46:16 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/21 12:03:38 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int			set_int_params(const char *conversion_specifier,
 		t_int_param *numeric_param, t_format_string *format_string)
 {
 	if (*conversion_specifier == IS_ARG_INDICATOR)
-		return (set_arg_int_param(conversion_specifier + 1,
+		return (1 + set_arg_int_param(conversion_specifier + 1,
 					numeric_param, format_string));
 	else
 		return (set_non_arg_int_param(conversion_specifier, numeric_param));
