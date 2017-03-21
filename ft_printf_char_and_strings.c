@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 13:07:32 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 18:32:25 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/21 17:10:21 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int		ft_printf_len_c(const t_conversion *conv)
 int		ft_printf_len_s(const t_conversion *conv)
 {
 	if (conv->length_modifier == LONG)
-		return (ft_wcstrtomb_len(ft_pointer(conv->arg)));
+		return (ft_wcstrntomb_len(ft_pointer(conv->arg),
+				conv->precision.param.value));
 	if (conv->precision.param.value != NO_PRECISION)
 		return (ft_strnlen(ft_pointer(conv->arg), conv->precision.param.value));
 	else
@@ -47,7 +48,8 @@ void	ft_print_to_c(char *to_write, const t_conversion *conv)
 void	ft_print_to_s(char *to_write, const t_conversion *conv)
 {
 	if (conv->length_modifier == LONG)
-		ft_wcstrtomb(to_write, ft_pointer(conv->arg));
+		ft_wcstrntomb_write(to_write, ft_pointer(conv->arg),
+				conv->precision.param.value);
 	else
 		ft_strncpy(to_write, ft_pointer(conv->arg),
 				conv->precision.param.value);

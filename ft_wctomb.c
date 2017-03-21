@@ -6,18 +6,21 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 15:04:41 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/21 11:21:40 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/21 17:07:40 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <wchar.h>
 #include "wide_char_defs.h"
+#include <wchar.h>
+#include <stdlib.h>
 
 int	ft_wctomb_len(wchar_t wchar)
 {
 	int	size_of_mb_seq;
 
-	if (wchar <= 0x7F)
+	if (wchar < 0 || (wchar >= 0xD800 && wchar <= 0xDFFF))
+		size_of_mb_seq = INVALID_SIZE;
+	else if (wchar <= 0x7F)
 		size_of_mb_seq = 1;
 	else if (wchar <= 0x7FF)
 		size_of_mb_seq = 2;
@@ -26,7 +29,9 @@ int	ft_wctomb_len(wchar_t wchar)
 	else if (wchar <= 0x10FFFF)
 		size_of_mb_seq = 4;
 	else
-		size_of_mb_seq = 0;
+		size_of_mb_seq = INVALID_SIZE;
+	if (size_of_mb_seq > MB_CUR_MAX)
+		size_of_mb_seq = INVALID_SIZE;
 	return (size_of_mb_seq);
 }
 
@@ -37,7 +42,7 @@ int	ft_wctomb_write(char *dst, wchar_t wchar, int size_mb_seq)
 	const unsigned int	mask[] = {07, 017, 037, 0xFF};
 	const unsigned int	utf_8_len_indic[] = {0360, 0340, 0300, 0};
 
-	index = 4 - size_mb_seq;
+	index = MB_CUR_MAX - size_mb_seq;
 	if (index < 0)
 		return (index);
 	shift = 18 - 6 * index;
@@ -45,7 +50,7 @@ int	ft_wctomb_write(char *dst, wchar_t wchar, int size_mb_seq)
 	dst[index] = (unsigned char)((wchar >> shift) & mask[index]);
 	dst[index] += utf_8_len_indic[index];
 	index++;
-	while (index < 4)
+	while (index < MB_CUR_MAX)
 	{
 		shift -= 6;
 		dst[index] = (unsigned char)((wchar >> shift) & (unsigned int)077);
@@ -63,31 +68,43 @@ int	ft_wctomb(char *dst, wchar_t wchar)
 	return (ft_wctomb_write(dst, wchar, size));
 }
 
-int	ft_wcstrtomb_len(wchar_t *wstring)
+int	ft_wcstrntomb_len(wchar_t *wstring, int max_size)
 {
 	int		size;
+	int		one_carac_size;
 	size_t	index;
 
 	size = 0;
 	index = 0;
 	while (wstring[index] != L'\0')
 	{
-		size += ft_wctomb_len(wstring[index]);
+		one_carac_size = ft_wctomb_len(wstring[index]);
+		if (one_carac_size == INVALID_SIZE)
+			return (INVALID_SIZE);
+		one_carac_size = ft_wctomb_len(wstring[index]);
+		if (one_carac_size + size > max_size)
+			break ;
+		size += one_carac_size;
 		index++;
 	}
 	return (size);
 }
 
-int	ft_wcstrtomb(char *dst, wchar_t *wstring)
+int	ft_wcstrntomb_write(char *dst, wchar_t *wstring, int max_size)
 {
 	size_t	src_index;
 	int		dst_index;
+	int		one_carac_size;
 
 	src_index = 0;
 	dst_index = 0;
 	while (wstring[src_index] != L'\0')
 	{
-		dst_index += ft_wctomb(dst + dst_index, wstring[src_index]);
+		one_carac_size = ft_wctomb_len(wstring[src_index]);
+		if (one_carac_size + dst_index > max_size)
+			break ;
+		dst_index +=
+			ft_wctomb_write(dst + dst_index, wstring[src_index], one_carac_size);
 		src_index++;
 	}
 	dst[dst_index] = '\0';
