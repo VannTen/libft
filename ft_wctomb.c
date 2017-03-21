@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 15:04:41 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 16:17:00 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/21 11:21:40 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	ft_wcstrtomb_len(wchar_t *wstring)
 	return (size);
 }
 
-int	ft_wcstrtomb(char *dst, wchar_t	*wstring)
+int	ft_wcstrtomb(char *dst, wchar_t *wstring)
 {
 	size_t	src_index;
 	int		dst_index;
@@ -93,4 +93,3 @@ int	ft_wcstrtomb(char *dst, wchar_t	*wstring)
 	dst[dst_index] = '\0';
 	return (dst_index);
 }
-
