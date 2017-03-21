@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 11:03:18 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 13:51:44 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/21 11:13:13 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ t_bool	is_signed_integer_conv(const t_conversion *conversion)
 
 t_bool	is_unsigned_integer_conv(const t_conversion *conversion)
 {
-	return (conversion->type <= X_MAJ && conversion->type >= O);
+	return ((conversion->type <= X_MAJ && conversion->type >= O) ||
+			conversion->type == P);
 }
 
 t_bool	is_integer_conv(const t_conversion *conversion)

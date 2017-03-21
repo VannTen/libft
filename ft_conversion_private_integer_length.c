@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 09:48:51 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 14:57:47 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/21 11:07:54 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ int			count_alternate_form(const t_conversion *conv)
 	alternate_form_len = 0;
 	if (conv->flags[ALTERNATE_FORM])
 	{
-		if ((conv->type == X || conv->type == X_MAJ)
-				&& has_no_null_value(conv->arg))
+		if (has_alternate_form_hexa(conv))
 			alternate_form_len += ft_strlen(HEXA_ALTERNATE_FORM);
 		else if (conv->type == O)
 			alternate_form_len += ft_strlen(OCTAL_ALTERNATE_FORM);

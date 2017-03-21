@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 09:13:43 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 19:15:16 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/21 10:44:24 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ uintmax_t	ft_var_unsigned_integers(const t_var_arg *unsigned_integer)
 		integer = unsigned_integer->parameter.t_ulong_long_int;
 	else if (unsigned_integer->type == U_INTMAX)
 		integer = unsigned_integer->parameter.t_uintmax_t;
-	else if (unsigned_integer->type == PTRDIFF)
-		integer = unsigned_integer->parameter.t_ptrdiff_t;
+	else if (unsigned_integer->type == U_INTPTR)
+		integer = unsigned_integer->parameter.t_uintptr_t;
 	else if (unsigned_integer->type == SIZE)
 		integer = unsigned_integer->parameter.t_size_t;
 	return (integer);

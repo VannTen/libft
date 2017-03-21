@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 15:09:59 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/21 11:05:15 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,13 @@ t_bool			is_no_conv(const t_conversion *conversion);
 t_bool			is_char_conv(const t_conversion *conv);
 
 /*
-** Set conversion parameters
+** Set conversion parameters and make various adjustements on them
 ** Implementation file : ft_conversion_private_set_parameters.c
 */
 
 void			set_conversion_spec_len(t_conversion *conv, int index);
 void			settle_incompatibilities(t_conversion *conv);
+void			post_parsing_conv(t_conversion *conv);
 
 /*
 ** Get conversion parameters
@@ -149,5 +150,6 @@ int				count_alternate_form(const t_conversion *conv);
 */
 
 int				ft_write_integer_conv(char *to_write, const t_conversion *conv);
+t_bool			has_alternate_form_hexa(const t_conversion *conv);
 
 #endif

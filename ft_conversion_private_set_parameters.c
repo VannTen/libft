@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:45:19 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 14:55:59 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/21 11:19:41 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,13 @@ void	settle_incompatibilities(t_conversion *conv)
 		conv->flags[ZERO_PADDING] = FALSE;
 	if (conv->flags[ALWAYS_SIGN])
 		conv->flags[BLANK] = FALSE;
+}
+
+void	post_parsing_conv(t_conversion *conv)
+{
+	if (conv->type == P)
+	{
+		conv->length_modifier = PTR_DIFF;
+		conv->flags[ALTERNATE_FORM] = TRUE;
+	}
 }

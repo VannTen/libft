@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 12:23:57 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 15:57:17 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/21 10:46:58 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	ft_add_conversion(const char *conv_text, t_format_string *fmt)
 	index += set_length_modifier(conv_text + index, conversion);
 	index += set_type_conversion(conv_text + index, conversion, fmt);
 	set_conversion_spec_len(conversion, index);
+	post_parsing_conv(conversion);
 	if (!f_add_conv_to_fmt(fmt, conversion, index))
 		return (0);
 	return (index);

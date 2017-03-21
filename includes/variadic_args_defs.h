@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:32:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 19:43:09 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/21 10:43:24 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef enum					e_type
 	U_SHORT,
 	U_CHAR,
 	U_INTMAX,
-	U_PTRDIFF,
+	U_INTPTR,
 	SIZE,
 	U_QUAD,
 	PTR_INT,
@@ -73,6 +73,7 @@ struct							s_var_arg
 		unsigned long int		t_ulong_int;
 		unsigned long long int	t_ulong_long_int;
 		uintmax_t				t_uintmax_t;
+		uintptr_t				t_uintptr_t;
 		size_t					t_size_t;
 		char					*t_ptr_char;
 		short					*t_ptr_short;
