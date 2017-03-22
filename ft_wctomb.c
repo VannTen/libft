@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 15:04:41 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/21 17:07:40 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 13:53:39 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,7 @@ int	ft_wcstrntomb_len(wchar_t *wstring, int max_size)
 		one_carac_size = ft_wctomb_len(wstring[index]);
 		if (one_carac_size == INVALID_SIZE)
 			return (INVALID_SIZE);
-		one_carac_size = ft_wctomb_len(wstring[index]);
-		if (one_carac_size + size > max_size)
+		else if (one_carac_size + size > max_size)
 			break ;
 		size += one_carac_size;
 		index++;
