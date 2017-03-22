@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 12:01:44 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/22 19:03:41 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 11:08:06 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@
 ** test is true for any link, and a non existent list can't fail the test.
 */
 
-t_lst	*f_lst_every_valid(t_lst *list, t_bool (*test)(const t_lst *link))
+t_lst	*f_lst_every_valid(t_lst *list, t_bool (*test)(const void *content))
 {
 	if (test == NULL)
 		return (NULL);
 	while (list != NULL)
 	{
-		if (test(list) == FALSE)
+		if (test(list->content) == FALSE)
 			break ;
 		else
 			list = list->next;

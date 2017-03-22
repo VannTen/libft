@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 13:31:59 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 11:08:06 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_lst				*f_lstmap(t_lst *lst, t_lst *(*f)(t_lst *elem));
 t_lst				*f_lstmapi(t_lst *lst,
 								t_lst *(*f)(t_lst *elem, unsigned int index));
 t_lst				*f_lst_every_valid(t_lst *list,
-										t_bool (*test)(const t_lst *link));
+										t_bool (*test)(const void *content));
 void				*f_lstsearch(const t_lst *list, const int ref,
 									int (*match)(const t_lst *elem));
 t_bool				f_lstremoveif_one(t_lst **lst, int ref,
