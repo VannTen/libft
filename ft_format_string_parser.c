@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 15:31:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 15:56:25 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 17:47:16 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,12 @@ t_format_string	*ft_full_fmt(const char *base_text, va_list *var_args)
 	return (fmt);
 }
 
-t_format_string	*ft_format_string_parser(const char *string)
+static int		adds_conversions(const char *string, t_format_string *fmt)
 {
-	int				index;
-	int				preceding_length;
-	t_format_string	*format_string;
+	int	index;
+	int	preceding_length;
+	int	conv_len;
 
-	format_string = fmt_ctor();
-	if (format_string == NULL)
-		return (NULL);
 	index = 0;
 	preceding_length = 0;
 	while (string[index + preceding_length] != '\0')
@@ -40,13 +37,26 @@ t_format_string	*ft_format_string_parser(const char *string)
 		if (string[index + preceding_length] == CONVERSION_INDICATOR)
 		{
 			index += preceding_length;
-			if (ft_add_conversion(string + index, format_string,
-						preceding_length)
-					== CONVERSION_PARSE_ERROR)
-				break ;
+			conv_len = ft_add_conversion(string + index, fmt, preceding_length);
+				if (conv_len == CONVERSION_PARSE_ERROR)
+					break ;
+			index += conv_len;
 			preceding_length = 0;
 		}
-		preceding_length++;
+		else
+			preceding_length++;
 	}
+	return (preceding_length);
+}
+
+t_format_string	*ft_format_string_parser(const char *string)
+{
+	t_format_string	*format_string;
+
+	format_string = fmt_ctor();
+	if (format_string == NULL)
+		return (NULL);
+	ft_set_remaining_length(format_string,
+			adds_conversions(string, format_string));
 	return (format_string);
 }

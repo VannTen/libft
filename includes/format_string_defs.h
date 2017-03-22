@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:08:36 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 16:33:37 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 16:44:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ struct	s_format_string
 	t_fifo		*conversion_list;
 	t_var_arg	*arg_list;
 	size_t		arg_count;
+	int			remaining_length;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 14:40:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 16:01:02 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 16:42:08 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ int		set_and_get_final_conversion_length(t_conversion *conv)
 		conv->field_width.param.value = result;
 		conv->flags[NEGATIVE_FIELD_WIDTH] = FALSE;
 	}
-	return (conv->field_width.param.value);
+	return (conv->field_width.param.value + conv->preceding_length);
 }

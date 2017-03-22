@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:10:08 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 16:17:30 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 16:46:35 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_format_string	t_format_string;
 
 int				ft_set_and_get_resulting_length(const t_format_string *fmt);
 int				ft_get_current_conv_text_len(t_format_string *fmt);
+void			ft_set_remaining_length(t_format_string *fmt, int length);
 
 /*
 ** Request arg from conversion list
