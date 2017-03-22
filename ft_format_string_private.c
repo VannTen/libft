@@ -6,13 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:52:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 14:41:16 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 10:57:39 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "format_string_defs.h"
 #include "printf_constants.h"
 #include "conversion_interface.h"
+#include "bool.h"
 #include "libft.h"
 #include <stdlib.h>
 
@@ -49,6 +50,7 @@ t_format_string	*fmt_ctor(void)
 			fmt_destroy(format_string);
 			return (NULL);
 		}
+		format_string->has_error_conversion = FALSE;
 		format_string->arg_count = 0;
 		format_string->conversions_length = 0;
 	}
