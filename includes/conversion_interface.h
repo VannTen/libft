@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/21 11:05:15 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 12:07:43 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int				set_flags(const char *conversion_specifier,
 ** Implementation file : ft_conversion_private_set_final_length.c
 */
 
-void			set_final_conversion_length(t_conversion *conv);
+int				set_final_conversion_length(t_conversion *conv);
 
 /*
 ** Get args index
@@ -95,12 +95,14 @@ size_t			ft_precision_arg(const t_conversion *conv);
 size_t			ft_field_width_arg(const t_conversion *conv);
 
 /*
-** Validity of arg index
+** Conversion validity (args, result)
+** Implementation file : ft_conversion_private_is_valid.c
 */
 
 t_bool			ft_conversion_arg_is_valid(const t_conversion *conv);
 t_bool			ft_precision_arg_is_valid(const t_conversion *conv);
 t_bool			ft_field_width_arg_is_valid(const t_conversion *conv);
+t_bool			conversion_result_produces_error(const t_conversion *conv);
 
 /*
 ** Set conversion variadic arguments
