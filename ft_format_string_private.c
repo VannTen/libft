@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:52:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 10:57:39 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 15:46:37 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void			fmt_destroy(t_format_string *to_destroy)
 		ft_arg_list_dtor(to_destroy->arg_list, to_destroy->arg_count);
 		to_destroy->arg_list = NULL;
 		to_destroy->arg_count = 0;
-		to_destroy->conversions_length = 0;
-		to_destroy->length = 0;
 		f_fifo_destroy(to_destroy->conversion_list, &conv_dtor);
 		to_destroy->conversion_list = NULL;
 		free(to_destroy);
@@ -52,19 +50,12 @@ t_format_string	*fmt_ctor(void)
 		}
 		format_string->has_error_conversion = FALSE;
 		format_string->arg_count = 0;
-		format_string->conversions_length = 0;
 	}
 	return (format_string);
 }
 
 t_bool			f_add_conv_to_fmt(t_format_string *fmt,
-		t_conversion *conversion, int index)
+		t_conversion *conversion)
 {
-	if (f_fifo_add(fmt->conversion_list, conversion) != NULL)
-	{
-		fmt->conversions_length += index;
-		return (TRUE);
-	}
-	else
-		return (FALSE);
+	return (f_fifo_add(fmt->conversion_list, conversion) != NULL);
 }

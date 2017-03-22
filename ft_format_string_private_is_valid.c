@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_string_defs.h                               :+:      :+:    :+:   */
+/*   ft_format_string_private_is_valid.c                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/22 10:08:36 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 16:33:37 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/22 16:13:17 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/22 16:23:47 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORMAT_STRING_DEFS_H
-# define FORMAT_STRING_DEFS_H
-# include "format_string_interface.h"
-# include "fifo.h"
-# include "variadic_args_interface.h"
-# include "bool.h"
-# include <stdlib.h>
+#include "format_string_defs.h"
+#include "conversion_interface.h"
+#include "bool.h"
+#include "libft.h"
+#include <stddef.h>
 
-struct	s_format_string
+static t_bool	conv_error(const void *conv)
 {
-	t_fifo		*conversion_list;
-	t_var_arg	*arg_list;
-	size_t		arg_count;
-};
+	return (conversion_result_produces_error((const t_conversion*)conv));
+}
 
-#endif
+t_bool	ft_format_string_is_valid(const t_format_string *fmt)
+{
+	return (f_fifo_every_valid(fmt->conversion_list, &conv_error) == NULL);
+}

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 14:40:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 11:50:13 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 16:01:02 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		set_string_length(t_conversion *conv)
 	return (total);
 }
 
-int		set_final_conversion_length(t_conversion *conv)
+int		set_and_get_final_conversion_length(t_conversion *conv)
 {
 	int	result;
 

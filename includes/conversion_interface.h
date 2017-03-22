@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 12:07:43 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 15:55:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ t_bool			is_char_conv(const t_conversion *conv);
 void			set_conversion_spec_len(t_conversion *conv, int index);
 void			settle_incompatibilities(t_conversion *conv);
 void			post_parsing_conv(t_conversion *conv);
+void			set_conversion_preceding_length(t_conversion *conv, int length);
 
 /*
 ** Get conversion parameters
@@ -82,7 +83,7 @@ int				set_flags(const char *conversion_specifier,
 ** Implementation file : ft_conversion_private_set_final_length.c
 */
 
-int				set_final_conversion_length(t_conversion *conv);
+int				set_and_get_final_conversion_length(t_conversion *conv);
 
 /*
 ** Get args index
