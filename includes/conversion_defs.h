@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:13:24 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 17:40:01 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 14:21:07 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ struct	s_conversion
 	t_conv_type			type;
 	int					result_length;
 	int					specifier_length;
+	int					preceding_length;
 	const t_var_arg		*arg;
 };
 
