@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 13:17:23 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 12:06:12 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 16:01:52 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,23 @@
 #include <stddef.h>
 
 int		f_lstsum_content(t_lst *list, int (*f)(const void *))
+{
+	int	sum;
+	int	result;
+
+	sum = 0;
+	while (list != NULL)
+	{
+		result = f(list->content);
+		if (result < 0)
+			break ;
+		sum += result;
+		list = list->next;
+	}
+	return (sum);
+}
+
+int		f_lstdosum(t_lst *list, int (*f)(void *))
 {
 	int	sum;
 	int	result;
