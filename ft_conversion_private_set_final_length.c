@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 14:40:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 16:42:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 18:37:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ int		set_and_get_final_conversion_length(t_conversion *conv)
 	else
 		result = set_string_length(conv);
 	if (result IS_INVALID_CONVERSION_RESULT)
+	{
 		conv->field_width.param.value = result;
+		return (result);
+	}
 	else if (conv->field_width.param.value <= result)
 	{
 		conv->field_width.param.value = result;
