@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 16:13:17 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 16:23:47 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 17:17:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 #include "libft.h"
 #include <stddef.h>
 
-static t_bool	conv_error(const void *conv)
+static t_bool	no_conv_error(const void *conv)
 {
-	return (conversion_result_produces_error((const t_conversion*)conv));
+	return (!conversion_result_produces_error((const t_conversion*)conv));
 }
 
-t_bool	ft_format_string_is_valid(const t_format_string *fmt)
+t_bool			ft_format_string_is_valid(const t_format_string *fmt)
 {
-	return (f_fifo_every_valid(fmt->conversion_list, &conv_error) == NULL);
+	return (f_fifo_every_valid(fmt->conversion_list, &no_conv_error) == NULL);
 }
