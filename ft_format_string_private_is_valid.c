@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_string_result_length.c                   :+:      :+:    :+:   */
+/*   ft_format_string_private_is_valid.c                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/28 17:27:57 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 14:45:28 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/22 16:13:17 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/22 17:17:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "format_string_interface.h"
+#include "format_string_defs.h"
+#include "conversion_interface.h"
+#include "bool.h"
+#include "libft.h"
+#include <stddef.h>
 
-int	ft_get_resulting_length(const t_format_string *fmt)
+static t_bool	no_conv_error(const void *conv)
 {
-	int	result;
+	return (!conversion_result_produces_error((const t_conversion*)conv));
+}
 
-	result = ft_fmt_plain_text_len(fmt) + ft_conversions_length(fmt);
-	return (result);
+t_bool			ft_format_string_is_valid(const t_format_string *fmt)
+{
+	return (f_fifo_every_valid(fmt->conversion_list, &no_conv_error) == NULL);
 }

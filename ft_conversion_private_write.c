@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:30:48 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 12:55:40 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 14:06:44 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,12 @@ static void	ft_write_conv(char *to_write, const t_conversion *conv)
 
 int			ft_write_conversion(char *to_write, const t_conversion *conv)
 {
-	ft_write_conv(start_of_conv_is(to_write, conv), conv);
-	ft_write_field_width(start_of_field_width_is(to_write, conv),
-			conv->field_width.param.value - ft_no_field_width_length(conv),
-			conv->flags[ZERO_PADDING] ? '0' : ' ');
+	if (!(conv->field_width.param.value IS_INVALID_CONVERSION_RESULT))
+	{
+		ft_write_conv(start_of_conv_is(to_write, conv), conv);
+		ft_write_field_width(start_of_field_width_is(to_write, conv),
+				conv->field_width.param.value - ft_no_field_width_length(conv),
+				conv->flags[ZERO_PADDING] ? '0' : ' ');
+	}
 	return (conv->field_width.param.value);
 }

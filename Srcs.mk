@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/20 17:55:20 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/22 16:17:01 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,16 +82,16 @@ LIB_PRINTF ?=\
 	ft_conversion_private_is_conv.c\
 	ft_conversion_private_is_conv_numeric.c\
 	ft_conversion_private_args_index.c\
-	ft_conversion_private_valid_arg.c\
+	ft_conversion_private_is_valid.c\
 	ft_conversion_private_function_selectors.c\
 	ft_conversion_private_integer_length.c\
 	ft_conversion_private_integer_write.c\
 	ft_int_params.c ft_int_params_tools.c ft_var_args_private.c\
 	ft_format_string_private_get_length.c\
-	ft_format_string_private_set_length.c\
 	ft_format_string_private_request_args.c\
 	ft_format_string_private_arg_index.c\
-	ft_printf_len_special.c ft_format_string_result_length.c\
+	ft_format_string_private_is_valid.c\
+	ft_printf_len_special.c\
 	ft_write_result_string.c ft_printf_write_special.c\
 	ft_var_args_private_const.c\
 	ft_printf_signed_integers.c\

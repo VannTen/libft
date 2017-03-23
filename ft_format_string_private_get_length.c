@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 13:15:48 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 13:19:48 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/23 18:50:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,15 @@
 #include "conversion_interface.h"
 #include "libft.h"
 
-static int	get_conv_len(const void *conversion)
+static int	set_and_get_conv_len(void *conv)
 {
-	return (ft_get_conv_len((const t_conversion*)conversion));
+	return (set_and_get_final_conversion_length((t_conversion*)conv));
 }
 
-int			ft_fmt_plain_text_len(const t_format_string *fmt)
+int			ft_set_and_get_resulting_length(const t_format_string *fmt)
 {
-	return (fmt->length - fmt->conversions_length);
-}
-
-int			ft_conversions_length(const t_format_string *fmt)
-{
-	return (f_fifosum_content(fmt->conversion_list, &get_conv_len));
+	return (f_fifodosum(fmt->conversion_list, &set_and_get_conv_len) +
+			(ft_format_string_is_valid(fmt) ? fmt->remaining_length : 0));
 }
 
 int			ft_get_current_conv_text_len(t_format_string *fmt)
@@ -35,4 +31,9 @@ int			ft_get_current_conv_text_len(t_format_string *fmt)
 
 	conv = f_fifo_first_elem(fmt->conversion_list);
 	return (ft_get_conv_text_len(conv));
+}
+
+void		ft_set_remaining_length(t_format_string *fmt, int length)
+{
+	fmt->remaining_length = length;
 }

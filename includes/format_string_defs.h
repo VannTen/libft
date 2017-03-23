@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:08:36 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 14:46:04 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 16:44:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "format_string_interface.h"
 # include "fifo.h"
 # include "variadic_args_interface.h"
+# include "bool.h"
 # include <stdlib.h>
 
 struct	s_format_string
@@ -22,8 +23,7 @@ struct	s_format_string
 	t_fifo		*conversion_list;
 	t_var_arg	*arg_list;
 	size_t		arg_count;
-	int			length;
-	int			conversions_length;
+	int			remaining_length;
 };
 
 #endif

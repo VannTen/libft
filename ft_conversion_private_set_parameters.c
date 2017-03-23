@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:45:19 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/21 11:19:41 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 15:04:35 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,9 @@ void	post_parsing_conv(t_conversion *conv)
 		conv->length_modifier = PTR_DIFF;
 		conv->flags[ALTERNATE_FORM] = TRUE;
 	}
+}
+
+void	set_conversion_preceding_length(t_conversion *conv, int length)
+{
+	conv->preceding_length = length;
 }

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 12:23:57 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/21 10:46:58 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/22 15:45:40 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include "ft_set_params.h"
 #include <stdlib.h>
 
-int	ft_add_conversion(const char *conv_text, t_format_string *fmt)
+int	ft_add_conversion(const char *conv_text, t_format_string *fmt,
+		int preceding_length)
 {
 	int				index;
 	t_conversion	*conversion;
@@ -30,9 +31,10 @@ int	ft_add_conversion(const char *conv_text, t_format_string *fmt)
 	index += set_precision(conv_text + index, conversion, fmt);
 	index += set_length_modifier(conv_text + index, conversion);
 	index += set_type_conversion(conv_text + index, conversion, fmt);
+	set_conversion_preceding_length(conversion, preceding_length);
 	set_conversion_spec_len(conversion, index);
 	post_parsing_conv(conversion);
-	if (!f_add_conv_to_fmt(fmt, conversion, index))
+	if (!f_add_conv_to_fmt(fmt, conversion))
 		return (0);
 	return (index);
 }
