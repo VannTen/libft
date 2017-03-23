@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 15:12:26 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 16:26:38 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/23 17:46:23 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_vasprintf(char **strp, const char *format_string, va_list *ap)
 		ft_write_result_string(format_string, final_string, fmt);
 	final_string[written] = '\0';
 	if (!ft_format_string_is_valid(fmt))
-		written = -written;
+		written = written == 0 ? INT_MIN : -written;
 	*strp = final_string;
 	fmt_destroy(fmt);
 	fmt = NULL;
@@ -42,11 +42,24 @@ int	ft_vdprintf(int fd, const char *format_string, va_list *var_arg_list)
 {
 	char	*to_write;
 	int		written;
+	t_bool	valid;
 
 	written = ft_vasprintf(&to_write, format_string, var_arg_list);
+	if (written == INT_MIN)
+	{
+		valid = FALSE;
+		written = 0;
+	}
+	else if (written < 0)
+	{
+		valid = FALSE;
+		written = -written;
+	}
+	else
+		valid = TRUE;
 	write(fd, to_write, written < 0 ? -written : written);
 	ft_strdel(&to_write);
-	return (written < 0 ? -1 : written);
+	return (valid ? written : -1);
 }
 
 int	ft_printf(const char *format_string, ...)

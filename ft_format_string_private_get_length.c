@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 13:15:48 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 16:46:12 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/23 18:50:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static int	set_and_get_conv_len(void *conv)
 
 int			ft_set_and_get_resulting_length(const t_format_string *fmt)
 {
-	return (f_fifodosum(fmt->conversion_list, &set_and_get_conv_len)
-			+ fmt->remaining_length);
+	return (f_fifodosum(fmt->conversion_list, &set_and_get_conv_len) +
+			(ft_format_string_is_valid(fmt) ? fmt->remaining_length : 0));
 }
 
 int			ft_get_current_conv_text_len(t_format_string *fmt)
