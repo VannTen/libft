@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 11:52:23 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/24 12:09:26 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/24 15:48:56 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int	ft_wcstrntomb_len(wchar_t *wstring, int max_size)
 	int		one_carac_size;
 	size_t	index;
 
+	if (max_size == 0)
+		return (0);
 	size = 0;
 	index = 0;
 	while (wstring[index] != L'\0')
@@ -86,6 +88,8 @@ int	ft_wcstrntomb_write(char *dst, wchar_t *wstring, int max_size)
 	int		dst_index;
 	int		one_carac_size;
 
+	if (max_size == 0)
+		return (0);
 	src_index = 0;
 	dst_index = 0;
 	while (wstring[src_index] != L'\0')
