@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 11:43:33 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/21 11:18:30 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/24 15:05:20 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,6 @@ static int	write_alternate_form(char *to_write, const t_conversion *conv)
 			ft_strcpy(to_write, conv->type == X_MAJ ?
 					HEXA_MAJ_ALTERNATE_FORM : HEXA_ALTERNATE_FORM);
 			alternate_form_len += ft_strlen(HEXA_ALTERNATE_FORM);
-		}
-		else if (conv->type == O)
-		{
-			ft_strcpy(to_write, OCTAL_ALTERNATE_FORM);
-			alternate_form_len += ft_strlen(OCTAL_ALTERNATE_FORM);
 		}
 	}
 	return (alternate_form_len);

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 09:48:51 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/21 11:07:54 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/24 15:04:56 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int			count_alternate_form(const t_conversion *conv)
 	if (conv->flags[ALTERNATE_FORM])
 	{
 		if (has_alternate_form_hexa(conv))
-			alternate_form_len += ft_strlen(HEXA_ALTERNATE_FORM);
+			alternate_form_len = ft_strlen(HEXA_ALTERNATE_FORM);
 		else if (conv->type == O)
-			alternate_form_len += ft_strlen(OCTAL_ALTERNATE_FORM);
+			alternate_form_len = has_no_null_value(conv->arg) ? 1 : 0;
 	}
 	return (alternate_form_len);
 }
@@ -56,8 +56,9 @@ static int	total_before_padding(t_conversion *conv)
 		conv->precision.param.value = INTEGER_DEFAULT_PRECISION;
 	result = ft_get_len_conv(conv);
 	conv->result_length = result;
-	if (conv->precision.param.value < result)
-		conv->precision.param.value = result;
+	if (conv->precision.param.value <= result)
+		conv->precision.param.value = result +
+			(conv->type == O ? count_alternate_form(conv) : 0);
 	else
 		result = conv->precision.param.value;
 	result += count_signedness(conv) + count_alternate_form(conv);
