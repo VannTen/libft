@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 08:55:33 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/25 02:06:57 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/25 09:49:12 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "variadic_args_interface.h"
 #include "itoa_tools.h"
 
-int			count_signedness(const t_conversion *conv)
+int		count_signedness(const t_conversion *conv)
 {
 	if (conv->flags[ALWAYS_SIGN] || conv->flags[BLANK] ||
 			is_signed_negative(conv->arg))
@@ -23,7 +23,7 @@ int			count_signedness(const t_conversion *conv)
 		return (0);
 }
 
-int			write_signedness(char *to_write, const t_conversion *conv)
+int		write_signedness(char *to_write, const t_conversion *conv)
 {
 	if (is_signed_negative(conv->arg))
 		*to_write = '-';
@@ -65,4 +65,9 @@ void	ft_print_to_di(char *to_write, const t_conversion *conv)
 	index += ft_write_precision(to_write, conv);
 	itoa_write_signed(to_write + index + conv->result_length - 1,
 			ft_var_signed_integers(conv->arg), 10, DECIMAL_DIGITS);
+	if (conv->flags[NEGATIVE_FIELD_WIDTH])
+		index += ft_write_field_width(to_write + index,
+				conv->field_width.param.value
+				- conv->precision.param.value - count_signedness(conv),
+				conv->flags[ZERO_PADDING] ? '0' : ' ');
 }
