@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 16:00:06 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/21 11:10:47 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/25 10:56:53 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_printf_len_unsupported(const t_conversion *conv);
 	&ft_printf_len_unsupported,\
 	&ft_printf_len_c,\
 	&ft_printf_len_s,\
-	&ft_printf_len_x,\
+	&ft_printf_len_p,\
 	&ft_printf_len_unsupported,\
 	&ft_printf_len_no_conversion,\
 	&ft_printf_len_unsupported
