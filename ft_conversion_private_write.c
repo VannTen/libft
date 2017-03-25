@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:30:48 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/25 02:05:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/25 12:16:50 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,6 @@ int			ft_write_precision(char *to_write, const t_conversion *conv)
 		index++;
 	}
 	return (leading_zeros);
-}
-
-void	ft_write_conv(char *to_write, const t_conversion *conv)
-{
-	int						index;
-
-	index = 0;
-	if (is_integer_conv(conv))
-	{
-		index += ft_write_integer_conv(to_write, conv);
-		index += ft_write_precision(to_write + index, conv);
-	}
-	ft_select_writer_conv(to_write + index, conv);
 }
 
 int			ft_write_conversion(char *to_write, const t_conversion *conv)
