@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 19:02:34 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/25 11:05:45 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/25 12:09:49 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static void	print_hexa(char *to_write, const t_conversion *conv, int base,
 	index = 0;
 	if (!conv->flags[NEGATIVE_FIELD_WIDTH])
 		index += ft_write_field_width(to_write, conv->field_width.param.value
-				- conv->precision.param.value,
+				- conv->precision.param.value - count_alternate_form(conv),
 				conv->flags[ZERO_PADDING] ? '0' : ' ');
-	if (conv->flags[ALTERNATE_FORM])
+	if (conv->flags[ALTERNATE_FORM] && conv->result_length != 0)
 	{
 		ft_strcpy(to_write, conv->type == X ?
 				HEXA_ALTERNATE_FORM : HEXA_MAJ_ALTERNATE_FORM);
@@ -36,13 +36,15 @@ static void	print_hexa(char *to_write, const t_conversion *conv, int base,
 			ft_var_unsigned_integers(conv->arg), base, base_digits);
 	if (conv->flags[NEGATIVE_FIELD_WIDTH])
 		index += ft_write_field_width(to_write + index,
-				conv->field_width.param.value - conv->precision.param.value,
+				conv->field_width.param.value -
+				conv->precision.param.value - count_alternate_form(conv),
 				' ');
 }
 
 int		ft_printf_len_x(t_conversion *conv)
 {
 	int result;
+	int alt_result;
 
 	if (conv->flags[ZERO_PADDING])
 		conv->precision.param.value =
@@ -51,8 +53,9 @@ int		ft_printf_len_x(t_conversion *conv)
 	conv->result_length = result;
 	if (result > conv->precision.param.value)
 		conv->precision.param.value = result;
-	if (conv->precision.param.value > conv->field_width.param.value)
-		conv->field_width.param.value = conv->precision.param.value;
+	alt_result = conv->precision.param.value + count_alternate_form(conv);
+	if (alt_result > conv->field_width.param.value)
+		conv->field_width.param.value = alt_result;
 	return (conv->field_width.param.value);
 }
 
