@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:45:19 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 15:04:35 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/25 12:18:13 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	settle_incompatibilities(t_conversion *conv)
 		conv->flags[ZERO_PADDING] = FALSE;
 	if (conv->flags[ALWAYS_SIGN])
 		conv->flags[BLANK] = FALSE;
+	if (conv->precision.param.value == NO_PRECISION && is_integer_conv(conv))
+		conv->precision.param.value = INTEGER_DEFAULT_PRECISION;
 }
 
 void	post_parsing_conv(t_conversion *conv)
