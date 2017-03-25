@@ -6,23 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 09:48:51 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/24 15:04:56 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/25 01:29:18 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
 #include "printf_constants.h"
 #include "libft.h"
-
-int			count_signedness(const t_conversion *conv)
-{
-	if (is_signed_negative(conv->arg)
-			|| (is_signed_positive(conv->arg)
-				&& (conv->flags[ALWAYS_SIGN] || conv->flags[BLANK])))
-		return (1);
-	else
-		return (0);
-}
 
 int			count_alternate_form(const t_conversion *conv)
 {
