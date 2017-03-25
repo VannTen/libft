@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 10:29:40 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/24 15:46:23 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/25 01:38:37 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int				ft_wctomb(char *dst, wchar_t wchar);
 ** Implementation file : ft_wctomb_internal.c
 */
 
-int				ft_wctomb_len(wchar_t wchar);
-int				ft_wctomb_write(char *dst, wchar_t wchar, int size_mb_seq);
+unsigned int	ft_wctomb_len(wchar_t wchar);
+int				ft_wctomb_write(char *dst, wchar_t wchar, unsigned int size_mb_seq);
 int				ft_wcstrntomb_len(wchar_t *wstring, int max_size);
 int				ft_wcstrntomb_write(char *dst, wchar_t *wstring, int max_size);
 
