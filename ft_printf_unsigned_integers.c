@@ -6,13 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 18:23:52 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/25 10:16:55 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/26 20:54:11 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
 #include "variadic_args_interface.h"
 #include "itoa_tools.h"
+
 static void	print_unsigned(char *to_write, const t_conversion *conv, int base,
 		char *base_digits)
 {
