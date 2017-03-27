@@ -14,7 +14,7 @@
 #include "variadic_args_interface.h"
 #include "itoa_tools.h"
 
-int		count_signedness(const t_conversion *conv)
+static int		count_signedness(const t_conversion *conv)
 {
 	if (conv->flags[ALWAYS_SIGN] || conv->flags[BLANK] ||
 			is_signed_negative(conv->arg))
@@ -23,7 +23,7 @@ int		count_signedness(const t_conversion *conv)
 		return (0);
 }
 
-int		write_signedness(char *to_write, const t_conversion *conv)
+static int		write_signedness(char *to_write, const t_conversion *conv)
 {
 	if (is_signed_negative(conv->arg))
 		*to_write = '-';

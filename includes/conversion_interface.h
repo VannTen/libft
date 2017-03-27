@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 15:07:36 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 15:27:10 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,6 @@ void			ft_select_writer_conv(char *to_write, const t_conversion *conv);
 
 void			handle_zero_padding(t_conversion *conv);
 int				set_integer_length(t_conversion *conv);
-int				count_signedness(const t_conversion *conv);
 int				count_alternate_form(const t_conversion *conv);
 
 /*
