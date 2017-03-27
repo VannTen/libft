@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 08:55:33 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/25 09:49:12 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 11:25:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int		ft_printf_len_di(t_conversion *conv)
 	conv->result_length = conversion_result;
 	if (conversion_result > conv->precision.param.value)
 		conv->precision.param.value = conversion_result;
+	else
+		conversion_result = conv->precision.param.value;
 	result = conversion_result + count_signedness(conv);
 	if (result > conv->field_width.param.value)
 		conv->field_width.param.value = result;
@@ -61,10 +63,11 @@ void	ft_print_to_di(char *to_write, const t_conversion *conv)
 		index += ft_write_field_width(to_write, conv->field_width.param.value
 				- conv->precision.param.value - count_signedness(conv),
 				conv->flags[ZERO_PADDING] ? '0' : ' ');
-	index += write_signedness(to_write, conv);
-	index += ft_write_precision(to_write, conv);
+	index += write_signedness(to_write + index, conv);
+	index += ft_write_precision(to_write + index, conv);
 	itoa_write_signed(to_write + index + conv->result_length - 1,
 			ft_var_signed_integers(conv->arg), 10, DECIMAL_DIGITS);
+	index += conv->result_length;
 	if (conv->flags[NEGATIVE_FIELD_WIDTH])
 		index += ft_write_field_width(to_write + index,
 				conv->field_width.param.value

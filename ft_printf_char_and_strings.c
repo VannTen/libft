@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 13:07:32 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 10:19:37 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 11:44:29 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		ft_printf_len_c(t_conversion *conv)
 	else
 	{
 		if (result > conv->precision.param.value &&
+				conv->length_modifier == LONG &&
 				conv->precision.param.value != NO_PRECISION)
 			conv->precision.param.value = 0;
 		else
