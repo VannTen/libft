@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 16:15:30 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/14 19:24:50 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/25 11:03:58 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 # define OCTAL_BASE sizeof(OCTAL_DIGITS) - 1
 # define BINARY_BASE sizeof(BINARY_DIGITS) - 1
 # define HEXADECIMAL_BASE sizeof(HEXADECIMAL_DIGITS) - 1
+# define HEXA_ALTERNATE_FORM "0x"
+# define HEXA_MAJ_ALTERNATE_FORM "0X"
+# define OCTAL_ALTERNATE_FORM "0"
 
 size_t	itoa_len_signed(intmax_t number, int base);
 size_t	itoa_len_unsigned(uintmax_t number, unsigned int base);

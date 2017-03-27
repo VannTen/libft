@@ -6,36 +6,22 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 09:48:51 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/24 15:04:56 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/25 11:08:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
 #include "printf_constants.h"
+#include "itoa_tools.h"
 #include "libft.h"
-
-int			count_signedness(const t_conversion *conv)
-{
-	if (is_signed_negative(conv->arg)
-			|| (is_signed_positive(conv->arg)
-				&& (conv->flags[ALWAYS_SIGN] || conv->flags[BLANK])))
-		return (1);
-	else
-		return (0);
-}
 
 int			count_alternate_form(const t_conversion *conv)
 {
 	int	alternate_form_len;
 
 	alternate_form_len = 0;
-	if (conv->flags[ALTERNATE_FORM])
-	{
-		if (has_alternate_form_hexa(conv))
-			alternate_form_len = ft_strlen(HEXA_ALTERNATE_FORM);
-		else if (conv->type == O)
-			alternate_form_len = has_no_null_value(conv->arg) ? 1 : 0;
-	}
+	if (conv->flags[ALTERNATE_FORM] && has_alternate_form_hexa(conv))
+		alternate_form_len = ft_strlen(HEXA_ALTERNATE_FORM);
 	return (alternate_form_len);
 }
 

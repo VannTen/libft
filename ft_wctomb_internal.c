@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 11:52:23 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/24 15:48:56 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 10:29:17 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	ft_wctomb_len(wchar_t wchar)
 {
-	int	size_of_mb_seq;
+	int size_of_mb_seq;
 
 	if (wchar < 0 || (wchar >= 0xD800 && wchar <= 0xDFFF))
 		size_of_mb_seq = INVALID_SIZE;
@@ -37,12 +37,12 @@ int	ft_wctomb_len(wchar_t wchar)
 
 int	ft_wctomb_write(char *dst, wchar_t wchar, int size_mb_seq)
 {
-	int					index;
-	int					shift;
+	int	index;
+	int	shift;
 
+	if (size_mb_seq > MB_CUR_MAX)
+		return (INVALID_SIZE);
 	index = MB_CUR_MAX - size_mb_seq;
-	if (index < 0)
-		return (index);
 	shift = 18 - 6 * index;
 	dst = dst - index;
 	dst[index] = (unsigned char)((wchar >> shift) &

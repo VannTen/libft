@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 15:55:32 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/25 01:57:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,8 @@ void			ft_normalize_args(t_conversion *conv);
 */
 
 int				ft_write_conversion(char *to_write, const t_conversion *conv);
+int				ft_write_precision(char *to_write, const t_conversion *conv);
+int				ft_write_field_width(char *to_write, int fill, char padding);
 
 /*
 ** Compute positions for write functions

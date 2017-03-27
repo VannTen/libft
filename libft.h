@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 16:19:34 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/25 11:05:22 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,8 +173,6 @@ void				ft_memdel(void **ap);
 */
 
 char				*ft_itoa(int n);
-size_t				itoa_len_signed(intmax_t number, int base);
-size_t				itoa_len_unsigned(uintmax_t number, int base);
 int					ft_atoi(const char *str);
 int					ft_strict_atoi(const char *str);
 int					ft_toupper(int c);
