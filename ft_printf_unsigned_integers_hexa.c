@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 19:02:34 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 14:49:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 15:37:02 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,24 @@
 #include "itoa_tools.h"
 #include "libft.h"
 
-static void	print_hexa(char *to_write, const t_conversion *conv, int base,
-		char *base_digits)
+static int	write_alt_form(char *to_write, const t_conversion *conv)
 {
-	int index;
-
-	index = 0;
-	if (!conv->flags[NEGATIVE_FIELD_WIDTH])
-		index += ft_write_field_width(to_write, conv->field_width.param.value
-				- conv->precision.param.value - count_alternate_form(conv),
-				conv->flags[ZERO_PADDING] ? '0' : ' ');
 	if (conv->flags[ALTERNATE_FORM] && conv->result_length != 0)
 	{
-		ft_strcpy(to_write + index, conv->type == X ?
+		ft_strcpy(to_write, conv->type == X ?
 				HEXA_ALTERNATE_FORM : HEXA_MAJ_ALTERNATE_FORM);
-		index += ft_strlen(HEXA_ALTERNATE_FORM);
+		return (ft_strlen(HEXA_ALTERNATE_FORM));
 	}
-	index += ft_write_precision(to_write + index, conv);
-	itoa_write_unsigned(to_write + index + conv->result_length - 1,
-			ft_var_unsigned_integers(conv->arg), base, base_digits);
-	index += conv->result_length;
-	if (conv->flags[NEGATIVE_FIELD_WIDTH])
-		index += ft_write_field_width(to_write + index,
-				conv->field_width.param.value -
-				conv->precision.param.value - count_alternate_form(conv),
-				' ');
+	else
+		return (0);
+}
+
+static int	x_writer(char *to_write, const t_conversion *conv)
+{
+	itoa_write_unsigned(to_write + conv->result_length - 1,
+			ft_var_unsigned_integers(conv->arg), 16,
+			conv->type == X ? HEXADECIMAL_DIGITS : HEXADECIMAL_DIGITS_CAPS);
+	return (conv->result_length);
 }
 
 int		ft_printf_len_x(t_conversion *conv)
@@ -54,7 +47,7 @@ int		ft_printf_len_x(t_conversion *conv)
 
 void	ft_print_to_x(char *to_write, const t_conversion *conv)
 {
-	print_hexa(to_write, conv, 16, HEXADECIMAL_DIGITS);
+	write_whole_conv(to_write, conv, &write_alt_form, &x_writer);
 }
 
 int		ft_printf_len_x_maj(t_conversion *conv)
@@ -64,5 +57,5 @@ int		ft_printf_len_x_maj(t_conversion *conv)
 
 void	ft_print_to_x_maj(char *to_write, const t_conversion *conv)
 {
-	print_hexa(to_write, conv, 16, HEXADECIMAL_DIGITS_CAPS);
+	write_whole_conv(to_write, conv, &write_alt_form, &x_writer);
 }
