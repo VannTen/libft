@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:30:48 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/25 12:16:50 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 15:10:39 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,24 @@ int			ft_write_conversion(char *to_write, const t_conversion *conv)
 {
 	ft_select_writer_conv(to_write, conv);
 	return (conv->field_width.param.value);
+}
+
+void	write_whole_conv(char *to_write, const t_conversion *conv,
+		t_specific_writer specific_supp, t_specific_writer result_writer)
+{
+	int index;
+
+	index = 0;
+	if (!conv->flags[NEGATIVE_FIELD_WIDTH])
+		index += ft_write_field_width(to_write, conv->field_width.param.value
+				- conv->precision.param.value - conv->supp_length,
+				conv->flags[ZERO_PADDING] ? '0' : ' ');
+	index += specific_supp != NULL ? specific_supp(to_write + index, conv) : 0;
+	index += ft_write_precision(to_write + index, conv);
+	index += result_writer(to_write + index, conv);
+	if (conv->flags[NEGATIVE_FIELD_WIDTH])
+		index += ft_write_field_width(to_write + index,
+				conv->field_width.param.value -
+				conv->precision.param.value - conv->supp_length,
+				' ');
 }

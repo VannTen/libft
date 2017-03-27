@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 14:47:50 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 15:07:36 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,9 +119,12 @@ void			ft_normalize_args(t_conversion *conv);
 ** Implementation file : ft_conversion_private_write.c
 */
 
+typedef int (*t_specific_writer)(char *to_write, const t_conversion *conv);
 int				ft_write_conversion(char *to_write, const t_conversion *conv);
 int				ft_write_precision(char *to_write, const t_conversion *conv);
 int				ft_write_field_width(char *to_write, int fill, char padding);
+void			write_whole_conv(char *to_write, const t_conversion *conv,
+		t_specific_writer specific_supp, t_specific_writer result_writer);
 
 /*
 ** Compute positions for write functions
