@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 08:55:33 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 14:49:19 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 15:26:44 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,14 @@ int		ft_printf_len_di(t_conversion *conv)
 	return (length_integers(conv, conversion_result));
 }
 
+static int	di_writer(char *to_write, const t_conversion *conv)
+{
+	itoa_write_signed(to_write + conv->result_length - 1,
+			ft_var_signed_integers(conv->arg), 10, DECIMAL_DIGITS);
+	return (conv->result_length);
+}
+
 void	ft_print_to_di(char *to_write, const t_conversion *conv)
 {
-	int index;
-
-	index = 0;
-	if (!conv->flags[NEGATIVE_FIELD_WIDTH])
-		index += ft_write_field_width(to_write, conv->field_width.param.value
-				- conv->precision.param.value - count_signedness(conv),
-				conv->flags[ZERO_PADDING] ? '0' : ' ');
-	index += write_signedness(to_write + index, conv);
-	index += ft_write_precision(to_write + index, conv);
-	itoa_write_signed(to_write + index + conv->result_length - 1,
-			ft_var_signed_integers(conv->arg), 10, DECIMAL_DIGITS);
-	index += conv->result_length;
-	if (conv->flags[NEGATIVE_FIELD_WIDTH])
-		index += ft_write_field_width(to_write + index,
-				conv->field_width.param.value
-				- conv->precision.param.value - count_signedness(conv),
-				conv->flags[ZERO_PADDING] ? '0' : ' ');
+	write_whole_conv(to_write, conv, &write_signedness, &di_writer);
 }
