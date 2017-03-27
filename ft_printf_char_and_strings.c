@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 13:07:32 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 11:44:29 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 16:12:30 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,57 +18,43 @@
 #include "libft.h"
 #include <wchar.h>
 
-int		ft_printf_len_c(t_conversion *conv)
+static int	len_c(const t_conversion *conv)
 {
-	int result;
-
-	if (conv->length_modifier == LONG)
-		result = ft_wctomb_len(ft_wint_type(conv->arg));
-	else
-		result = 1;
-	conv->result_length = result;
-	if (result < 0)
-		conv->field_width.param.value = INVALID_CONVERSION_RESULT;
-	else
-	{
-		if (result > conv->precision.param.value &&
-				conv->length_modifier == LONG &&
-				conv->precision.param.value != NO_PRECISION)
-			conv->precision.param.value = 0;
-		else
-			conv->precision.param.value = result;
-		if (conv->precision.param.value > conv->field_width.param.value)
-			conv->field_width.param.value = conv->precision.param.value;
-	}
-	return (conv->field_width.param.value);
+	(void)conv;
+	return (1);
 }
 
-int		ft_printf_len_s(t_conversion *conv)
+static int	len_widec(const t_conversion *conv)
+{
+	return (ft_wctomb_len(ft_wint_type(conv->arg)));
+}
+
+int		ft_printf_len_c(t_conversion *conv)
+{
+	return (strings_chars_length(conv, &len_c, &len_widec));
+}
+
+static int	len_s(const t_conversion *conv)
 {
 	int result;
 
-	if (conv->length_modifier == LONG)
-		result = ft_wcstrntomb_len(ft_pointer(conv->arg),
-				conv->precision.param.value);
-	else if (conv->precision.param.value != NO_PRECISION)
+	if (conv->precision.param.value != NO_PRECISION)
 		result = ft_strnlen(ft_pointer(conv->arg),
 				conv->precision.param.value);
 	else
 		result = ft_strlen(ft_pointer(conv->arg));
-	conv->result_length = result;
-	if (result < 0)
-		conv->field_width.param.value = INVALID_CONVERSION_RESULT;
-	else
-	{
-		if (result > conv->precision.param.value &&
-				conv->precision.param.value != NO_PRECISION)
-			conv->precision.param.value = 0;
-		else
-			conv->precision.param.value = result;
-		if (conv->precision.param.value > conv->field_width.param.value)
-			conv->field_width.param.value = conv->precision.param.value;
-	}
-	return (conv->field_width.param.value);
+	return (result);
+}
+
+static int	len_wides(const t_conversion *conv)
+{
+		return (ft_wcstrntomb_len(ft_pointer(conv->arg),
+				conv->precision.param.value));
+}
+
+int		ft_printf_len_s(t_conversion *conv)
+{
+	return (strings_chars_length(conv, &len_s, &len_wides));
 }
 
 void	ft_print_to_c(char *to_write, const t_conversion *conv)

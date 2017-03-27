@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 15:27:10 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 16:08:11 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,11 @@ int				set_flags(const char *conversion_specifier,
 ** Implementation file : ft_conversion_private_set_final_length.c
 */
 
+typedef int (*t_count)(const t_conversion *conv);
 int				set_and_get_final_conversion_length(t_conversion *conv);
 int				length_integers(t_conversion *conv, int conversion_result);
+int				strings_chars_length(t_conversion *conv,
+		t_count normal, t_count wide);
 
 /*
 ** Get args index
