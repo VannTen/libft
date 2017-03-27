@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 11:52:23 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/25 01:38:17 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 10:29:17 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <wchar.h>
 #include <stdlib.h>
 
-unsigned int	ft_wctomb_len(wchar_t wchar)
+int	ft_wctomb_len(wchar_t wchar)
 {
-	unsigned int size_of_mb_seq;
+	int size_of_mb_seq;
 
 	if (wchar < 0 || (wchar >= 0xD800 && wchar <= 0xDFFF))
 		size_of_mb_seq = INVALID_SIZE;
@@ -35,10 +35,10 @@ unsigned int	ft_wctomb_len(wchar_t wchar)
 	return (size_of_mb_seq);
 }
 
-int	ft_wctomb_write(char *dst, wchar_t wchar, unsigned int size_mb_seq)
+int	ft_wctomb_write(char *dst, wchar_t wchar, int size_mb_seq)
 {
-	unsigned int	index;
-	unsigned int	shift;
+	int	index;
+	int	shift;
 
 	if (size_mb_seq > MB_CUR_MAX)
 		return (INVALID_SIZE);
