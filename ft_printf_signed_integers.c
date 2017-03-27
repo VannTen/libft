@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 08:55:33 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 14:26:23 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 14:49:19 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,12 @@ int		write_signedness(char *to_write, const t_conversion *conv)
 
 int		ft_printf_len_di(t_conversion *conv)
 {
-	int result;
 	int	conversion_result;
 
-	result = 0;
 	conversion_result = itoa_len_signed(ft_var_signed_integers(conv->arg), 10);
 	conv->result_length = conversion_result;
 	conv->supp_length = count_signedness(conv);
-	handle_zero_padding(conv);
-	if (conversion_result > conv->precision.param.value)
-		conv->precision.param.value = conversion_result;
-	else
-		conversion_result = conv->precision.param.value;
-	result = conversion_result + conv->supp_length;
-	if (result > conv->field_width.param.value)
-		conv->field_width.param.value = result;
-	return (conv->field_width.param.value);
+	return (length_integers(conv, conversion_result));
 }
 
 void	ft_print_to_di(char *to_write, const t_conversion *conv)

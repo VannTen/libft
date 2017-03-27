@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 14:16:25 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 14:47:50 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int				set_flags(const char *conversion_specifier,
 */
 
 int				set_and_get_final_conversion_length(t_conversion *conv);
+int				length_integers(t_conversion *conv, int conversion_result);
 
 /*
 ** Get args index
