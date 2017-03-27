@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 11:52:23 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 10:29:17 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 23:04:49 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_wctomb_write(char *dst, wchar_t wchar, int size_mb_seq)
 	if (size_mb_seq > MB_CUR_MAX)
 		return (INVALID_SIZE);
 	index = MB_CUR_MAX - size_mb_seq;
-	shift = 18 - 6 * index;
+	shift = (MB_CUR_MAX - 1) * 6 - 6 * index;
 	dst = dst - index;
 	dst[index] = (unsigned char)((wchar >> shift) &
 			generate_first_mask(size_mb_seq));

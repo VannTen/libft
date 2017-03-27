@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:30:48 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 16:36:56 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 23:15:18 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ void	write_whole_conv_strings_chars(char *to_write, const t_conversion *conv,
 		index += ft_write_field_width(to_write, conv->field_width.param.value
 				- conv->precision.param.value - conv->supp_length,
 				conv->flags[ZERO_PADDING] ? '0' : ' ');
-	index += result_writer(to_write + index, conv);
+	if (conv->precision.param.value != 0)
+		index += result_writer(to_write + index, conv);
 	if (conv->flags[NEGATIVE_FIELD_WIDTH])
 		index += ft_write_field_width(to_write + index,
 				conv->field_width.param.value -
