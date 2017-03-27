@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 14:40:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/25 01:06:01 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 11:05:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ int		set_and_get_final_conversion_length(t_conversion *conv)
 
 	settle_incompatibilities(conv);
 	result = ft_get_len_conv(conv);
-	return (result + conv->preceding_length);
+	if (result < 0)
+		return (INVALID_CONVERSION_RESULT);
+	else
+		return (result + conv->preceding_length);
 }

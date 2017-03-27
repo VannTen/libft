@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 13:07:32 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/26 21:15:30 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 10:19:37 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,18 @@ int		ft_printf_len_c(t_conversion *conv)
 	else
 		result = 1;
 	conv->result_length = result;
-	if (result > conv->precision.param.value &&
-			conv->precision.param.value != NO_PRECISION)
-		conv->precision.param.value = 0;
+	if (result < 0)
+		conv->field_width.param.value = INVALID_CONVERSION_RESULT;
 	else
-		conv->precision.param.value = result;
-	if (conv->precision.param.value > conv->field_width.param.value)
-		conv->field_width.param.value = conv->precision.param.value;
+	{
+		if (result > conv->precision.param.value &&
+				conv->precision.param.value != NO_PRECISION)
+			conv->precision.param.value = 0;
+		else
+			conv->precision.param.value = result;
+		if (conv->precision.param.value > conv->field_width.param.value)
+			conv->field_width.param.value = conv->precision.param.value;
+	}
 	return (conv->field_width.param.value);
 }
 
@@ -50,13 +55,18 @@ int		ft_printf_len_s(t_conversion *conv)
 	else
 		result = ft_strlen(ft_pointer(conv->arg));
 	conv->result_length = result;
-	if (result > conv->precision.param.value &&
-			conv->precision.param.value != NO_PRECISION)
-		conv->precision.param.value = 0;
+	if (result < 0)
+		conv->field_width.param.value = INVALID_CONVERSION_RESULT;
 	else
-		conv->precision.param.value = result;
-	if (conv->precision.param.value > conv->field_width.param.value)
-		conv->field_width.param.value = conv->precision.param.value;
+	{
+		if (result > conv->precision.param.value &&
+				conv->precision.param.value != NO_PRECISION)
+			conv->precision.param.value = 0;
+		else
+			conv->precision.param.value = result;
+		if (conv->precision.param.value > conv->field_width.param.value)
+			conv->field_width.param.value = conv->precision.param.value;
+	}
 	return (conv->field_width.param.value);
 }
 

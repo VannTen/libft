@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 11:04:30 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/25 11:04:43 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 10:20:38 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@
 # define NO_PRECISION -1
 # define INTEGER_DEFAULT_PRECISION 1
 # define IS_INVALID_CONVERSION_RESULT < 0
+# define INVALID_CONVERSION_RESULT -1
 
 #endif

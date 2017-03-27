@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 19:02:34 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/25 12:09:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 10:33:58 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	print_hexa(char *to_write, const t_conversion *conv, int base,
 				HEXA_ALTERNATE_FORM : HEXA_MAJ_ALTERNATE_FORM);
 		index += ft_strlen(HEXA_ALTERNATE_FORM);
 	}
-	index += ft_write_precision(to_write, conv);
+	index += ft_write_precision(to_write + index, conv);
 	itoa_write_unsigned(to_write + index + conv->result_length - 1,
 			ft_var_unsigned_integers(conv->arg), base, base_digits);
 	if (conv->flags[NEGATIVE_FIELD_WIDTH])

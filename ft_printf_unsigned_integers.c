@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 18:23:52 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/26 20:54:11 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 10:32:55 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	print_unsigned(char *to_write, const t_conversion *conv, int base,
 		index += ft_write_field_width(to_write, conv->field_width.param.value
 				- conv->precision.param.value,
 				conv->flags[ZERO_PADDING] ? '0' : ' ');
-	index += ft_write_precision(to_write, conv);
+	index += ft_write_precision(to_write + index, conv);
 	itoa_write_unsigned(to_write + index + conv->result_length - 1,
 			ft_var_unsigned_integers(conv->arg), base, base_digits);
 	if (conv->flags[NEGATIVE_FIELD_WIDTH])
