@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 14:16:25 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 16:37:46 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,11 @@ int				set_flags(const char *conversion_specifier,
 ** Implementation file : ft_conversion_private_set_final_length.c
 */
 
+typedef int (*t_count)(const t_conversion *conv);
 int				set_and_get_final_conversion_length(t_conversion *conv);
+int				length_integers(t_conversion *conv, int conversion_result);
+int				strings_chars_length(t_conversion *conv,
+		t_count normal, t_count wide);
 
 /*
 ** Get args index
@@ -118,9 +122,14 @@ void			ft_normalize_args(t_conversion *conv);
 ** Implementation file : ft_conversion_private_write.c
 */
 
+typedef int (*t_specific_writer)(char *to_write, const t_conversion *conv);
 int				ft_write_conversion(char *to_write, const t_conversion *conv);
 int				ft_write_precision(char *to_write, const t_conversion *conv);
 int				ft_write_field_width(char *to_write, int fill, char padding);
+void			write_whole_conv(char *to_write, const t_conversion *conv,
+		t_specific_writer specific_supp, t_specific_writer result_writer);
+void			write_whole_conv_strings_chars(char *to_write,
+		const t_conversion *conv, t_specific_writer result_writer);
 
 /*
 ** Compute positions for write functions
@@ -147,7 +156,6 @@ void			ft_select_writer_conv(char *to_write, const t_conversion *conv);
 
 void			handle_zero_padding(t_conversion *conv);
 int				set_integer_length(t_conversion *conv);
-int				count_signedness(const t_conversion *conv);
 int				count_alternate_form(const t_conversion *conv);
 
 /*
