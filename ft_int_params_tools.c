@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:49:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 17:33:50 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 13:06:43 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_is_positional(const char *arg_specifier)
 	index = 0;
 	while (ft_isdigit(arg_specifier[index]))
 		index++;
-	if (arg_specifier[index] == '$')
+	if (index != 0 && arg_specifier[index] == '$')
 		return (index + 1);
 	else
 		return (0);
