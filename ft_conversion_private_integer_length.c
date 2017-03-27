@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 09:48:51 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/25 11:08:32 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 14:30:44 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ int			count_alternate_form(const t_conversion *conv)
 	return (alternate_form_len);
 }
 
-static void	handle_zero_padding(t_conversion *conv)
+void	handle_zero_padding(t_conversion *conv)
 {
 	if (conv->flags[ZERO_PADDING])
 	{
 		conv->precision.param.value = conv->field_width.param.value
-			- (count_alternate_form(conv) + count_signedness(conv));
+			- conv->supp_length;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:01:06 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 14:33:33 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 14:14:56 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static void		init_values(t_conversion *conversion)
 	conversion->precision.is_arg = FALSE;
 	conversion->length_modifier = 0;
 	conversion->result_length = 0;
+	conversion->supp_length = 0;
 	conversion->specifier_length = 0;
 	conversion->preceding_length = 0;
 	conversion->arg = NULL;

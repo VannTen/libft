@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/25 01:57:59 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 14:16:25 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,7 @@ void			ft_select_writer_conv(char *to_write, const t_conversion *conv);
 ** Implementation file : ft_conversion_private_integer_length.c
 */
 
+void			handle_zero_padding(t_conversion *conv);
 int				set_integer_length(t_conversion *conv);
 int				count_signedness(const t_conversion *conv);
 int				count_alternate_form(const t_conversion *conv);

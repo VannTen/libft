@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 19:02:34 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 11:35:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 14:39:17 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,20 @@ static void	print_hexa(char *to_write, const t_conversion *conv, int base,
 int		ft_printf_len_x(t_conversion *conv)
 {
 	int result;
-	int alt_result;
+	int conversion_result;
 
-	if (conv->flags[ZERO_PADDING])
-		conv->precision.param.value =
-			conv->field_width.param.value - count_alternate_form(conv);
-	result = itoa_len_unsigned(ft_var_unsigned_integers(conv->arg), 16);
-	conv->result_length = result;
-	if (result > conv->precision.param.value)
-		conv->precision.param.value = result;
-	alt_result = conv->precision.param.value + count_alternate_form(conv);
-	if (alt_result > conv->field_width.param.value)
-		conv->field_width.param.value = alt_result;
+	result = 0;
+	conversion_result = itoa_len_unsigned(ft_var_unsigned_integers(conv->arg), 16);
+	conv->result_length = conversion_result;
+	conv->supp_length = count_alternate_form(conv);
+	handle_zero_padding(conv);
+	if (conversion_result > conv->precision.param.value)
+		conv->precision.param.value = conversion_result;
+	else
+		conversion_result = conv->precision.param.value;
+	result = conversion_result + conv->supp_length;
+	if (result > conv->field_width.param.value)
+		conv->field_width.param.value = result;
 	return (conv->field_width.param.value);
 }
 

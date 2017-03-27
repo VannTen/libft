@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 08:55:33 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 11:25:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/27 14:26:23 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ int		ft_printf_len_di(t_conversion *conv)
 	result = 0;
 	conversion_result = itoa_len_signed(ft_var_signed_integers(conv->arg), 10);
 	conv->result_length = conversion_result;
+	conv->supp_length = count_signedness(conv);
+	handle_zero_padding(conv);
 	if (conversion_result > conv->precision.param.value)
 		conv->precision.param.value = conversion_result;
 	else
 		conversion_result = conv->precision.param.value;
-	result = conversion_result + count_signedness(conv);
+	result = conversion_result + conv->supp_length;
 	if (result > conv->field_width.param.value)
 		conv->field_width.param.value = result;
 	return (conv->field_width.param.value);
