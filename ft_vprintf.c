@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 14:51:21 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/28 16:12:06 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 16:32:01 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	ft_vasprintf(char **strp, const char *format_string, va_list *ap)
 			written = written == 0 ? INT_MIN : -written;
 		*strp = final_string;
 	}
+	else
+		written = -1;
 	fmt_destroy(fmt);
 	fmt = NULL;
 	return (written);
