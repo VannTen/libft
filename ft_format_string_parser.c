@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 15:31:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 17:47:16 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 10:22:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ static int		adds_conversions(const char *string, t_format_string *fmt)
 		{
 			index += preceding_length;
 			conv_len = ft_add_conversion(string + index, fmt, preceding_length);
-				if (conv_len == CONVERSION_PARSE_ERROR)
-					break ;
+			if (conv_len == CONVERSION_PARSE_ERROR)
+				break ;
 			index += conv_len;
 			preceding_length = 0;
 		}

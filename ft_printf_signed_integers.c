@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 08:55:33 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 15:26:44 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 10:22:56 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "variadic_args_interface.h"
 #include "itoa_tools.h"
 
-static int		count_signedness(const t_conversion *conv)
+static int	count_signedness(const t_conversion *conv)
 {
 	if (conv->flags[ALWAYS_SIGN] || conv->flags[BLANK] ||
 			is_signed_negative(conv->arg))
@@ -23,7 +23,7 @@ static int		count_signedness(const t_conversion *conv)
 		return (0);
 }
 
-static int		write_signedness(char *to_write, const t_conversion *conv)
+static int	write_signedness(char *to_write, const t_conversion *conv)
 {
 	if (is_signed_negative(conv->arg))
 		*to_write = '-';
@@ -36,7 +36,7 @@ static int		write_signedness(char *to_write, const t_conversion *conv)
 	return (1);
 }
 
-int		ft_printf_len_di(t_conversion *conv)
+int			ft_printf_len_di(t_conversion *conv)
 {
 	int	conversion_result;
 
@@ -53,7 +53,7 @@ static int	di_writer(char *to_write, const t_conversion *conv)
 	return (conv->result_length);
 }
 
-void	ft_print_to_di(char *to_write, const t_conversion *conv)
+void		ft_print_to_di(char *to_write, const t_conversion *conv)
 {
 	write_whole_conv(to_write, conv, &write_signedness, &di_writer);
 }

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 09:48:51 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 15:28:03 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 10:21:50 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "itoa_tools.h"
 #include "libft.h"
 
-int			count_alternate_form(const t_conversion *conv)
+int		count_alternate_form(const t_conversion *conv)
 {
 	int	alternate_form_len;
 

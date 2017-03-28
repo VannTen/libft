@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/25 10:57:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 11:36:24 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 10:23:16 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "itoa_tools.h"
 #include "libft.h"
 
-int	ft_printf_len_p(t_conversion *conv)
+int		ft_printf_len_p(t_conversion *conv)
 {
 	int result;
 	int alt_result;

@@ -6,15 +6,15 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 10:41:43 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/24 11:20:29 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 10:23:52 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 unsigned int	generate_first_mask(unsigned int size)
 {
-	const unsigned int		ascii_mask = 0x7F;
-	unsigned int	mask;
-	unsigned int	count;
+	const unsigned int	ascii_mask = 0x7F;
+	unsigned int		mask;
+	unsigned int		count;
 
 	mask = 037;
 	count = 2;
@@ -30,9 +30,9 @@ unsigned int	generate_first_mask(unsigned int size)
 
 unsigned int	generate_utf_8_indic(unsigned int size)
 {
-	const unsigned int		ascii_indic = 0;
-	unsigned int				indic;
-	unsigned int	count;
+	const unsigned int	ascii_indic = 0;
+	unsigned int		indic;
+	unsigned int		count;
 
 	indic = 0300;
 	count = 2;

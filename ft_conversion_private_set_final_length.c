@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 14:40:11 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 16:07:03 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 10:22:20 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,4 @@ int		strings_chars_length(t_conversion *conv, t_count normal, t_count wide)
 			conv->field_width.param.value = conv->precision.param.value;
 	}
 	return (conv->field_width.param.value);
-
 }

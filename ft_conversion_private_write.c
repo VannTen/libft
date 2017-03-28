@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:30:48 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 23:15:18 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 10:25:03 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "printf_constants.h"
 #include "libft.h"
 
-int	ft_write_field_width(char *to_write, int fill, char padding)
+int		ft_write_field_width(char *to_write, int fill, char padding)
 {
 	int	index;
 
@@ -28,7 +28,7 @@ int	ft_write_field_width(char *to_write, int fill, char padding)
 	return (fill);
 }
 
-int			ft_write_precision(char *to_write, const t_conversion *conv)
+int		ft_write_precision(char *to_write, const t_conversion *conv)
 {
 	int	leading_zeros;
 	int index;
@@ -43,7 +43,7 @@ int			ft_write_precision(char *to_write, const t_conversion *conv)
 	return (leading_zeros);
 }
 
-int			ft_write_conversion(char *to_write, const t_conversion *conv)
+int		ft_write_conversion(char *to_write, const t_conversion *conv)
 {
 	ft_select_writer_conv(to_write, conv);
 	return (conv->field_width.param.value);
