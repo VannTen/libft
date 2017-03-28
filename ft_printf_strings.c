@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 13:07:32 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/28 10:42:34 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 12:16:40 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,30 @@
 
 static int	len_s(const t_conversion *conv)
 {
-	int result;
+	int		result;
+	char	*string;
 
+	string = ft_pointer(conv->arg);
+	if (string == NULL)
+		string = STRING_NULL_POINTER;
 	if (conv->precision.param.value != NO_PRECISION)
-		result = ft_strnlen(ft_pointer(conv->arg),
+		result = ft_strnlen(string,
 				conv->precision.param.value);
 	else
-		result = ft_strlen(ft_pointer(conv->arg));
+		result = ft_strlen(string);
 	return (result);
 }
 
 static int	len_wides(const t_conversion *conv)
 {
-	return (ft_wcstrntomb_len(ft_pointer(conv->arg),
-				conv->precision.param.value));
+	wchar_t	*string;
+
+	string = ft_pointer(conv->arg);
+	if (string == NULL)
+		return (ft_strnlen(STRING_NULL_POINTER, conv->precision.param.value));
+	else
+		return (ft_wcstrntomb_len(ft_pointer(conv->arg),
+					conv->precision.param.value));
 }
 
 int			ft_printf_len_s(t_conversion *conv)
@@ -43,15 +53,22 @@ int			ft_printf_len_s(t_conversion *conv)
 
 static int	s_writer(char *to_write, const t_conversion *conv)
 {
-	int index;
+	int		index;
+	void	*string;
 
 	index = 0;
-	if (conv->length_modifier == LONG)
+	string = ft_pointer(conv->arg);
+	if (string == NULL)
+	{
+		ft_strncpy(to_write, STRING_NULL_POINTER, conv->precision.param.value);
+		index += conv->precision.param.value;
+	}
+	else if (conv->length_modifier == LONG)
 		index = ft_wcstrntomb_write(to_write, ft_pointer(conv->arg),
 				conv->precision.param.value);
 	else
 	{
-		ft_strncpy(to_write, ft_pointer(conv->arg),
+		ft_strncpy(to_write, string,
 				conv->precision.param.value);
 		index = conv->precision.param.value;
 	}
