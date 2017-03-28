@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 10:29:40 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 10:29:51 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 10:57:35 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 int				ft_wcstrtomb(char *dst, wchar_t *wstring);
 int				ft_wctomb(char *dst, wchar_t wchar);
 
-/* Internal mechanics : len and write separate
+/*
+** Internal mechanics : len and write separate
 ** Implementation file : ft_wctomb_internal.c
 */
 
