@@ -6,13 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 12:23:57 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 15:45:40 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 16:15:44 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "format_string_interface.h"
 #include "conversion_interface.h"
 #include "ft_set_params.h"
+#include "printf_constants.h"
 #include <stdlib.h>
 
 int	ft_add_conversion(const char *conv_text, t_format_string *fmt,
@@ -24,7 +25,7 @@ int	ft_add_conversion(const char *conv_text, t_format_string *fmt,
 	index = 1;
 	conversion = conversion_ctor();
 	if (conversion == NULL)
-		return (0);
+		return (CONVERSION_PARSE_ERROR);
 	index += set_positional_arg(conv_text + index, conversion);
 	index += set_flags(conv_text + index, conversion);
 	index += set_field_width(conv_text + index, conversion, fmt);
@@ -35,6 +36,6 @@ int	ft_add_conversion(const char *conv_text, t_format_string *fmt,
 	set_conversion_spec_len(conversion, index);
 	post_parsing_conv(conversion);
 	if (!f_add_conv_to_fmt(fmt, conversion))
-		return (0);
+		return (CONVERSION_PARSE_ERROR);
 	return (index);
 }

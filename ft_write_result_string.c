@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 12:13:35 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 18:43:48 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 16:25:11 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_bool			ft_write_next_conv(const char **fmt, char **final_string,
 	index = advance_to_conv(*fmt, *final_string);
 	*fmt += index;
 	*final_string += index;
-	if (**fmt == CONVERSION_INDICATOR)
+	if (**fmt == CONVERSION_INDICATOR && conv != NULL)
 	{
 		*fmt += ft_get_conv_text_len(conv);
 		conv_result_size = ft_write_conversion(*final_string, conv);
