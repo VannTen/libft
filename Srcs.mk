@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/27 16:09:01 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/28 10:36:02 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,8 @@ LIB_PRINTF ?=\
 	ft_format_string_private_request_args.c\
 	ft_format_string_private_arg_index.c\
 	ft_format_string_private_is_valid.c\
-	ft_printf_special.c\
+	ft_printf_no_conv.c\
+	ft_printf_unsupported.c\
 	ft_write_result_string.c\
 	ft_var_args_private_const.c\
 	ft_printf_signed_integers.c\
