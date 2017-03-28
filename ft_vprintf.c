@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 14:51:21 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/28 15:00:47 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 15:59:58 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ int	ft_vasprintf(char **strp, const char *format_string, va_list *ap)
 	written = ft_set_and_get_resulting_length(fmt);
 	final_string = ft_strnew(written);
 	if (final_string != NULL)
+	{
 		ft_write_result_string(format_string, final_string, fmt);
-	final_string[written] = '\0';
-	if (!ft_format_string_is_valid(fmt))
+		final_string[written] = '\0';
+	}
+	if (!ft_format_string_is_valid(fmt) && final_string != NULL)
 		written = written == 0 ? INT_MIN : -written;
 	*strp = final_string;
 	fmt_destroy(fmt);
