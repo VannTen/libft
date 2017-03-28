@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 16:41:43 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/28 17:11:39 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 17:57:50 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define BTREE_INTERFACE_H
 
 typedef struct s_btree t_btree;
-typedef int	(*t_compare)(void *content);
+typedef int	(*t_compare)(void *ref, void *to_comp);
 
 /*
 ** Ressources management function
