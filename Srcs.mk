@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/28 10:39:09 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/28 10:47:04 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,6 +100,7 @@ LIB_PRINTF ?=\
 	ft_printf_signed_integers.c\
 	ft_printf_unsigned_integers.c\
 	ft_printf_unsigned_integers_hexa.c\
+	ft_printf_octals.c\
 	ft_printf_pointers.c\
 	ft_printf_chars.c\
 	ft_printf_strings.c
