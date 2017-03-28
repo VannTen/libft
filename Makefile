@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/03/16 17:38:12 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/28 11:49:40 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -233,8 +233,10 @@ $(GENERATED_SUBDIRS):
 
 # Because the Norm said so.................
 
-NAME = $(TARGET_$(DIR))
+NAME = ___name___
 all: $(NAME)
+
+$(NAME): $(TARGET_$(DIR))
 
 # Make sure the default target is always all
 .DEFAULT_GOAL:= $(DEFAULT_RULE)
@@ -268,7 +270,7 @@ debug: CFLAGS := $(CFLAGS) $(DEBUG_FLAGS)
 debug: LDFLAGS := $(LDFLAGS) $(DEBUG_FLAGS)
 profile: CFLAGS := $(CFLAGS) $(PROFILE_FLAGS)
 profile: LDFLAGS := $(LDFLAGS) $(PROFILE_FLAGS)
-.PHONY: debug all clean fclean mkclean dirclean re
+.PHONY: $(NAME) debug all clean fclean mkclean dirclean re
 
 # This is for be sure that the top level directory reecipes do not count
 # on the last value of DIR (the directory from where make is invoked)
