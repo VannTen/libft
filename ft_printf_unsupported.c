@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/08 17:25:17 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/28 10:31:36 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 14:24:39 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,26 @@
 #include "printf_constants.h"
 #include "libft.h"
 
-int	ft_printf_len_unsupported(const t_conversion *conv)
+static int	len_unsupported(const t_conversion *conv)
 {
 	(void)conv;
 	return (ft_strlen(UNSUPPORTED_CONVERSION_STRING));
 }
 
-int	ft_print_to_unsupported(char *to_write, const t_conversion *conv)
+int			ft_printf_len_unsupported(t_conversion *conv)
+{
+	return (strings_chars_length(conv, &len_unsupported, &len_unsupported));
+}
+
+static int	unsupported_writer(char *to_write, const t_conversion *conv)
 {
 	(void)conv;
 	ft_strcpy(to_write, UNSUPPORTED_CONVERSION_STRING);
 	return (ft_strlen(UNSUPPORTED_CONVERSION_STRING));
 }
+
+void		ft_print_to_unsupported(char *to_write, const t_conversion *conv)
+{
+	write_whole_conv_strings_chars(to_write, conv, &unsupported_writer);
+}
+
