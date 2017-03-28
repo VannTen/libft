@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/28 14:57:46 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/28 15:20:28 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,10 +34,10 @@ LIB_LST ?=\
 	f_lstpush.c f_lstnew.c f_lst_every_valid.c f_lstmap.c\
 	f_lstmapi.c f_lst_len.c f_lstsearch.c f_lstremoveif_one.c f_add_end_lst.c\
 	f_lstiter.c f_strljoin.c f_strsplit_lst.c f_lstdelone.c f_lstdel.c\
-	f_lstmax.c f_lstarray.c f_lstsum_content.c
+	f_lstmax.c f_lstarray.c f_lstsum_content.c f_lstpop.c
 LIB_LIST ?=\
 	ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c ft_lstnew.c \
-	f_lstpop.c  ft_lstpushdata.c ft_memalloc.c ft_memset.c \
+	ft_lstpushdata.c\
 	ft_lstadd.c ft_lstcheck.c ft_add_end_list.c 
 LIB_FIFO ?=\
 	f_fifo_add.c f_fifo_create.c f_fifo_take.c f_fifo_destroy.c f_fifo_extract.c\
@@ -55,7 +55,9 @@ LIB_DISPLAY ?=\
 	ft_putnbr_fd.c ft_putstr.c ft_putstr_fd.c 
 LIB_MEM ?=\
 	ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memdel.c ft_memmove.c \
-	ft_bzero.c 
+	ft_bzero.c\
+	ft_memalloc.c\
+	ft_memset.c 
 LIB_CONVERT ?=\
 	ft_atoi.c ft_itoa.c ft_tolower.c ft_toupper.c ft_itoa_base.c\
 	ft_itoa_tools.c\
