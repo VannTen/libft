@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/28 10:36:02 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/28 10:39:09 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,7 +101,8 @@ LIB_PRINTF ?=\
 	ft_printf_unsigned_integers.c\
 	ft_printf_unsigned_integers_hexa.c\
 	ft_printf_pointers.c\
-	ft_printf_char_and_strings.c
+	ft_printf_chars.c\
+	ft_printf_strings.c
 LIB_VARIADIC ?=\
 	ft_variadic_get_char.c ft_variadic_get_int.c ft_variadic_get_intmax_t.c\
 	ft_variadic_get_long.c ft_variadic_get_long_long.c\
