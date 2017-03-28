@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:23:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 16:37:46 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 10:57:10 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int				set_flags(const char *conversion_specifier,
 ** Implementation file : ft_conversion_private_set_final_length.c
 */
 
-typedef int (*t_count)(const t_conversion *conv);
+typedef int	(*t_count)(const t_conversion *conv);
 int				set_and_get_final_conversion_length(t_conversion *conv);
 int				length_integers(t_conversion *conv, int conversion_result);
 int				strings_chars_length(t_conversion *conv,
@@ -122,7 +122,7 @@ void			ft_normalize_args(t_conversion *conv);
 ** Implementation file : ft_conversion_private_write.c
 */
 
-typedef int (*t_specific_writer)(char *to_write, const t_conversion *conv);
+typedef int	(*t_specific_writer)(char *to_write, const t_conversion *conv);
 int				ft_write_conversion(char *to_write, const t_conversion *conv);
 int				ft_write_precision(char *to_write, const t_conversion *conv);
 int				ft_write_field_width(char *to_write, int fill, char padding);

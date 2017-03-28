@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/25 11:05:22 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 10:55:30 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,6 @@
 # include "ft_integer.h"
 # include "list.h"
 # include "bool.h"
-
-typedef	enum	e_db_type
-{
-	DB_FILO_LIST,
-	DB_TYPE_COUNT
-}				t_db_type;
-typedef	struct s_database	t_database;
 
 /*
 ** Lst functions
@@ -56,12 +49,12 @@ int					f_lstdosum(t_lst *list, int (*f)(void *));
 size_t				f_lstmax(t_lst *list, size_t (*get_max)(const void *));
 size_t				f_lstarray_end_early(void *array, t_lst *lst, size_t size,
 		t_bool (*put_lst_on_array)(const void *lst_content, void *array));
-int				f_lstsumint_content(t_lst *list,
+int					f_lstsumint_content(t_lst *list,
 		int (*f)(const void *));
 void				*f_lst_first_elem(const t_lst *lst);
 void				f_lstiterarray(void *array, t_lst *lst,
 		void (*apply)(void *lst_content, void *array));
-void				f_lstmaparray(const void *src, void *dst , t_lst *list,
+void				f_lstmaparray(const void *src, void *dst, t_lst *list,
 		t_bool (*advance_arrays)(const void **src, void **dst, void *modifier));
 
 /*
@@ -83,7 +76,7 @@ void				f_fifoiterarray(void *array, t_fifo *fifo,
 size_t				f_fifoarray_end_early(void *array, t_fifo *fifo,
 		size_t size, t_bool (*fifo_on_array)(const void *content, void *array));
 void				f_fifoiter(t_fifo *fifo, void (*f)(void*));
-void				f_fifomaparray(const void *src, void *dst , t_fifo *fifo,
+void				f_fifomaparray(const void *src, void *dst, t_fifo *fifo,
 		t_bool (*advance_arrays)(const void **src, void **dst, void *modifier));
 void				*f_fifo_every_valid(t_fifo *fifo,
 										t_bool (*test)(const void *content));
@@ -201,6 +194,5 @@ unsigned int		ft_square_root_round_up(unsigned int square);
 
 void				do_nothing(const void *precious_content);
 void				no_destroy(void	*precious_content);
-t_database			*new_database(t_db_type type);
 
 #endif
