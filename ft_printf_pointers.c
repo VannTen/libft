@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/25 10:57:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/28 10:23:16 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 12:43:37 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,40 +16,30 @@
 
 int		ft_printf_len_p(t_conversion *conv)
 {
-	int result;
-	int alt_result;
+	int conversion_result;
 
-	if (conv->flags[ZERO_PADDING])
-		conv->precision.param.value =
-			conv->field_width.param.value - ft_strlen(HEXA_ALTERNATE_FORM);
-	result = itoa_len_unsigned(ft_var_unsigned_integers(conv->arg), 16);
-	conv->result_length = result;
-	if (result > conv->precision.param.value)
-		conv->precision.param.value = result;
-	alt_result = conv->precision.param.value + ft_strlen(HEXA_ALTERNATE_FORM);
-	if (alt_result > conv->field_width.param.value)
-		conv->field_width.param.value = alt_result;
-	return (conv->field_width.param.value);
+	conversion_result =
+		itoa_len_unsigned(ft_var_unsigned_integers(conv->arg), 16);
+	conv->result_length = conversion_result;
+	conv->supp_length = ft_strlen(HEXA_ALTERNATE_FORM);
+	return (length_integers(conv, conversion_result));
+}
+
+static int	p_writer(char *to_write, const t_conversion *conv)
+{
+	itoa_write_unsigned(to_write + conv->result_length - 1,
+			ft_var_unsigned_integers(conv->arg), 16, HEXADECIMAL_DIGITS);
+	return (conv->result_length);
+}
+
+static int	alt_form(char *to_write, const t_conversion *conv)
+{
+	(void)conv;
+	ft_strcpy(to_write, HEXA_ALTERNATE_FORM);
+	return (ft_strlen(HEXA_ALTERNATE_FORM));
 }
 
 void	ft_print_to_p(char *to_write, const t_conversion *conv)
 {
-	int index;
-
-	index = 0;
-	if (!conv->flags[NEGATIVE_FIELD_WIDTH])
-		index += ft_write_field_width(to_write, conv->field_width.param.value
-				- conv->precision.param.value - ft_strlen(HEXA_ALTERNATE_FORM),
-				conv->flags[ZERO_PADDING] ? '0' : ' ');
-	ft_strcpy(to_write + index, HEXA_ALTERNATE_FORM);
-	index += ft_strlen(HEXA_ALTERNATE_FORM);
-	index += ft_write_precision(to_write + index, conv);
-	itoa_write_unsigned(to_write + index + conv->result_length - 1,
-			ft_var_unsigned_integers(conv->arg), 16, HEXADECIMAL_DIGITS);
-	index += conv->result_length;
-	if (conv->flags[NEGATIVE_FIELD_WIDTH])
-		index += ft_write_field_width(to_write + index,
-				conv->field_width.param.value -
-				conv->precision.param.value - ft_strlen(HEXA_ALTERNATE_FORM),
-				' ');
+	write_whole_conv(to_write, conv, &alt_form, &p_writer);
 }
