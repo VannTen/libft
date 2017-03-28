@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 14:51:21 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/28 15:59:58 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 16:12:06 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,19 @@ int	ft_vasprintf(char **strp, const char *format_string, va_list *ap)
 	char			*final_string;
 
 	fmt = ft_full_fmt(format_string, ap);
-	written = ft_set_and_get_resulting_length(fmt);
-	final_string = ft_strnew(written);
-	if (final_string != NULL)
+	if (fmt != NULL)
 	{
-		ft_write_result_string(format_string, final_string, fmt);
-		final_string[written] = '\0';
+		written = ft_set_and_get_resulting_length(fmt);
+		final_string = ft_strnew(written);
+		if (final_string != NULL)
+		{
+			ft_write_result_string(format_string, final_string, fmt);
+			final_string[written] = '\0';
+		}
+		if (!ft_format_string_is_valid(fmt) && final_string != NULL)
+			written = written == 0 ? INT_MIN : -written;
+		*strp = final_string;
 	}
-	if (!ft_format_string_is_valid(fmt) && final_string != NULL)
-		written = written == 0 ? INT_MIN : -written;
-	*strp = final_string;
 	fmt_destroy(fmt);
 	fmt = NULL;
 	return (written);
@@ -56,7 +59,10 @@ int	ft_vdprintf(int fd, const char *format_string, va_list *var_arg_list)
 	}
 	else
 		valid = TRUE;
-	write(fd, to_write, written < 0 ? -written : written);
+	if (to_write != NULL)
+		write(fd, to_write, written < 0 ? -written : written);
+	else
+		valid = FALSE;
 	ft_strdel(&to_write);
 	return (valid ? written : -1);
 }
