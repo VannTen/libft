@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/25 10:57:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/28 12:43:37 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/28 15:07:00 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "itoa_tools.h"
 #include "libft.h"
 
-int		ft_printf_len_p(t_conversion *conv)
+int			ft_printf_len_p(t_conversion *conv)
 {
 	int conversion_result;
 
@@ -39,7 +39,7 @@ static int	alt_form(char *to_write, const t_conversion *conv)
 	return (ft_strlen(HEXA_ALTERNATE_FORM));
 }
 
-void	ft_print_to_p(char *to_write, const t_conversion *conv)
+void		ft_print_to_p(char *to_write, const t_conversion *conv)
 {
 	write_whole_conv(to_write, conv, &alt_form, &p_writer);
 }
