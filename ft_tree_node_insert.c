@@ -6,14 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 10:15:46 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/29 12:16:43 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/29 12:37:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "btree_node_defs.h"
 #include <stddef.h>
 
-static void	*insert_left(struct s_node *node, void *content, t_compare comp)
+static void		*insert_left(struct s_node *node, void *content, t_compare comp)
 {
 	if (node->left == NULL)
 	{
@@ -23,10 +23,11 @@ static void	*insert_left(struct s_node *node, void *content, t_compare comp)
 		return (NULL);
 	}
 	else
-		return (insert_node(node->left, content,comp));
+		return (insert_node(node->left, content, comp));
 }
 
-static void	*insert_right(struct s_node *node, void *content, t_compare comp)
+static void		*insert_right(struct s_node *node, void *content,
+		t_compare comp)
 {
 	if (node->right == NULL)
 	{
@@ -39,7 +40,7 @@ static void	*insert_right(struct s_node *node, void *content, t_compare comp)
 		return (insert_node(node->right, content, comp));
 }
 
-void		*insert_node(struct s_node *node, void *content, t_compare comp)
+void			*insert_node(struct s_node *node, void *content, t_compare comp)
 {
 	int	comp_result;
 

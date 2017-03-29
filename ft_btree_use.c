@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:44:13 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/29 12:25:23 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/29 12:36:42 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*btree_add(t_btree *tree, void *content)
 			return (insert_node(tree->root, content, tree->f_comp));
 		tree->root = insert_root(content);
 		if (tree->root == NULL)
-				return (content);
+			return (content);
 		else
 			return (NULL);
 	}

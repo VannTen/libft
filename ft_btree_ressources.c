@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 16:50:24 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/29 10:47:29 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/29 12:37:46 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ t_btree	*btree_create(t_compare f_comp)
 }
 
 void	btree_destroy(t_btree **place_to_destroy, t_destroy content_destroy)
-
 {
 	t_btree *to_destroy;
 
