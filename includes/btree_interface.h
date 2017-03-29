@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 16:41:43 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/29 10:46:24 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/29 12:04:25 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,13 @@ typedef struct s_btree t_btree;
 
 t_btree	*btree_create(t_compare f_comp);
 void	btree_destroy(t_btree **place_to_destroy, t_destroy content_destroy);
+
+/*
+** Usage functions
+** Implementation file : ft_btree_use.c
+*/
+
+void	btree_iter_in_order(t_btree *tree, t_iter f);
+void	*btree_add(t_btree *tree, void *content);
 
 #endif

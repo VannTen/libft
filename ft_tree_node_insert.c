@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 10:15:46 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/29 11:20:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/29 12:16:43 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,14 @@ void		*insert_node(struct s_node *node, void *content, t_compare comp)
 		return (insert_right(node, content, comp));
 	else
 		return (content);
+}
+
+struct s_node	*insert_root(void *content)
+{
+	struct s_node	*root;
+
+	root = node_create();
+	if (root != NULL)
+		root->content = content;
+	return (root);
 }

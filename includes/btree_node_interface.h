@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 10:12:46 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/29 10:36:29 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/29 12:19:00 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ struct s_node	*node_create(void);
 ** Implementation file : ft_tree_node_insert.c
 */
 
-void			*insert_node(struct s_node *node, void *content, t_compare comp);
+void			*insert_node(struct s_node *node, void *content,
+		t_compare comp);
+struct s_node	*insert_root(void *content);
+/*
+** Tree traversal
+** Implementation file : ft_tree_node_traversal.c
+*/
 
+void			node_in_order_traversal(struct s_node *node, t_iter f);
 #endif
