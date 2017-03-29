@@ -6,14 +6,31 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/01/25 15:33:50 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/28 11:49:40 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
 $(info Begin Makefile parsing...)
 ##
+## Variable stuff
+##
+
+DEFAULT_RULE := all
+QUIET := @
+#ifeq ($(MAKECMDGOALS),debug)
+#BUILD_PREFIX := debug
+#endif
+#ifeq ($(MAKECMDGOALS),dclean)
+#BUILD_PREFIX := debug
+#endif
+#ifeq ($(DEFAULT_RULE),debug)
+#BUILD_PREFIX := debug
+#endif
+
+##
 ## Externals programms
 ##
+
 CC = gcc
 AR = ar
 MKDIR = mkdir
@@ -28,6 +45,7 @@ RANLIB = ranlib
 ##
 
 FILE_CHAR_RANGE := a-z0-9._
+STANDARD = -std=c99
 
 # Extern variables (depending on build environnement)
 
@@ -38,8 +56,9 @@ SYSTEM = $(shell uname)
 ##
 
 # Compiler flags
-ERROR_FLAGS := -Wall -Wextra -Werror -ansi -pedantic-errors
+ERROR_FLAGS := -Wall -Wextra -Werror $(STANDARD) -pedantic-errors
 DEBUG_FLAGS := -g -fsanitize=undefined -fsanitize=address -fno-omit-frame-pointer
+SYNTAX_FLAGS := -fsyntax-only -ferror-limit=0
 PROFILE_FLAGS :=
 CFLAGS := $(CFLAGS) $(ERROR_FLAGS)
 
@@ -132,10 +151,10 @@ EMPTY_SRCS.MK := TARGET \
 define	STATIC_OBJ_RULE
 $(OBJ_$(DIR)): $(OBJ_LOCAL_$(DIR))%.o: $(SRC_LOCAL_$(DIR))%.c\
 $(DEP_LOCAL_$(DIR))%.dep | $(OBJ_LOCAL_$(DIR)) $(DEP_LOCAL_$(DIR))
-	$(QUIET) $$(COMPILE)
-	$(QUIET) $$(POSTCOMPILE)
-	$(QUIET) $(RM) $$(word 2,$$^).tmp
-	$(QUIET) $(TOUCH) $$@
+	$$(QUIET) $$(COMPILE)
+	$$(QUIET) $$(POSTCOMPILE)
+	$$(QUIET) $(RM) $$(word 2,$$^).tmp
+	$$(QUIET) $(TOUCH) $$@
 endef
 
 %.dep: ;
@@ -195,7 +214,7 @@ include Rules.mk
 
 # Include all dependency files collected from sub makfiles
 
-include $(DEP_FILES)
+-include $(DEP_FILES)
 
 # After having included all sub-Rules.mk, define the rules
 # to create new directories if needed.
@@ -214,23 +233,25 @@ $(GENERATED_SUBDIRS):
 
 # Because the Norm said so.................
 
-NAME = $(TARGET_$(DIR))
+NAME = ___name___
 all: $(NAME)
 
+$(NAME): $(TARGET_$(DIR))
+
 # Make sure the default target is always all
-.DEFAULT_GOAL:= all
+.DEFAULT_GOAL:= $(DEFAULT_RULE)
 
 clean:
-	$(RM) $(CLEAN)
+	$(QUIET)$(RM) $(CLEAN)
 	
 mkclean:
-	$(RM) $(MKCLEAN)
+	$(QUIET)$(RM) $(MKCLEAN)
 
 fclean: clean
-	$(RM) $(FCLEAN)
-
+	$(QUIET)$(RM) $(FCLEAN)
+dclean: fclean
 dirclean:
-	$(RMDIR) $(GENERATED_SUBDIRS)
+	$(QUIET)$(RMDIR) $(GENERATED_SUBDIRS)
 	
 mrproper: fclean mkclean
 
@@ -239,11 +260,17 @@ re: fclean all
 debug: all
 
 profile: all
+
+syn: all
+
+syn: CFLAGS := $(CFLAGS) $(SYNTAX_FLAGS)
+syn: QUIET := @
+syn: LDFLAGS := $(LDFLAGS) $(SYNTAX_FLAGS)
 debug: CFLAGS := $(CFLAGS) $(DEBUG_FLAGS)
 debug: LDFLAGS := $(LDFLAGS) $(DEBUG_FLAGS)
 profile: CFLAGS := $(CFLAGS) $(PROFILE_FLAGS)
 profile: LDFLAGS := $(LDFLAGS) $(PROFILE_FLAGS)
-.PHONY: debug all clean fclean mkclean dirclean re
+.PHONY: $(NAME) debug all clean fclean mkclean dirclean re
 
 # This is for be sure that the top level directory reecipes do not count
 # on the last value of DIR (the directory from where make is invoked)

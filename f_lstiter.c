@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 10:41:10 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/13 16:43:01 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/02/01 12:06:41 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,23 @@ void	f_lstiter(t_lst *lst, void (*f)(t_lst *elem))
 			to_iter = new;
 			new = new->next;
 			f(to_iter);
+		}
+	}
+}
+
+void	f_lstiter_content(t_lst *lst, void (*f)(void *content))
+{
+	t_lst	*new;
+	t_lst	*to_iter;
+
+	if (f != NULL)
+	{
+		new = lst;
+		while (new != NULL)
+		{
+			to_iter = new;
+			new = new->next;
+			f(to_iter->content);
 		}
 	}
 }

@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 13:31:08 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/17 13:56:32 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/21 11:21:16 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 /*
 ** Recursion is used to go down until the end of the string
@@ -46,20 +47,36 @@ static int	ft_positive(const char *str, int *n)
 
 int			ft_atoi(const char *str)
 {
-	const char	*digits;
-	int			number;
+	char	*digits;
+	int		number;
 
 	if (str == NULL)
 		ft_putchar(str[0]);
 	digits = ft_strtrim(str);
 	if (digits == NULL)
 		return (0);
+	number = ft_strict_atoi(digits);
+	free(digits);
+	digits = NULL;
+	return (number);
+}
+
+int			ft_strict_atoi(const char *str)
+{
+	size_t	size;
+	int		number;
+
+	size = 0;
+	if (str[size] == '-' || str[size] == '+')
+		size++;
+	while (ft_isdigit(str[size]))
+		size++;
 	number = 0;
-	if (*digits == '-')
-		ft_negative(digits + 1, &number);
-	else if (*digits == '+')
-		ft_positive(digits + 1, &number);
+	if (*str == '-')
+		ft_negative(str + 1, &number);
+	else if (*str == '+')
+		ft_positive(str + 1, &number);
 	else
-		ft_positive(digits, &number);
+		ft_positive(str, &number);
 	return (number);
 }
