@@ -1,0 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   unix_usage_interface.h                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/29 16:38:27 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/29 17:08:08 by mgautier         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef UNIX_USAGE_INTERFACE_H
+# define UNIX_USAGE_INTERFACE_H
+# include "bool.h"
+
+typedef	void (*t_apply_opt)(t_bool *opt);
+
+#endif
