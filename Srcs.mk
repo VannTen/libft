@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/28 17:42:19 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/29 10:26:32 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,10 @@ TARGET := libft.a
 #LIB_MISCELLANEOUS = $(NOTHING)
 
 LIB_BTREE ?=\
-	ft_btree_ressources.c
+	ft_btree_ressources.c\
+	ft_btree_use.c\
+	ft_tree_node_insert.c\
+	ft_tree_node_ressources.c
 LIB_LST ?=\
 	f_lstpush.c f_lstnew.c f_lst_every_valid.c f_lstmap.c\
 	f_lstmapi.c f_lst_len.c f_lstsearch.c f_lstremoveif_one.c f_add_end_lst.c\

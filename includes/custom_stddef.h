@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btree_use.c                                     :+:      :+:    :+:   */
+/*   custom_stddef.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/28 17:44:13 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/29 10:47:55 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/29 10:31:49 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/29 10:40:51 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "btree_defs.h"
-#include <stddef.h>
+#ifndef CUSTOM_STDDEF_H
+# define CUSTOM_STDDEF_H
 
-void	*btree_add(t_btree *tree, void *content)
-{
-	if (tree != NULL)
-		return (insert_node(tree->root, content, tree->f_comp));
-	else
-		return (NULL);
-}
+typedef int		(*t_compare)(void *ref, void *to_comp);
+typedef	void	(*t_destroy)(void **where_is_content);
+#endif

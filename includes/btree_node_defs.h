@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btree_use.c                                     :+:      :+:    :+:   */
+/*   btree_node_defs.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/28 17:44:13 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/29 10:47:55 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/29 10:11:33 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/29 10:16:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "btree_defs.h"
-#include <stddef.h>
+#ifndef BTREE_NODE_DEFS_H
+# define BTREE_NODE_DEFS_H
+# include "btree_node_interface.h"
 
-void	*btree_add(t_btree *tree, void *content)
+struct	s_node
 {
-	if (tree != NULL)
-		return (insert_node(tree->root, content, tree->f_comp));
-	else
-		return (NULL);
-}
+	void			*content;
+	struct s_node	*left;
+	struct s_node	*right;
+};
+
+#endif

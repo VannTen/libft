@@ -6,25 +6,19 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 16:41:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/28 17:13:45 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/29 10:12:20 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BTREE_DEFS_H
 # define BTREE_DEFS_H
 # include "btree_interface.h"
-
-struct	s_node
-{
-	void			*content;
-	struct s_node	*left;
-	struct s_node	*right;
-};
+# include "btree_node_interface.h"
 
 struct	s_btree
 {
 	struct s_node	*root;
-	t_compare			f_comp;
+	t_compare		f_comp;
 };
 
 #endif

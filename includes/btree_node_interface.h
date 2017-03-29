@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   btree_interface.h                                  :+:      :+:    :+:   */
+/*   btree_node_interface.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/28 16:41:43 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/29 10:46:24 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/29 10:12:46 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/29 10:36:29 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BTREE_INTERFACE_H
-# define BTREE_INTERFACE_H
+#ifndef BTREE_NODE_INTERFACE_H
+# define BTREE_NODE_INTERFACE_H
 # include "custom_stddef.h"
 
-typedef struct s_btree t_btree;
+struct s_node;
 
 /*
-** Ressources management function
-** Implementation file : ft_btree_ressources.c
+** Ressourcs management
+** Implementation file : ft_tree_node_ressources.c
 */
 
-t_btree	*btree_create(t_compare f_comp);
-void	btree_destroy(t_btree **place_to_destroy, t_destroy content_destroy);
+void			node_destroy(struct s_node **to_destroy, t_destroy destructor);
+struct s_node	*node_create(void);
+
+/*
+** Tree insertion
+** Implementation file : ft_tree_node_insert.c
+*/
+
+void			*insert_node(struct s_node *node, void *content, t_compare comp);
 
 #endif
