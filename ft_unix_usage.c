@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:48:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/30 17:51:54 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/30 18:01:34 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 #include <stddef.h>
 
 static int	apply_one_opt(char opt_char, const char *synopsis,
-		t_apply_opt *apply_options, t_bool *options)
+		const t_apply_opt *apply_options, t_bool *options)
 {
 	int index;
 
 	index = 0;
-	while (opt_char != synopsis[index] || synopsis[index] != '\0')
+	while (opt_char != synopsis[index] && synopsis[index] != '\0')
 		index++;
 	if (synopsis[index] != '\0')
 		apply_options[index](options);
@@ -46,6 +46,7 @@ int			apply_cmdline_opt(const char *synopsis, const char **argv,
 			{
 				apply_one_opt(argv[opt_arg_nbr][index], synopsis,
 						apply_options, options);
+				index++;
 			}
 		}
 		opt_arg_nbr++;
