@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/29 15:02:11 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/30 17:57:19 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,12 @@ TARGET := libft.a
 #LIB_STR = $(NOTHING)
 #LIB_DISPLAY = $(NOTHING)
 #LIB_MEM = $(NOTHING)
-#LIB_CONVERT = $(NOTHING)
+LIB_CONVERT = $(NOTHING)
 #LIB_IS_OF = $(NOTHING)
 #LIB_MATH = $(NOTHING)
 #LIB_MISCELLANEOUS = $(NOTHING)
 #LIB_PRINTF = $(NOTHING)
+#LIB_UNIX_TOOLS = $(NOTHING)
 
 LIB_BTREE ?=\
 	ft_btree_ressources.c\
@@ -122,10 +123,13 @@ LIB_VARIADIC ?=\
 	ft_variadic_no_get.c\
 	ft_var_args_private_give.c\
 	ft_variadic_args_private_ressources.c
+LIB_UNIX_TOOLS ?=\
+	ft_unix_usage.c
 SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_LIST) $(LIB_FIFO)\
 	$(LIB_STR) $(LIB_DISPLAY) $(LIB_MEM)\
 	$(LIB_CONVERT) $(LIB_IS_OF) $(LIB_MATH)\
-	$(LIB_MISCELLANEOUS) $(LIB_PRINTF) $(LIB_VARIADIC)
+	$(LIB_MISCELLANEOUS) $(LIB_PRINTF) $(LIB_VARIADIC)\
+	$(LIB_UNIX_TOOLS)
 
 # Directories
 
