@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:38:27 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/29 17:08:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/30 17:18:57 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,6 @@
 
 typedef	void (*t_apply_opt)(t_bool *opt);
 
+int			apply_cmdline_opt(const char *synopsis, const char **argv,
+		t_bool *options, const t_apply_opt *apply_options);
 #endif

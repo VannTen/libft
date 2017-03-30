@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:48:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/29 17:09:02 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/30 17:08:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "bool.h"
 #include <stddef.h>
 
-int		apply_one_opt(char opt_char, const char *synopsis,
+static int	apply_one_opt(char opt_char, const char *synopsis,
 		t_apply_opt *apply_options, t_bool *options)
 {
 	int index;
@@ -27,8 +27,8 @@ int		apply_one_opt(char opt_char, const char *synopsis,
 	return (index);
 }
 
-int		apply_cmdline_opt(const char *synopsis, char **argv, t_bool
-		*options, t_apply_opt *apply_options)
+int			apply_cmdline_opt(const char *synopsis, const char **argv,
+		t_bool *options, const t_apply_opt *apply_options)
 {
 	int	opt_arg_nbr;
 	int index;
@@ -52,10 +52,3 @@ int		apply_cmdline_opt(const char *synopsis, char **argv, t_bool
 	}
 	return (opt_arg_nbr);
 }
-/*
-t_bool	*unix_usage(const char *synopsis, int option_nbr,
-		int argc, const char **argv)
-{
-
-}
-*/
