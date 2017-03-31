@@ -6,13 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/28 10:55:30 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/31 12:54:07 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "includes/btree_interface.h"
 # include "fifo.h"
 # include <string.h>
 # include <stdlib.h>
@@ -63,7 +64,7 @@ void				f_lstmaparray(const void *src, void *dst, t_lst *list,
 
 t_fifo				*f_fifo_create(void);
 t_lst				*f_fifo_extract(t_fifo **fifo);
-void				f_fifo_destroy(t_fifo *fifo, void (*del)(void *content));
+void				f_fifo_destroy(t_fifo *fifo, t_destroy del);
 t_fifo				*f_fifo_add(t_fifo *fifo, const void *content);
 void				*f_fifo_take(t_fifo *fifo);
 size_t				f_fifomax(t_fifo *fifo, size_t (*get_max)(const void*));
@@ -192,7 +193,7 @@ unsigned int		ft_square_root_round_up(unsigned int square);
 ** Miscellaneous
 */
 
-void				do_nothing(const void *precious_content);
-void				no_destroy(void	*precious_content);
+void				do_nothing(void *precious_content);
+void				no_destroy(void	**precious_content);
 
 #endif
