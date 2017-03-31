@@ -6,13 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 11:30:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 13:08:57 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/31 15:19:30 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "variadic_args_defs.h"
 #include "get_variadic_params.h"
 #include <stdarg.h>
+#include <stdlib.h>
 
 void			ft_arg_list_dtor(t_var_arg *array, size_t size)
 {

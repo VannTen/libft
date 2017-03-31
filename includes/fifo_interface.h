@@ -6,14 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:00:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/31 13:24:25 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/31 15:05:36 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIFO_INTERFACE_H
 # define FIFO_INTERFACE_H
 # include "bool.h"
-# include "list.h"
+# include "lst_interface.h"
 # include "custom_stddef.h"
 
 typedef struct s_fifo	t_fifo;

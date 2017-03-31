@@ -6,13 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/04 13:38:21 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 16:23:35 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/31 15:09:45 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fifo.h"
-#include "list.h"
-#include "libft.h"
+#include "fifo_defs.h"
+#include "lst_interface.h"
 
 int		f_fifodosum(t_fifo *fifo, int (*add)(void*))
 {
@@ -21,7 +20,7 @@ int		f_fifodosum(t_fifo *fifo, int (*add)(void*))
 
 void	f_fifoiter(t_fifo *fifo, void (*f)(void*))
 {
-	f_lstiter_content(fifo->begin_lst, f);
+	f_lstiter(fifo->begin_lst, f);
 }
 
 void	f_fifomaparray(const void *src, void *dst, t_fifo *fifo,

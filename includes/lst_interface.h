@@ -6,13 +6,15 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/31 14:38:32 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/31 15:07:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LST_INTERFACE_H
 # define LST_INTERFACE_H
 # include "custom_stddef.h"
+# include "bool.h"
+# include <stddef.h>
 
 typedef struct s_lst	t_lst;
 
@@ -22,8 +24,8 @@ typedef struct s_lst	t_lst;
 */
 
 t_lst				*f_lstnew(void const *content);
-void				f_lstdelone(t_lst *alst, void (*del)(void*));
-void				f_lstdel(t_lst *alst, void (*del)(void*));
+void				f_lstdelone(t_lst *alst, t_destroy del);
+void				f_lstdel(t_lst *alst, t_destroy del);
 
 /*
 ** Elems insertion and removal
@@ -34,7 +36,7 @@ t_lst				*f_add_end_lst(t_lst *last_link, const void *content);
 t_lst				*f_lstpush(void const *content, t_lst **list);
 void				*f_lstpop(t_lst **list);
 t_bool				f_lstremoveif_one(t_lst **lst, int ref,
-					int (*match)(const t_lst *elem), void (*del)(void*));
+					int (*match)(const t_lst *elem), t_destroy del);
 
 /*
 ** List iterations
@@ -81,7 +83,7 @@ void				f_lstmaparray(const void *src, void *dst, t_lst *list,
 */
 
 
-t_lst				*f_lst_every_valid(t_lst *list,
+void				*f_lst_every_valid(t_lst *list,
 										t_bool (*test)(const void *content));
 
 /*

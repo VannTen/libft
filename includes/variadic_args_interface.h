@@ -6,13 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:34:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 17:47:28 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/31 15:11:25 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VARIADIC_ARGS_INTERFACE_H
 # define VARIADIC_ARGS_INTERFACE_H
-# include "fifo.h"
+# include "fifo_interface.h"
 # include "bool.h"
 # include <wchar.h>
 # include <stdarg.h>

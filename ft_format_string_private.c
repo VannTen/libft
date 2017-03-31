@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:52:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 16:36:31 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/31 15:14:57 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static void		conv_dtor(void *conversion)
+static void		conv_dtor(void **conversion)
 {
-	conversion_destroy((t_conversion*)conversion);
+	conversion_destroy((t_conversion*)*conversion);
+	*conversion = NULL;
 }
 
 void			fmt_destroy(t_format_string *to_destroy)
@@ -29,7 +30,7 @@ void			fmt_destroy(t_format_string *to_destroy)
 		ft_arg_list_dtor(to_destroy->arg_list, to_destroy->arg_count);
 		to_destroy->arg_list = NULL;
 		to_destroy->arg_count = 0;
-		f_fifo_destroy(to_destroy->conversion_list, &conv_dtor);
+		f_fifo_destroy(&to_destroy->conversion_list, &conv_dtor);
 		to_destroy->conversion_list = NULL;
 		free(to_destroy);
 	}
