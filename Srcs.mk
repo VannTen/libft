@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/31 15:03:05 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/31 15:23:01 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ LIB_BTREE ?=\
 	ft_tree_node_ressources.c\
 	ft_tree_node_traversal.c
 LIB_LST ?=\
+	f_lst_ressources.c\
 	f_lst_valid.c\
 	f_lstmap.c\
 	f_lst_get_elem.c\

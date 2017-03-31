@@ -6,11 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:36:16 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/31 13:37:35 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/31 15:25:09 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst_defs.h"
+#include "custom_stddef.h"
+#include <stdlib.h>
 
 t_lst	*f_lstnew(void const *content)
 {
@@ -19,13 +21,13 @@ t_lst	*f_lstnew(void const *content)
 	new = malloc(sizeof(t_lst));
 	if (new != NULL)
 	{
-		new->content = content;
+		new->content = (void*)content;
 		new->next = NULL;
 	}
 	return (new);
 }
 
-void	f_lstdelone(t_lst *alst, void (*del)(void *content))
+void	f_lstdelone(t_lst *alst, t_destroy del)
 {
 	if (alst != NULL && del != NULL)
 	{
@@ -35,7 +37,7 @@ void	f_lstdelone(t_lst *alst, void (*del)(void *content))
 	}
 }
 
-void	f_lstdel(t_lst *alst, void (*del)(void *content))
+void	f_lstdel(t_lst *alst, t_destroy del)
 {
 	t_lst	*to_del;
 
