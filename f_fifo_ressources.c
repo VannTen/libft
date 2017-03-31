@@ -1,22 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_fifo_extract.c                                   :+:      :+:    :+:   */
+/*   f_fifo_ressources.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/03 13:11:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/03 14:08:28 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/31 13:04:37 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/31 13:09:29 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fifo.h"
+#include "fifo_defs.h"
 #include "list.h"
 #include <stdlib.h>
 
-/*
-** Free the fifo struct and returns the lst contains in it.
-*/
+void	f_fifo_destroy(t_fifo **to_destroy, t_destroy del)
+{
+	t_fifo	*fifo;
+
+	fifo = *to_destroy;
+	if (fifo != NULL && del != NULL)
+	{
+		f_lstdel(fifo->begin_lst, del);
+		fifo->end_lst = NULL;
+	}
+	free(fifo);
+	*to_destroy = NULL;
+}
+
+t_fifo	*f_fifo_create(void)
+{
+	t_fifo	*new;
+
+	new = malloc(sizeof(t_fifo));
+	if (new != NULL)
+	{
+		new->begin_lst = NULL;
+		new->end_lst = NULL;
+	}
+	return (new);
+}
 
 t_lst	*f_fifo_extract(t_fifo **fifo)
 {
