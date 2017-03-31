@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_lstmax.c                                         :+:      :+:    :+:   */
+/*   lst_defs.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/08 17:33:54 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 16:32:25 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/31 13:28:57 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/31 13:30:12 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
-#include <stdlib.h>
-#include <limits.h>
+#ifndef LST_DEFS_H
+# define LST_DEFS_H
+# include "lst_interface.h"
 
-size_t	f_lstmax(t_lst *list, size_t (*get_max)(const void *content))
+struct		s_lst
 {
-	size_t	max;
-	size_t	result;
+	void			*content;
+	struct s_lst	*next;
+};
 
-	max = 0;
-	while (list != NULL)
-	{
-		result = get_max(list->content);
-		max = result > max ? result : max;
-		list = list->next;
-	}
-	return (max);
-}
+#endif

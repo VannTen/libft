@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/31 13:24:59 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/31 15:03:05 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,15 @@ LIB_BTREE ?=\
 	ft_tree_node_ressources.c\
 	ft_tree_node_traversal.c
 LIB_LST ?=\
-	f_lstpush.c f_lstnew.c f_lst_every_valid.c f_lstmap.c\
-	f_lstmapi.c f_lst_len.c f_lstsearch.c f_lstremoveif_one.c f_add_end_lst.c\
-	f_lstiter.c f_strljoin.c f_strsplit_lst.c f_lstdelone.c f_lstdel.c\
-	f_lstmax.c f_lstarray.c f_lstsum_content.c f_lstpop.c
+	f_lst_valid.c\
+	f_lstmap.c\
+	f_lst_get_elem.c\
+	f_lst_insert_remove.c\
+	f_lstiter.c\
+	f_lst_count.c\
+	f_lstarray.c\
+	f_strljoin.c\
+	f_strsplit_lst.c
 LIB_LIST ?=\
 	ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c ft_lstnew.c \
 	ft_lstpushdata.c\

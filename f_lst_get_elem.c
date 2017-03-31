@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_lstpop.c                                         :+:      :+:    :+:   */
+/*   f_lst_get_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/07 14:58:59 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/01 15:17:50 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/31 14:27:03 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/31 14:41:30 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
-#include <stdlib.h>
+#include "lst_defs.h"
 
-/*
-** Return the content of the first elem of a list and remove it frm the list
-*/
-
-void	*f_lstpop(t_lst **first_link)
+void	*f_lstsearch(const t_lst *list, const int ref,
+		int (*match)(const t_lst *elem))
 {
-	t_lst	*pop;
-	void	*content;
-
-	pop = *first_link;
-	if (pop != NULL)
+	while (list != NULL)
 	{
-		*first_link = (*first_link)->next;
-		content = pop->content;
-		free(pop);
+		if (ref == match(list))
+			return (list->content);
+		list = list->next;
 	}
-	else
-		content = NULL;
-	return (content);
+	return (NULL);
 }
 
 void	*f_lst_first_elem(const t_lst *lst)

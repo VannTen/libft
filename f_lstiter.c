@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 10:41:10 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/01 12:06:41 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/31 14:16:21 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "lst_defs.h"
 
 /*
 ** Check if the function is valid (first link is checked by the first iteration
@@ -21,24 +21,7 @@
 ** apply the function on the stocked link
 */
 
-void	f_lstiter(t_lst *lst, void (*f)(t_lst *elem))
-{
-	t_lst	*new;
-	t_lst	*to_iter;
-
-	if (f != NULL)
-	{
-		new = lst;
-		while (new != NULL)
-		{
-			to_iter = new;
-			new = new->next;
-			f(to_iter);
-		}
-	}
-}
-
-void	f_lstiter_content(t_lst *lst, void (*f)(void *content))
+void	f_lstiter(t_lst *lst, t_iter f)
 {
 	t_lst	*new;
 	t_lst	*to_iter;

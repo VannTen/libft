@@ -1,26 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_lstremoveif_one.c                                :+:      :+:    :+:   */
+/*   f_lst_insert_remove.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/11 14:15:24 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/03 16:43:33 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/31 13:41:09 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/31 15:07:42 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
-#include "bool.h"
-#include "libft.h"
+#include "lst_defs.h"
+#include <stdlib.h>
 
-/*
-** Try to suppress the matching element in the lst
-** Returns TRUE on success, FALSE if elem does not exist.
-*/
+t_lst	*f_add_end_lst(t_lst *last_link, const void *content)
+{
+	t_lst	*new_last_link;
+
+	new_last_link = f_lstnew(content);
+	if (last_link != NULL)
+		last_link->next = new_last_link;
+	return (new_last_link);
+}
+
+t_lst	*f_lstpush(void const *content, t_lst **list)
+{
+	t_lst	*new;
+
+	new = f_lstnew(content);
+	if (new == NULL)
+		return (NULL);
+	new->next = *list;
+	*list = new;
+	return (new);
+}
+
+void	*f_lstpop(t_lst **first_link)
+{
+	t_lst	*pop;
+	void	*content;
+
+	pop = *first_link;
+	if (pop != NULL)
+	{
+		*first_link = (*first_link)->next;
+		content = pop->content;
+		free(pop);
+	}
+	else
+		content = NULL;
+	return (content);
+}
 
 t_bool	f_lstremoveif_one(t_lst **lst, int ref, int (*match)(const t_lst *elem),
-							void (*content_dtor)(void*))
+							t_destroy content_dtor)
 {
 	t_lst	*to_del;
 	t_lst	*loc_lst;

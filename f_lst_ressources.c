@@ -1,27 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_lstnew.c                                         :+:      :+:    :+:   */
+/*   f_lst_ressources.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/20 18:43:29 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/20 19:01:01 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/31 13:36:16 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/31 13:37:35 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
-#include <stdlib.h>
+#include "lst_defs.h"
 
 t_lst	*f_lstnew(void const *content)
 {
 	t_lst	*new;
 
-	new = (t_lst*)malloc(sizeof(t_lst));
+	new = malloc(sizeof(t_lst));
 	if (new != NULL)
 	{
-		new->content = (void*)content;
+		new->content = content;
 		new->next = NULL;
 	}
 	return (new);
+}
+
+void	f_lstdelone(t_lst *alst, void (*del)(void *content))
+{
+	if (alst != NULL && del != NULL)
+	{
+		del(alst->content);
+		alst->content = NULL;
+		free(alst);
+	}
+}
+
+void	f_lstdel(t_lst *alst, void (*del)(void *content))
+{
+	t_lst	*to_del;
+
+	if (alst != NULL && del != NULL)
+	{
+		while (alst != NULL)
+		{
+			to_del = alst;
+			alst = alst->next;
+			f_lstdelone(to_del, del);
+		}
+	}
 }
