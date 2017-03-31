@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/31 15:03:18 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/31 15:28:12 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "includes/btree_interface.h"
 # include "includes/fifo_interface.h"
+# include "includes/lst_interface.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
