@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/31 16:05:04 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/03 14:50:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,6 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-/*
-** Lst functions
-*/
-
-
-/*
-** List functions
-*/
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));

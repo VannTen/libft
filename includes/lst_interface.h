@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/31 15:07:59 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/03 14:55:25 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void				f_lstiter(t_lst *lst, t_iter f);
 ** Implementation file : f_lstmap.c
 */
 
-
 t_lst				*f_lstmap(t_lst *lst, t_lst *(*f)(t_lst *elem));
 t_lst				*f_lstmapi(t_lst *lst,
 								t_lst *(*f)(t_lst *elem, unsigned int index));
@@ -69,7 +68,6 @@ void				*f_lst_first_elem(const t_lst *lst);
 ** Implementation file : f_lstarray.c
 */
 
-
 size_t				f_lstarray_end_early(void *array, t_lst *lst, size_t size,
 		t_bool (*put_lst_on_array)(const void *lst_content, void *array));
 void				f_lstiterarray(void *array, t_lst *lst,
@@ -81,7 +79,6 @@ void				f_lstmaparray(const void *src, void *dst, t_lst *list,
 ** List validation
 ** Implementation file : f_lst_valid.c
 */
-
 
 void				*f_lst_every_valid(t_lst *list,
 										t_bool (*test)(const void *content));
