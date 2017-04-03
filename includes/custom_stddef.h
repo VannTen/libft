@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 10:31:49 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/29 11:48:50 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/03 11:15:52 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@
 typedef int		(*t_compare)(void *ref, void *to_comp);
 typedef	void	(*t_destroy)(void **where_is_content);
 typedef void	(*t_iter)(void *content);
+typedef void	(*t_iter_two)(void *content, void *param_supp);
 #endif

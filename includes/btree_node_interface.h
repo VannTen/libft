@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 10:12:46 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/29 12:19:00 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/03 11:15:29 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,6 @@ struct s_node	*insert_root(void *content);
 */
 
 void			node_in_order_traversal(struct s_node *node, t_iter f);
+void			node_in_order_two_param_traversal(struct s_node *node,
+		t_iter_two f, void *param_supp);
 #endif
