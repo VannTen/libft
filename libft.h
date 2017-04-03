@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/03 14:50:33 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/03 18:22:53 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "includes/ft_integer.h"
 # include "includes/bool.h"
 # include "includes/list.h"
+# include "includes/printf.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
