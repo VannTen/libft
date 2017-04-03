@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/03/29 15:02:11 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/03/31 15:23:01 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,17 +38,25 @@ LIB_BTREE ?=\
 	ft_tree_node_ressources.c\
 	ft_tree_node_traversal.c
 LIB_LST ?=\
-	f_lstpush.c f_lstnew.c f_lst_every_valid.c f_lstmap.c\
-	f_lstmapi.c f_lst_len.c f_lstsearch.c f_lstremoveif_one.c f_add_end_lst.c\
-	f_lstiter.c f_strljoin.c f_strsplit_lst.c f_lstdelone.c f_lstdel.c\
-	f_lstmax.c f_lstarray.c f_lstsum_content.c f_lstpop.c
+	f_lst_ressources.c\
+	f_lst_valid.c\
+	f_lstmap.c\
+	f_lst_get_elem.c\
+	f_lst_insert_remove.c\
+	f_lstiter.c\
+	f_lst_count.c\
+	f_lstarray.c\
+	f_strljoin.c\
+	f_strsplit_lst.c
 LIB_LIST ?=\
 	ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c ft_lstnew.c \
 	ft_lstpushdata.c\
 	ft_lstadd.c ft_lstcheck.c ft_add_end_list.c 
 LIB_FIFO ?=\
-	f_fifo_add.c f_fifo_create.c f_fifo_take.c f_fifo_destroy.c f_fifo_extract.c\
-	f_fifo_lstrelay.c f_fifo_lstrelay2.c
+	f_fifo_add_take.c\
+	f_fifo_ressources.c\
+	f_fifo_lstrelay.c\
+	f_fifo_lstrelay2.c
 LIB_STR ?=\
 	ft_strcat.c ft_strchr.c ft_strclr.c \
 	ft_strcmp.c ft_strcpy.c ft_strdel.c ft_strdup.c ft_strequ.c ft_striter.c \

@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_lstnew.c                                         :+:      :+:    :+:   */
+/*   f_lst_get_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/20 18:43:29 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/20 19:01:01 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/31 14:27:03 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/31 14:41:30 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
-#include <stdlib.h>
+#include "lst_defs.h"
 
-t_lst	*f_lstnew(void const *content)
+void	*f_lstsearch(const t_lst *list, const int ref,
+		int (*match)(const t_lst *elem))
 {
-	t_lst	*new;
-
-	new = (t_lst*)malloc(sizeof(t_lst));
-	if (new != NULL)
+	while (list != NULL)
 	{
-		new->content = (void*)content;
-		new->next = NULL;
+		if (ref == match(list))
+			return (list->content);
+		list = list->next;
 	}
-	return (new);
+	return (NULL);
+}
+
+void	*f_lst_first_elem(const t_lst *lst)
+{
+	return (lst->content);
 }

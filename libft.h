@@ -6,80 +6,27 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/28 10:55:30 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/31 16:05:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include "fifo.h"
+# include "includes/btree_interface.h"
+# include "includes/fifo_interface.h"
+# include "includes/lst_interface.h"
+# include "includes/ft_integer.h"
+# include "includes/bool.h"
+# include "includes/list.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "ft_integer.h"
-# include "list.h"
-# include "bool.h"
 
 /*
 ** Lst functions
 */
 
-t_lst				*f_add_end_lst(t_lst *last_link, const void *content);
-t_lst				*f_add_begin_lst(t_lst **begin_list, void *content);
-t_lst				*f_lstnew(void const *content);
-t_lst				*f_lstpush(void const *content, t_lst **list);
-void				f_lstdelone(t_lst *alst, void (*del)(void*));
-void				f_lstdel(t_lst *alst, void (*del)(void*));
-void				f_lstiter(t_lst *lst, void (*f)(t_lst *elem));
-void				f_lstiter_content(t_lst *lst, void (*f)(void *content));
-t_lst				*f_lstmap(t_lst *lst, t_lst *(*f)(t_lst *elem));
-t_lst				*f_lstmapi(t_lst *lst,
-								t_lst *(*f)(t_lst *elem, unsigned int index));
-t_lst				*f_lst_every_valid(t_lst *list,
-										t_bool (*test)(const void *content));
-void				*f_lstsearch(const t_lst *list, const int ref,
-									int (*match)(const t_lst *elem));
-t_bool				f_lstremoveif_one(t_lst **lst, int ref,
-					int (*match)(const t_lst *elem), void (*del)(void*));
-void				*f_lstpop(t_lst **list);
-unsigned int		f_lst_len(const t_lst *lst);
-int					f_lstsum_content(t_lst *list, int (*f)(const void *));
-int					f_lstdosum(t_lst *list, int (*f)(void *));
-size_t				f_lstmax(t_lst *list, size_t (*get_max)(const void *));
-size_t				f_lstarray_end_early(void *array, t_lst *lst, size_t size,
-		t_bool (*put_lst_on_array)(const void *lst_content, void *array));
-int					f_lstsumint_content(t_lst *list,
-		int (*f)(const void *));
-void				*f_lst_first_elem(const t_lst *lst);
-void				f_lstiterarray(void *array, t_lst *lst,
-		void (*apply)(void *lst_content, void *array));
-void				f_lstmaparray(const void *src, void *dst, t_lst *list,
-		t_bool (*advance_arrays)(const void **src, void **dst, void *modifier));
-
-/*
-** Fifo functions
-*/
-
-t_fifo				*f_fifo_create(void);
-t_lst				*f_fifo_extract(t_fifo **fifo);
-void				f_fifo_destroy(t_fifo *fifo, void (*del)(void *content));
-t_fifo				*f_fifo_add(t_fifo *fifo, const void *content);
-void				*f_fifo_take(t_fifo *fifo);
-size_t				f_fifomax(t_fifo *fifo, size_t (*get_max)(const void*));
-int					f_fifosum_content(t_fifo *fifo,
-		int (*add)(const void*));
-int					f_fifodosum(t_fifo *fifo, int (*add)(void*));
-void				*f_fifo_first_elem(const t_fifo *fifo);
-void				f_fifoiterarray(void *array, t_fifo *fifo,
-		void (*apply)(void *lst_content, void *array));
-size_t				f_fifoarray_end_early(void *array, t_fifo *fifo,
-		size_t size, t_bool (*fifo_on_array)(const void *content, void *array));
-void				f_fifoiter(t_fifo *fifo, void (*f)(void*));
-void				f_fifomaparray(const void *src, void *dst, t_fifo *fifo,
-		t_bool (*advance_arrays)(const void **src, void **dst, void *modifier));
-void				*f_fifo_every_valid(t_fifo *fifo,
-										t_bool (*test)(const void *content));
 
 /*
 ** List functions
@@ -192,7 +139,7 @@ unsigned int		ft_square_root_round_up(unsigned int square);
 ** Miscellaneous
 */
 
-void				do_nothing(const void *precious_content);
-void				no_destroy(void	*precious_content);
+void				do_nothing(void *precious_content);
+void				no_destroy(void	**precious_content);
 
 #endif

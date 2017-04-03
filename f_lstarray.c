@@ -6,12 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 18:10:01 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 14:59:51 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/31 15:06:05 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "list.h"
+#include "lst_defs.h"
 #include "bool.h"
 #include <stdlib.h>
 

@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_lstsum_content.c                                 :+:      :+:    :+:   */
+/*   f_lst_count.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/23 13:17:23 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 16:01:52 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/31 14:33:27 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/31 14:37:49 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
-#include <stddef.h>
+#include "lst_defs.h"
 
-int		f_lstsum_content(t_lst *list, int (*f)(const void *))
+unsigned int	f_lst_len(const t_lst *lst)
+{
+	unsigned int	len;
+
+	len = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		len++;
+	}
+	return (len);
+}
+
+int				f_lstsum_content(t_lst *list, int (*f)(const void *))
 {
 	int	sum;
 	int	result;
@@ -30,7 +42,7 @@ int		f_lstsum_content(t_lst *list, int (*f)(const void *))
 	return (sum);
 }
 
-int		f_lstdosum(t_lst *list, int (*f)(void *))
+int				f_lstdosum(t_lst *list, int (*f)(void *))
 {
 	int	sum;
 	int	result;
@@ -47,15 +59,17 @@ int		f_lstdosum(t_lst *list, int (*f)(void *))
 	return (sum);
 }
 
-size_t	f_lstsumsize_t_content(t_lst *list, size_t (*f)(const void *))
+size_t			f_lstmax(t_lst *list, size_t (*get_max)(const void *content))
 {
-	size_t	sum;
+	size_t	max;
+	size_t	result;
 
-	sum = 0;
+	max = 0;
 	while (list != NULL)
 	{
-		sum += f(list->content);
+		result = get_max(list->content);
+		max = result > max ? result : max;
 		list = list->next;
 	}
-	return (sum);
+	return (max);
 }

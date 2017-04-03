@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_filo_add.c                                       :+:      :+:    :+:   */
+/*   lst_defs.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/21 18:39:36 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/21 19:25:05 by mgautier         ###   ########.fr       */
+/*   Created: 2017/03/31 13:28:57 by mgautier          #+#    #+#             */
+/*   Updated: 2017/03/31 13:30:12 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fifo.h"
-#include "libft.h"
+#ifndef LST_DEFS_H
+# define LST_DEFS_H
+# include "lst_interface.h"
 
-/*
-** That function add an elem containing content to the fifo passed.
-*/
-
-t_fifo	*f_fifo_add(t_fifo *fifo, const void *content)
+struct		s_lst
 {
-	if (fifo == NULL)
-		return (NULL);
-	fifo->end_lst = f_add_end_lst(fifo->end_lst, content);
-	if (fifo->end_lst == NULL)
-		return (NULL);
-	if (fifo->begin_lst == NULL)
-		fifo->begin_lst = fifo->end_lst;
-	return (fifo);
-}
+	void			*content;
+	struct s_lst	*next;
+};
+
+#endif

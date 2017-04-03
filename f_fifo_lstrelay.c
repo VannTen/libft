@@ -6,13 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 14:19:23 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/10 16:31:34 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/03/31 15:08:46 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
-#include "fifo.h"
-#include "libft.h"
+#include "fifo_defs.h"
+#include "lst_interface.h"
 
 size_t	f_fifomax(t_fifo *fifo, size_t (*get_max)(const void*))
 {
