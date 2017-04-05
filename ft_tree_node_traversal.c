@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 11:24:09 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/03 11:16:46 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/05 17:21:46 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,16 @@ void	node_in_order_two_param_traversal(struct s_node *node,
 		node_in_order_two_param_traversal(node->left, f, param_supp);
 		f(node->content, param_supp);
 		node_in_order_two_param_traversal(node->right, f, param_supp);
+	}
+}
+
+void	node_in_rev_order_two_param_traversal(struct s_node *node,
+		t_iter_two f, void *param_supp)
+{
+	if (node != NULL)
+	{
+		node_in_rev_order_two_param_traversal(node->right, f, param_supp);
+		f(node->content, param_supp);
+		node_in_rev_order_two_param_traversal(node->left, f, param_supp);
 	}
 }

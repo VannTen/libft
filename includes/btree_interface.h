@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 16:41:43 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/03 11:16:18 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/05 17:20:34 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	btree_destroy(t_btree **place_to_destroy, t_destroy content_destroy);
 
 void	btree_iter_in_order(t_btree *tree, t_iter f);
 void	btree_iter_two_param_in_order(t_btree *tree,
+		t_iter_two f, void *param_supp);
+void	btree_iter_two_param_in_rev_order(t_btree *tree,
 		t_iter_two f, void *param_supp);
 void	*btree_add(t_btree *tree, void *content);
 
