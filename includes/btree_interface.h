@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 16:41:43 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/05 17:20:34 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/06 17:46:58 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ void	btree_iter_two_param_in_order(t_btree *tree,
 void	btree_iter_two_param_in_rev_order(t_btree *tree,
 		t_iter_two f, void *param_supp);
 void	*btree_add(t_btree *tree, void *content);
+int		btree_sum(t_btree *tree, t_sum add);
 
 #endif

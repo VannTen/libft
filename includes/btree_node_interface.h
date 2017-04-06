@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 10:12:46 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/05 17:22:10 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/06 17:48:22 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,11 @@ void			node_in_order_two_param_traversal(struct s_node *node,
 		t_iter_two f, void *param_supp);
 void	node_in_rev_order_two_param_traversal(struct s_node *node,
 		t_iter_two f, void *param_supp);
+
+/*
+** Tree count : arithmetic operations on each node of the tree.
+** Implementation file : ft_tree_node_count.c
+*/
+
+int				node_sum(struct s_node *node, t_sum add);
 #endif
