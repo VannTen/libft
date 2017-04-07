@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 11:24:09 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/05 17:21:46 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/07 13:16:06 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,16 @@ void	node_in_order_traversal(struct s_node *node, t_iter f)
 		node_in_order_traversal(node->left, f);
 		f(node->content);
 		node_in_order_traversal(node->right, f);
+	}
+}
+
+void	node_in_rev_order_traversal(struct s_node *node, t_iter f)
+{
+	if (node != NULL)
+	{
+		node_in_order_traversal(node->right, f);
+		f(node->content);
+		node_in_order_traversal(node->left, f);
 	}
 }
 

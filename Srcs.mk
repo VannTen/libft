@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/04/06 17:48:44 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/04/07 13:19:13 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ TARGET := libft.a
 
 LIB_BTREE ?=\
 	ft_btree_ressources.c\
+	ft_btree_add_take.c\
 	ft_btree_use.c\
 	ft_tree_node_insert.c\
 	ft_tree_node_ressources.c\
