@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:48:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/07 18:49:17 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/07 19:19:17 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int			apply_cmdline_opt(const char *synopsis, const char **argv,
 	int	opt_arg_nbr;
 	int index;
 
-	opt_arg_nbr = 0;
+	opt_arg_nbr = 1;
 	while (argv[opt_arg_nbr] != NULL)
 	{
 		if (argv[opt_arg_nbr][0] != OPTION_CHARACTER
