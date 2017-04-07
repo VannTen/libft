@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:48:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/30 18:01:34 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/07 18:49:17 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stddef.h>
 
 static int	apply_one_opt(char opt_char, const char *synopsis,
-		const t_apply_opt *apply_options, t_bool *options)
+		const t_apply_opt *apply_params, void *params)
 {
 	int index;
 
@@ -23,12 +23,12 @@ static int	apply_one_opt(char opt_char, const char *synopsis,
 	while (opt_char != synopsis[index] && synopsis[index] != '\0')
 		index++;
 	if (synopsis[index] != '\0')
-		apply_options[index](options);
+		apply_params[index](params);
 	return (index);
 }
 
 int			apply_cmdline_opt(const char *synopsis, const char **argv,
-		t_bool *options, const t_apply_opt *apply_options)
+		void *params, const t_apply_opt *apply_params)
 {
 	int	opt_arg_nbr;
 	int index;
@@ -45,7 +45,7 @@ int			apply_cmdline_opt(const char *synopsis, const char **argv,
 			while (argv[opt_arg_nbr][index] != '\0')
 			{
 				apply_one_opt(argv[opt_arg_nbr][index], synopsis,
-						apply_options, options);
+						apply_params, params);
 				index++;
 			}
 		}
