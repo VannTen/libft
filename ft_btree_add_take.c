@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/07 13:17:43 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/07 13:17:57 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/09 15:18:08 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "btree_node_interface.h"
 #include <stddef.h>
 
-void	*btree_add(t_btree *tree, void *content)
+const void	*btree_add(t_btree *tree, const void *content)
 {
 	if (tree != NULL)
 	{

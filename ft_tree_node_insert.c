@@ -6,41 +6,43 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 10:15:46 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/29 12:37:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/09 15:22:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "btree_node_defs.h"
 #include <stddef.h>
 
-static void		*insert_left(struct s_node *node, void *content, t_compare comp)
+static const void	*insert_left(struct s_node *node, const void *content,
+		t_compare comp)
 {
 	if (node->left == NULL)
 	{
 		node->left = node_create();
 		if (node->left != NULL)
-			node->left->content = content;
+			node->left->content = (void*)content;
 		return (NULL);
 	}
 	else
 		return (insert_node(node->left, content, comp));
 }
 
-static void		*insert_right(struct s_node *node, void *content,
+static const void	*insert_right(struct s_node *node, const void *content,
 		t_compare comp)
 {
 	if (node->right == NULL)
 	{
 		node->right = node_create();
 		if (node->right != NULL)
-			node->right->content = content;
+			node->right->content = (void*)content;
 		return (NULL);
 	}
 	else
 		return (insert_node(node->right, content, comp));
 }
 
-void			*insert_node(struct s_node *node, void *content, t_compare comp)
+const void			*insert_node(struct s_node *node, const void *content,
+		t_compare comp)
 {
 	int	comp_result;
 
@@ -53,12 +55,12 @@ void			*insert_node(struct s_node *node, void *content, t_compare comp)
 		return (content);
 }
 
-struct s_node	*insert_root(void *content)
+struct s_node		*insert_root(const void *content)
 {
 	struct s_node	*root;
 
 	root = node_create();
 	if (root != NULL)
-		root->content = content;
+		root->content = (void*)content;
 	return (root);
 }
