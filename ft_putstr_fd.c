@@ -6,13 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 18:07:38 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/15 13:40:30 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/10 13:25:28 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(const char *s, int fd)
 {
 	if (s != NULL)
 		write(fd, s, ft_strlen(s));

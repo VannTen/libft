@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/07 19:11:22 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/10 13:24:05 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,13 @@ char				**ft_free_string_array(char ***tab);
 */
 
 void				ft_putchar(char c);
-void				ft_putstr(char *s);
-void				ft_putendl(char *s);
+void				ft_putstr(const char *s);
+void				ft_putendl(const char *s);
 void				ft_putnbr(int n);
 void				ft_putchar_fd(char c, int fd);
-void				ft_putstr_fd(char *s, int fd);
+void				ft_putstr_fd(const char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
-void				ft_putendl_fd(char *s, int fd);
+void				ft_putendl_fd(const char *s, int fd);
 
 /*
 ** Mem functions
