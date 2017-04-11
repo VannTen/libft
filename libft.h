@@ -6,13 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/10 13:24:05 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/11 17:15:18 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "includes/usual_macros.h"
 # include "includes/btree_interface.h"
 # include "includes/fifo_interface.h"
 # include "includes/lst_interface.h"
@@ -21,6 +22,7 @@
 # include "includes/list.h"
 # include "includes/printf.h"
 # include "includes/unix_usage_interface.h"
+# include "includes/itoa_tools.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
