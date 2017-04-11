@@ -6,13 +6,27 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:48:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/09 14:08:13 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/11 13:48:03 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unix_usage_defs.h"
+#include "printf.h"
 #include "bool.h"
+#include "libft.h"
+#include <unistd.h>
 #include <stddef.h>
+
+static void	print_usage(const char *prog_name, const char *synopsis)
+{
+	ft_dprintf(STDERR_FILENO,
+			"usage: %s [-%s] [file ...]\n", prog_name, synopsis);
+}
+
+static void	print_invalid_option(const char *prog_name, const char option)
+{
+	ft_dprintf(STDERR_FILENO, "%s: illegal option -- %c\n", prog_name, option);
+}
 
 static int	apply_one_opt(char opt_char, const char *synopsis,
 		const t_apply_opt *apply_params, void *params)
@@ -24,6 +38,8 @@ static int	apply_one_opt(char opt_char, const char *synopsis,
 		index++;
 	if (synopsis[index] != '\0')
 		apply_params[index](params);
+	else
+		return (INVALID_OPTION);
 	return (index);
 }
 
@@ -36,20 +52,23 @@ int			apply_cmdline_opt(const char *synopsis, const char **argv,
 	opt_arg_nbr = 1;
 	while (argv[opt_arg_nbr] != NULL)
 	{
-		if (argv[opt_arg_nbr][0] != OPTION_CHARACTER
-				|| (argv[opt_arg_nbr][1] == '\0'
-					|| (argv[opt_arg_nbr][1] == OPTION_CHARACTER
-						&& argv[opt_arg_nbr][2] == '\0')))
-			break ;
-		else
+		if (ft_strcmp("--", argv[opt_arg_nbr]) == 0)
+			return (opt_arg_nbr + 1);
+		else if (argv[opt_arg_nbr][0] != OPTION_CHARACTER
+				|| argv[opt_arg_nbr][1] == '\0')
+			return (opt_arg_nbr);
+		index = 1;
+		while (argv[opt_arg_nbr][index] != '\0')
 		{
-			index = 1;
-			while (argv[opt_arg_nbr][index] != '\0')
+			if (INVALID_OPTION == apply_one_opt(argv[opt_arg_nbr][index],
+						synopsis, apply_params, params))
 			{
-				apply_one_opt(argv[opt_arg_nbr][index], synopsis,
-						apply_params, params);
-				index++;
+				print_invalid_option(argv[0], argv[opt_arg_nbr][index]);
+				print_usage(argv[0], synopsis);
+				return (USAGE_ERROR);
 			}
+			else
+				index++;
 		}
 		opt_arg_nbr++;
 	}
