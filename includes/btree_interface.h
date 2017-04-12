@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 16:41:43 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/09 15:18:58 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/12 18:12:08 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void		btree_destroy(t_btree **place_to_destroy,
 */
 
 const void	*btree_add(t_btree *tree, const void *content);
+int			btree_count(t_btree *tree);
 
 /*
 ** Usage functions

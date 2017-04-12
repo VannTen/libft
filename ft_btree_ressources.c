@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 16:50:24 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/29 12:37:46 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/12 18:09:48 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_btree	*btree_create(t_compare f_comp)
 		{
 			new->root = NULL;
 			new->f_comp = f_comp;
+			new->count = 0;
 		}
 	}
 	return (new);

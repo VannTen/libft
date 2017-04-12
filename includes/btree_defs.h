@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 16:41:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/29 11:48:10 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/12 18:03:43 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 struct	s_btree
 {
 	struct s_node	*root;
+	int				count;
 	t_compare		f_comp;
 };
 
