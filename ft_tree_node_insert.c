@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 10:15:46 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/09 15:22:04 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/12 16:44:09 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@ static const void	*insert_left(struct s_node *node, const void *content,
 	{
 		node->left = node_create();
 		if (node->left != NULL)
+		{
 			node->left->content = (void*)content;
-		return (NULL);
+			return (NULL);
+		}
+		else
+			return (content);
 	}
 	else
 		return (insert_node(node->left, content, comp));
@@ -34,8 +38,12 @@ static const void	*insert_right(struct s_node *node, const void *content,
 	{
 		node->right = node_create();
 		if (node->right != NULL)
+		{
 			node->right->content = (void*)content;
-		return (NULL);
+			return (NULL);
+		}
+		else
+			return (content);
 	}
 	else
 		return (insert_node(node->right, content, comp));
@@ -49,10 +57,8 @@ const void			*insert_node(struct s_node *node, const void *content,
 	comp_result = comp(content, node->content);
 	if (comp_result < 0)
 		return (insert_left(node, content, comp));
-	else if (comp_result > 0)
-		return (insert_right(node, content, comp));
 	else
-		return (content);
+		return (insert_right(node, content, comp));
 }
 
 struct s_node		*insert_root(const void *content)
