@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 12:27:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/21 12:03:38 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/13 14:06:47 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,10 @@ void		normalize_int_param(t_int_param *param)
 	if (param->is_arg)
 	{
 		if (param->param.arg_index != 0)
+		{
 			param->param.value--;
+			param->index_is_valid = TRUE;
+		}
 		else
 		{
 			param->index_is_valid = FALSE;
