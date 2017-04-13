@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/04 13:12:11 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/03/28 11:49:40 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/04/13 20:45:45 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -59,6 +59,8 @@ SYSTEM = $(shell uname)
 ERROR_FLAGS := -Wall -Wextra -Werror $(STANDARD) -pedantic-errors
 DEBUG_FLAGS := -g -fsanitize=undefined -fsanitize=address -fno-omit-frame-pointer
 SYNTAX_FLAGS := -fsyntax-only -ferror-limit=0
+OPTI_FLAGS := -flto -Ofast
+LD_OPTI_FLAGS := -flto
 PROFILE_FLAGS :=
 CFLAGS := $(CFLAGS) $(ERROR_FLAGS)
 
@@ -80,7 +82,7 @@ endif
 
 # Object file compilation and dependency generation
 # (as a side effect, see DEPFLAGS)
-COMPILE = $(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
+COMPILE = $(CC) $(DEPFLAGS) $(OPTI_FLAGS) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 
 # Post processing on depencency file (done after compilation) for relative path.
 POSTCOMPILE = $(SED)\
@@ -97,7 +99,7 @@ $(AR) $(ARFLAGS) $@ $?
 $(RANLIB) $@
 endef
 # Linker
-LINK_EXE = $(CC) $(LDFLAGS) $^ -o $@ $(LDFLAGS_TGT)
+LINK_EXE = $(CC) $(LDFLAGS) $(LD_OPTI_FLAGS) $^ -o $@ $(LDFLAGS_TGT)
 
 
 ##

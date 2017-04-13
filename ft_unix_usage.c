@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:48:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/11 13:48:03 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/13 19:11:35 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,14 @@ static int	apply_one_opt(char opt_char, const char *synopsis,
 	return (index);
 }
 
+static int	invalid(const char *prog, char opt_char,
+		const char *synopsis)
+{
+	print_invalid_option(prog, opt_char);
+	print_usage(prog, synopsis);
+	return (USAGE_ERROR);
+}
+
 int			apply_cmdline_opt(const char *synopsis, const char **argv,
 		void *params, const t_apply_opt *apply_params)
 {
@@ -62,11 +70,7 @@ int			apply_cmdline_opt(const char *synopsis, const char **argv,
 		{
 			if (INVALID_OPTION == apply_one_opt(argv[opt_arg_nbr][index],
 						synopsis, apply_params, params))
-			{
-				print_invalid_option(argv[0], argv[opt_arg_nbr][index]);
-				print_usage(argv[0], synopsis);
-				return (USAGE_ERROR);
-			}
+				return (invalid(argv[0], argv[opt_arg_nbr][index], synopsis));
 			else
 				index++;
 		}

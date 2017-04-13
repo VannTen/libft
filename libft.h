@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/11 17:15:18 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/13 19:59:02 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char				*f_strljoin(char const *str_1, char const *str_2,
 char				*ft_strnew_char(size_t size, char c);
 char				*ft_strnew(size_t size);
 void				ft_strdel(char **as);
-void				ft_gen_strdel(void *str);
+void				ft_gen_strdel(void **str);
 void				ft_strclr(char *s);
 void				ft_striter(char *s, void (*f)(char*));
 void				ft_striteri(char *s, void (*f)(unsigned int, char*));
