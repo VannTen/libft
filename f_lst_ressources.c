@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:36:16 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/08 14:47:28 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/17 16:12:54 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,20 @@ void	f_lstdelone(t_lst *alst, t_destroy del)
 	}
 }
 
-void	f_lstdel(t_lst *alst, t_destroy del)
+void	f_lstdel(t_lst **alst, t_destroy del)
 {
+	t_lst	*list;
 	t_lst	*to_del;
 
-	if (alst != NULL && del != NULL)
+	list = *alst;
+	if (list != NULL && del != NULL)
 	{
-		while (alst != NULL)
+		while (list != NULL)
 		{
-			to_del = alst;
-			alst = alst->next;
+			to_del = list;
+			list = list->next;
 			f_lstdelone(to_del, del);
 		}
+		*alst = NULL;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/03 14:55:25 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/17 16:16:36 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_lst	t_lst;
 
 t_lst				*f_lstnew(void const *content);
 void				f_lstdelone(t_lst *alst, t_destroy del);
-void				f_lstdel(t_lst *alst, t_destroy del);
+void				f_lstdel(t_lst **alst, t_destroy del);
 
 /*
 ** Elems insertion and removal
@@ -36,7 +36,7 @@ t_lst				*f_add_end_lst(t_lst *last_link, const void *content);
 t_lst				*f_lstpush(void const *content, t_lst **list);
 void				*f_lstpop(t_lst **list);
 t_bool				f_lstremoveif_one(t_lst **lst, int ref,
-					int (*match)(const t_lst *elem), t_destroy del);
+					int (*match)(const void *elem), t_destroy del);
 
 /*
 ** List iterations
@@ -60,7 +60,7 @@ t_lst				*f_lstmapi(t_lst *lst,
 */
 
 void				*f_lstsearch(const t_lst *list, const int ref,
-									int (*match)(const t_lst *elem));
+									int (*match)(const void *elem));
 void				*f_lst_first_elem(const t_lst *lst);
 
 /*

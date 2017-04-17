@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:04:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/31 13:09:29 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/17 16:14:00 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	f_fifo_destroy(t_fifo **to_destroy, t_destroy del)
 	fifo = *to_destroy;
 	if (fifo != NULL && del != NULL)
 	{
-		f_lstdel(fifo->begin_lst, del);
+		f_lstdel(&fifo->begin_lst, del);
 		fifo->end_lst = NULL;
 	}
 	free(fifo);
