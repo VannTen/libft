@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/04/17 16:00:47 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/04/18 17:57:51 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,8 @@ LIB_STR ?=\
 	ft_gen_strdel.c ft_strnew_char.c ft_strnew.c ft_free_string_array.c
 LIB_DISPLAY ?=\
 	ft_putchar.c ft_putchar_fd.c ft_putendl.c ft_putendl_fd.c ft_putnbr.c \
-	ft_putnbr_fd.c ft_putstr.c ft_putstr_fd.c 
+	ft_putnbr_fd.c ft_putstr.c ft_putstr_fd.c\
+	ft_print_string_array.c
 LIB_MEM ?=\
 	ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memdel.c ft_memmove.c \
 	ft_bzero.c\
