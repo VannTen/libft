@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:45:40 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 19:19:55 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/19 11:55:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,25 @@ char	*ft_strdup(const char *src)
 		dest[cursor] = src[cursor];
 		cursor++;
 	}
+	return (dest);
+}
+
+char	*ft_strndup(const char *src, size_t	size)
+{
+	size_t	len;
+	size_t	cursor;
+	char	*dest;
+
+	len = ft_strnlen(src, size);
+	dest = (char*)malloc(sizeof(char) * (len + 1));
+	if (dest == 0)
+		return (dest);
+	cursor = 0;
+	while (cursor < len)
+	{
+		dest[cursor] = src[cursor];
+		cursor++;
+	}
+	dest[cursor] = '\0';
 	return (dest);
 }
