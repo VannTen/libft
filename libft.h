@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/19 11:49:55 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/24 12:11:43 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ char				**ft_free_string_array(char ***tab);
 char				**ft_string_array_dup(const char **string_array);
 size_t				ft_string_array_count(const char **string_array);
 char				*ft_strndup(const char *src, size_t	size);
+char				*ft_strvajoin(size_t nb_string, ...);
 
 /*
 ** Display functions
