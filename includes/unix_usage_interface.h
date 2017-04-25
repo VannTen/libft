@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:38:27 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/11 11:50:54 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/04/25 17:19:02 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define USAGE_ERROR -1
 
 typedef	void	(*t_apply_opt)(void *opt);
+typedef void	(*t_apply_param_opt)(void *parameters, const char *arg);
 
 int			apply_cmdline_opt(const char *synopsis, const char **argv,
 		void *params, const t_apply_opt *apply_options);
