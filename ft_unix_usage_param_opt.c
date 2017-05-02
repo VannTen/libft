@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 16:43:52 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/25 17:44:06 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/02 09:49:19 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_apply_opt_param	select_option(const char *synopsis,
 	else
 		return (options[index]);
 }
+
 int						apply_parameters_options(const char *synopsis,
 		const char **param_opt, void *parameters,
 		const t_apply_opt_param *apply_options)
