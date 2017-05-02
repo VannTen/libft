@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:38:27 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/02 13:06:09 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/02 13:44:21 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # define USAGE_ERROR -1
 
 typedef struct s_synopsis	t_synopsis;
-typedef	void	(*t_apply_opt)(void *opt);
-typedef void	(*t_apply_opt_param)(void *parameters, const char *arg);
+typedef	int		(*t_apply_opt)(void *opt);
+typedef int		(*t_apply_opt_param)(void *parameters, const char *arg);
 
-int			apply_cmdline_opt(const char *synopsis, const char **argv,
-		void *params, const t_apply_opt *apply_options);
+int			apply_cmdline_opt(const t_synopsis *synopsis, const char **argv,
+		void *params);
 int			apply_parameters_options(const char *synopsis,
 		const char **param_opt, void *parameters,
 		const t_apply_opt_param *apply_options);
