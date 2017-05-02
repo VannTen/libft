@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:38:27 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/02 09:50:18 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/02 13:06:09 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,8 @@ int			apply_cmdline_opt(const char *synopsis, const char **argv,
 int			apply_parameters_options(const char *synopsis,
 		const char **param_opt, void *parameters,
 		const t_apply_opt_param *apply_options);
+t_synopsis	*init_synopsis(const char *simple_opt_syn,
+		t_apply_opt *simple_opt_apply,
+		const char *param_opt_syn,
+		t_apply_opt_param *param_opt_apply);
 #endif
