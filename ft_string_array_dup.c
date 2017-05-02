@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 20:16:50 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/18 20:37:10 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/02 10:18:08 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,13 @@ char	**ft_string_array_dup(const char **string_array)
 	size_t	index_2;
 
 	index_2 = 0;
-	index = ft_string_array_count(string_array);
-	dup = malloc(sizeof(char*) * (index + 1));
+	if (string_array != NULL)
+	{
+		index = ft_string_array_count(string_array);
+		dup = malloc(sizeof(char*) * (index + 1));
+	}
+	else
+		dup = NULL;
 	if (dup != NULL)
 	{
 		while (index_2 < index)
