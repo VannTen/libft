@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:42:18 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/02 14:22:47 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/03 15:15:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 
 struct	s_synopsis
 {
-	const char			*prog_name;
-	const char			*options_char;
-	const char			*options_param_char;
-	t_apply_opt			*options;
-	t_apply_opt_param	*options_param;
-	t_bool				(*is_valid)(int);
-	void				(*usage)(void);
+	const char				*prog_name;
+	const char				*options_char;
+	const char				*options_param_char;
+	const t_apply_opt		*options;
+	const t_apply_opt_param	*options_param;
+	t_bool					(*is_valid)(int);
+	void					(*usage)(const char*);
 };
 
 enum	e_opt_return

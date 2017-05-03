@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:48:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/03 14:36:09 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/03 16:47:37 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ int			apply_cmdline_opt(const t_synopsis *synopsis, const char **argv,
 		opt_arg_nbr++;
 		if (opt_ret == INVALID)
 		{
-			synopsis->usage();
+			synopsis->usage(synopsis->prog_name);
 			return (USAGE_ERROR);
 		}
 		if (opt_ret == NEXT_CONSUMED)

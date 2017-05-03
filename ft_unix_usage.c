@@ -6,16 +6,16 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 10:59:42 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/02 14:55:53 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/03 15:16:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unix_usage_defs.h"
 
 t_synopsis	*init_synopsis(const char *simple_opt_syn,
-		t_apply_opt *simple_opt_apply,
+		const t_apply_opt *simple_opt_apply,
 		const char *param_opt_syn,
-		t_apply_opt_param *param_opt_apply)
+		const t_apply_opt_param *param_opt_apply)
 {
 	static t_synopsis	syn;
 
@@ -31,7 +31,7 @@ void		add_opt_validator(t_synopsis *syn, t_bool (*is_valid)(int))
 	syn->is_valid = is_valid;
 }
 
-void		add_usage(t_synopsis *syn, void (*usage)(void))
+void		add_usage(t_synopsis *syn, void (*usage)(const char*))
 {
 	syn->usage = usage;
 }
