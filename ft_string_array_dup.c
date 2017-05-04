@@ -6,13 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 20:16:50 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/02 10:18:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/04 13:42:38 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_string_array_count(const char **string_array)
+size_t		ft_string_array_count(const char **string_array)
 {
 	size_t	index;
 
@@ -22,33 +22,40 @@ size_t	ft_string_array_count(const char **string_array)
 	return (index);
 }
 
-char	**ft_string_array_dup(const char **string_array)
+static char	**content_copy(const char **src, char **dst, const size_t size)
+{
+	size_t	index;
+
+	index = 0;
+	while (index < size)
+	{
+		dst[index] = ft_strdup(src[index]);
+		if (dst[index] == NULL)
+		{
+			ft_free_string_array(&dst);
+			return (NULL);
+		}
+		index++;
+	}
+	dst[index] = NULL;
+	return (dst);
+}
+
+char		**ft_string_array_dup(const char **string_array)
 {
 	char	**dup;
+	size_t	size;
 	size_t	index;
-	size_t	index_2;
 
-	index_2 = 0;
+	index = 0;
 	if (string_array != NULL)
 	{
-		index = ft_string_array_count(string_array);
-		dup = malloc(sizeof(char*) * (index + 1));
+		size = ft_string_array_count(string_array);
+		dup = malloc(sizeof(char*) * (size + 1));
+		if (dup != NULL)
+			dup = content_copy(string_array, dup, size);
 	}
 	else
 		dup = NULL;
-	if (dup != NULL)
-	{
-		while (index_2 < index)
-		{
-			dup[index_2] = ft_strdup(string_array[index_2]);
-			if (dup[index_2] == NULL)
-			{
-				ft_free_string_array(&dup);
-				return (NULL);
-			}
-			index_2++;
-		}
-		dup[index_2] = NULL;
-	}
 	return (dup);
 }

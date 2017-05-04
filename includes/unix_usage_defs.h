@@ -6,13 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:42:18 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/03 15:15:59 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/04 13:45:01 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UNIX_USAGE_DEFS_H
 # define UNIX_USAGE_DEFS_H
 # include "unix_usage_interface.h"
+# include <stddef.h>
 # define OPTION_CHARACTER '-'
 # define INVALID_OPTION -1
 
@@ -34,5 +35,20 @@ enum	e_opt_return
 	CURRENT_CONSUMED,
 	NEXT_CONSUMED
 };
+
+/*
+** Internal functions
+** Implementation file : ft_unix_usage_param_opt.c
+*/
+
+int		apply_arg_opt(
+		const size_t opt_char_index,
+		const char **argv,
+		const t_synopsis *syn,
+		void *params);
+int		apply_no_arg_opt(
+		const char opt_char,
+		const t_synopsis *syn,
+		void *params);
 
 #endif
