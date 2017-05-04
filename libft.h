@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/24 12:11:43 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/04 10:45:21 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,17 @@ int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strtrim(char const *s);
+char				*ft_strndup(const char *src, size_t	size);
+char				*ft_strvajoin(size_t nb_string, ...);
+
+/*
+** String array functions
+*/
+
 char				**ft_strsplit(char const *s, char c);
 char				**ft_free_string_array(char ***tab);
 char				**ft_string_array_dup(const char **string_array);
 size_t				ft_string_array_count(const char **string_array);
-char				*ft_strndup(const char *src, size_t	size);
-char				*ft_strvajoin(size_t nb_string, ...);
 
 /*
 ** Display functions
@@ -93,7 +98,8 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(const char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putendl_fd(const char *s, int fd);
-void				ft_print_string_array(char **str_array, char sep);
+void				ft_print_string_array(char const * const *str_array,
+		char sep);
 
 /*
 ** Mem functions
