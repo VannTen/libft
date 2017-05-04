@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:48:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/03 16:47:37 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/04 11:04:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,10 @@ size_t		treat_one_cmdline_arg_opt(const t_synopsis *syn,
 	index = 1;
 	option_return = NOTHING_CONSUMED;
 	while (argv[0][index] != '\0' && option_return == NOTHING_CONSUMED)
+	{
 		option_return = apply_one_opt(index, argv, syn, param);
+		index++;
+	}
 	if (option_return == INVALID)
 		print_invalid_option(syn->prog_name, argv[0][index]);
 	return (option_return);
