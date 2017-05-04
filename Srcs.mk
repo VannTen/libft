@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/04/25 17:16:47 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/05/02 11:05:36 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -139,6 +139,7 @@ LIB_VARIADIC ?=\
 	ft_variadic_args_private_ressources.c
 LIB_UNIX_TOOLS ?=\
 	ft_unix_usage.c\
+	ft_unix_usage_apply.c\
 	ft_unix_usage_param_opt.c
 SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_LIST) $(LIB_FIFO)\
 	$(LIB_STR) $(LIB_DISPLAY) $(LIB_MEM)\

@@ -5,76 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/29 15:48:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/13 19:11:35 by mgautier         ###   ########.fr       */
+/*   Created: 2017/05/02 10:59:42 by mgautier          #+#    #+#             */
+/*   Updated: 2017/05/03 15:16:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unix_usage_defs.h"
-#include "printf.h"
-#include "bool.h"
-#include "libft.h"
-#include <unistd.h>
-#include <stddef.h>
 
-static void	print_usage(const char *prog_name, const char *synopsis)
+t_synopsis	*init_synopsis(const char *simple_opt_syn,
+		const t_apply_opt *simple_opt_apply,
+		const char *param_opt_syn,
+		const t_apply_opt_param *param_opt_apply)
 {
-	ft_dprintf(STDERR_FILENO,
-			"usage: %s [-%s] [file ...]\n", prog_name, synopsis);
+	static t_synopsis	syn;
+
+	syn.options_char = simple_opt_syn;
+	syn.options_param_char = param_opt_syn;
+	syn.options = simple_opt_apply;
+	syn.options_param = param_opt_apply;
+	return (&syn);
 }
 
-static void	print_invalid_option(const char *prog_name, const char option)
+void		add_opt_validator(t_synopsis *syn, t_bool (*is_valid)(int))
 {
-	ft_dprintf(STDERR_FILENO, "%s: illegal option -- %c\n", prog_name, option);
+	syn->is_valid = is_valid;
 }
 
-static int	apply_one_opt(char opt_char, const char *synopsis,
-		const t_apply_opt *apply_params, void *params)
+void		add_usage(t_synopsis *syn, void (*usage)(const char*))
 {
-	int index;
-
-	index = 0;
-	while (opt_char != synopsis[index] && synopsis[index] != '\0')
-		index++;
-	if (synopsis[index] != '\0')
-		apply_params[index](params);
-	else
-		return (INVALID_OPTION);
-	return (index);
-}
-
-static int	invalid(const char *prog, char opt_char,
-		const char *synopsis)
-{
-	print_invalid_option(prog, opt_char);
-	print_usage(prog, synopsis);
-	return (USAGE_ERROR);
-}
-
-int			apply_cmdline_opt(const char *synopsis, const char **argv,
-		void *params, const t_apply_opt *apply_params)
-{
-	int	opt_arg_nbr;
-	int index;
-
-	opt_arg_nbr = 1;
-	while (argv[opt_arg_nbr] != NULL)
-	{
-		if (ft_strcmp("--", argv[opt_arg_nbr]) == 0)
-			return (opt_arg_nbr + 1);
-		else if (argv[opt_arg_nbr][0] != OPTION_CHARACTER
-				|| argv[opt_arg_nbr][1] == '\0')
-			return (opt_arg_nbr);
-		index = 1;
-		while (argv[opt_arg_nbr][index] != '\0')
-		{
-			if (INVALID_OPTION == apply_one_opt(argv[opt_arg_nbr][index],
-						synopsis, apply_params, params))
-				return (invalid(argv[0], argv[opt_arg_nbr][index], synopsis));
-			else
-				index++;
-		}
-		opt_arg_nbr++;
-	}
-	return (opt_arg_nbr);
+	syn->usage = usage;
 }

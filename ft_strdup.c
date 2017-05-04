@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:45:40 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/19 11:55:59 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/04 13:17:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strdup(const char *src)
 	return (dest);
 }
 
-char	*ft_strndup(const char *src, size_t	size)
+char	*ft_strndup(const char *src, size_t size)
 {
 	size_t	len;
 	size_t	cursor;

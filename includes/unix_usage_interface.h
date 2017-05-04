@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:38:27 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/02 09:50:18 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/04 13:34:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,26 @@
 # define USAGE_ERROR -1
 
 typedef struct s_synopsis	t_synopsis;
-typedef	void	(*t_apply_opt)(void *opt);
-typedef void	(*t_apply_opt_param)(void *parameters, const char *arg);
+typedef	int		(*t_apply_opt)(void *opt);
+typedef int		(*t_apply_opt_param)(void *parameters, const char *arg);
 
-int			apply_cmdline_opt(const char *synopsis, const char **argv,
-		void *params, const t_apply_opt *apply_options);
-int			apply_parameters_options(const char *synopsis,
-		const char **param_opt, void *parameters,
-		const t_apply_opt_param *apply_options);
+/*
+** Entry point for programs using the lib
+** Implementation file : ft_unix_usage.c
+*/
+
+int			apply_cmdline_opt(const t_synopsis *synopsis, const char **argv,
+		void *params);
+
+/*
+** Synopsis initialization
+** Implementation file : ft_unix_usage_init.c
+*/
+
+t_synopsis	*init_synopsis(const char *simple_opt_syn,
+		const t_apply_opt *simple_opt_apply,
+		const char *param_opt_syn,
+		const t_apply_opt_param *param_opt_apply);
+void		add_opt_validator(t_synopsis *syn, t_bool (*is_valid)(int));
+void		add_usage(t_synopsis *syn, void (*usage)(const char*));
 #endif

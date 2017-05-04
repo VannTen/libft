@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/24 10:55:08 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/24 12:16:10 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/04 13:11:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static char		**get_strings(size_t nb_string, va_list string_list)
 	return (string_array);
 }
 
-static size_t	string_array_tot_length(char const * const * const string_array)
+static size_t	string_array_tot_length(char const*const*const string_array)
 {
 	size_t	index;
 	size_t	tot_length;
@@ -48,12 +48,24 @@ static size_t	string_array_tot_length(char const * const * const string_array)
 	return (tot_length);
 }
 
-static char		*str_array_join(char const * const * const strings)
+static size_t	sub_copy(const char *src, char *dst)
+{
+	size_t	index;
+
+	index = 0;
+	while (src[index] != '\0')
+	{
+		dst[index] = src[index];
+		index++;
+	}
+	return (index);
+}
+
+static char		*str_array_join(char const*const*const strings)
 {
 	size_t	index;
 	size_t	total_length;
 	size_t	final_index;
-	size_t	sub_index;
 	char	*final_string;
 
 	total_length = string_array_tot_length(strings);
@@ -64,13 +76,7 @@ static char		*str_array_join(char const * const * const strings)
 		index = 0;
 		while (strings[index] != NULL)
 		{
-			sub_index = 0;
-			while (strings[index][sub_index] != '\0')
-			{
-				final_string[final_index] = strings[index][sub_index];
-				final_index++;
-				sub_index++;
-			}
+			final_index += sub_copy(strings[index], final_string + final_index);
 			index++;
 		}
 		final_string[final_index] = '\0';
