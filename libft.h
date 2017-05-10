@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/05 09:47:55 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/10 14:34:13 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strtrim(char const *s);
 char				*ft_strndup(const char *src, size_t	size);
 char				*ft_strvajoin(size_t nb_string, ...);
+char				last_char_of(const char *str);
 
 /*
 ** String array functions
