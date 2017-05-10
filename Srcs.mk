@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/05/04 15:22:13 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/05/10 14:27:38 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ TARGET := libft.a
 #LIB_MISCELLANEOUS = $(NOTHING)
 #LIB_PRINTF = $(NOTHING)
 #LIB_UNIX_TOOLS = $(NOTHING)
+#LIB_UNIX_FILES = $(NOTHING)
 
 LIB_BTREE ?=\
 	ft_btree_ressources.c\
@@ -142,11 +143,13 @@ LIB_UNIX_TOOLS ?=\
 	ft_unix_usage.c\
 	ft_unix_usage_apply.c\
 	ft_unix_usage_param_opt.c
+LIB_UNIX_FILES ?=\
+	is_file.c
 SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_LIST) $(LIB_FIFO)\
 	$(LIB_STR) $(LIB_DISPLAY) $(LIB_MEM)\
 	$(LIB_CONVERT) $(LIB_IS_OF) $(LIB_MATH)\
 	$(LIB_MISCELLANEOUS) $(LIB_PRINTF) $(LIB_VARIADIC)\
-	$(LIB_UNIX_TOOLS)
+	$(LIB_UNIX_TOOLS) $(LIB_UNIX_FILES)
 
 # Directories
 
