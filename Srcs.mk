@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/05/10 14:27:38 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/05/10 18:13:39 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -158,13 +158,3 @@ OBJ_DIR := object
 INC_DIR := includes
 DEP_DIR := .dep
 TEST_DIR := test
-
-# Dependencies
-
-LIBRARY := 
-OBJECTS :=
-ELSE :=
-
-# Sub directories
-
-SUBDIRS :=
