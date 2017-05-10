@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 20:16:50 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/04 13:42:38 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/06 22:34:38 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ char		**ft_string_array_dup(const char **string_array)
 {
 	char	**dup;
 	size_t	size;
-	size_t	index;
 
-	index = 0;
 	if (string_array != NULL)
 	{
 		size = ft_string_array_count(string_array);
