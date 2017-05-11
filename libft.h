@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/10 15:46:33 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/11 14:43:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ unsigned int		ft_lstcheck(t_list *list, t_bool (*f)(t_list *elem));
 
 size_t				ft_strlen(const char *str);
 size_t				ft_strnlen(const char *str, size_t size);
+size_t				ft_strlen_gen(const char *str, char end_of_line);
+size_t				ft_strnlen_gen(const char *str, size_t size,
+		char end_of_line);
 char				*ft_strdup(const char *src);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
