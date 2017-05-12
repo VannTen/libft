@@ -18,7 +18,7 @@
 # include "includes/fifo_interface.h"
 # include "includes/lst_interface.h"
 # include "includes/ft_integer.h"
-# include "includes/bool.h"
+# include "includes/bool_interface.h"
 # include "includes/list.h"
 # include "includes/printf.h"
 # include "includes/unix_usage_interface.h"

@@ -13,7 +13,7 @@
 #include "conversion_defs.h"
 #include "flags_defs.h"
 #include "printf_constants.h"
-#include "bool.h"
+#include "bool_interface.h"
 
 void	set_conversion_spec_len(t_conversion *conv, int index)
 {

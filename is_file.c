@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bool.h"
+#include "bool_interface.h"
 #include <sys/stat.h>
 
 t_bool	is_dir(const char *path)

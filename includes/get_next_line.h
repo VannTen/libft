@@ -12,7 +12,7 @@
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# include "bool.h"
+# include "bool_interface.h"
 # include "lst_interface.h"
 
 /*

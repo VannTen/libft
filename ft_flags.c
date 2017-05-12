@@ -14,7 +14,7 @@
 #include "conversion_defs.h"
 #include "variadic_args_interface.h"
 #include "printf_constants.h"
-#include "bool.h"
+#include "bool_interface.h"
 #include "libft.h"
 #include <stdlib.h>
 

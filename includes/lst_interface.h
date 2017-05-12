@@ -13,7 +13,7 @@
 #ifndef LST_INTERFACE_H
 # define LST_INTERFACE_H
 # include "custom_stddef.h"
-# include "bool.h"
+# include "bool_interface.h"
 # include <stddef.h>
 
 typedef struct s_lst	t_lst;

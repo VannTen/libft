@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
-#include "bool.h"
+#include "bool_interface.h"
 
 t_bool	is_char_conv(const t_conversion *conv)
 {

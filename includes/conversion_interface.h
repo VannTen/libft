@@ -12,7 +12,7 @@
 
 #ifndef CONVERSION_INTERFACE_H
 # define CONVERSION_INTERFACE_H
-# include "bool.h"
+# include "bool_interface.h"
 # include "variadic_args_interface.h"
 # include <stdlib.h>
 

@@ -13,7 +13,7 @@
 #ifndef INT_PARAMS_DEFS_H
 # define INT_PARAMS_DEFS_H
 # include "int_params_interface.h"
-# include "bool.h"
+# include "bool_interface.h"
 
 struct			s_int_param
 {

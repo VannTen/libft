@@ -13,7 +13,7 @@
 #ifndef FORMAT_STRING_INTERFACE_H
 # define FORMAT_STRING_INTERFACE_H
 # include "conversion_interface.h"
-# include "bool.h"
+# include "bool_interface.h"
 
 struct s_format_string;
 typedef struct s_format_string	t_format_string;

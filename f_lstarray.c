@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "lst_defs.h"
-#include "bool.h"
+#include "bool_interface.h"
 #include <stdlib.h>
 
 size_t	f_lstarray_end_early(void *array, t_lst *lst, size_t size,

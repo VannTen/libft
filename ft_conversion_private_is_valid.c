@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
-#include "bool.h"
+#include "bool_interface.h"
 #include "printf_constants.h"
 
 t_bool	ft_conversion_arg_is_valid(const t_conversion *conv)

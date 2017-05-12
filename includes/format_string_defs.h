@@ -15,7 +15,7 @@
 # include "format_string_interface.h"
 # include "fifo_interface.h"
 # include "variadic_args_interface.h"
-# include "bool.h"
+# include "bool_interface.h"
 # include <stdlib.h>
 
 struct	s_format_string

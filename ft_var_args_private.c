@@ -12,7 +12,7 @@
 
 #include "variadic_args_defs.h"
 #include "conversion_interface.h"
-#include "bool.h"
+#include "bool_interface.h"
 #include "libft.h"
 #include <stdlib.h>
 
