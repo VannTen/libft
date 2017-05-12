@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bool.h                                             :+:      :+:    :+:   */
+/*   boolean_on_char_follow.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/21 12:25:47 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/25 15:44:52 by mgautier         ###   ########.fr       */
+/*   Created: 2017/05/12 15:52:08 by mgautier          #+#    #+#             */
+/*   Updated: 2017/05/12 15:52:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BOOL_H
-# define BOOL_H
+#include "bool_defs.h"
 
-typedef enum		e_bool{
-	FALSE = (1 == 0),
-	TRUE = !FALSE
-}					t_bool;
-
-#endif
+t_bool	greater_equal_char(char to_test, char to_test_against)
+{
+	return (to_test >= to_test_against);
+}
