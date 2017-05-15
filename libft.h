@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 14:55:32 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 15:01:39 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include "includes/btree_interface.h"
 # include "includes/fifo_interface.h"
 # include "includes/lst_interface.h"
-# include "includes/ft_integer.h"
 # include "includes/bool_interface.h"
 # include "includes/list.h"
 # include "includes/printf.h"
@@ -27,6 +26,7 @@
 # include "includes/unix_files_interface.h"
 # include "includes/path_interface.h"
 # include "includes/string_interface.h"
+# include "includes/string_array_interface.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -41,14 +41,6 @@ t_list				*ft_add_end_list(t_list *last_link, const void *content,
 									size_t content_size);
 unsigned int		ft_lstcheck(t_list *list, t_bool (*f)(t_list *elem));
 
-/*
-** String array functions
-*/
-
-char				**ft_free_string_array(char ***tab);
-char				**ft_string_array_dup(const char **string_array);
-char				**ft_str_array_cpy(char * const * src, char **dst);
-size_t				ft_string_array_count(const char **string_array);
 
 /*
 ** Display functions

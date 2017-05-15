@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_integer.h                                       :+:      :+:    :+:   */
+/*   string_array_interface.h                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/02 12:27:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/02 12:28:40 by mgautier         ###   ########.fr       */
+/*   Created: 2017/05/15 14:59:49 by mgautier          #+#    #+#             */
+/*   Updated: 2017/05/15 15:00:13 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_INTEGER_H
-# define FT_INTEGER_H
-# include <stdint.h>
+#ifndef STRING_ARRAY_INTERFACE_H
+# define STRING_ARRAY_INTERFACE_H
 
-typedef union	u_integer
-{
-	uintmax_t	positive;
-	intmax_t	negative;
-}				t_integer;
+/*
+** String array functions
+** Implemenation files : name of the function
+*/
+
+char				**ft_free_string_array(char ***tab);
+char				**ft_string_array_dup(const char **string_array);
+char				**ft_str_array_cpy(char * const * src, char **dst);
+size_t				ft_string_array_count(const char **string_array);
 
 #endif
