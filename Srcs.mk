@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/05/15 15:16:01 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/05/15 15:34:03 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ TARGET := libft.a
 
 #LIB_BTREE = $(NOTHING)
 #LIB_LST = $(NOTHING)
-#LIB_LIST = $(NOTHING)
 #LIB_FIFO = $(NOTHING)
 #LIB_STR = $(NOTHING)
 #LIB_DISPLAY = $(NOTHING)
@@ -54,10 +53,6 @@ LIB_LST ?=\
 	f_lstarray.c\
 	f_strljoin.c\
 	f_strsplit_lst.c
-LIB_LIST ?=\
-	ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c ft_lstnew.c \
-	ft_lstpushdata.c\
-	ft_lstadd.c ft_lstcheck.c ft_add_end_list.c 
 LIB_FIFO ?=\
 	f_fifo_add_take.c\
 	f_fifo_ressources.c\
@@ -159,7 +154,7 @@ LIB_PATH ?=\
 	path_tools.c\
 	canonical_path.c\
 	canonical_path_internals.c
-SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_LIST) $(LIB_FIFO)\
+SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_FIFO)\
 	$(LIB_STR) $(LIB_DISPLAY) $(LIB_MEM)\
 	$(LIB_CONVERT) $(LIB_IS_OF) $(LIB_MATH)\
 	$(LIB_MISCELLANEOUS) $(LIB_PRINTF) $(LIB_VARIADIC)\
