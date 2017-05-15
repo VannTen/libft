@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/11 16:59:17 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 11:19:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include "includes/itoa_tools.h"
 # include "includes/get_next_line.h"
 # include "includes/unix_files_interface.h"
+# include "includes/path_interface.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
