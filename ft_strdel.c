@@ -6,12 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 11:24:35 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 19:17:43 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 15:47:00 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
+#include <stdlib.h>
 /*
 ** Check if the parameter is valid, then free the memory associated
 ** with the pointer and set it to NULL, to avoid problems with further calls

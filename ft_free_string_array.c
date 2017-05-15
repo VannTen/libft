@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 15:48:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/19 17:02:30 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 15:48:41 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_interface.h"
+#include <stdlib.h>
 
 char		**ft_free_string_array(char ***tab)
 {

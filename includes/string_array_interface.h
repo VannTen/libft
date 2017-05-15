@@ -6,12 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:59:49 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 15:08:55 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 15:50:10 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRING_ARRAY_INTERFACE_H
 # define STRING_ARRAY_INTERFACE_H
+# include <stddef.h>
 
 /*
 ** String array functions

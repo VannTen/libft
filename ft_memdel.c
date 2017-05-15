@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 11:01:02 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 18:31:06 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 15:56:15 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 /*
 ** Check if the parameter is valid

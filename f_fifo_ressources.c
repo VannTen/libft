@@ -6,12 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:04:37 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/17 16:14:00 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 15:46:28 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fifo_defs.h"
-#include "list.h"
+#include "lst_interface.h"
 #include <stdlib.h>
 
 void	f_fifo_destroy(t_fifo **to_destroy, t_destroy del)
