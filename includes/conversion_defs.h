@@ -18,7 +18,7 @@
 # include "flags_defs.h"
 # include "length_modifier_defs.h"
 # include "variadic_args_interface.h"
-# include "bool.h"
+# include "bool_interface.h"
 
 struct	s_conversion
 {

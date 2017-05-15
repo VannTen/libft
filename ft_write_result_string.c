@@ -12,7 +12,7 @@
 
 #include "format_string_interface.h"
 #include "printf_constants.h"
-#include "bool.h"
+#include "bool_interface.h"
 #include <stddef.h>
 
 static size_t	advance_to_conv(const char *fmt, char *final_string)

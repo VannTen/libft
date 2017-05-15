@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bool.h                                             :+:      :+:    :+:   */
+/*   unix_files_interface.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/21 12:25:47 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/25 15:44:52 by mgautier         ###   ########.fr       */
+/*   Created: 2017/05/10 14:26:09 by mgautier          #+#    #+#             */
+/*   Updated: 2017/05/10 14:26:41 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BOOL_H
-# define BOOL_H
+#ifndef UNIX_FILES_INTERFACE_H
+# define UNIX_FILES_INTERFACE_H
 
-typedef enum		e_bool{
-	FALSE = (1 == 0),
-	TRUE = !FALSE
-}					t_bool;
+/*
+** Testing file types
+** Implementationf file : is_file.c
+*/
+
+t_bool	is_dir(const char *path);
 
 #endif

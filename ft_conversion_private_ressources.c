@@ -12,7 +12,7 @@
 
 #include "conversion_defs.h"
 #include "printf_constants.h"
-#include "bool.h"
+#include "bool_interface.h"
 #include <stdlib.h>
 
 static void		init_flags(t_bool *flags)

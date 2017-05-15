@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion_private_is_conv.c                    :+:      :+:    :+:   */
+/*   is_file.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/23 12:11:51 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/17 13:53:04 by mgautier         ###   ########.fr       */
+/*   Created: 2017/05/10 14:20:09 by mgautier          #+#    #+#             */
+/*   Updated: 2017/05/12 18:53:53 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "conversion_defs.h"
 #include "bool_interface.h"
+#include <sys/stat.h>
 
-t_bool	is_char_conv(const t_conversion *conv)
+t_bool	is_dir(const char *path)
 {
-	return (conv->type == C);
-}
+	struct stat	file_infos;
 
-t_bool	is_ptr_conv(const t_conversion *conversion)
-{
-	return (conversion->type == N);
-}
-
-t_bool	is_string_conv(const t_conversion *conversion)
-{
-	return (conversion->type == S);
-}
-
-t_bool	is_no_conv(const t_conversion *conversion)
-{
-	return (conversion->type == NO_CONVERSION);
+	return (stat(path, &file_infos) != -1
+			&& S_ISDIR(file_infos.st_mode) != 0);
 }

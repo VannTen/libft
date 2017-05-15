@@ -12,7 +12,7 @@
 
 #ifndef ITOA_TOOLS_H
 # define ITOA_TOOLS_H
-# include "bool.h"
+# include "bool_interface.h"
 # include "ft_integer.h"
 # include <stddef.h>
 # include <stdint.h>

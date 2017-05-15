@@ -6,28 +6,38 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:45:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 13:33:31 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/11 14:41:12 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen_gen(const char *str, const char end_of_line)
 {
 	size_t	length;
 
 	length = 0;
-	while (str[length] != '\0')
+	while (str[length] != end_of_line)
+		length++;
+	return (length);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	return (ft_strlen_gen(str, '\0'));
+}
+
+size_t	ft_strnlen_gen(const char *str, size_t size, const char end_of_line)
+{
+	size_t length;
+
+	length = 0;
+	while (str[length] != end_of_line && length < size)
 		length++;
 	return (length);
 }
 
 size_t	ft_strnlen(const char *str, size_t size)
 {
-	size_t length;
-
-	length = 0;
-	while (str[length] != '\0' && length < size)
-		length++;
-	return (length);
+	return (ft_strnlen_gen(str, size, '\0'));
 }

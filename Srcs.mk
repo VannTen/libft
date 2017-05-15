@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/05/04 15:22:13 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/05/12 15:54:06 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,8 @@ TARGET := libft.a
 #LIB_MISCELLANEOUS = $(NOTHING)
 #LIB_PRINTF = $(NOTHING)
 #LIB_UNIX_TOOLS = $(NOTHING)
+#LIB_UNIX_FILES = $(NOTHING)
+#LIB_BOOLEAN = $(NOTHING)
 
 LIB_BTREE ?=\
 	ft_btree_ressources.c\
@@ -70,7 +72,8 @@ LIB_STR ?=\
 	ft_gen_strdel.c ft_strnew_char.c ft_strnew.c ft_free_string_array.c\
 	ft_string_array_dup.c\
 	ft_str_array_cpy.c\
-	ft_strvajoin.c
+	ft_strvajoin.c\
+	last_char_of.c
 LIB_DISPLAY ?=\
 	ft_putchar.c ft_putchar_fd.c ft_putendl.c ft_putendl_fd.c ft_putnbr.c \
 	ft_putnbr_fd.c ft_putstr.c ft_putstr_fd.c\
@@ -142,11 +145,17 @@ LIB_UNIX_TOOLS ?=\
 	ft_unix_usage.c\
 	ft_unix_usage_apply.c\
 	ft_unix_usage_param_opt.c
+LIB_UNIX_FILES ?=\
+	is_file.c
+LIB_BOOLEAN ?=\
+	boolean.c\
+	boolean_on_char.c\
+	boolean_on_char_follow.c
 SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_LIST) $(LIB_FIFO)\
 	$(LIB_STR) $(LIB_DISPLAY) $(LIB_MEM)\
 	$(LIB_CONVERT) $(LIB_IS_OF) $(LIB_MATH)\
 	$(LIB_MISCELLANEOUS) $(LIB_PRINTF) $(LIB_VARIADIC)\
-	$(LIB_UNIX_TOOLS)
+	$(LIB_UNIX_TOOLS) $(LIB_UNIX_FILES) $(LIB_BOOLEAN)
 
 # Directories
 
@@ -155,13 +164,3 @@ OBJ_DIR := object
 INC_DIR := includes
 DEP_DIR := .dep
 TEST_DIR := test
-
-# Dependencies
-
-LIBRARY := 
-OBJECTS :=
-ELSE :=
-
-# Sub directories
-
-SUBDIRS :=

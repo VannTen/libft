@@ -13,7 +13,7 @@
 #ifndef VARIADIC_ARGS_INTERFACE_H
 # define VARIADIC_ARGS_INTERFACE_H
 # include "fifo_interface.h"
-# include "bool.h"
+# include "bool_interface.h"
 # include <wchar.h>
 # include <stdarg.h>
 # include <stdint.h>

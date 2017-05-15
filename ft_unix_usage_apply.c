@@ -12,7 +12,7 @@
 
 #include "unix_usage_defs.h"
 #include "printf.h"
-#include "bool.h"
+#include "bool_interface.h"
 #include "libft.h"
 #include <unistd.h>
 #include <stddef.h>

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/10 14:34:13 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/11 16:59:17 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@
 # include "includes/fifo_interface.h"
 # include "includes/lst_interface.h"
 # include "includes/ft_integer.h"
-# include "includes/bool.h"
+# include "includes/bool_interface.h"
 # include "includes/list.h"
 # include "includes/printf.h"
 # include "includes/unix_usage_interface.h"
 # include "includes/itoa_tools.h"
 # include "includes/get_next_line.h"
+# include "includes/unix_files_interface.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -44,6 +45,9 @@ unsigned int		ft_lstcheck(t_list *list, t_bool (*f)(t_list *elem));
 
 size_t				ft_strlen(const char *str);
 size_t				ft_strnlen(const char *str, size_t size);
+size_t				ft_strlen_gen(const char *str, char end_of_line);
+size_t				ft_strnlen_gen(const char *str, size_t size,
+		char end_of_line);
 char				*ft_strdup(const char *src);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
@@ -71,7 +75,7 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char*));
 char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int					ft_strequ(char const *s1, char const *s2);
-int					ft_strnequ(char const *s1, char const *s2, size_t n);
+t_bool				ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strtrim(char const *s);

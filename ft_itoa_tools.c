@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_integer.h"
-#include "bool.h"
+#include "bool_interface.h"
 #include "itoa_tools.h"
 #include <stddef.h>
 #include <stdint.h>

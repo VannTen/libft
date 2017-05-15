@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "lst_defs.h"
-#include "bool.h"
+#include "bool_interface.h"
 #include <stdlib.h>
 
 /*

@@ -12,7 +12,7 @@
 
 #include "ft_integer.h"
 #include "itoa_tools.h"
-#include "bool.h"
+#include "bool_interface.h"
 #include <stdlib.h>
 #include <stdint.h>
 

@@ -12,7 +12,7 @@
 
 #include "format_string_defs.h"
 #include "conversion_interface.h"
-#include "bool.h"
+#include "bool_interface.h"
 #include "libft.h"
 
 static t_bool	write_to_next_conv(const void **fmt,

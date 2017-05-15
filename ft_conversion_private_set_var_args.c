@@ -12,7 +12,7 @@
 
 #include "conversion_defs.h"
 #include "int_params_interface.h"
-#include "bool.h"
+#include "bool_interface.h"
 
 void	ft_conv_attribute_arg(t_conversion *conv, t_var_arg *arg_array)
 {

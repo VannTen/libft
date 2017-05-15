@@ -12,7 +12,7 @@
 
 #ifndef FIFO_INTERFACE_H
 # define FIFO_INTERFACE_H
-# include "bool.h"
+# include "bool_interface.h"
 # include "lst_interface.h"
 # include "custom_stddef.h"
 

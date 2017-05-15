@@ -12,7 +12,7 @@
 
 #ifndef UNIX_USAGE_INTERFACE_H
 # define UNIX_USAGE_INTERFACE_H
-# include "bool.h"
+# include "bool_interface.h"
 # define USAGE_ERROR -1
 
 typedef struct s_synopsis	t_synopsis;
