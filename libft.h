@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 11:19:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 14:55:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "includes/get_next_line.h"
 # include "includes/unix_files_interface.h"
 # include "includes/path_interface.h"
+# include "includes/string_interface.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -41,54 +42,9 @@ t_list				*ft_add_end_list(t_list *last_link, const void *content,
 unsigned int		ft_lstcheck(t_list *list, t_bool (*f)(t_list *elem));
 
 /*
-** Str functions
-*/
-
-size_t				ft_strlen(const char *str);
-size_t				ft_strnlen(const char *str, size_t size);
-size_t				ft_strlen_gen(const char *str, char end_of_line);
-size_t				ft_strnlen_gen(const char *str, size_t size,
-		char end_of_line);
-char				*ft_strdup(const char *src);
-char				*ft_strcpy(char *dst, const char *src);
-char				*ft_strncpy(char *dst, const char *src, size_t len);
-char				*ft_strcat(char *s1, const char *s2);
-char				*ft_strncat(char *s1, const char *s2, size_t n);
-size_t				ft_strlcat(char *dst, const char *src, size_t size);
-int					ft_strcmp(const char *s1, const char *s2);
-int					ft_strncmp(const char *s1, const char *s2, size_t n);
-char				*ft_strchr(const char *s, int c);
-t_bool				string_has_char(const char *str, int c);
-char				*ft_strrchr(const char *s, int c);
-char				*ft_strstr(const char *big, const char *little);
-char				*ft_strnstr(const char *big, const char *little,
-								size_t len);
-t_lst				*f_strsplit_lst(char const *str, char c);
-char				*f_strljoin(char const *str_1, char const *str_2,
-									size_t size_1, size_t size_2);
-char				*ft_strnew_char(size_t size, char c);
-char				*ft_strnew(size_t size);
-void				ft_strdel(char **as);
-void				ft_gen_strdel(void **str);
-void				ft_strclr(char *s);
-void				ft_striter(char *s, void (*f)(char*));
-void				ft_striteri(char *s, void (*f)(unsigned int, char*));
-char				*ft_strmap(char const *s, char (*f)(char));
-char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-int					ft_strequ(char const *s1, char const *s2);
-t_bool				ft_strnequ(char const *s1, char const *s2, size_t n);
-char				*ft_strsub(char const *s, unsigned int start, size_t len);
-char				*ft_strjoin(const char *s1, const char *s2);
-char				*ft_strtrim(char const *s);
-char				*ft_strndup(const char *src, size_t	size);
-char				*ft_strvajoin(size_t nb_string, ...);
-char				last_char_of(const char *str);
-
-/*
 ** String array functions
 */
 
-char				**ft_strsplit(char const *s, char c);
 char				**ft_free_string_array(char ***tab);
 char				**ft_string_array_dup(const char **string_array);
 char				**ft_str_array_cpy(char * const * src, char **dst);
