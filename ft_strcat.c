@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:05:49 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 19:00:12 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:10:47 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 /*
 ** Appends a copy of null-terminated s2 to null-terminated s2, writing over

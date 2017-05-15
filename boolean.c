@@ -6,12 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 15:10:16 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/12 15:59:21 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:35:22 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bool_defs.h"
-#include "libft.h"
+#include "string_interface.h"
 #include <stddef.h>
 
 static t_char_tester	select_test(const char *test)

@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 12:14:46 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 19:22:03 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:13:01 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_defs.h"
+#include <stddef.h>
 
 /*
 ** Test if s1 and s2 are identical

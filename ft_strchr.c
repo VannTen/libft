@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 11:52:33 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/05 11:56:24 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:11:19 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "bool_interface.h"
 #include <stddef.h>
 
 /*

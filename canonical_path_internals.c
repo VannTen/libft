@@ -6,14 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 11:54:59 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 11:58:39 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:35:38 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "path_defs.h"
 #include "unix_files_interface.h"
 #include "bool_interface.h"
-#include "libft.h"
+#include "string_interface.h"
 
 t_bool	valid_path_component(char *path, size_t	index)
 {

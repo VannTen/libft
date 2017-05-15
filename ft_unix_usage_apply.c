@@ -6,14 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:48:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/04 13:40:38 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:35:13 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unix_usage_defs.h"
 #include "printf.h"
 #include "bool_interface.h"
-#include "libft.h"
+#include "string_interface.h"
 #include <unistd.h>
 #include <stddef.h>
 

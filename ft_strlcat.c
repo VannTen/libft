@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:39:23 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/17 17:04:34 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:14:44 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_defs.h"
+#include <stddef.h>
 
 /*
 ** size = buffer's size (counting NUL-terminating character)

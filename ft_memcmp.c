@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 11:40:30 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/17 12:49:40 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:28:50 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 /*
 ** Compares two byte stings for up to n bytes

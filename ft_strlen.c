@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:45:02 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/11 14:41:12 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:15:02 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 size_t	ft_strlen_gen(const char *str, const char end_of_line)
 {

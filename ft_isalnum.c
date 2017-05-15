@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:01:49 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/14 16:56:14 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:32:05 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "issomething_interface.h"
 
 int		ft_isalnum(int c)
 {

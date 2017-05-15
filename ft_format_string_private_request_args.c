@@ -13,7 +13,6 @@
 #include "format_string_defs.h"
 #include "conversion_interface.h"
 #include "variadic_args_interface.h"
-#include "libft.h"
 #include <stdarg.h>
 #include <stddef.h>
 

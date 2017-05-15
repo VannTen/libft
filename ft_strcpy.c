@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 17:08:34 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 19:15:46 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:12:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 /*
 ** Copy the null-terminated string src into dst

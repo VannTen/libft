@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 18:05:49 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/17 17:15:58 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:16:15 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_defs.h"
+#include <stddef.h>
 
 /*
 ** Appends up to n characters from s2 to the end of s1, then add a terminating

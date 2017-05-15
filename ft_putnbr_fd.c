@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 18:24:24 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/04 15:09:45 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:27:09 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "stdout_interface.h"
 
 /*
 ** The recursion works that way : if n has more than one digit (n <= 10),

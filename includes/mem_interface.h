@@ -6,12 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 15:24:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 15:25:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:20:14 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MEM_INTERFACE_H
 # define MEM_INTERFACE_H
+# include <stddef.h>
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);

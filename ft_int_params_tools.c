@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 13:49:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/27 13:06:43 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:33:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "convert_interface.h"
+#include "issomething_interface.h"
 #include <stdlib.h>
 
 static int	ft_is_positional(const char *arg_specifier)

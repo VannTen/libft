@@ -6,11 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 13:31:08 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/21 11:21:16 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:31:08 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "convert_interface.h"
+#include "string_interface.h"
+#include "issomething_interface.h"
+#include "stdout_interface.h"
 #include <stdlib.h>
 
 /*

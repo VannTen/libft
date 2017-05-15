@@ -6,11 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 12:56:56 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/17 11:09:07 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:22:58 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_interface.h"
+#include "bool_interface.h"
+#include <stddef.h>
 
 /*
 ** There is two steps in the function :

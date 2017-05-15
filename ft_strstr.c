@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 12:26:45 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/17 10:37:45 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:21:36 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "bool_interface.h"
+#include <stddef.h>
 
 /*
 ** Locates the first occurence of little in big.

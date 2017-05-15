@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "variadic_args_defs.h"
 #include <stdlib.h>
 

@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 11:52:33 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/17 10:49:21 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:18:53 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_defs.h"
+#include <stddef.h>
 
 /*
 ** Like ft_strchr, but locates the last occurence of c.

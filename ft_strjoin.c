@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 12:41:34 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 19:27:10 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:13:56 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_defs.h"
+#include <stddef.h>
 
 /*
 ** Join two string in a new one, newly allocated.

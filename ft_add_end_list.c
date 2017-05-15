@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 
 t_list	*ft_add_end_list(t_list *last_link,
 		const void *content, size_t content_size)

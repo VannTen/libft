@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 10:11:02 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 19:32:33 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:29:01 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 /*
 ** Copy n bytes from src memory to dst memory

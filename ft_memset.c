@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 09:48:12 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 18:40:41 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:29:56 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 /*
 ** Set len bytes to c at the adress pointed

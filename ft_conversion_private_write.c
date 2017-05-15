@@ -13,7 +13,6 @@
 #include "conversion_defs.h"
 #include "conv_write_interface.h"
 #include "printf_constants.h"
-#include "libft.h"
 
 int		ft_write_field_width(char *to_write, int fill, char padding)
 {

@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 19:09:22 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 19:09:21 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:12:01 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 /*
 ** Compares two null-terminated string

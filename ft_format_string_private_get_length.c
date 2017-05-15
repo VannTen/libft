@@ -12,7 +12,6 @@
 
 #include "format_string_defs.h"
 #include "conversion_interface.h"
-#include "libft.h"
 
 static int	set_and_get_conv_len(void *conv)
 {
