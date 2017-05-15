@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:39:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 14:54:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 15:07:35 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,15 @@ char	*ft_strtrim(char const *s);
 
 size_t	is_substring_up_to(const char *to_search, const char *to_be_searched);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
+
+/*
+** Display strings
+** Impelmentation file : name of the function
+*/
+
+void	ft_putstr(const char *s);
+void	ft_putendl(const char *s);
+void	ft_putstr_fd(const char *s, int fd);
+void	ft_putendl_fd(const char *s, int fd);
 
 #endif

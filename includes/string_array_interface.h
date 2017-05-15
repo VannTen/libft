@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:59:49 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 15:00:13 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 15:08:55 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,16 @@
 ** Implemenation files : name of the function
 */
 
-char				**ft_free_string_array(char ***tab);
-char				**ft_string_array_dup(const char **string_array);
-char				**ft_str_array_cpy(char * const * src, char **dst);
-size_t				ft_string_array_count(const char **string_array);
+char	**ft_free_string_array(char ***tab);
+char	**ft_string_array_dup(const char **string_array);
+char	**ft_str_array_cpy(char * const * src, char **dst);
+size_t	ft_string_array_count(const char **string_array);
+
+/*
+** Display functions
+** Implentation file : ft_print_string_array.c
+*/
+
+void	ft_print_string_array(char const * const *str_array, char sep);
 
 #endif

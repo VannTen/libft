@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 15:01:39 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 15:11:17 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # include "includes/path_interface.h"
 # include "includes/string_interface.h"
 # include "includes/string_array_interface.h"
+# include "includes/stdout_interface.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -45,17 +46,6 @@ unsigned int		ft_lstcheck(t_list *list, t_bool (*f)(t_list *elem));
 /*
 ** Display functions
 */
-
-void				ft_putchar(char c);
-void				ft_putstr(const char *s);
-void				ft_putendl(const char *s);
-void				ft_putnbr(int n);
-void				ft_putchar_fd(char c, int fd);
-void				ft_putstr_fd(const char *s, int fd);
-void				ft_putnbr_fd(int n, int fd);
-void				ft_putendl_fd(const char *s, int fd);
-void				ft_print_string_array(char const * const *str_array,
-		char sep);
 
 /*
 ** Mem functions
