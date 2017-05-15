@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/05/15 11:56:33 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/05/15 15:16:01 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,7 +85,10 @@ LIB_MEM ?=\
 	ft_memalloc.c\
 	ft_memset.c 
 LIB_CONVERT ?=\
-	ft_atoi.c ft_itoa.c ft_tolower.c ft_toupper.c ft_itoa_base.c\
+	ft_atoi.c\
+	ft_itoa.c\
+	ft_tolower.c\
+	ft_toupper.c\
 	ft_itoa_tools.c\
 	ft_wctomb.c\
 	ft_wctomb_internal.c\
