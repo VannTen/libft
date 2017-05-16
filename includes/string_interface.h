@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:39:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/16 13:09:51 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/16 13:21:00 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ char	*f_strljoin(char const *str_1, char const *str_2,
 									size_t size_1, size_t size_2);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strvajoin(size_t nb_string, ...);
+char	*ft_strjoin_ifnot(const char *src, const char *add);
+t_bool	is_at_the_end(const char *src, const char *add);
 
 /*
 ** Ressources management
