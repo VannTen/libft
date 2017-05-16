@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/05/15 15:34:03 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/05/16 12:54:12 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,8 @@ LIB_STR ?=\
 	ft_string_array_dup.c\
 	ft_str_array_cpy.c\
 	ft_strvajoin.c\
-	last_char_of.c
+	last_char_of.c\
+	ft_substring.c
 LIB_DISPLAY ?=\
 	ft_putchar.c ft_putchar_fd.c ft_putendl.c ft_putendl_fd.c ft_putnbr.c \
 	ft_putnbr_fd.c ft_putstr.c ft_putstr_fd.c\
