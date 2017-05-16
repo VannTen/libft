@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 11:13:58 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 11:54:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/16 14:30:37 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 ** Implementation file : path_tools.c
 */
 
-size_t	get_previous_component(const char *path, size_t index_start);
-size_t	path_comp_len(const char *path_elem);
-t_bool	path_component_are_equal(const char *path1, const char *path2);
-t_bool	is_root_component(const char *path, size_t index);
-size_t	advance_nbr_path_comp(const char *path, size_t nbr);
+size_t		get_previous_component(const char *path, size_t index_start);
+size_t		path_comp_len(const char *path_elem);
+t_bool		path_component_are_equal(const char *path1, const char *path2);
+t_bool		is_root_component(const char *path, size_t index);
+size_t		advance_nbr_path_comp(const char *path, size_t nbr);
 
 /*
 ** Path canonicalization, as described in cd POSIX manual
@@ -32,6 +32,14 @@ size_t	advance_nbr_path_comp(const char *path, size_t nbr);
 ** Implementation file : canonical_path.c
 */
 
-char	*canonize_path(char *path);
+char		*canonize_path(char *path);
+
+/*
+** Convert path absolute/relative
+** Implementation file : path_abs_rel.c
+*/
+
+const char	*convert_path_abs_to_rel(const char *path,
+		const char *ref_current_dir);
 
 #endif

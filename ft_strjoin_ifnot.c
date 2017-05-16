@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 13:16:39 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/16 13:21:13 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/16 14:00:43 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_strjoin_ifnot(const char *src, const char *add)
 	add_len = ft_strlen(add);
 	src_len = ft_strlen(src);
 	if (add_len >= src_len && ft_strequ(add, src + (src_len - add_len)))
-		return (NULL);
+		return (ft_strdup(src));
 	else
 		return (f_strljoin(src, add, src_len, add_len));
 }
