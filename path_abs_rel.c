@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 12:34:17 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/16 14:28:17 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/17 12:40:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 #include "string_interface.h"
 #include <stddef.h>
 
-const char	*convert_path_abs_to_rel(const char *path, const char *ref_current_dir)
+const char	*give_rel_path_from_abs(
+		const char *path,
+		const char *ref_current_dir)
 {
 	size_t		end_of_match;
 	char		*slash_to_the_end;

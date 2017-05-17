@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 11:13:58 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/16 14:30:37 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/17 12:41:58 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,13 @@ char		*canonize_path(char *path);
 ** Implementation file : path_abs_rel.c
 */
 
-const char	*convert_path_abs_to_rel(const char *path,
+/*
+** Do not duplicate the string.
+** The return of this string should not be freed, it would be when the string
+** given as path parameter will be freed.
+*/
+
+const char	*give_rel_path_from_abs(const char *path,
 		const char *ref_current_dir);
 
 #endif
