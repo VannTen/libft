@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 10:59:42 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/03 15:16:32 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/19 11:59:05 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ void		add_opt_validator(t_synopsis *syn, t_bool (*is_valid)(int))
 	syn->is_valid = is_valid;
 }
 
-void		add_usage(t_synopsis *syn, void (*usage)(const char*))
+void		add_usage(t_synopsis *syn, void (*usage)(const char*),
+		const char *prog_name)
 {
 	syn->usage = usage;
+	syn->prog_name = prog_name;
 }
