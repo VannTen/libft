@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 11:13:58 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/19 10:59:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/19 18:47:01 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ t_bool		is_root_component(const char *path, size_t index);
 size_t		advance_nbr_path_comp(const char *path, size_t nbr);
 
 /*
+** Joining path elements
+** Implementation file : path_tools_2.c
+*/
+
+/*
 ** Path canonicalization, as described in cd POSIX manual
 ** http://pubs.opengroup.org/onlinepubs/9699919799/
 ** Implementation file : canonical_path.c
@@ -45,6 +50,6 @@ char		*canonize_path(char *path);
 ** given as path parameter will be freed.
 */
 
-size_t	give_rel_path_from_abs(const char *path, const char *ref_current_dir);
+size_t		relative_pathname(const char *directory);
 
 #endif
