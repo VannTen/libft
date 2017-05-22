@@ -6,13 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/25 10:57:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/28 15:07:00 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:34:43 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
 #include "itoa_tools.h"
-#include "libft.h"
+#include "string_interface.h"
 
 int			ft_printf_len_p(t_conversion *conv)
 {

@@ -6,11 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 13:14:05 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/23 16:14:32 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:21:05 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_array_defs.h"
+#include "mem_interface.h"
+#include "string_interface.h"
+#include <stddef.h>
 
 /*
 ** The function proceeds with a loop performing the folowing actions :

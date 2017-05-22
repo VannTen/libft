@@ -6,11 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 20:16:50 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/06 22:34:38 by                  ###   ########.fr       */
+/*   Updated: 2017/05/15 15:49:48 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_array_defs.h"
+#include "string_interface.h"
+#include <stdlib.h>
 
 size_t		ft_string_array_count(const char **string_array)
 {

@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/05/12 15:54:06 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/05/16 14:30:08 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ TARGET := libft.a
 
 #LIB_BTREE = $(NOTHING)
 #LIB_LST = $(NOTHING)
-#LIB_LIST = $(NOTHING)
 #LIB_FIFO = $(NOTHING)
 #LIB_STR = $(NOTHING)
 #LIB_DISPLAY = $(NOTHING)
@@ -33,6 +32,7 @@ TARGET := libft.a
 #LIB_UNIX_TOOLS = $(NOTHING)
 #LIB_UNIX_FILES = $(NOTHING)
 #LIB_BOOLEAN = $(NOTHING)
+#LIB_PATH = $(NOTHING)
 
 LIB_BTREE ?=\
 	ft_btree_ressources.c\
@@ -53,10 +53,6 @@ LIB_LST ?=\
 	f_lstarray.c\
 	f_strljoin.c\
 	f_strsplit_lst.c
-LIB_LIST ?=\
-	ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c ft_lstnew.c \
-	ft_lstpushdata.c\
-	ft_lstadd.c ft_lstcheck.c ft_add_end_list.c 
 LIB_FIFO ?=\
 	f_fifo_add_take.c\
 	f_fifo_ressources.c\
@@ -73,7 +69,9 @@ LIB_STR ?=\
 	ft_string_array_dup.c\
 	ft_str_array_cpy.c\
 	ft_strvajoin.c\
-	last_char_of.c
+	last_char_of.c\
+	ft_strjoin_ifnot.c\
+	ft_substring.c
 LIB_DISPLAY ?=\
 	ft_putchar.c ft_putchar_fd.c ft_putendl.c ft_putendl_fd.c ft_putnbr.c \
 	ft_putnbr_fd.c ft_putstr.c ft_putstr_fd.c\
@@ -84,7 +82,10 @@ LIB_MEM ?=\
 	ft_memalloc.c\
 	ft_memset.c 
 LIB_CONVERT ?=\
-	ft_atoi.c ft_itoa.c ft_tolower.c ft_toupper.c ft_itoa_base.c\
+	ft_atoi.c\
+	ft_itoa.c\
+	ft_tolower.c\
+	ft_toupper.c\
 	ft_itoa_tools.c\
 	ft_wctomb.c\
 	ft_wctomb_internal.c\
@@ -151,11 +152,17 @@ LIB_BOOLEAN ?=\
 	boolean.c\
 	boolean_on_char.c\
 	boolean_on_char_follow.c
-SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_LIST) $(LIB_FIFO)\
+LIB_PATH ?=\
+	path_tools.c\
+	canonical_path.c\
+	canonical_path_internals.c\
+	path_abs_rel.c
+SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_FIFO)\
 	$(LIB_STR) $(LIB_DISPLAY) $(LIB_MEM)\
 	$(LIB_CONVERT) $(LIB_IS_OF) $(LIB_MATH)\
 	$(LIB_MISCELLANEOUS) $(LIB_PRINTF) $(LIB_VARIADIC)\
-	$(LIB_UNIX_TOOLS) $(LIB_UNIX_FILES) $(LIB_BOOLEAN)
+	$(LIB_UNIX_TOOLS) $(LIB_UNIX_FILES) $(LIB_BOOLEAN)\
+	$(LIB_PATH)
 
 # Directories
 

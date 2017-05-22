@@ -13,7 +13,6 @@
 #include "format_string_defs.h"
 #include "conversion_interface.h"
 #include "bool_interface.h"
-#include "libft.h"
 #include <stddef.h>
 
 static t_bool	no_conv_error(const void *conv)

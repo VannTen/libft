@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 11:36:25 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/14 16:56:12 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:28:39 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 /*
 ** Locates the first occurence of c in s, and return a pointer to it.

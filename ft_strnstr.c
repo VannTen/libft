@@ -6,11 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 12:26:45 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/04 15:09:58 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:18:21 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_defs.h"
+#include "bool_interface.h"
+#include <stddef.h>
 
 /*
 ** Same as ft_strstr, except than big is searched for no more than

@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   convert_interface.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/16 10:36:27 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 17:49:31 by mgautier         ###   ########.fr       */
+/*   Created: 2017/05/15 15:22:23 by mgautier          #+#    #+#             */
+/*   Updated: 2017/05/15 15:22:57 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef CONVERT_INTERFACE_H
+# define CONVERT_INTERFACE_H
 
 /*
-** Check if the list and the new node exists
-** If so, give the pointer towards the previously-first node to the newly added
-** and modify the pointer to the list towards that last
+** Conversion functions
+** Implementation files : name of the function
 */
 
-void	ft_lstadd(t_list **alst, t_list *new)
-{
-	if (alst != NULL && new != NULL)
-	{
-		new->next = *alst;
-		*alst = new;
-	}
-}
+char				*ft_itoa(int n);
+int					ft_atoi(const char *str);
+int					ft_strict_atoi(const char *str);
+int					ft_toupper(int c);
+int					ft_tolower(int c);
+
+#endif

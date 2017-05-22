@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 11:07:27 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/17 11:11:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:24:08 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "mem_interface.h"
 
 /*
 ** Cast the memory allocates by ft_memalloc into char.
@@ -23,5 +23,5 @@
 
 char	*ft_strnew(size_t size)
 {
-	return ((char*)ft_memalloc(sizeof(char) * (size + 1)));
+	return (ft_memalloc(sizeof(char) * (size + 1)));
 }

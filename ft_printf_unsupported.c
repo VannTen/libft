@@ -6,13 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/08 17:25:17 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/28 15:07:12 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:33:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_interface.h"
 #include "printf_constants.h"
-#include "libft.h"
+#include "string_interface.h"
 
 static int	len_unsupported(const t_conversion *conv)
 {

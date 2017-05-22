@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_integer.h                                       :+:      :+:    :+:   */
+/*   stdout_interface.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/02 12:27:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/02/02 12:28:40 by mgautier         ###   ########.fr       */
+/*   Created: 2017/05/15 15:10:29 by mgautier          #+#    #+#             */
+/*   Updated: 2017/05/15 15:10:51 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_INTEGER_H
-# define FT_INTEGER_H
-# include <stdint.h>
+#ifndef STDOUT_INTERFACE_H
+# define STDOUT_INTERFACE_H
 
-typedef union	u_integer
-{
-	uintmax_t	positive;
-	intmax_t	negative;
-}				t_integer;
+void	ft_putchar(char c);
+void	ft_putnbr(int n);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 #endif

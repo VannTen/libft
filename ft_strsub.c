@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 12:22:58 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/17 11:04:54 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:22:02 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_defs.h"
+#include <stddef.h>
 
 /*
 ** Create an allocated copy with length of len from s[start].

@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 16:01:49 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 17:50:05 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:31:41 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_interface.h"
+#include <stddef.h>
 
 /*
 ** Positive and negative number are treated separately

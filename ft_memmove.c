@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 10:24:39 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 18:39:09 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:29:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "mem_interface.h"
+#include <stddef.h>
 
 /*
 ** Copy memory from source to dst

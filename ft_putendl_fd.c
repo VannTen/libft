@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 18:10:50 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/10 13:25:45 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 15:53:20 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_defs.h"
+#include <unistd.h>
 
 void	ft_putendl_fd(const char *s, int fd)
 {

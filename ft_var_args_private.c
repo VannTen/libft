@@ -13,7 +13,6 @@
 #include "variadic_args_defs.h"
 #include "conversion_interface.h"
 #include "bool_interface.h"
-#include "libft.h"
 #include <stdlib.h>
 
 static t_bool	is_arg_added(size_t index, t_type type, t_var_arg *variadic)

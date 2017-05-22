@@ -6,14 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 19:02:34 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/28 10:53:24 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:34:26 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_defs.h"
 #include "variadic_args_interface.h"
 #include "itoa_tools.h"
-#include "libft.h"
+#include "string_interface.h"
 
 static int	write_alt_form(char *to_write, const t_conversion *conv)
 {

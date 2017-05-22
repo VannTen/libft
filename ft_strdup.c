@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:45:40 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/04 13:17:32 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 15:47:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_defs.h"
+#include <stdlib.h>
 
 /*
 ** Make an allocated copy of src and return it.
@@ -24,7 +25,7 @@ char	*ft_strdup(const char *src)
 	char	*dest;
 
 	len = ft_strlen(src);
-	dest = (char*)malloc(sizeof(char) * (len + 1));
+	dest = malloc(sizeof(char) * (len + 1));
 	if (dest == 0)
 		return (dest);
 	cursor = 0;
@@ -43,7 +44,7 @@ char	*ft_strndup(const char *src, size_t size)
 	char	*dest;
 
 	len = ft_strnlen(src, size);
-	dest = (char*)malloc(sizeof(char) * (len + 1));
+	dest = malloc(sizeof(char) * (len + 1));
 	if (dest == 0)
 		return (dest);
 	cursor = 0;

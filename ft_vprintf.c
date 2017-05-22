@@ -6,14 +6,15 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 14:51:21 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/28 16:32:01 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 15:59:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "format_string_interface.h"
+#include "string_interface.h"
 #include <stdarg.h>
 #include <limits.h>
-#include "libft.h"
+#include <unistd.h>
 
 int	ft_vasprintf(char **strp, const char *format_string, va_list *ap)
 {

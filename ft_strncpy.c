@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 16:08:35 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/16 16:31:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:16:52 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 /*
 ** Copy up to len characters from src into dst.

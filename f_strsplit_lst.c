@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 13:14:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/04 19:00:25 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 15:45:21 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "lst_interface.h"
+#include <stdlib.h>
 
 /*
 ** The function proceeds with a loop performing the folowing actions :
@@ -29,7 +30,7 @@ static char		*new_split(char const *src, size_t size)
 	char	*split;
 
 	index = 0;
-	split = (char*)malloc(sizeof(char) * (size + 1));
+	split = malloc(sizeof(char) * (size + 1));
 	while (index < size)
 	{
 		split[index] = src[index];

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:38:27 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/04 13:34:33 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/22 14:38:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ t_synopsis	*init_synopsis(const char *simple_opt_syn,
 		const t_apply_opt *simple_opt_apply,
 		const char *param_opt_syn,
 		const t_apply_opt_param *param_opt_apply);
+void		deinit_synopsis(t_synopsis **syn);
 void		add_opt_validator(t_synopsis *syn, t_bool (*is_valid)(int));
-void		add_usage(t_synopsis *syn, void (*usage)(const char*));
+void		add_usage(t_synopsis *syn, void (*usage)(const char*),
+		const char *prog_name);
 #endif

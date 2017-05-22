@@ -1,28 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpushdata.c                                   :+:      :+:    :+:   */
+/*   convert_defs.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/07 15:07:09 by mgautier          #+#    #+#             */
-/*   Updated: 2016/12/07 16:28:40 by mgautier         ###   ########.fr       */
+/*   Created: 2017/05/15 15:21:55 by mgautier          #+#    #+#             */
+/*   Updated: 2017/05/15 15:22:12 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef CONVERT_DEFS_H
+# define CONVERT_DEFS_H
+# include "convert_interface.h"
 
-t_list	*ft_lstpushdata(t_list **list,
-						const void *content, size_t content_size)
-{
-	t_list	*new;
-
-	if (list == NULL)
-		return (NULL);
-	new = ft_lstnew(content, content_size);
-	if (new == NULL)
-		return (NULL);
-	new->next = *list;
-	*list = new;
-	return (new);
-}
+#endif

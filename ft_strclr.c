@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 11:30:35 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/16 19:06:18 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:11:40 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 /*
 ** If s is a valid string, fill it with null characters.

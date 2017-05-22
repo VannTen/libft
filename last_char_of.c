@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 14:31:34 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/10 14:33:37 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:25:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_interface.h"
+#include <stddef.h>
 
 char	last_char_of(const char *str)
 {

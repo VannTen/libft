@@ -14,7 +14,6 @@
 #include "printf_constants.h"
 #include "conversion_interface.h"
 #include "bool_interface.h"
-#include "libft.h"
 #include <stdlib.h>
 
 static void		conv_dtor(void **conversion)

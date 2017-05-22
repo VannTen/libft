@@ -15,7 +15,6 @@
 #include "variadic_args_interface.h"
 #include "printf_constants.h"
 #include "bool_interface.h"
-#include "libft.h"
 #include <stdlib.h>
 
 static t_bool	set_one_flag(const char *conversion_specifier, int index,

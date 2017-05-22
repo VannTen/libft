@@ -14,7 +14,6 @@
 #include "variadic_args_interface.h"
 #include "conv_len_interface.h"
 #include "printf_constants.h"
-#include "libft.h"
 
 int		set_string_length(t_conversion *conv)
 {

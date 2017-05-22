@@ -12,7 +12,6 @@
 
 #include "conversion_defs.h"
 #include "printf_constants.h"
-#include "libft.h"
 
 t_bool		has_alternate_form_hexa(const t_conversion *conv)
 {

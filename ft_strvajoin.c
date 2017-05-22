@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/24 10:55:08 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/04 13:11:31 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:24:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_interface.h"
 #include <stdarg.h>
 #include <stdlib.h>
 

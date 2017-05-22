@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 13:38:47 by mgautier          #+#    #+#             */
-/*   Updated: 2017/01/04 11:59:24 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 15:43:48 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 /*
 ** f_strljoin
@@ -31,7 +31,7 @@ char	*f_strljoin(const char *str_1, const char *str_2,
 
 	index_1 = 0;
 	index_2 = 0;
-	join = (char*)malloc(sizeof(char) * (size_1 + size_2 + 1));
+	join = malloc(sizeof(char) * (size_1 + size_2 + 1));
 	if (join == NULL)
 		return (NULL);
 	while (index_1 < size_1)

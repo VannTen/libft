@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 11:47:03 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/17 10:06:05 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:15:40 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_defs.h"
+#include <stddef.h>
 
 /*
 ** Allocates a new string by applying the fonction f to the string s,

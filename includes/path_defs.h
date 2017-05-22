@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.h                                             :+:      :+:    :+:   */
+/*   path_defs.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/20 18:50:53 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/31 13:28:42 by mgautier         ###   ########.fr       */
+/*   Created: 2017/05/15 11:15:30 by mgautier          #+#    #+#             */
+/*   Updated: 2017/05/15 11:54:01 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_H
-# define LIST_H
-# include <stdlib.h>
+#ifndef PATH_DEFS_H
+# define PATH_DEFS_H
+# include "path_interface.h"
 
-typedef struct		s_list
-{
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
+/*
+** Path canonization internals (as described in cd POSIX manual)
+** Implementation file : canonical_path_internals.c
+*/
+
+void	delete_dot(char *path);
+char	*delete_parent_ref(char *path);
+void	delete_unneeded_slash(char *path);
 
 #endif

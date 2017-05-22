@@ -6,11 +6,11 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 19:09:22 by mgautier          #+#    #+#             */
-/*   Updated: 2016/11/17 10:12:06 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:16:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 /*
 ** Performs a comparaison between two strings, comparing up to n characters.

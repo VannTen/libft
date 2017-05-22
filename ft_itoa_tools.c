@@ -6,11 +6,10 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 16:13:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 13:12:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 15:16:45 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_integer.h"
 #include "bool_interface.h"
 #include "itoa_tools.h"
 #include <stddef.h>
@@ -39,18 +38,6 @@ size_t	itoa_len_unsigned(uintmax_t number, unsigned int base)
 		number = number / base;
 		size++;
 	}
-	return (size);
-}
-
-size_t	itoa_length(t_integer number, int base, t_bool is_signed)
-{
-	size_t	size;
-
-	size = 0;
-	if (is_signed)
-		size = itoa_len_signed(number.negative, base);
-	else
-		size = itoa_len_unsigned(number.positive, base);
 	return (size);
 }
 

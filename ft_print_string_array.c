@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 17:54:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/04 13:16:52 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:28:08 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string_interface.h"
+#include "stdout_interface.h"
 #include <stddef.h>
 
 void	ft_print_string_array(char const *const *str_array, char sep)

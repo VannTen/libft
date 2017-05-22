@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 13:07:32 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/28 12:16:40 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/15 16:34:56 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "variadic_args_interface.h"
 #include "printf_constants.h"
 #include "wide_char_interface.h"
-#include "libft.h"
+#include "string_interface.h"
 #include <wchar.h>
 
 static int	len_s(const t_conversion *conv)
