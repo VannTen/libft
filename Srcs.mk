@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/05/16 14:30:08 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/05/23 17:43:43 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,9 +91,15 @@ LIB_CONVERT ?=\
 	ft_wctomb_internal.c\
 	ft_wcconv_tools.c
 LIB_IS_OF ?=\
-	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c
+	ft_isalnum.c\
+	ft_isalpha.c\
+	ft_isascii.c\
+	ft_isdigit.c\
+	ft_isprint.c\
+	ft_isstring.c
 LIB_MATH ?=\
-	ft_int_square_root.c ft_square_root_round_up.c
+	ft_int_square_root.c\
+	ft_square_root_round_up.c
 LIB_MISCELLANEOUS ?=\
 	do_nothing.c\
 	get_next_line.c
