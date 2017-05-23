@@ -12,7 +12,9 @@
 
 #include "issomething_interface.h"
 
-int		ft_isalnum(int c)
+#include "bool_interface.h"
+
+t_bool		ft_isalnum(int c)
 {
 	return (ft_isalpha(c) + ft_isdigit(c));
 }

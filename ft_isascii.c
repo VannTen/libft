@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isascii(int c)
+#include "bool_interface.h"
+
+t_bool		ft_isascii(int c)
 {
 	if (c < 0 || c > 127)
 		return (0);

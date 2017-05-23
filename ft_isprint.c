@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isprint(int c)
+#include "bool_interface.h"
+
+t_bool		ft_isprint(int c)
 {
 	if (c < ' ' || c > '~')
 		return (0);
