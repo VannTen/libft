@@ -6,11 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 13:14:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 15:45:21 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/24 17:54:41 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst_interface.h"
+#include "fifo_interface.h"
+#include "string_interface.h"
 #include <stdlib.h>
 
 /*
@@ -31,12 +33,15 @@ static char		*new_split(char const *src, size_t size)
 
 	index = 0;
 	split = malloc(sizeof(char) * (size + 1));
-	while (index < size)
+	if (split != NULL)
 	{
-		split[index] = src[index];
-		index++;
+		while (index < size)
+		{
+			split[index] = src[index];
+			index++;
+		}
+		split[size] = '\0';
 	}
-	split[size] = '\0';
 	return (split);
 }
 
@@ -44,24 +49,23 @@ t_lst			*f_strsplit_lst(char const *s, const char c)
 {
 	size_t	index;
 	size_t	index_current;
-	t_lst	*strsplit;
-	t_lst	*last;
+	t_fifo	*strsplit;
+	char	*split;
 
-	strsplit = NULL;
-	last = NULL;
+	strsplit = f_fifo_create();
 	index = 0;
-	while (s != NULL)
+	while (s != NULL && strsplit != NULL)
 	{
 		index_current = index;
 		while (s[index] != c && s[index] != '\0')
 			index++;
-		last = f_add_end_lst(last,
-				new_split(s + index_current, index - index_current));
-		if (strsplit == NULL)
-			strsplit = last;
+		split =	new_split(s + index_current, index - index_current);
+		if (split == NULL)
+			f_fifo_destroy(&strsplit, ft_gen_strdel);
+		f_fifo_add(strsplit, split);
 		if (s[index] == '\0')
 			break ;
 		index++;
 	}
-	return (strsplit);
+	return (f_fifo_extract(&strsplit));
 }
