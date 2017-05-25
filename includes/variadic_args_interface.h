@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:34:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/31 15:11:25 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/25 15:20:02 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_var_arg	t_var_arg;
 */
 
 t_var_arg		*ft_arg_list_ctor(size_t arg_nbr);
-void			ft_arg_list_dtor(t_var_arg *array, size_t size);
+void			ft_arg_list_dtor(t_var_arg **array, size_t size);
 void			ft_fill_args_array(t_var_arg *arg_list, va_list *var_args,
 		size_t size);
 

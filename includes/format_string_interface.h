@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:10:08 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/24 18:08:57 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/25 15:15:11 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void			ft_set_remaining_length(t_format_string *fmt, int length);
 */
 
 void			ft_attributes_var_args(t_format_string *fmt);
-void			ft_get_var_args(t_format_string *fmt, va_list *var_arg_list);
+int				ft_get_var_args(t_format_string *fmt, va_list *var_arg_list);
 
 /*
 ** Counting arg index on parsing
