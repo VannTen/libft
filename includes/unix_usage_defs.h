@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:42:18 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/26 14:49:26 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/26 17:32:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define OPTION_CHARACTER '-'
 # define INVALID_OPTION -1
 
-struct	s_synopsis
+struct				s_synopsis
 {
 	const char				*prog_name;
 	const char				*options_char;
@@ -28,7 +28,7 @@ struct	s_synopsis
 	void					(*usage)(const char*);
 };
 
-enum	e_opt_return
+enum				e_opt_return
 {
 	NO_OPTION,
 	REQ_ARG,
@@ -43,12 +43,10 @@ enum	e_opt_return
 ** Implementation file : ft_unix_usage_param_opt.c
 */
 
-
 enum e_opt_return	apply_arg_opt(const size_t opt_char_index,
 		const char **argv,
 		const t_synopsis *syn,
 		void *params);
-
 enum e_opt_return	apply_no_arg_opt(const char opt_char,
 		const t_synopsis *syn,
 		void *params);
@@ -58,8 +56,9 @@ enum e_opt_return	apply_no_arg_opt(const char opt_char,
 ** Implementation file : unix_usage_error.c
 */
 
-void	print_option_error(const char *prog_name, const char option,
+void				print_option_error(const char *prog_name,
+		const char option,
 		enum e_opt_return error);
-t_bool	option_had_trouble(enum e_opt_return error);
+t_bool				option_had_trouble(enum e_opt_return error);
 
 #endif

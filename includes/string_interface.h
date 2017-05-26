@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:39:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/16 13:21:00 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/26 17:25:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ size_t	ft_strnlen(const char *str, size_t size);
 size_t	ft_strlen_gen(const char *str, char end_of_line);
 size_t	ft_strnlen_gen(const char *str, size_t size,
 		char end_of_line);
-
 
 /*
 ** Copy, concat, dup
