@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 10:10:08 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 16:46:35 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/25 15:15:11 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void			ft_set_remaining_length(t_format_string *fmt, int length);
 */
 
 void			ft_attributes_var_args(t_format_string *fmt);
-void			ft_get_var_args(t_format_string *fmt, va_list *var_arg_list);
+int				ft_get_var_args(t_format_string *fmt, va_list *var_arg_list);
 
 /*
 ** Counting arg index on parsing
@@ -56,7 +56,7 @@ t_bool			ft_format_string_is_valid(const t_format_string *fmt);
 t_format_string	*ft_format_string_parser(const char *string);
 t_bool			f_add_conv_to_fmt(t_format_string *fmt, t_conversion *conv);
 t_format_string	*fmt_ctor(void);
-void			fmt_destroy(t_format_string *to_destroy);
+void			fmt_destroy(t_format_string **to_destroy);
 
 /*
 ** Functions accessing but not modifing the object

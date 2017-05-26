@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 13:40:43 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/20 13:52:01 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/25 15:16:10 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void		normalize(void *conv)
 	ft_normalize_args((t_conversion*)conv);
 }
 
-void			ft_get_var_args(t_format_string *fmt, va_list *var_arg_list)
+int				ft_get_var_args(t_format_string *fmt, va_list *var_arg_list)
 {
 	size_t	arg_nbr;
 
@@ -34,11 +34,11 @@ void			ft_get_var_args(t_format_string *fmt, va_list *var_arg_list)
 	fmt->arg_list = ft_arg_list_ctor(arg_nbr);
 	f_fifoiter(fmt->conversion_list, &normalize);
 	fmt->arg_count = arg_nbr;
-	if (fmt->arg_list != NULL)
-	{
-		ft_set_types(fmt->arg_list, fmt->conversion_list, arg_nbr);
-		ft_fill_args_array(fmt->arg_list, var_arg_list, arg_nbr);
-	}
+	if (fmt->arg_list == NULL)
+		return (-1);
+	ft_set_types(fmt->arg_list, fmt->conversion_list, arg_nbr);
+	ft_fill_args_array(fmt->arg_list, var_arg_list, arg_nbr);
+	return (arg_nbr);
 }
 
 static void		conv_attribute_arg(void *conv, void *array)

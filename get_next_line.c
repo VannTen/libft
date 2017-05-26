@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 10:36:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 15:58:45 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/25 12:25:07 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,16 +118,16 @@ int				get_next_line(const int fd, char **line)
 	if (file_cache == NULL)
 	{
 		file_cache = (t_file_cache*)malloc(sizeof(t_file_cache));
+		if (file_cache == NULL)
+			return (READ_ERROR);
 		file_cache->fd = fd;
 		file_cache->lines = NULL;
 		file_cache->is_over = FALSE;
-	}
-	if (file_cache == NULL)
-		return (READ_ERROR);
-	if (f_lstpush(file_cache, &search_list) == NULL)
-	{
-		cache_dtor((void**)&file_cache);
-		return (READ_ERROR);
+		if (f_lstpush(file_cache, &search_list) == NULL)
+		{
+			cache_dtor((void**)&file_cache);
+			return (READ_ERROR);
+		}
 	}
 	reading_result = ft_read_cache(file_cache, line);
 	if (reading_result == FILE_IS_OVER)

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 11:30:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/31 15:19:30 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/25 15:19:47 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,27 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-void			ft_arg_list_dtor(t_var_arg *array, size_t size)
+void		ft_arg_list_dtor(t_var_arg **array_, size_t size)
 {
-	size_t	index;
+	size_t		index;
+	t_var_arg	*array;
 
-	index = 0;
-	while (index < size)
+	array = *array_;
+	if (array != NULL)
 	{
-		array[index].parameter.t_intmax_t = 0;
-		array[index].type = UNKNOWN_TYPE;
-		index++;
+		index = 0;
+		while (index < size)
+		{
+			array[index].parameter.t_intmax_t = 0;
+			array[index].type = UNKNOWN_TYPE;
+			index++;
+		}
+		free(array);
+		*array_ = NULL;
 	}
-	free(array);
 }
 
-t_var_arg		*ft_arg_list_ctor(size_t arg_nbr)
+t_var_arg	*ft_arg_list_ctor(size_t arg_nbr)
 {
 	t_var_arg	*arg_array;
 	size_t		index;
@@ -47,7 +53,7 @@ t_var_arg		*ft_arg_list_ctor(size_t arg_nbr)
 	return (arg_array);
 }
 
-void			ft_fill_args_array(t_var_arg *arg_list, va_list *var_args,
+void		ft_fill_args_array(t_var_arg *arg_list, va_list *var_args,
 		size_t size)
 {
 	size_t					index;
