@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:42:18 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/26 14:00:09 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/26 14:49:26 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ enum	e_opt_return
 ** Implementation file : ft_unix_usage_param_opt.c
 */
 
-int		apply_arg_opt(
-		const size_t opt_char_index,
+
+enum e_opt_return	apply_arg_opt(const size_t opt_char_index,
 		const char **argv,
 		const t_synopsis *syn,
 		void *params);
-int		apply_no_arg_opt(
-		const char opt_char,
+
+enum e_opt_return	apply_no_arg_opt(const char opt_char,
 		const t_synopsis *syn,
 		void *params);
 

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:48:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/26 14:05:40 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/26 14:52:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 #include "string_interface.h"
 #include <stddef.h>
 
-static int	apply_one_opt(size_t opt_char_index, const char **argv,
-		const t_synopsis *synopsis, void *params)
+static enum e_opt_return	apply_one_opt(size_t opt_char_index,
+		const char **argv, const t_synopsis *synopsis, void *params)
 {
 	const char			opt_char = argv[0][opt_char_index];
-	int					opt_return_status;
+	enum e_opt_return	opt_return_status;
 
 	opt_return_status = apply_no_arg_opt(opt_char, synopsis, params);
 	if (opt_return_status == NO_OPTION)
@@ -42,7 +42,7 @@ size_t		treat_one_cmdline_arg_opt(const t_synopsis *syn,
 		index++;
 	}
 	if (option_had_trouble(option_return))
-		print_option_error(syn->prog_name, argv[0][index], option_return);
+		print_option_error(syn->prog_name, argv[0][index - 1], option_return);
 	return (option_return);
 }
 

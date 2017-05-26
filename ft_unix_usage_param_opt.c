@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 16:43:52 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/26 14:39:05 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/26 14:48:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static t_apply_opt_param	select_param_opt(
 		return (NULL);
 }
 
-int							apply_arg_opt(
+enum e_opt_return			apply_arg_opt(
 		const size_t opt_char_index,
 		const char **argv,
 		const t_synopsis *syn,
@@ -76,7 +76,7 @@ int							apply_arg_opt(
 	return (NO_OPTION);
 }
 
-int							apply_no_arg_opt(
+enum e_opt_return			apply_no_arg_opt(
 		const char opt_char,
 		const t_synopsis *syn,
 		void *params)
