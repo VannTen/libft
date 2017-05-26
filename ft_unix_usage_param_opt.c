@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 16:43:52 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/26 12:30:01 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/26 14:39:05 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int							apply_arg_opt(
 		const t_synopsis *syn,
 		void *params)
 {
-	t_bool				arg_opt_is_same_argv;
+	enum e_opt_return	opt_ret;
 	t_apply_opt_param	apply_opt;
 	const char			*arg;
 
@@ -60,22 +60,20 @@ int							apply_arg_opt(
 		apply_opt = select_param_opt(argv[0][opt_char_index], syn);
 		if (apply_opt != NULL)
 		{
-			arg_opt_is_same_argv = argv[0][opt_char_index + 1] != '\0';
-			if (arg_opt_is_same_argv)
+			if (argv[0][opt_char_index + 1] != '\0')
 				arg = argv[0] + opt_char_index + 1;
 			else
-				arg = argv[1];
-			if (arg == NULL)
 			{
-				print_option_error(syn->prog_name,
-						argv[0][opt_char_index], REQ_ARG);
-				return (INVALID);
+				arg = argv[1];
+				if (arg == NULL)
+					return (REQ_ARG);
 			}
-			if (syn->is_valid(apply_opt(params, arg)))
-				return (arg_opt_is_same_argv ? NEXT_CONSUMED : CURRENT_CONSUMED);
+			opt_ret = arg == argv[1] ? NEXT_CONSUMED : CURRENT_CONSUMED;
+			return (syn->is_valid(apply_opt(params, arg)) ?
+					opt_ret : OPT_INTERN_ERROR);
 		}
 	}
-	return (INVALID);
+	return (NO_OPTION);
 }
 
 int							apply_no_arg_opt(
@@ -91,5 +89,5 @@ int							apply_no_arg_opt(
 		if (apply_opt != NULL && syn->is_valid(apply_opt(params)))
 			return (NOTHING_CONSUMED);
 	}
-	return (INVALID);
+	return (NO_OPTION);
 }

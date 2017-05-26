@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:42:18 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/26 12:30:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/26 14:00:09 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,12 @@ struct	s_synopsis
 
 enum	e_opt_return
 {
-	INVALID,
+	NO_OPTION,
+	REQ_ARG,
+	OPT_INTERN_ERROR,
 	NOTHING_CONSUMED,
 	CURRENT_CONSUMED,
 	NEXT_CONSUMED
-};
-
-enum	e_error_code
-{
-	ILLEGAL_OPTION,
-	REQ_ARG,
 };
 
 /*
@@ -63,6 +59,7 @@ int		apply_no_arg_opt(
 */
 
 void	print_option_error(const char *prog_name, const char option,
-		enum e_error_code error);
+		enum e_opt_return error);
+t_bool	option_had_trouble(enum e_opt_return error);
 
 #endif
