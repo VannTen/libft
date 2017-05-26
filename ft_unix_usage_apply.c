@@ -6,21 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:48:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 16:35:13 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/26 12:30:03 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unix_usage_defs.h"
-#include "printf.h"
 #include "bool_interface.h"
 #include "string_interface.h"
-#include <unistd.h>
 #include <stddef.h>
-
-static void	print_invalid_option(const char *prog_name, const char option)
-{
-	ft_dprintf(STDERR_FILENO, "%s: illegal option -- %c\n", prog_name, option);
-}
 
 static int	apply_one_opt(size_t opt_char_index, const char **argv,
 		const t_synopsis *synopsis, void *params)
@@ -49,7 +42,7 @@ size_t		treat_one_cmdline_arg_opt(const t_synopsis *syn,
 		index++;
 	}
 	if (option_return == INVALID)
-		print_invalid_option(syn->prog_name, argv[0][index]);
+		print_option_error(syn->prog_name, argv[0][index], ILLEGAL_OPTION);
 	return (option_return);
 }
 

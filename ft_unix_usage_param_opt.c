@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 16:43:52 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/19 11:54:22 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/26 12:30:01 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,17 @@ int							apply_arg_opt(
 		apply_opt = select_param_opt(argv[0][opt_char_index], syn);
 		if (apply_opt != NULL)
 		{
-			arg_opt_is_same_argv = argv[0][opt_char_index + 1] == '\0';
+			arg_opt_is_same_argv = argv[0][opt_char_index + 1] != '\0';
 			if (arg_opt_is_same_argv)
-				arg = argv[1];
-			else
 				arg = argv[0] + opt_char_index + 1;
+			else
+				arg = argv[1];
+			if (arg == NULL)
+			{
+				print_option_error(syn->prog_name,
+						argv[0][opt_char_index], REQ_ARG);
+				return (INVALID);
+			}
 			if (syn->is_valid(apply_opt(params, arg)))
 				return (arg_opt_is_same_argv ? NEXT_CONSUMED : CURRENT_CONSUMED);
 		}

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:42:18 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/04 13:45:01 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/26 12:30:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ enum	e_opt_return
 	NEXT_CONSUMED
 };
 
+enum	e_error_code
+{
+	ILLEGAL_OPTION,
+	REQ_ARG,
+};
+
 /*
 ** Internal functions
 ** Implementation file : ft_unix_usage_param_opt.c
@@ -50,5 +56,13 @@ int		apply_no_arg_opt(
 		const char opt_char,
 		const t_synopsis *syn,
 		void *params);
+
+/*
+** Internal error function
+** Implementation file : unix_usage_error.c
+*/
+
+void	print_option_error(const char *prog_name, const char option,
+		enum e_error_code error);
 
 #endif
