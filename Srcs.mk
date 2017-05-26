@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/05/23 17:43:43 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/05/26 12:29:59 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -151,7 +151,8 @@ LIB_VARIADIC ?=\
 LIB_UNIX_TOOLS ?=\
 	ft_unix_usage.c\
 	ft_unix_usage_apply.c\
-	ft_unix_usage_param_opt.c
+	ft_unix_usage_param_opt.c\
+	unix_usage_error.c
 LIB_UNIX_FILES ?=\
 	is_file.c
 LIB_BOOLEAN ?=\

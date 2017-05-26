@@ -6,30 +6,23 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:48:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 16:35:13 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/26 14:52:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unix_usage_defs.h"
-#include "printf.h"
 #include "bool_interface.h"
 #include "string_interface.h"
-#include <unistd.h>
 #include <stddef.h>
 
-static void	print_invalid_option(const char *prog_name, const char option)
-{
-	ft_dprintf(STDERR_FILENO, "%s: illegal option -- %c\n", prog_name, option);
-}
-
-static int	apply_one_opt(size_t opt_char_index, const char **argv,
-		const t_synopsis *synopsis, void *params)
+static enum e_opt_return	apply_one_opt(size_t opt_char_index,
+		const char **argv, const t_synopsis *synopsis, void *params)
 {
 	const char			opt_char = argv[0][opt_char_index];
-	int					opt_return_status;
+	enum e_opt_return	opt_return_status;
 
 	opt_return_status = apply_no_arg_opt(opt_char, synopsis, params);
-	if (opt_return_status == INVALID)
+	if (opt_return_status == NO_OPTION)
 		opt_return_status =
 			apply_arg_opt(opt_char_index, argv, synopsis, params);
 	return (opt_return_status);
@@ -38,8 +31,8 @@ static int	apply_one_opt(size_t opt_char_index, const char **argv,
 size_t		treat_one_cmdline_arg_opt(const t_synopsis *syn,
 		const char **argv, void *param)
 {
-	size_t	index;
-	int		option_return;
+	size_t				index;
+	enum e_opt_return	option_return;
 
 	index = 1;
 	option_return = NOTHING_CONSUMED;
@@ -48,8 +41,8 @@ size_t		treat_one_cmdline_arg_opt(const t_synopsis *syn,
 		option_return = apply_one_opt(index, argv, syn, param);
 		index++;
 	}
-	if (option_return == INVALID)
-		print_invalid_option(syn->prog_name, argv[0][index]);
+	if (option_had_trouble(option_return))
+		print_option_error(syn->prog_name, argv[0][index - 1], option_return);
 	return (option_return);
 }
 
@@ -70,12 +63,12 @@ int			apply_cmdline_opt(const t_synopsis *synopsis, const char **argv,
 		opt_ret =
 			treat_one_cmdline_arg_opt(synopsis, argv + opt_arg_nbr, params);
 		opt_arg_nbr++;
-		if (opt_ret == INVALID)
+		if (option_had_trouble(opt_ret))
 		{
 			synopsis->usage(synopsis->prog_name);
 			return (USAGE_ERROR);
 		}
-		if (opt_ret == NEXT_CONSUMED)
+		else if (opt_ret == NEXT_CONSUMED)
 			opt_arg_nbr++;
 	}
 	return (opt_arg_nbr);

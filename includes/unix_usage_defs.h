@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:42:18 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/04 13:45:01 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/26 14:49:26 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ struct	s_synopsis
 
 enum	e_opt_return
 {
-	INVALID,
+	NO_OPTION,
+	REQ_ARG,
+	OPT_INTERN_ERROR,
 	NOTHING_CONSUMED,
 	CURRENT_CONSUMED,
 	NEXT_CONSUMED
@@ -41,14 +43,23 @@ enum	e_opt_return
 ** Implementation file : ft_unix_usage_param_opt.c
 */
 
-int		apply_arg_opt(
-		const size_t opt_char_index,
+
+enum e_opt_return	apply_arg_opt(const size_t opt_char_index,
 		const char **argv,
 		const t_synopsis *syn,
 		void *params);
-int		apply_no_arg_opt(
-		const char opt_char,
+
+enum e_opt_return	apply_no_arg_opt(const char opt_char,
 		const t_synopsis *syn,
 		void *params);
+
+/*
+** Internal error function
+** Implementation file : unix_usage_error.c
+*/
+
+void	print_option_error(const char *prog_name, const char option,
+		enum e_opt_return error);
+t_bool	option_had_trouble(enum e_opt_return error);
 
 #endif
