@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:48:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/26 14:52:31 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/26 17:06:06 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static enum e_opt_return	apply_one_opt(size_t opt_char_index,
 	return (opt_return_status);
 }
 
-size_t		treat_one_cmdline_arg_opt(const t_synopsis *syn,
+static size_t				treat_one_cmdline_arg_opt(const t_synopsis *syn,
 		const char **argv, void *param)
 {
 	size_t				index;
@@ -46,8 +46,8 @@ size_t		treat_one_cmdline_arg_opt(const t_synopsis *syn,
 	return (option_return);
 }
 
-int			apply_cmdline_opt(const t_synopsis *synopsis, const char **argv,
-		void *params)
+int							apply_cmdline_opt(const t_synopsis *synopsis,
+		const char **argv, void *params)
 {
 	int					opt_arg_nbr;
 	enum e_opt_return	opt_ret;

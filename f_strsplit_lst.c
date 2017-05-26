@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 13:14:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/24 17:54:41 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/26 16:44:34 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_lst			*f_strsplit_lst(char const *s, const char c)
 		index_current = index;
 		while (s[index] != c && s[index] != '\0')
 			index++;
-		split =	new_split(s + index_current, index - index_current);
+		split = new_split(s + index_current, index - index_current);
 		if (split == NULL)
 			f_fifo_destroy(&strsplit, ft_gen_strdel);
 		f_fifo_add(strsplit, split);

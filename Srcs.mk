@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/05/26 12:29:59 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/05/26 17:17:10 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,8 @@ LIB_CONVERT ?=\
 	ft_toupper.c\
 	ft_itoa_tools.c\
 	ft_wctomb.c\
-	ft_wctomb_internal.c\
+	$(if $(findstring Linux, $(SYSTEM)), ft_wctomb_internal_linux.c,\
+	ft_wctomb_internal.c)\
 	ft_wcconv_tools.c
 LIB_IS_OF ?=\
 	ft_isalnum.c\

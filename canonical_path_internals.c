@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 11:54:59 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 16:35:38 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/26 16:43:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "bool_interface.h"
 #include "string_interface.h"
 
-t_bool	valid_path_component(char *path, size_t	index)
+t_bool	valid_path_component(char *path, size_t index)
 {
 	t_bool	path_is_valid;
 
@@ -70,8 +70,8 @@ char	*delete_parent_ref(char *path)
 			{
 				if (valid_path_component(path, index - 1))
 				{
-					ft_strcpy(path + index_previous,
-							path + index + advance_nbr_path_comp(path + index, 1));
+					ft_strcpy(path + index_previous, path + index +
+							advance_nbr_path_comp(path + index, 1));
 					index = index_previous;
 					continue ;
 				}

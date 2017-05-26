@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wctomb_internal.c                               :+:      :+:    :+:   */
+/*   ft_wctomb_internal_linux.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/24 11:52:23 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/26 17:18:12 by mgautier         ###   ########.fr       */
+/*   Created: 2017/05/26 17:11:36 by mgautier          #+#    #+#             */
+/*   Updated: 2017/05/26 17:18:14 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	ft_wctomb_len(wchar_t wchar)
 {
 	int				size_of_mb_seq;
-	int				cmp;
+	unsigned int	cmp;
 
 	if (wchar < 0 || (wchar >= 0xD800 && wchar <= 0xDFFF))
 		size_of_mb_seq = INVALID_SIZE;
@@ -39,8 +39,8 @@ int	ft_wctomb_len(wchar_t wchar)
 
 int	ft_wctomb_write(char *dst, wchar_t wchar, int size_mb_seq)
 {
-	int				index;
-	int				cmp;
+	unsigned int	index;
+	unsigned int	cmp;
 	int				shift;
 
 	cmp = size_mb_seq;

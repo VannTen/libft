@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 15:10:16 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 16:35:22 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/26 16:42:38 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static t_char_tester	select_test(const char *test)
 {
 	const char			*test_notation[] = {
 		"==", "!=", "<", ">", "<=", ">=", NULL};
-	const t_char_tester tests[] = {
+	const t_char_tester	tests[] = {
 		equal_char, diff_char,
 		lower_char, greater_char, lower_equal_char, greater_equal_char};
-	size_t		index;
+	size_t				index;
 
 	index = 0;
 	while (test_notation[index] != NULL)
@@ -33,7 +33,7 @@ static t_char_tester	select_test(const char *test)
 	return (NULL);
 }
 
-t_bool	string_test(char to_test, const char *to_test_against,
+t_bool					string_test(char to_test, const char *to_test_against,
 		const char *test_str)
 {
 	t_char_tester	test;
