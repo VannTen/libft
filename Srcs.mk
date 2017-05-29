@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/05/26 17:17:10 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/05/29 11:14:03 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ TARGET := libft.a
 #LIB_LST = $(NOTHING)
 #LIB_FIFO = $(NOTHING)
 #LIB_STR = $(NOTHING)
+#LIB_STR_ARR = $(NOTHING)
 #LIB_DISPLAY = $(NOTHING)
 #LIB_MEM = $(NOTHING)
 #LIB_CONVERT = $(NOTHING)
@@ -65,17 +66,21 @@ LIB_STR ?=\
 	ft_strmap.c ft_strmapi.c\
 	ft_strncat.c ft_strncmp.c ft_strncpy.c ft_strnequ.c ft_strnstr.c \
 	ft_strrchr.c ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtrim.c\
-	ft_gen_strdel.c ft_strnew_char.c ft_strnew.c ft_free_string_array.c\
-	ft_string_array_dup.c\
-	ft_str_array_cpy.c\
+	ft_gen_strdel.c ft_strnew_char.c ft_strnew.c\
 	ft_strvajoin.c\
 	last_char_of.c\
 	ft_strjoin_ifnot.c\
 	ft_substring.c
+LIB_STR_ARR ?=\
+	ft_string_array_dup.c\
+	ft_string_array_count.c\
+	ft_str_array_cpy.c\
+	ft_free_string_array.c\
+	ft_print_string_array.c
 LIB_DISPLAY ?=\
 	ft_putchar.c ft_putchar_fd.c ft_putendl.c ft_putendl_fd.c ft_putnbr.c \
-	ft_putnbr_fd.c ft_putstr.c ft_putstr_fd.c\
-	ft_print_string_array.c
+	ft_putnbr_fd.c ft_putstr.c\
+	ft_putstr_fd.c
 LIB_MEM ?=\
 	ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memdel.c ft_memmove.c \
 	ft_bzero.c\
@@ -166,7 +171,9 @@ LIB_PATH ?=\
 	canonical_path_internals.c\
 	path_abs_rel.c
 SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_FIFO)\
-	$(LIB_STR) $(LIB_DISPLAY) $(LIB_MEM)\
+	$(LIB_STR)\
+	$(LIB_STR_ARR)\
+	$(LIB_DISPLAY) $(LIB_MEM)\
 	$(LIB_CONVERT) $(LIB_IS_OF) $(LIB_MATH)\
 	$(LIB_MISCELLANEOUS) $(LIB_PRINTF) $(LIB_VARIADIC)\
 	$(LIB_UNIX_TOOLS) $(LIB_UNIX_FILES) $(LIB_BOOLEAN)\

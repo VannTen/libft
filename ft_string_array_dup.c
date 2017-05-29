@@ -6,23 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 20:16:50 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 15:49:48 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/29 11:08:51 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "string_array_defs.h"
 #include "string_interface.h"
 #include <stdlib.h>
-
-size_t		ft_string_array_count(const char **string_array)
-{
-	size_t	index;
-
-	index = 0;
-	while (string_array[index] != NULL)
-		index++;
-	return (index);
-}
 
 static char	**content_copy(const char **src, char **dst, const size_t size)
 {
