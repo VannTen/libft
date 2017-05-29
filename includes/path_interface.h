@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 11:13:58 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/19 18:47:01 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/29 13:28:45 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ size_t		advance_nbr_path_comp(const char *path, size_t nbr);
 ** Joining path elements
 ** Implementation file : path_tools_2.c
 */
+
+/*
+** Getting path components
+** Implementation file : get_path_element.c
+*/
+
+const char	*get_file_part(const char *full_path);
 
 /*
 ** Path canonicalization, as described in cd POSIX manual
