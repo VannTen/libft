@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 11:13:58 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/29 13:28:45 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/29 17:22:36 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ size_t		advance_nbr_path_comp(const char *path, size_t nbr);
 
 /*
 ** Joining path elements
-** Implementation file : path_tools_2.c
+** Implementation file : path_join.c
 */
+
+void		get_add_path_before(char **dir, const char *path_to_add);
 
 /*
 ** Getting path components

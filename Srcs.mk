@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/05/29 13:20:33 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/05/29 17:22:55 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -170,7 +170,8 @@ LIB_PATH ?=\
 	canonical_path.c\
 	canonical_path_internals.c\
 	path_abs_rel.c\
-	get_path_element.c
+	get_path_element.c\
+	path_join.c
 SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_FIFO)\
 	$(LIB_STR)\
 	$(LIB_STR_ARR)\
