@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:59:49 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/26 17:24:33 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/31 14:30:25 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 */
 
 char	**ft_free_string_array(char ***tab);
-char	**ft_string_array_dup(const char **string_array);
+char	**ft_string_array_dup(char const *const *string_array);
 char	**ft_str_array_cpy(char *const *src, char **dst);
-size_t	ft_string_array_count(const char **string_array);
+size_t	ft_string_array_count(char const *const *string_array);
 
 /*
 ** Display functions

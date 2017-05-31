@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:42:18 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/26 17:32:31 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/31 14:32:47 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ enum				e_opt_return
 */
 
 enum e_opt_return	apply_arg_opt(const size_t opt_char_index,
-		const char **argv,
+		char const *const *argv,
 		const t_synopsis *syn,
 		void *params);
 enum e_opt_return	apply_no_arg_opt(const char opt_char,

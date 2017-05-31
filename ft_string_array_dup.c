@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 20:16:50 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/29 11:08:51 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/31 14:36:05 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "string_interface.h"
 #include <stdlib.h>
 
-static char	**content_copy(const char **src, char **dst, const size_t size)
+static char	**content_copy(char const *const *src, char **dst, size_t size)
 {
 	size_t	index;
 
@@ -33,7 +33,7 @@ static char	**content_copy(const char **src, char **dst, const size_t size)
 	return (dst);
 }
 
-char		**ft_string_array_dup(const char **string_array)
+char		**ft_string_array_dup(char const *const *string_array)
 {
 	char	**dup;
 	size_t	size;

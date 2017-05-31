@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:38:27 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/22 14:38:33 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/31 14:25:47 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ typedef int		(*t_apply_opt_param)(void *parameters, const char *arg);
 ** Implementation file : ft_unix_usage.c
 */
 
-int			apply_cmdline_opt(const t_synopsis *synopsis, const char **argv,
-		void *params);
+int			apply_cmdline_opt(const t_synopsis *synopsis,
+		char const *const *argv, void *params);
 
 /*
 ** Synopsis initialization

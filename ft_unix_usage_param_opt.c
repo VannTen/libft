@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 16:43:52 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/26 14:48:04 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/05/31 14:32:36 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static t_apply_opt_param	select_param_opt(
 
 enum e_opt_return			apply_arg_opt(
 		const size_t opt_char_index,
-		const char **argv,
+		char const *const *argv,
 		const t_synopsis *syn,
 		void *params)
 {
