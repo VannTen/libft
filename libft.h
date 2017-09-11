@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/26 12:16:50 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/09/11 15:31:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** It should be only included by source using the libft, and not by the files
 ** of the lib itself, which should directly include the interface they need.
 ** This allows a centralized interface for linkage against the lib, while still
-** allowing the lib to not reompile fully every time its interface change
+** allowing the lib to not recompile fully every time its interface change
 */
 # include "includes/btree_interface.h"
 # include "includes/fifo_interface.h"
