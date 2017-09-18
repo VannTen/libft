@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/17 16:16:36 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/09/18 16:50:38 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "custom_stddef.h"
 # include "bool_interface.h"
 # include <stddef.h>
+# include <stdarg.h>
 
 typedef struct s_lst	t_lst;
 
@@ -37,6 +38,17 @@ t_lst				*f_lstpush(void const *content, t_lst **list);
 void				*f_lstpop(t_lst **list);
 t_bool				f_lstremoveif_one(t_lst **lst, int ref,
 					int (*match)(const void *elem), t_destroy del);
+
+/*
+** Variadic function on list
+** Those are intend to be used with function that take a void * + an arbitrary
+** number of arguments, but there is no check if the argument list is correct.
+** Implementation file : f_lst_variadic.c
+*/
+
+void				f_lstremoveif_va(t_lst **lst,
+		t_bool (*match)(const void *elem, va_list),
+		t_destroy content_dtor, ...);
 
 /*
 ** List iterations

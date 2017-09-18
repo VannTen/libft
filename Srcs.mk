@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/05/29 17:22:55 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/09/18 16:49:05 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ LIB_LST ?=\
 	f_lstmap.c\
 	f_lst_get_elem.c\
 	f_lst_insert_remove.c\
+	f_lst_variadic.c\
 	f_lstiter.c\
 	f_lst_count.c\
 	f_lstarray.c\

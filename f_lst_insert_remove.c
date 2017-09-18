@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:41:09 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/17 16:16:11 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/09/18 16:43:44 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	*f_lstpop(t_lst **first_link)
 }
 
 t_bool	f_lstremoveif_one(t_lst **lst, int ref, int (*match)(const void *elem),
-							t_destroy content_dtor)
+		t_destroy content_dtor)
 {
 	t_lst	*to_del;
 	t_lst	*loc_lst;
