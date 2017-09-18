@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:39:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/26 17:25:04 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/09/18 14:08:30 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,14 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 /*
 ** Compare
-** Implementation files : name of the function
+** Implementation files : name of the function (except for ft_strequ_short,
+** same as ft_strequ).
 */
 
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 t_bool	ft_strequ(char const *s1, char const *s2);
+t_bool	ft_strequ_short(char const *s1, char const *s2);
 t_bool	ft_strnequ(char const *s1, char const *s2, size_t n);
 
 /*
