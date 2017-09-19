@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/09/18 16:49:05 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/09/19 11:41:13 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,7 +109,8 @@ LIB_MATH ?=\
 	ft_square_root_round_up.c
 LIB_MISCELLANEOUS ?=\
 	do_nothing.c\
-	get_next_line.c
+	get_next_line.c\
+	misc_error.c
 LIB_PRINTF ?=\
 	ft_printf.c\
 	ft_vprintf.c\
