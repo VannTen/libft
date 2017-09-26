@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/09/11 15:31:32 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/09/26 18:03:54 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 ** This allows a centralized interface for linkage against the lib, while still
 ** allowing the lib to not recompile fully every time its interface change
 */
+
+# include "includes/useful_macros.h"
 # include "includes/btree_interface.h"
 # include "includes/fifo_interface.h"
 # include "includes/lst_interface.h"
