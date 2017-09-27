@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/09/19 11:41:13 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/09/27 18:33:51 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,7 +110,8 @@ LIB_MATH ?=\
 LIB_MISCELLANEOUS ?=\
 	do_nothing.c\
 	get_next_line.c\
-	misc_error.c
+	misc_error.c\
+	quote_correctness.c
 LIB_PRINTF ?=\
 	ft_printf.c\
 	ft_vprintf.c\

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/09/26 18:03:54 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/09/27 18:32:23 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,5 @@
 # include "includes/issomething_interface.h"
 # include "includes/misc_interface.h"
 # include "includes/math_interface.h"
+# include "includes/quote_interface.h"
 #endif
