@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 18:30:14 by mgautier          #+#    #+#             */
-/*   Updated: 2017/09/27 19:03:52 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/09/28 10:26:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 ** call return_result with the boolean array as its argument, which will return
 ** the index of the incomplete pair or the size of the string if the string is
 ** correctly quoted.
+** -1 is returned if an error occured.
 */
 
 int		state_of_quote(char const *str, char const *quote_chars);
