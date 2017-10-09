@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:59:49 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/09 12:12:00 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/09 18:37:07 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ size_t	ft_string_array_count(char const *const *string_array);
 */
 
 void	ft_print_string_array(char const *const *str_array, char sep);
+void	ft_print_string_array_fd(int fd,
+		char const *const *str_array, char sep);
 
 #endif

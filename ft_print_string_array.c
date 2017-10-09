@@ -6,15 +6,23 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 17:54:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/31 12:03:13 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/09 18:40:14 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "string_array_defs.h"
 #include "string_interface.h"
 #include "stdout_interface.h"
+#include <unistd.h>
 #include <stddef.h>
 
 void	ft_print_string_array(char const *const *str_array, char sep)
+{
+	ft_print_string_array_fd(STDOUT_FILENO, str_array, sep);
+}
+
+void	ft_print_string_array_fd(int const fd,
+		char const *const *str_array, char sep)
 {
 	size_t	index;
 
@@ -23,10 +31,10 @@ void	ft_print_string_array(char const *const *str_array, char sep)
 	{
 		while (1)
 		{
-			ft_putstr(str_array[index]);
+			ft_putstr_fd(str_array[index], fd);
 			index++;
 			if (str_array[index] != NULL)
-				ft_putchar(sep);
+				ft_putchar_fd(sep, fd);
 			else
 				break ;
 		}
