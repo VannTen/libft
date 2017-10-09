@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:39:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/09/18 14:08:30 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/09 13:57:58 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,12 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 t_lst	*f_strsplit_lst(char const *str, char c);
 char	**ft_strsplit(char const *s, char c);
 
+/*
+** Strip strings
+** Implementation file : ft_strip.c
+*/
+
+char	*ft_strip(char const *src, char const *to_strip);
 /*
 ** Join strings
 ** Implementation files : name of the function

@@ -1,29 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_interface.h                                :+:      :+:    :+:   */
+/*   unix_files_defs.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/15 15:22:23 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/09 16:33:07 by mgautier         ###   ########.fr       */
+/*   Created: 2017/10/09 15:40:49 by mgautier          #+#    #+#             */
+/*   Updated: 2017/10/09 15:41:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONVERT_INTERFACE_H
-# define CONVERT_INTERFACE_H
-
-/*
-** Conversion functions
-** Implementation files : name of the function
-*/
-
-char				*ft_itoa(int n);
-int					ft_atoi(const char *str);
-int					ft_strict_atoi(const char *str);
-int					ft_toupper(int c);
-char				f_toupper(char c);
-int					ft_tolower(int c);
-char				f_tolower(char c);
+#ifndef UNIX_FILES_DEFS_H
+# define UNIX_FILES_DEFS_H
+# include "unix_files_interface.h"
 
 #endif

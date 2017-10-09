@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/09/27 18:33:51 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/10/09 15:40:05 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,8 @@ LIB_STR ?=\
 	ft_strvajoin.c\
 	last_char_of.c\
 	ft_strjoin_ifnot.c\
-	ft_substring.c
+	ft_substring.c\
+	ft_strip.c
 LIB_STR_ARR ?=\
 	ft_string_array_dup.c\
 	ft_string_array_count.c\
@@ -110,6 +111,7 @@ LIB_MATH ?=\
 LIB_MISCELLANEOUS ?=\
 	do_nothing.c\
 	get_next_line.c\
+	get_next_elem.c\
 	misc_error.c\
 	quote_correctness.c
 LIB_PRINTF ?=\
@@ -163,7 +165,8 @@ LIB_UNIX_TOOLS ?=\
 	ft_unix_usage_param_opt.c\
 	unix_usage_error.c
 LIB_UNIX_FILES ?=\
-	is_file.c
+	is_file.c\
+	unix_file_path_name.c
 LIB_BOOLEAN ?=\
 	boolean.c\
 	boolean_on_char.c\
