@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/09/18 16:50:38 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/09 17:18:25 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ t_bool				f_lstremoveif_one(t_lst **lst, int ref,
 void				f_lstremoveif_va(t_lst **lst,
 		t_bool (*match)(const void *elem, va_list),
 		t_destroy content_dtor, ...);
+void				f_lstiter_va(t_lst const *lst,
+		void (*iter)(const void *elem, va_list),
+		...);
 
 /*
 ** List iterations
