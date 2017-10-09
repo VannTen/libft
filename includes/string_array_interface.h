@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:59:49 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/31 14:30:25 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/09 12:12:00 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 ** Implemenation files : name of the function
 */
 
+void	ft_gen_free_string_array(void **string_array);
 char	**ft_free_string_array(char ***tab);
 char	**ft_string_array_dup(char const *const *string_array);
 char	**ft_str_array_cpy(char *const *src, char **dst);

@@ -6,12 +6,22 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 15:48:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 15:48:41 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/09 12:13:45 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "string_interface.h"
+#include "string_array_interface.h"
 #include <stdlib.h>
+
+void		ft_gen_free_string_array(void **string_array)
+{
+	char	**str_array;
+
+	str_array = *string_array;
+	(void)ft_free_string_array(&str_array);
+	*string_array = NULL;
+}
 
 char		**ft_free_string_array(char ***tab)
 {
