@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 17:54:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/09 18:40:14 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/10 11:27:19 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 #include <unistd.h>
 #include <stddef.h>
 
-void	ft_print_string_array(char const *const *str_array, char sep)
+void	ft_print_string_array(char const *const *str_array, char const *sep)
 {
 	ft_print_string_array_fd(STDOUT_FILENO, str_array, sep);
 }
 
 void	ft_print_string_array_fd(int const fd,
-		char const *const *str_array, char sep)
+		char const *const *str_array, char const *sep)
 {
 	size_t	index;
 
@@ -34,7 +34,7 @@ void	ft_print_string_array_fd(int const fd,
 			ft_putstr_fd(str_array[index], fd);
 			index++;
 			if (str_array[index] != NULL)
-				ft_putchar_fd(sep, fd);
+				ft_putstr_fd(sep, fd);
 			else
 				break ;
 		}
