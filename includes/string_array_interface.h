@@ -6,12 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:59:49 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/10 11:27:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/11 17:21:19 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRING_ARRAY_INTERFACE_H
 # define STRING_ARRAY_INTERFACE_H
+# include <stdarg.h>
 # include <stddef.h>
 
 /*
@@ -21,9 +22,17 @@
 
 void	ft_gen_free_string_array(void **string_array);
 char	**ft_free_string_array(char ***tab);
-char	**ft_string_array_dup(char const *const *string_array);
 char	**ft_str_array_cpy(char *const *src, char **dst);
 size_t	ft_string_array_count(char const *const *string_array);
+
+/*
+** Copying and transform by copy
+** Implementation file : ft_string_array_dup.c
+*/
+
+char	**ft_string_array_dup(char const *const *string_array);
+char	**ft_str_array_map_va(char const *const *str_array,
+		char *(*map)(char const*, va_list), ...);
 
 /*
 ** Display functions
