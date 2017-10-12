@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/10/10 11:24:10 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/10/12 17:53:04 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ TARGET := libft.a
 #LIB_UNIX_FILES = $(NOTHING)
 #LIB_BOOLEAN = $(NOTHING)
 #LIB_PATH = $(NOTHING)
+#LIB_META_PROG = $(NOTHING)
 
 LIB_BTREE ?=\
 	ft_btree_ressources.c\
@@ -179,6 +180,9 @@ LIB_PATH ?=\
 	path_abs_rel.c\
 	get_path_element.c\
 	path_join.c
+LIB_META_PROG ?=\
+	header_guard.c
+
 SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_FIFO)\
 	$(LIB_STR)\
 	$(LIB_STR_ARR)\
@@ -186,7 +190,7 @@ SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_FIFO)\
 	$(LIB_CONVERT) $(LIB_IS_OF) $(LIB_MATH)\
 	$(LIB_MISCELLANEOUS) $(LIB_PRINTF) $(LIB_VARIADIC)\
 	$(LIB_UNIX_TOOLS) $(LIB_UNIX_FILES) $(LIB_BOOLEAN)\
-	$(LIB_PATH)
+	$(LIB_PATH) $(LIB_META_PROG)
 
 # Directories
 
