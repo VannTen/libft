@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:00:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/31 15:05:36 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/12 13:54:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,16 @@ void				f_fifomaparray(const void *src, void *dst, t_fifo *fifo,
 		t_bool (*advance_arrays)(const void **src, void **dst, void *modifier));
 void				*f_fifo_every_valid(t_fifo *fifo,
 										t_bool (*test)(const void *content));
+
+/*
+** Iteration
+*/
+
+void				f_fifoiter_va(t_fifo const *fifo,
+		void (*iter)(const void *elem, va_list),
+		...);
+void				f_fifoiter_vas(t_fifo const *fifo,
+		void (*iter)(const void *elem, va_list),
+		va_list args);
 
 #endif

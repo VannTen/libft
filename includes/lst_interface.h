@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/09 17:18:25 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/12 13:51:54 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ void				f_lstremoveif_va(t_lst **lst,
 void				f_lstiter_va(t_lst const *lst,
 		void (*iter)(const void *elem, va_list),
 		...);
+void				f_lstiter_vas(t_lst const *lst,
+		void (*iter)(const void *elem, va_list),
+		va_list args);
 
 /*
 ** List iterations
