@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:39:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/09 13:57:58 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/12 15:48:27 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,16 @@ size_t	ft_strnlen_gen(const char *str, size_t size,
 ** Implementation files : name of the function
 */
 
+/*
+** Duplication
+** Implementation file : ft_strdup.c
+*/
+
 char	*ft_strdup(const char *src);
 char	*ft_strndup(const char *src, size_t	size);
+char	*ft_strdup_to(const char *src, char end);
+char	*ft_strndup_to(const char *src, size_t	size, char end);
+
 char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strncpy(char *dst, const char *src, size_t len);
 char	*ft_strcat(char *s1, const char *s2);
