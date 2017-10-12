@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 15:29:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/12 15:51:58 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/12 18:51:44 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,19 @@ const char	*get_no_dir_part(char const *full_path_file)
 
 char		*bare_file_name(char const *file_path_full)
 {
-	return (ft_strdup_to(get_no_dir_part(file_path_full), '.'));
+	return (basename(get_no_dir_part(file_path_full)));
+}
+
+char		*basename(char const *file_path_full)
+{
+	size_t	size;
+
+	size = ft_strlen(file_path_full);
+	while (file_path_full[size] != '.' && size != 0)
+		size--;
+	if (file_path_full[size] == '.'
+			&& size != 0 && file_path_full[size - 1] != '/')
+		return (ft_strndup(file_path_full, size - 1));
+	else
+		return (ft_strndup(file_path_full, size));
 }

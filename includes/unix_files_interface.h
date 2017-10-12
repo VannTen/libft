@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 14:26:09 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/12 15:52:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/12 18:51:54 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ t_bool		is_regfile(const char *path);
 
 const char	*get_no_dir_part(char const *full_path);
 char		*bare_file_name(char const *full_path);
+char		*basename(char const *file_path_full);
 
 #endif
