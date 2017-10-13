@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 15:29:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/12 18:51:44 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/13 12:43:25 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char		*basename(char const *file_path_full)
 		size--;
 	if (file_path_full[size] == '.'
 			&& size != 0 && file_path_full[size - 1] != '/')
-		return (ft_strndup(file_path_full, size - 1));
+		return (ft_strndup(file_path_full, size));
 	else
 		return (ft_strndup(file_path_full, size));
 }

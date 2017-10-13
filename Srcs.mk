@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/10/12 18:20:13 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/10/13 13:16:27 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,6 @@ LIB_STR ?=\
 	ft_strip.c
 LIB_STR_ARR ?=\
 	ft_string_array_dup.c\
-	ft_string_array_count.c\
 	ft_str_array_cpy.c\
 	ft_free_string_array.c\
 	ft_print_string_array.c\

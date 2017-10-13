@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 20:16:50 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/11 17:22:00 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/13 13:21:58 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char		**ft_str_array_map_va(char const *const *str_array,
 	char	**array_map;
 	va_list	args;
 
-	size = ft_string_array_len(str_array);
+	size = ft_string_array_count(str_array);
 	array_map = malloc(sizeof(char*) * (size + 1));
 	if (array_map == NULL)
 	{
