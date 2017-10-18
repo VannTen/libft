@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:59:49 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/13 12:33:17 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/17 09:47:51 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 
 void	ft_gen_free_string_array(void **string_array);
 char	**ft_free_string_array(char ***tab);
+void	free_only_str_array(char const ***tab);
 char	**ft_str_array_cpy(char *const *src, char **dst);
 
 /*
@@ -48,5 +49,6 @@ void	ft_print_string_array_fd(int fd,
 */
 
 size_t	ft_string_array_count(char const *const *string_array);
+int		ft_str_arraycmp(char const *const *array_1, char const *const *array_2);
 
 #endif
