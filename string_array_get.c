@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 11:16:35 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/18 11:34:14 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/10/18 17:52:13 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ size_t	ft_string_array_count(char const *const *str_array)
 	return (index);
 }
 
-int		ft_str_arraycmp(char const *const *array_1, char const *const *array_2)
+/*
+** Array coming in this function are guaranted to have the same length
+*/
+
+static int	comp(char const *const *array_1, char const *const *array_2)
 {
 	int		result;
 	size_t	index;
@@ -32,16 +36,24 @@ int		ft_str_arraycmp(char const *const *array_1, char const *const *array_2)
 	result = 0;
 	index = 0;
 	while (result == 0
-			&& array_1[index] != NULL
-			&& array_2[index] != NULL)
+			&& array_1[index] != NULL)
 	{
 		result = ft_strcmp(array_1[index], array_2[index]);
 		index++;
 	}
-	if (result != 0)
-		return (result);
-	else if (index == 0)
-		return (array_1[index] == NULL ? 0 : 1);
+	return (result);
+}
+int		ft_str_arraycmp(char const *const *array_1, char const *const *array_2)
+{
+	size_t	size_1;
+	size_t	size_2;
+
+	size_1 = ft_string_array_count(array_1);
+	size_2 = ft_string_array_count(array_2);
+	if (size_1 < size_2)
+		return (-1);
+	else if (size_2 < size_1)
+		return (1);
 	else
-		return (array_1[index - 1] == NULL ? 0 : 1);
+		return (comp(array_1, array_2));
 }
