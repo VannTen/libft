@@ -6,7 +6,7 @@
 #*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/12/13 19:41:31 by mgautier          #+#    #+#             *#
-#*   Updated: 2017/10/12 09:44:20 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/10/17 16:13:24 by mgautier         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -39,10 +39,13 @@ include $(DIR)Srcs.mk
 # (which means SRC_DIR (or another one)= DIR)
 
 OBJ_DIR := $(BUILD_PREFIX)$(OBJ_DIR)
-$(foreach TYPE,SRC OBJ DEP INC,$(eval $(call ADD_SLASH,$(TYPE))))
+$(foreach TYPE,SRC OBJ DEP INC TEST_SRC,$(eval $(call ADD_SLASH,$(TYPE))))
+
+TEST_LOCAL_$(DIR) := $(if $(strip $(TEST_DIR)),$(DIR)$(TEST_DIR)/,$(EMPTY))
 # Standard expansion of the SRC into the local OBJ and DEP
 # + add them to clean-up variables
 
+SRC_$(DIR) := $(SRC)
 OBJ_$(DIR) := $(OBJ)
 DEP_$(DIR) := $(DEP)
 
@@ -52,8 +55,8 @@ TARGET_$(DIR) := $(DIR)$(BUILD_PREFIX)$(TARGET)
 
 $(call CLEAR_VAR_LIST, $(EMPTY_DEPS.MK))
 include $(DIR)Dependencies.mk
-$(TARGET): LIB_INCLUDES := $(LIBRARY)
-$(TARGET): LDFLAGS_TGT := $(addprefix -l,$(SYSTEM_LIBRARY))
+$(TARGET) $(DIR)_test: LIB_INCLUDES := $(LIBRARY)
+$(TARGET) $(DIR)_test: LDFLAGS_TGT := $(addprefix -l,$(SYSTEM_LIBRARY))
 
 LIBS_$(DIR) := $(LIBRARY)
 
@@ -102,21 +105,26 @@ $(TARGET_$(DIR)): $(OBJ_$(DIR)) $(ELSE) $(patsubst lib%,-l$(BUILD_PREFIX)%,$(LIB
 	$(QUIET) $(RECIPE)
 
 $(eval $(STATIC_OBJ_RULE))
+ifneq ($(strip $(TEST_LOCAL_$(DIR))),)
+$(eval $(UNIT_TEST_RULE))
+$(eval $(TEST_RULE))
+endif
 
 # If the target is different from the one make is invoked in,
 # add it to the search path for headers.
 # If the target requiers a library, add its directory too.
 
-$(TARGET_$(DIR)): DIR := $(DIR)
+$(TARGET_$(DIR)) $(DIR)_test: DIR := $(DIR)
 ifneq ($(INC_LOCAL_$(DIR)),)
-$(TARGET_$(DIR)): INCLUDE := $(INC_LOCAL_$(DIR)) $(if $(DIR),$(DIR),.)
+$(TARGET_$(DIR)) $(DIR)_test: INCLUDE := $(INC_LOCAL_$(DIR)) $(if $(DIR),$(DIR),.)
 else
 $(TARGET_$(DIR)): INCLUDE :=
+$(DIR)_test: INLCLUDE := $(DIR)
 endif
 
 ifdef LIBRARIES
 $(DIR)_LIBS := $(LIBRARIES)
-$(TARGET_$(DIR)): LIB_INCLUDES = $(foreach XXX,$($(DIR)_LIBS),$($(XXX)_PATH))
+$(TARGET_$(DIR)) $(DIR)_test: LIB_INCLUDES = $(foreach XXX,$($(DIR)_LIBS),$($(XXX)_PATH))
 endif
 
 # Clean variables 
