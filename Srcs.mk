@@ -6,13 +6,13 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/10/17 15:06:41 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/11/03 12:14:12 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
 # Define target and sources
 
-TARGET := libft.a
+TARGET := libft
 
 # To exclude some files from the compilation (to gain some time on the
 # moulinette timeout, for example... ;p) uncomment the line defining the set
@@ -129,7 +129,6 @@ LIB_PRINTF ?=\
 	ft_conversion_private_set_var_args.c\
 	ft_conversion_private_set_final_length.c\
 	ft_conversion_private_write.c\
-	ft_conversion_private_positions_write.c\
 	ft_conversion_private_is_conv.c\
 	ft_conversion_private_is_conv_numeric.c\
 	ft_conversion_private_args_index.c\
@@ -154,10 +153,14 @@ LIB_PRINTF ?=\
 	ft_printf_chars.c\
 	ft_printf_strings.c
 LIB_VARIADIC ?=\
-	ft_variadic_get_char.c ft_variadic_get_int.c ft_variadic_get_intmax_t.c\
-	ft_variadic_get_long.c ft_variadic_get_long_long.c\
+	ft_variadic_get_char.c\
+	ft_variadic_get_int.c\
+	ft_variadic_get_intmax_t.c\
+	ft_variadic_get_long.c\
+	ft_variadic_get_long_long.c\
 	ft_variadic_get_ptrdiff_t.c\
-	ft_variadic_get_short.c ft_variadic_get_size_t.c ft_variadic_get_wchar_t.c\
+	ft_variadic_get_short.c\
+	ft_variadic_get_size_t.c\
 	ft_variadic_no_get.c\
 	ft_var_args_private_give.c\
 	ft_variadic_args_private_ressources.c
