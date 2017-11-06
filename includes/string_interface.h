@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:39:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/12 15:48:27 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/05 15:17:53 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,6 @@ size_t	ft_strnlen(const char *str, size_t size);
 size_t	ft_strlen_gen(const char *str, char end_of_line);
 size_t	ft_strnlen_gen(const char *str, size_t size,
 		char end_of_line);
-
-/*
-** Copy, concat, dup
-** Implementation files : name of the function
-*/
 
 /*
 ** Duplication
@@ -58,6 +53,13 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 t_bool	ft_strequ(char const *s1, char const *s2);
 t_bool	ft_strequ_short(char const *s1, char const *s2);
 t_bool	ft_strnequ(char const *s1, char const *s2, size_t n);
+
+/*
+** Compare strings with other input sources
+** Implementation file : string_cmp_to_other.c
+*/
+
+int		ft_str_fd_cmp(const char *str, int fd);
 
 /*
 ** Search char in string
