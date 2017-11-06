@@ -2,3 +2,6 @@
 	path = test
 	url = https://github.com/VannTen/test.git
 	branch = printf
+[submodule "make-build-system"]
+	path = make-build-system
+	url = git@github.com:VannTen/make-build-system.git
