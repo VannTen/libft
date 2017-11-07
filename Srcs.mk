@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/11/05 15:29:09 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/11/07 17:12:23 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -185,7 +185,8 @@ LIB_PATH ?=\
 	get_path_element.c\
 	path_join.c
 LIB_META_PROG ?=\
-	header_guard.c
+	header_guard.c\
+	header_42.c
 
 SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_FIFO)\
 	$(LIB_STR)\
