@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:59:49 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/18 18:51:51 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/10 14:13:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,14 @@ void	ft_print_string_array_fd(int fd,
 size_t	ft_string_array_count(char const *const *string_array);
 int		ft_str_arraycmp(char const *const *array_1, char const *const *array_2);
 t_bool	ft_str_arr_equ(char const * const *arr_1, char const *const *arr_2);
+
+/*
+** Update the array in various ways
+** Implementation file : string_array_update.c
+** ft_strip_invalid : strip an array of all strings on which (*is_valid) returns
+** FALSE.
+*/
+
+void	ft_strip_invalid(char **array, t_bool (*is_valid)(const char *));
 
 #endif
