@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:41:09 by mgautier          #+#    #+#             */
-/*   Updated: 2017/09/18 16:43:44 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/11 17:02:45 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@ t_lst	*f_add_end_lst(t_lst *last_link, const void *content)
 	new_last_link = f_lstnew(content);
 	if (last_link != NULL)
 		last_link->next = new_last_link;
+	return (new_last_link);
+}
+
+t_lst	*f_add_end_lst_2(t_lst **last_link, const void *content)
+{
+	t_lst	*new_last_link;
+
+	new_last_link = f_lstnew(content);
+	if (*last_link != NULL)
+		(*last_link)->next = new_last_link;
+	*last_link = new_last_link;
 	return (new_last_link);
 }
 

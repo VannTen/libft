@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/12 13:51:54 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/11 16:50:48 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,11 @@ void				f_lstdel(t_lst **alst, t_destroy del);
 */
 
 t_lst				*f_add_end_lst(t_lst *last_link, const void *content);
+t_lst				*f_add_end_lst_2(t_lst **last_link, const void *content);
 t_lst				*f_lstpush(void const *content, t_lst **list);
 void				*f_lstpop(t_lst **list);
 t_bool				f_lstremoveif_one(t_lst **lst, int ref,
-					int (*match)(const void *elem), t_destroy del);
+		int (*match)(const void *elem), t_destroy del);
 
 /*
 ** Variadic function on list
@@ -58,7 +59,7 @@ void				f_lstiter_vas(t_lst const *lst,
 
 /*
 ** List iterations
-** Implementations file :f_lstiter.c
+** Implementations file : f_lstiter.c
 */
 
 void				f_lstiter(t_lst *lst, t_iter f);
@@ -78,7 +79,7 @@ t_lst				*f_lstmapi(t_lst *lst,
 */
 
 void				*f_lstsearch(const t_lst *list, const int ref,
-									int (*match)(const void *elem));
+		int (*match)(const void *elem));
 void				*f_lst_first_elem(const t_lst *lst);
 
 /*
@@ -99,7 +100,7 @@ void				f_lstmaparray(const void *src, void *dst, t_lst *list,
 */
 
 void				*f_lst_every_valid(t_lst *list,
-										t_bool (*test)(const void *content));
+		t_bool (*test)(const void *content));
 
 /*
 ** List count whole list
