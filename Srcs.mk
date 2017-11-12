@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/11/10 12:08:09 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/11/11 16:36:37 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,8 @@ LIB_LST ?=\
 	f_lst_count.c\
 	f_lstarray.c\
 	f_strljoin.c\
-	f_strsplit_lst.c
+	f_strsplit_lst.c\
+	lst_iter_with_previous.c
 LIB_FIFO ?=\
 	f_fifo_add_take.c\
 	f_fifo_ressources.c\
@@ -204,4 +205,10 @@ SRC_DIR :=
 OBJ_DIR := object
 INC_DIR := includes
 DEP_DIR := .dep
-TEST_DIR :=
+
+# Units test
+
+TEST_IT := lst_iter_with_previous.c
+DONT_TEST := $(filter-out $(TEST_IT),$(SRC))
+TEST_DIR := test_bin
+TEST_SRC_DIR := test
