@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/11 16:50:48 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/12 14:57:48 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,24 @@ void				f_lstiter_va(t_lst const *lst,
 void				f_lstiter_vas(t_lst const *lst,
 		void (*iter)(const void *elem, va_list),
 		va_list args);
+
+/*
+** Variadic functions on list, with error reports.
+** Same as above, but used with function which can fail, (memory allocation,
+** etc). The list function shall report the error to its caller, so it will stop
+** at the first error found.
+** Able to modify content.
+** Implementation file : f_lst_variadic_err.c
+*/
+
+t_bool				f_lstiterr_vas(
+		t_lst *lst,
+		t_bool (*iter)(void *elem, va_list),
+		va_list args);
+t_bool				f_lstiterr_va(
+		t_lst *lst,
+		t_bool (*iter)(void *elem, va_list),
+		...);
 
 /*
 ** List iterations

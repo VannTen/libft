@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/11/11 16:36:37 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/11/12 15:52:01 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ LIB_LST ?=\
 	f_lst_get_elem.c\
 	f_lst_insert_remove.c\
 	f_lst_variadic.c\
+	f_lst_variadic_err.c\
 	f_lstiter.c\
 	f_lst_count.c\
 	f_lstarray.c\
@@ -62,7 +63,8 @@ LIB_FIFO ?=\
 	f_fifo_ressources.c\
 	f_fifo_iter.c\
 	f_fifo_lstrelay.c\
-	f_fifo_lstrelay2.c
+	f_fifo_lstrelay2.c\
+	f_fifo_iter_variadic.c
 LIB_STR ?=\
 	ft_strcat.c ft_strchr.c ft_strclr.c \
 	ft_strcmp.c ft_strcpy.c ft_strdel.c ft_strdup.c ft_strequ.c ft_striter.c \
@@ -208,7 +210,7 @@ DEP_DIR := .dep
 
 # Units test
 
-TEST_IT := lst_iter_with_previous.c
+TEST_IT := lst_iter_with_previous.c f_lst_variadic_err.c
 DONT_TEST := $(filter-out $(TEST_IT),$(SRC))
 TEST_DIR := test_bin
 TEST_SRC_DIR := test
