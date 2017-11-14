@@ -6,12 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 12:01:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/04/03 14:54:11 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/14 09:49:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst_defs.h"
 #include "bool_interface.h"
+#include <stdarg.h>
 #include <stdlib.h>
 
 /*
@@ -31,6 +32,29 @@ void	*f_lst_every_valid(t_lst *list, t_bool (*test)(const void *content))
 	while (list != NULL)
 	{
 		if (test(list->content) == FALSE)
+			return (list->content);
+		else
+			list = list->next;
+	}
+	return (list);
+}
+
+void	*f_lst_every_valid_va(
+		t_lst *list,
+		t_bool (*test)(const void *content, va_list args),
+		...)
+{
+	va_list	args;
+	t_bool	result;
+
+	if (test == NULL)
+		return (NULL);
+	while (list != NULL)
+	{
+		va_start(args, test);
+		result = test(list->content, args);
+		va_end(args);
+		if (result == FALSE)
 			return (list->content);
 		else
 			list = list->next;
