@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/14 09:49:10 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/14 10:20:20 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ t_lst				*f_lstpush(void const *content, t_lst **list);
 void				*f_lstpop(t_lst **list);
 t_bool				f_lstremoveif_one(t_lst **lst, int ref,
 		int (*match)(const void *elem), t_destroy del);
+
+/*
+** Insert or delete on tail of the list
+** Implementation file : f_lst_insert_remove_end.c
+*/
+
+void				*f_pushend_lst(t_lst **lst, void *content);
+void				*f_popend_lst(t_lst	**lst);
 
 /*
 ** Variadic function on list

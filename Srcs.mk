@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/11/12 15:52:01 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/11/14 10:48:15 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ LIB_LST ?=\
 	f_lstmap.c\
 	f_lst_get_elem.c\
 	f_lst_insert_remove.c\
+	f_lst_insert_remove_end.c\
 	f_lst_variadic.c\
 	f_lst_variadic_err.c\
 	f_lstiter.c\
@@ -210,7 +211,10 @@ DEP_DIR := .dep
 
 # Units test
 
-TEST_IT := lst_iter_with_previous.c f_lst_variadic_err.c
+TEST_IT :=\
+	lst_iter_with_previous.c\
+	f_lst_variadic_err.c\
+	f_lst_insert_remove_end.c
 DONT_TEST := $(filter-out $(TEST_IT),$(SRC))
 TEST_DIR := test_bin
 TEST_SRC_DIR := test
