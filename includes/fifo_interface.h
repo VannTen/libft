@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:00:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/12 15:09:54 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/14 18:32:25 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "bool_interface.h"
 # include "lst_interface.h"
 # include "custom_stddef.h"
+# include <stdarg.h>
 
 typedef struct s_fifo	t_fifo;
 
@@ -52,8 +53,23 @@ size_t				f_fifoarray_end_early(void *array, t_fifo *fifo,
 		size_t size, t_bool (*fifo_on_array)(const void *content, void *array));
 void				f_fifomaparray(const void *src, void *dst, t_fifo *fifo,
 		t_bool (*advance_arrays)(const void **src, void **dst, void *modifier));
-void				*f_fifo_every_valid(t_fifo *fifo,
-										t_bool (*test)(const void *content));
+
+/*
+** Valid every member
+** Implementation file : f_fifo_every_valid.c
+** (relay of t_lst functions)
+*/
+
+void				*f_fifo_every_valid(t_fifo const *fifo,
+		t_bool (*test)(const void *content));
+void				*f_fifo_every_valid_va(
+		t_fifo const *fifo,
+		t_bool (*test)(const void *content, va_list args),
+		...);
+void				*f_fifo_every_valid_vas(
+		t_fifo const *fifo,
+		t_bool (*test)(const void *content, va_list args),
+		va_list args);
 
 /*
 ** Iteration

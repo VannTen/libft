@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/14 15:35:38 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/14 18:26:28 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,10 +147,12 @@ void				f_lstmaparray(const void *src, void *dst, t_lst *list,
 ** Implementation file : f_lst_valid.c
 */
 
-void				*f_lst_every_valid(t_lst *list,
+void				*f_lst_every_valid(t_lst const *list,
 		t_bool (*test)(const void *content));
-void				*f_lst_every_valid_va(t_lst *list,
+void				*f_lst_every_valid_va(t_lst const *list,
 		t_bool (*test)(const void *content, va_list args), ...);
+void				*f_lst_every_valid_vas(t_lst const *list,
+		t_bool (*test)(const void *content, va_list args), va_list args);
 
 /*
 ** List count whole list
