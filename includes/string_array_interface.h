@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:59:49 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/10 14:13:33 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/14 17:47:19 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ char	**ft_str_array_cpy(char *const *src, char **dst);
 char	**ft_string_array_dup(char const *const *string_array);
 char	**ft_str_array_map_va(char const *const *str_array,
 		char *(*map)(char const*, va_list), ...);
+char	**ft_str_array_map_vas(char const *const *str_array,
+		char *(*map)(char const*, va_list),
+		va_list args);
 
 /*
 ** Display functions

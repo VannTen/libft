@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 20:16:50 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/13 13:44:35 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/14 18:01:06 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,22 @@ char		**ft_string_array_dup(char const *const *string_array)
 char		**ft_str_array_map_va(char const *const *str_array,
 		char *(*map)(char const*, va_list), ...)
 {
+	va_list args;
+	char	**result;
+
+	va_start(args, map);
+	result = ft_str_array_map_vas(str_array, map, args);
+	va_end(args);
+	return (result);
+}
+
+char		**ft_str_array_map_vas(char const *const *str_array,
+		char *(*map)(char const*, va_list), va_list args)
+{
 	size_t	index;
 	size_t	size;
 	char	**array_map;
-	va_list	args;
+	va_list args_loc;
 
 	size = ft_string_array_count(str_array);
 	array_map = malloc(sizeof(char*) * (size + 1));
@@ -66,9 +78,9 @@ char		**ft_str_array_map_va(char const *const *str_array,
 		index = 0;
 		while (index < size)
 		{
-			va_start(args, map);
-			array_map[index] = map(str_array[index], args);
-			va_end(args);
+			va_copy(args_loc, args);
+			array_map[index] = map(str_array[index], args_loc);
+			va_end(args_loc);
 			if (array_map[index] == NULL)
 			{
 				ft_free_string_array(&array_map);

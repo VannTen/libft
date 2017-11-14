@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 13:14:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 16:21:05 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/14 18:04:43 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,27 @@ char			**ft_strsplit(char const *s, char c)
 		field_n++;
 	}
 	return (strsplit);
+}
+
+char		*ft_va_strstrip(char const *str, va_list args)
+{
+	return (ft_strip(str, va_arg(args, const char*)));
+}
+
+char		**ft_strsplit_and(
+		char const *str,
+		char const c,
+		char *(*map)(const char*, va_list),
+		...)
+{
+	char	**str_arr;
+	char	**res_str_arr;
+	va_list	args;
+
+	str_arr = ft_strsplit(str, c);
+	va_start(args, map);
+	res_str_arr = ft_str_array_map_vas((char const *const*)str_arr, map, args);
+	va_end(args);
+	ft_free_string_array(&str_arr);
+	return (res_str_arr);
 }

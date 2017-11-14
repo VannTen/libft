@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:39:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/05 15:17:53 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/14 17:22:49 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define STRING_INTERFACE_H
 # include "lst_interface.h"
 # include <stddef.h>
+# include <stdarg.h>
 
 /*
 ** strlen and variants
@@ -82,10 +83,20 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 /*
 ** Split strings
 ** Implementation files : name of the function
+** ft_va_strstrip : provided as a convenience to be use with ft_strsplit_and,
+** or other function that apply a variadic function on a set of strings. When
+** used, the iterator function shall be given one (char const*) as its first
+** variadic parameters.
 */
 
 t_lst	*f_strsplit_lst(char const *str, char c);
 char	**ft_strsplit(char const *s, char c);
+char	**ft_strsplit_and(
+		char const *str,
+		char const c,
+		char *(*map)(const char*, va_list),
+		...);
+char	*ft_va_strstrip(char const *str, va_list args);
 
 /*
 ** Strip strings

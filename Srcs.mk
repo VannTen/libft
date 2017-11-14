@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/11/14 13:17:49 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/11/14 17:55:21 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -219,6 +219,7 @@ TEST_IT :=\
 	lst_iter_with_previous.c\
 	f_lst_variadic_err.c\
 	f_lst_insert_remove_end.c\
+	ft_strsplit.c\
 	lst_several.c\
 	convert_array_list.c
 DONT_TEST := $(filter-out $(TEST_IT),$(SRC))
