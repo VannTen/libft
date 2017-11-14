@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/14 10:20:20 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/14 12:58:34 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,15 @@ t_lst				*f_lstpush(void const *content, t_lst **list);
 void				*f_lstpop(t_lst **list);
 t_bool				f_lstremoveif_one(t_lst **lst, int ref,
 		int (*match)(const void *elem), t_destroy del);
+
+/*
+** Operations on several lists
+** Implementation file : lst_several.c
+*/
+
+t_lst				*join_lst(t_lst *lst_1, t_lst const *to_join);
+t_bool				lst_equ(t_lst const *lst1, t_lst const *lst2,
+		t_bool (*equ)(void const*, void const*));
 
 /*
 ** Insert or delete on tail of the list

@@ -59,7 +59,8 @@ LIB_LST ?=\
 	f_lstarray.c\
 	f_strljoin.c\
 	f_strsplit_lst.c\
-	lst_iter_with_previous.c
+	lst_iter_with_previous.c\
+	lst_several.c
 LIB_FIFO ?=\
 	f_fifo_add_take.c\
 	f_fifo_ressources.c\
@@ -218,6 +219,7 @@ TEST_IT :=\
 	lst_iter_with_previous.c\
 	f_lst_variadic_err.c\
 	f_lst_insert_remove_end.c\
+	lst_several.c\
 	convert_array_list.c
 DONT_TEST := $(filter-out $(TEST_IT),$(SRC))
 TEST_DIR := test_bin
