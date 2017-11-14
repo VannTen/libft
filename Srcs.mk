@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/11/14 10:48:15 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/11/14 13:17:49 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ TARGET := libft
 #LIB_BOOLEAN = $(NOTHING)
 #LIB_PATH = $(NOTHING)
 #LIB_META_PROG = $(NOTHING)
+#LIB_CONVERT_SET = $(NOTHING)
 
 LIB_BTREE ?=\
 	ft_btree_ressources.c\
@@ -192,6 +193,8 @@ LIB_PATH ?=\
 LIB_META_PROG ?=\
 	header_guard.c\
 	header_42.c
+LIB_CONVERT_SET ?=\
+	convert_array_list.c
 
 SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_FIFO)\
 	$(LIB_STR)\
@@ -200,7 +203,7 @@ SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_FIFO)\
 	$(LIB_CONVERT) $(LIB_IS_OF) $(LIB_MATH)\
 	$(LIB_MISCELLANEOUS) $(LIB_PRINTF) $(LIB_VARIADIC)\
 	$(LIB_UNIX_TOOLS) $(LIB_UNIX_FILES) $(LIB_BOOLEAN)\
-	$(LIB_PATH) $(LIB_META_PROG)
+	$(LIB_PATH) $(LIB_META_PROG) $(LIB_CONVERT_SET)
 
 # Directories
 
@@ -214,7 +217,8 @@ DEP_DIR := .dep
 TEST_IT :=\
 	lst_iter_with_previous.c\
 	f_lst_variadic_err.c\
-	f_lst_insert_remove_end.c
+	f_lst_insert_remove_end.c\
+	convert_array_list.c
 DONT_TEST := $(filter-out $(TEST_IT),$(SRC))
 TEST_DIR := test_bin
 TEST_SRC_DIR := test
