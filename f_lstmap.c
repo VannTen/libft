@@ -6,13 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 13:00:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/15 13:47:54 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/15 14:31:34 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst_defs.h"
 #include "custom_stddef.h"
 #include <stdlib.h>
+#include <stdarg.h>
 
 /*
 ** function to produce with a given list another one, using the function given
@@ -46,6 +47,50 @@ t_lst	*f_lstmap(
 		lst = lst->next;
 	}
 	return (final_list);
+}
+
+t_lst	*f_lstmap_vas(
+		t_lst const *lst,
+		void *(*change)(void const*, va_list args),
+		t_destroy destroy,
+		va_list args)
+{
+	t_lst	**new_lst;
+	t_lst	*final_list;
+	void	*new_content;
+	va_list	args_loc;
+
+	new_lst = &final_list;
+	while (lst != NULL)
+	{
+		va_copy(args_loc, args);
+		new_content = change(lst->content, args_loc);
+		va_end(args_loc);
+		*new_lst = f_lstnew(new_content);
+		if ((*new_lst)->next == NULL || (*new_lst)->content == NULL)
+		{
+			f_lstdel(&final_list, destroy);
+			break ;
+		}
+		*new_lst = (*new_lst)->next;
+		lst = lst->next;
+	}
+	return (final_list);
+}
+
+t_lst	*f_lstmap_va(
+		t_lst const *lst,
+		void *(*change)(void const*, va_list args),
+		t_destroy destroy,
+		...)
+{
+	t_lst	*new_lst;
+	va_list	args;
+
+	va_start(args, destroy);
+	new_lst = f_lstmap_vas(lst, change, destroy, args);
+	va_end(args);
+	return (new_lst);
 }
 
 t_lst	*f_lstmapi(
