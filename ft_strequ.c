@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 12:14:46 by mgautier          #+#    #+#             */
-/*   Updated: 2017/09/18 14:07:47 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/15 17:29:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ t_bool	ft_strequ(char const *s1, char const *s2)
 		return (TRUE);
 	else
 		return (FALSE);
+}
+
+t_bool	ft_gen_strequ(void const *s1, void const *s2)
+{
+	return (ft_strequ(s1, s2));
 }
 
 t_bool	ft_strequ_short(char const *s1, char const *s2)

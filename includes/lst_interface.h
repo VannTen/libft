@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/15 14:31:45 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/15 17:23:05 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,29 @@ void				f_lstiter_va(t_lst const *lst,
 void				f_lstiter_vas(t_lst const *lst,
 		void (*iter)(const void *elem, va_list),
 		va_list args);
+
+/*
+** Take elem of list
+** These function take out of the list elems that match the given function.
+** Implementation file : lst_take_elems.c
+*/
+
+void				*f_lsttakeone_if_vas(
+		t_lst **lst,
+		t_bool (*match)(void const *elem, va_list args),
+		va_list args);
+void				*f_lsttakeone_if_va(
+		t_lst **lst,
+		t_bool (*match)(void const *elem, va_list args),
+		...);
+t_lst				*f_split_lst_vas(
+		t_lst **lst,
+		t_bool (*match)(void const *elem, va_list args),
+		va_list args);
+t_lst				*f_split_lst_va(
+		t_lst **lst,
+		t_bool (*match)(void const *elem, va_list args),
+		...);
 
 /*
 ** Variadic functions on list, with error reports.
