@@ -6,11 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 13:00:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/31 14:18:52 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/15 13:47:54 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst_defs.h"
+#include "custom_stddef.h"
 #include <stdlib.h>
 
 /*
@@ -22,58 +23,55 @@
 ** The allocation has to be done by change.
 */
 
-t_lst	*f_lstmap(t_lst *lst, t_lst *(*change)(t_lst *elem))
+t_lst	*f_lstmap(
+		t_lst const *lst,
+		void *(*change)(void const*),
+		t_destroy destroy)
 {
-	t_lst	*new_lst;
-	t_lst	*new_elem;
-	t_lst	*next;
+	t_lst	**new_lst;
+	t_lst	*final_list;
+	void	*new_content;
 
-	if (change == NULL || lst == NULL)
-		return (lst);
-	next = lst->next;
-	new_lst = change(lst);
-	new_elem = new_lst;
-	if (new_elem == NULL)
-		return (NULL);
-	lst = next;
+	new_lst = &final_list;
 	while (lst != NULL)
 	{
-		next = lst->next;
-		new_elem->next = change(lst);
-		new_elem = new_elem->next;
-		if (new_elem == NULL)
-			return (NULL);
-		lst = next;
+		new_content = change(lst->content);
+		*new_lst = f_lstnew(new_content);
+		if ((*new_lst)->next == NULL || (*new_lst)->content == NULL)
+		{
+			f_lstdel(&final_list, destroy);
+			break ;
+		}
+		*new_lst = (*new_lst)->next;
+		lst = lst->next;
 	}
-	return (new_lst);
+	return (final_list);
 }
 
-t_lst	*f_lstmapi(t_lst *lst,
-					t_lst *(*change)(t_lst *elem, unsigned int index))
+t_lst	*f_lstmapi(
+		t_lst const *lst,
+		void *(*change)(void const *elem, unsigned int index),
+		t_destroy del)
 {
-	t_lst			*new_lst;
-	t_lst			*new_elem;
-	t_lst			*next;
+	t_lst			**new_lst;
+	t_lst			*final_list;
+	void			*new_content;
 	unsigned int	index;
 
-	if (change == NULL || lst == NULL)
-		return (lst);
+	new_lst = &final_list;
 	index = 0;
-	next = lst->next;
-	new_lst = change(lst, index);
-	new_elem = new_lst;
-	if (new_elem == NULL)
-		return (NULL);
-	lst = next;
 	while (lst != NULL)
 	{
-		next = lst->next;
+		new_content = change(lst->content, index);
+		*new_lst = f_lstnew(new_content);
+		if ((*new_lst)->next == NULL || (*new_lst)->content == NULL)
+		{
+			f_lstdel(&final_list, del);
+			break ;
+		}
+		*new_lst = (*new_lst)->next;
+		lst = lst->next;
 		index++;
-		new_elem->next = change(lst, index);
-		new_elem = new_elem->next;
-		if (new_elem == NULL)
-			return (NULL);
-		lst = next;
 	}
-	return (new_lst);
+	return (final_list);
 }

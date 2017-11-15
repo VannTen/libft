@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/14 18:26:28 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/15 13:48:06 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,9 +104,14 @@ void				f_lstiter(t_lst *lst, t_iter f);
 ** Implementation file : f_lstmap.c
 */
 
-t_lst				*f_lstmap(t_lst *lst, t_lst *(*f)(t_lst *elem));
-t_lst				*f_lstmapi(t_lst *lst,
-		t_lst *(*f)(t_lst *elem, unsigned int index));
+t_lst				*f_lstmap(
+		t_lst const *lst,
+		void *(*f)(void const *elem),
+		t_destroy del);
+t_lst				*f_lstmapi(
+		t_lst const *lst,
+		void *(*f)(void const *elem, unsigned int index),
+		t_destroy del);
 
 /*
 ** List iterators where the passed function use multiples items in the list
