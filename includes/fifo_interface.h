@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:00:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/14 18:32:25 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/15 11:40:03 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,12 @@ t_bool				f_fifoiterr_va(t_fifo *fifo,
 t_bool				f_fifoiterr_vas(t_fifo *fifo,
 		t_bool (*iter)( void *elem, va_list),
 		va_list args);
+
+/*
+** Getters : obtain information about object
+** Implementation file : fifo_get.c
+*/
+
+size_t				fifo_len(t_fifo const *fifo);
 
 #endif
