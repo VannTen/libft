@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 12:01:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/14 18:30:17 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/16 10:37:42 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	*f_lst_every_valid(t_lst const *list, t_bool (*test)(const void *content))
 
 void	*f_lst_every_valid_va(
 		t_lst const *list,
+		t_bool valid_result,
 		t_bool (*test)(const void *content, va_list args),
 		...)
 {
@@ -48,7 +49,7 @@ void	*f_lst_every_valid_va(
 	void	*result;
 
 	va_start(args, test);
-	result = f_lst_every_valid_vas(list, test, args);
+	result = f_lst_every_valid_vas(list, valid_result, test, args);
 	va_end(args);
 	return (result);
 }
@@ -56,6 +57,7 @@ void	*f_lst_every_valid_va(
 void	*f_lst_every_valid_vas(
 		t_lst const *list,
 		t_bool (*test)(const void *content, va_list args),
+		t_bool	valid_result,
 		va_list args)
 {
 	va_list	args_loc;
@@ -66,7 +68,8 @@ void	*f_lst_every_valid_vas(
 	while (list != NULL)
 	{
 		va_copy(args_loc, args);
-		result = test(list->content, args_loc);
+		result = valid_result ?
+			test(list->content, args_loc) : !test(list->content, args_loc);
 		va_end(args_loc);
 		if (result == FALSE)
 			return (list->content);
@@ -75,4 +78,3 @@ void	*f_lst_every_valid_vas(
 	}
 	return (list->content);
 }
-

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/15 17:23:05 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/16 10:38:30 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,8 +188,10 @@ void				f_lstmaparray(const void *src, void *dst, t_lst *list,
 void				*f_lst_every_valid(t_lst const *list,
 		t_bool (*test)(const void *content));
 void				*f_lst_every_valid_va(t_lst const *list,
+		t_bool valid_result,
 		t_bool (*test)(const void *content, va_list args), ...);
 void				*f_lst_every_valid_vas(t_lst const *list,
+		t_bool valid_result,
 		t_bool (*test)(const void *content, va_list args), va_list args);
 
 /*
