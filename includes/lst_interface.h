@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/16 10:38:30 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/16 13:01:17 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,12 @@ void				f_lstiter_va(t_lst const *lst,
 		...);
 void				f_lstiter_vas(t_lst const *lst,
 		void (*iter)(const void *elem, va_list),
+		va_list args);
+void				f_lstiteri_va(t_lst const *lst,
+		void (*iter)(const void *elem, size_t index, va_list),
+		...);
+void				f_lstiteri_vas(t_lst const *lst,
+		void (*iter)(const void *elem, size_t index, va_list),
 		va_list args);
 
 /*

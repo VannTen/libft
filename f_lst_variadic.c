@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 16:43:57 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/12 14:06:47 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/16 13:06:06 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	f_lstiter_vas(t_lst const *lst,
 		va_list args)
 {
 	va_list	copy;
+
 	while (lst != NULL)
 	{
 		va_copy(copy, args);
@@ -60,4 +61,33 @@ void	f_lstiter_va(t_lst const *lst,
 	va_start(args, iter);
 	f_lstiter_vas(lst, iter, args);
 	va_end(args);
+}
+
+void	f_lstiteri_va(t_lst const *lst,
+		void (*iter)(const void *elem, size_t index, va_list),
+		...)
+{
+	va_list	args;
+
+	va_start(args, iter);
+	f_lstiteri_vas(lst, iter, args);
+	va_end(args);
+}
+
+void	f_lstiteri_vas(t_lst const *lst,
+		void (*iter)(const void *elem, size_t index, va_list),
+		va_list args)
+{
+	va_list	copy;
+	size_t	index;
+
+	index = 0;
+	while (lst != NULL)
+	{
+		va_copy(copy, args);
+		iter(lst->content, index, copy);
+		va_end(copy);
+		index++;
+		lst = lst->next;
+	}
 }

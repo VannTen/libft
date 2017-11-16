@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 12:01:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/16 10:37:42 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/16 13:05:45 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	*f_lst_every_valid_va(
 
 void	*f_lst_every_valid_vas(
 		t_lst const *list,
+		t_bool valid_result,
 		t_bool (*test)(const void *content, va_list args),
-		t_bool	valid_result,
 		va_list args)
 {
 	va_list	args_loc;
