@@ -6,21 +6,21 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 10:20:33 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/14 11:15:48 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/16 17:53:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst_defs.h"
 #include <stdlib.h>
 
-static t_lst		*end_list(t_lst *lst)
+static t_lst	*end_list(t_lst *lst)
 {
 	while (lst->next != NULL)
 		lst = lst->next;
 	return (lst);
 }
 
-void				*f_pushend_lst(t_lst **lst, void *content)
+void			*f_pushend_lst(t_lst **lst, void *content)
 {
 	t_lst	*new_link;
 
@@ -52,7 +52,7 @@ static t_lst	*one_before_last(t_lst *lst)
 	return (lst);
 }
 
-void				*f_popend_lst(t_lst **lst)
+void			*f_popend_lst(t_lst **lst)
 {
 	t_lst		*ante_last;
 	void		*ret_content;
