@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:00:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/15 11:40:03 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/16 17:40:36 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,12 @@ void				*f_fifo_every_valid(t_fifo const *fifo,
 		t_bool (*test)(const void *content));
 void				*f_fifo_every_valid_va(
 		t_fifo const *fifo,
+		t_bool valid_result,
 		t_bool (*test)(const void *content, va_list args),
 		...);
 void				*f_fifo_every_valid_vas(
 		t_fifo const *fifo,
+		t_bool valid_result,
 		t_bool (*test)(const void *content, va_list args),
 		va_list args);
 
