@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 16:32:28 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/15 17:34:12 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/17 14:41:01 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static t_bool	test_take_one(char **str)
 	t_bool	result;
 
 	lst = convert_arr_to_struct(str);
-	str_in = f_lsttakeone_if_va(&lst, match);
+	str_in = f_lsttakeone_if_va(&lst, TRUE, match);
 	result = ft_strequ(str_in, "BAR");
 	f_lstdel(&lst, no_destroy);
 	return (result);
@@ -64,7 +64,7 @@ static t_bool	test_split_lst(char **str, char **str1, char **str2)
 	lst[0] = convert_arr_to_struct(str);
 	lst[1] = convert_arr_to_struct(str1);
 	lst[2] = convert_arr_to_struct(str2);
-	lst[3] = f_split_lst_va(&lst[0], match);
+	lst[3] = f_split_lst_va(&lst[0], TRUE, match);
 	result = lst_equ(lst[0], lst[1], ft_gen_strequ)
 		&& lst_equ(lst[2], lst[3], ft_gen_strequ);
 	index = 0;

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 16:30:35 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/15 17:42:32 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/17 11:12:06 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 void	*f_lsttakeone_if_vas(
 		t_lst **lst,
+		t_bool truth,
 		t_bool (*match)(void const *elem, va_list args),
 		va_list args)
 {
@@ -29,7 +30,7 @@ void	*f_lsttakeone_if_vas(
 	while (*current != NULL)
 	{
 		va_copy(args_loc, args);
-		if (match((*current)->content, args_loc))
+		if (truth == match((*current)->content, args_loc))
 		{
 			to_take = (*current)->content;
 			to_del = *current;
@@ -45,6 +46,7 @@ void	*f_lsttakeone_if_vas(
 
 void	*f_lsttakeone_if_va(
 		t_lst **lst,
+		t_bool truth,
 		t_bool (*match)(void const *elem, va_list args),
 		...)
 {
@@ -52,13 +54,14 @@ void	*f_lsttakeone_if_va(
 	void	*to_take;
 
 	va_start(args_loc, match);
-	to_take = f_lsttakeone_if_vas(lst, match, args_loc);
+	to_take = f_lsttakeone_if_vas(lst, truth,  match, args_loc);
 	va_end(args_loc);
 	return (to_take);
 }
 
 t_lst	*f_split_lst_vas(
 		t_lst **lst,
+		t_bool truth,
 		t_bool (*match)(void const *elem, va_list args),
 		va_list args)
 {
@@ -73,7 +76,7 @@ t_lst	*f_split_lst_vas(
 	while (*current != NULL)
 	{
 		va_copy(args_loc, args);
-		if (match((*current)->content, args_loc))
+		if (truth == match((*current)->content, args_loc))
 		{
 			to_take = (*current)->content;
 			if (new_list == NULL)
@@ -91,6 +94,7 @@ t_lst	*f_split_lst_vas(
 
 t_lst	*f_split_lst_va(
 		t_lst **lst,
+		t_bool truth,
 		t_bool (*match)(void const *elem, va_list args),
 		...)
 {
@@ -98,7 +102,7 @@ t_lst	*f_split_lst_va(
 	t_lst	*new_lst;
 
 	va_start(args_loc, match);
-	new_lst = f_split_lst_vas(lst, match, args_loc);
+	new_lst = f_split_lst_vas(lst, truth, match, args_loc);
 	va_end(args_loc);
 	return (new_lst);
 }

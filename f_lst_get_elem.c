@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 14:27:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/15 16:31:11 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/17 14:31:35 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,14 @@ t_lst	*advance_list(const t_lst *lst, size_t n_time)
 	while (n_time != 0 && up_the_list != NULL)
 		up_the_list = up_the_list->next;
 	return (up_the_list);
+}
+
+t_lst	*lst_last_link(t_lst *lst)
+{
+	if (lst != NULL)
+	{
+		while (lst->next != NULL)
+			lst = lst->next;
+	}
+	return (lst);
 }

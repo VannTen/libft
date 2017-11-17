@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:00:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/16 17:40:36 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/17 15:02:53 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,33 @@ void				*f_fifo_every_valid_vas(
 		t_bool valid_result,
 		t_bool (*test)(const void *content, va_list args),
 		va_list args);
+
+/*
+** Take elem of fifo
+** These function take out of the list elems that match the given function.
+** Implementation file : fifo_take_elems.c
+*/
+
+void				*f_fifotakeone_if_vas(
+		t_fifo *fifo,
+		t_bool truth,
+		t_bool (*match)(void const *elem, va_list args),
+		va_list args);
+void				*f_fifotakeone_if_va(
+		t_fifo *fifo,
+		t_bool truth,
+		t_bool (*match)(void const *elem, va_list args),
+		...);
+t_fifo				*f_split_fifo_vas(
+		t_fifo *fifo,
+		t_bool truth,
+		t_bool (*match)(void const *elem, va_list args),
+		va_list args);
+t_fifo				*f_split_fifo_va(
+		t_fifo *fifo,
+		t_bool truth,
+		t_bool (*match)(void const *elem, va_list args),
+		...);
 
 /*
 ** Iteration

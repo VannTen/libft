@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/16 13:01:17 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/17 14:31:32 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,18 +88,22 @@ void				f_lstiteri_vas(t_lst const *lst,
 
 void				*f_lsttakeone_if_vas(
 		t_lst **lst,
+		t_bool truth,
 		t_bool (*match)(void const *elem, va_list args),
 		va_list args);
 void				*f_lsttakeone_if_va(
 		t_lst **lst,
+		t_bool truth,
 		t_bool (*match)(void const *elem, va_list args),
 		...);
 t_lst				*f_split_lst_vas(
 		t_lst **lst,
+		t_bool truth,
 		t_bool (*match)(void const *elem, va_list args),
 		va_list args);
 t_lst				*f_split_lst_va(
 		t_lst **lst,
+		t_bool truth,
 		t_bool (*match)(void const *elem, va_list args),
 		...);
 
@@ -173,6 +177,7 @@ void				*f_lstsearch(const t_lst *list, const int ref,
 		int (*match)(const void *elem));
 void				*f_lst_first_elem(const t_lst *lst);
 t_lst				*advance_list(const t_lst *lst, size_t n_times);
+t_lst				*lst_last_link(t_lst *lst);
 
 /*
 ** List array interactions
