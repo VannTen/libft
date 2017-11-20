@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 12:01:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/16 17:48:39 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/20 10:03:35 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	*f_lst_every_valid(t_lst const *list, t_bool (*test)(const void *content))
 		else
 			list = list->next;
 	}
-	return (list->content);
+	return (NULL);
 }
 
 void	*f_lst_every_valid_va(

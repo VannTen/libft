@@ -6,13 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 16:13:17 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/22 17:17:04 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/20 10:01:10 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "format_string_defs.h"
 #include "conversion_interface.h"
 #include "bool_interface.h"
+#include "fifo_interface.h"
 #include <stddef.h>
 
 static t_bool	no_conv_error(const void *conv)
