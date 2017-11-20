@@ -6,13 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 13:14:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/14 18:04:43 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/20 17:03:59 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "string_array_defs.h"
 #include "mem_interface.h"
 #include "string_interface.h"
+#include "issomething_interface.h"
 #include <stddef.h>
 
 /*
@@ -30,17 +31,17 @@
 ** returned.
 */
 
-static size_t	ft_strsublen(char const *s, char c)
+static size_t	sublen(char const *s, char const *c)
 {
 	size_t	len;
 
 	len = 0;
-	while (s[len] != c && s[len] != '\0')
+	while (!is_among(c, s[len]) && s[len] != '\0')
 		len++;
 	return (len);
 }
 
-static size_t	ft_nb_field(char const *s, char c)
+static size_t	ft_nb_field(char const *s, char const *c)
 {
 	size_t	index;
 	size_t	nb_field;
@@ -49,12 +50,12 @@ static size_t	ft_nb_field(char const *s, char c)
 	nb_field = 0;
 	while (s[index] != '\0')
 	{
-		while (s[index] == c)
+		while (is_among(c, s[index]))
 			index++;
 		if (s[index] != '\0')
 		{
 			nb_field++;
-			while ((s[index] != c) && (s[index] != '\0'))
+			while (!is_among(c, s[index]) && (s[index] != '\0'))
 				index++;
 		}
 	}
@@ -63,39 +64,43 @@ static size_t	ft_nb_field(char const *s, char c)
 
 char			**ft_strsplit(char const *s, char c)
 {
+	char	sep[2];
+
+	sep[0] = c;
+	sep[1] = '\0';
+	return (strsplit_with_str(s, sep));
+}
+
+char			**strsplit_with_str(char const *src, char const *seps)
+{
 	size_t	index;
 	size_t	nb_field;
 	size_t	field_n;
 	char	**strsplit;
 
-	if (s == NULL)
+	if (src == NULL)
 		return (NULL);
-	nb_field = ft_nb_field(s, c);
-	strsplit = (char**)ft_memalloc(sizeof(char*) * (nb_field + 1));
+	nb_field = ft_nb_field(src, seps);
+	strsplit = ft_memalloc(sizeof(char*) * (nb_field + 1));
 	if (strsplit == NULL)
 		return (strsplit);
 	field_n = 0;
 	index = 0;
 	while (field_n < nb_field)
 	{
-		while (s[index] == c)
+		while (is_among(seps, src[index]))
 			index++;
-		strsplit[field_n] = ft_strsub(s, index, ft_strsublen((s + index), c));
+		strsplit[field_n] = ft_strsub(src, index, sublen((src + index), seps));
 		if (strsplit[field_n] == NULL)
 			return (ft_free_string_array(&strsplit));
-		while ((s[index] != c) && (s[index] != '\0'))
+		while (!is_among(seps, src[index]) && (src[index] != '\0'))
 			index++;
 		field_n++;
 	}
 	return (strsplit);
 }
 
-char		*ft_va_strstrip(char const *str, va_list args)
-{
-	return (ft_strip(str, va_arg(args, const char*)));
-}
-
-char		**ft_strsplit_and(
+char			**ft_strsplit_and(
 		char const *str,
 		char const c,
 		char *(*map)(const char*, va_list),

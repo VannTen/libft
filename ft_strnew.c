@@ -6,14 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 11:07:27 by mgautier          #+#    #+#             */
-/*   Updated: 2017/05/15 16:24:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/20 16:00:39 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mem_interface.h"
 
 /*
-** Cast the memory allocates by ft_memalloc into char.
 ** Since ft_memalloc initialize the allocated memory to 0, the string created
 ** is already filled with null characters.
 ** Function that use this one do not need to take the terminating null character

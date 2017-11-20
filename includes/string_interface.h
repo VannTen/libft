@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:39:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/15 17:29:37 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/20 16:29:28 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,12 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 
 t_lst	*f_strsplit_lst(char const *str, char c);
 char	**ft_strsplit(char const *s, char c);
+char	**strsplit_with_str(char const *src, char const *seps);
 char	**ft_strsplit_and(
 		char const *str,
 		char const c,
 		char *(*map)(const char*, va_list),
 		...);
-char	*ft_va_strstrip(char const *str, va_list args);
 
 /*
 ** Strip strings
@@ -111,6 +111,8 @@ char	*ft_va_strstrip(char const *str, va_list args);
 */
 
 char	*ft_strip(char const *src, char const *to_strip);
+char	*ft_va_strstrip(char const *str, va_list args);
+
 /*
 ** Join strings
 ** Implementation files : name of the function
