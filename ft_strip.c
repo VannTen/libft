@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 13:47:54 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/09 13:56:21 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/20 16:28:50 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static char	*copy_new(char const *src, char const *to_strip, size_t	index_dest)
 	return (dest);
 }
 
-char	*ft_strip(char const *src, char const *to_strip)
+char		*ft_strip(char const *src, char const *to_strip)
 {
 	size_t	index;
 	size_t	index_dest;
@@ -50,8 +50,10 @@ char	*ft_strip(char const *src, char const *to_strip)
 			index_dest++;
 		index++;
 	}
-	if (index_dest != 0)
-		return (copy_new(src, to_strip, index_dest));
-	else
-		return (NULL);
+	return (copy_new(src, to_strip, index_dest));
+}
+
+char		*ft_va_strstrip(char const *str, va_list args)
+{
+	return (ft_strip(str, va_arg(args, const char*)));
 }
