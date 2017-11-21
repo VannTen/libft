@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 10:31:49 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/12 12:18:23 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/21 16:46:54 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,14 @@ typedef void	(*t_iter_two)(void *content, void *param_supp);
 */
 
 # define NULL_EXPR (void)0
+
+/*
+** Pipe semantics
+*/
+
+enum {
+	READ_END,
+	WRITE_END
+};
+
 #endif
