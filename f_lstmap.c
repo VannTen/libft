@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 13:00:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/15 14:31:34 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/21 15:31:30 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ t_lst	*f_lstmap_vas(
 		new_content = change(lst->content, args_loc);
 		va_end(args_loc);
 		*new_lst = f_lstnew(new_content);
-		if ((*new_lst)->next == NULL || (*new_lst)->content == NULL)
+		if ((*new_lst) == NULL || (*new_lst)->content == NULL)
 		{
 			f_lstdel(&final_list, destroy);
 			break ;
 		}
-		*new_lst = (*new_lst)->next;
+		new_lst = &(*new_lst)->next;
 		lst = lst->next;
 	}
 	return (final_list);
