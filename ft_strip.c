@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 13:47:54 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/20 16:28:50 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/21 15:13:52 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static char	*copy_new(char const *src, char const *to_strip, size_t	index_dest)
 	char	*dest;
 	size_t	index;
 
-	dest = NULL;
 	dest = ft_strnew(index_dest);
 	if (dest != NULL)
 	{
@@ -51,6 +50,30 @@ char		*ft_strip(char const *src, char const *to_strip)
 		index++;
 	}
 	return (copy_new(src, to_strip, index_dest));
+}
+
+void		ft_strip_in_place(
+		char *strip_from,
+		t_bool (*shall)(char),
+		t_bool keep)
+{
+	size_t	index;
+	size_t	index_strip;
+
+	index = 0;
+	index_strip = 0;
+	while (strip_from[index] != '\0')
+	{
+		if ((keep && shall(strip_from[index]))
+				|| (!keep && !shall(strip_from[index])))
+		{
+			strip_from[index_strip] = strip_from[index];
+			index_strip++;
+		}
+		else
+			strip_from[index] = '\0';
+		index++;
+	}
 }
 
 char		*ft_va_strstrip(char const *str, va_list args)

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:39:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/20 16:29:28 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/21 14:24:25 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,10 @@ char	**ft_strsplit_and(
 */
 
 char	*ft_strip(char const *src, char const *to_strip);
+void	ft_strip_in_place(
+		char *src,
+		t_bool (*shall_remove)(char),
+		t_bool keep);
 char	*ft_va_strstrip(char const *str, va_list args);
 
 /*
