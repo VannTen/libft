@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 14:27:03 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/17 15:49:36 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/22 19:24:36 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,17 @@ void	*f_lstsearch(const t_lst *list, const int ref,
 
 void	*f_lst_first_elem(const t_lst *lst)
 {
-	return (lst->content);
+	return (get_lst_elem(lst, 0));
 }
 
 t_lst	*advance_list(const t_lst *lst, size_t n_time)
 {
-	t_lst	*up_the_list;
-
-	up_the_list = (t_lst*)lst;
-	while (n_time != 0 && up_the_list != NULL)
+	while (n_time != 0 && lst != NULL)
 	{
-		up_the_list = up_the_list->next;
+		lst = lst->next;
 		n_time--;
 	}
-	return (up_the_list);
+	return ((t_lst*)lst);
 }
 
 t_lst	*lst_last_link(t_lst *lst)
@@ -50,4 +47,10 @@ t_lst	*lst_last_link(t_lst *lst)
 			lst = lst->next;
 	}
 	return (lst);
+}
+
+void	*get_lst_elem(const t_lst *lst, size_t index)
+{
+	lst = advance_list(lst, index);
+	return (lst != NULL ? lst->content : NULL);
 }
