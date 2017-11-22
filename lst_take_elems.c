@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 16:30:35 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/17 11:12:06 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/22 13:42:47 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,28 +67,25 @@ t_lst	*f_split_lst_vas(
 {
 	va_list	args_loc;
 	t_lst	**current;
-	void	*to_take;
+	t_lst	**ptr_new_lst;
 	t_lst	*new_list;
 
 	current = lst;
-	to_take = NULL;
-	new_list = NULL;
+	ptr_new_lst = &new_list;
 	while (*current != NULL)
 	{
 		va_copy(args_loc, args);
 		if (truth == match((*current)->content, args_loc))
 		{
-			to_take = (*current)->content;
-			if (new_list == NULL)
-				new_list = *current;
-			else
-				new_list->next = *current;
+			*ptr_new_lst = *current;
 			*current = (*current)->next;
+			ptr_new_lst = &((*ptr_new_lst)->next);
 		}
 		else
 			current = &(*current)->next;
 		va_end(args_loc);
 	}
+	(*ptr_new_lst) = NULL;
 	return (new_list);
 }
 
