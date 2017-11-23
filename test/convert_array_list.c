@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:14:31 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/14 13:17:47 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 11:37:08 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 
 int	main(void)
 {
-	char	tab[] = "Hello world !";
-	char	*str;
-	t_lst	*lst;
-	t_bool	result;
+	const char	tab[] = "Hello world !";
+	char		*str;
+	t_lst		*lst;
+	t_bool		result;
 
 	lst = str_to_lst(tab);
 	str = lst_to_str(lst);

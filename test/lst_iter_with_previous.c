@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 16:08:49 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/12 13:02:45 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 13:34:09 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static t_lst	*convert_str_to_lst(char const *str)
 void			*previous(void *cur, void const *prev)
 {
 	char		*addr;
-	char const *addr2;
+	char const	*addr2;
 
 	addr = cur;
 	addr2 = prev;
@@ -59,7 +59,7 @@ static void		*map(void *cur)
 int				main(void)
 {
 	static char	tab[] = "TTTAAA";
-	char		result[] = "T77A77";
+	const char	result[] = "T77A77";
 	t_lst		*lst;
 
 	lst = convert_str_to_lst(tab);

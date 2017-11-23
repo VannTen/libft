@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 16:30:35 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/22 13:42:47 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 11:33:34 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	*f_lsttakeone_if_va(
 	void	*to_take;
 
 	va_start(args_loc, match);
-	to_take = f_lsttakeone_if_vas(lst, truth,  match, args_loc);
+	to_take = f_lsttakeone_if_vas(lst, truth, match, args_loc);
 	va_end(args_loc);
 	return (to_take);
 }

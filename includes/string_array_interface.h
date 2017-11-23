@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:59:49 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/14 17:47:19 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 11:37:25 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_print_string_array_fd(int fd,
 
 size_t	ft_string_array_count(char const *const *string_array);
 int		ft_str_arraycmp(char const *const *array_1, char const *const *array_2);
-t_bool	ft_str_arr_equ(char const * const *arr_1, char const *const *arr_2);
+t_bool	ft_str_arr_equ(char const *const *arr_1, char const *const *arr_2);
 
 /*
 ** Update the array in various ways

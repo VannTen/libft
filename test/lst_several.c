@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 12:47:32 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/14 13:23:22 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 11:28:17 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ static t_bool	test(const void *a, const void *b)
 
 int				main(void)
 {
-	char	str_1[] = "ABC";
-	char	str_2[] = "DEF";
-	char	str_3[] = "ABCDEF";
-	t_lst	*list_1;
-	t_lst	*list_2;
+	const char	str_1[] = "ABC";
+	const char	str_2[] = "DEF";
+	const char	str_3[] = "ABCDEF";
+	t_lst		*list_1;
+	t_lst		*list_2;
 
 	list_1 = str_to_lst(str_1);
 	list_2 = str_to_lst(str_3);

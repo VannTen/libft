@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 13:48:23 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/15 14:05:55 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 13:31:22 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "misc_interface.h"
 #include <stdlib.h>
 
-t_lst	*convert_arr_to_struct(char **arr)
+static t_lst	*convert_arr_to_struct(char const **arr)
 {
 	size_t	index;
 	t_fifo	*fifo;
@@ -36,7 +36,7 @@ t_lst	*convert_arr_to_struct(char **arr)
 	return (f_fifo_extract(&fifo));
 }
 
-static void	*lower_case(void const *str)
+static void		*lower_case(void const *str)
 {
 	return (ft_strmap(str, f_tolower));
 }
@@ -46,12 +46,12 @@ static t_bool	cmp(const void *str1, const void *str2)
 	return (ft_strequ(str1, str2));
 }
 
-int main(void)
+int				main(void)
 {
-	char	*str[] = {"A", "B", "D", "C", NULL};
-	char	*str_2[] = {"a", "b", "d", "c", NULL};
-	t_lst	*lst[3];
-	t_bool	result;
+	char const	*str[] = {"A", "B", "D", "C", NULL};
+	char const	*str_2[] = {"a", "b", "d", "c", NULL};
+	t_lst		*lst[3];
+	t_bool		result;
 
 	lst[0] = convert_arr_to_struct(str);
 	lst[1] = convert_arr_to_struct(str_2);

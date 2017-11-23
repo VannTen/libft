@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:00:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/17 15:02:53 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 11:42:12 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,10 +111,10 @@ void				f_fifoiter_vas(t_fifo const *fifo,
 		void (*iter)(const void *elem, va_list),
 		va_list args);
 t_bool				f_fifoiterr_va(t_fifo *fifo,
-		t_bool (*iter)( void *elem, va_list),
+		t_bool (*iter)(void *elem, va_list),
 		...);
 t_bool				f_fifoiterr_vas(t_fifo *fifo,
-		t_bool (*iter)( void *elem, va_list),
+		t_bool (*iter)(void *elem, va_list),
 		va_list args);
 
 /*

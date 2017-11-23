@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 17:49:39 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/14 18:07:39 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 11:36:47 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	main(void)
 	int			result;
 
 	test = ft_strsplit_and(src, ' ', ft_va_strstrip, "iwa");
-	result = ft_str_arr_equ((char const * const *)expected_result,
-				(char const * const *)test) ? EXIT_SUCCESS : EXIT_FAILURE;
+	result = ft_str_arr_equ((char const *const *)expected_result,
+				(char const *const *)test) ? EXIT_SUCCESS : EXIT_FAILURE;
 	ft_free_string_array(&test);
 	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 16:32:28 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/22 13:41:09 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 13:35:15 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-static t_lst	*convert_arr_to_struct(char **arr)
+static t_lst	*convert_arr_to_struct(char const **arr)
 {
 	size_t	index;
 	t_fifo	*fifo;
@@ -43,7 +43,7 @@ static t_bool	match(void const *elem, va_list args)
 				|| ft_strequ(elem, va_arg(args, char const*)));
 }
 
-static t_bool	test_take_one(char **str)
+static t_bool	test_take_one(char const **str)
 {
 	t_lst	*lst;
 	char	*str_in;
@@ -56,8 +56,9 @@ static t_bool	test_take_one(char **str)
 	return (result);
 }
 
-static t_bool	test_split_lst(char **str, char **str1, char **str2,
-		char **str4)
+static t_bool	test_split_lst(char const **str, char const **str1,
+		char const **str2,
+		char const **str4)
 {
 	t_lst	*lst[6];
 	size_t	index;
@@ -85,11 +86,11 @@ static t_bool	test_split_lst(char **str, char **str1, char **str2,
 
 int				main(void)
 {
-	char	*str_0[] = {"BAR", "", "", "YYYUU" , "",
+	const char	*str_0[] = {"BAR", "", "", "YYYUU", "",
 		"FOO", "foo", "bar", "bar", NULL };
-	char	*str[] = {"FOO", "BAR", "foo", "bar", "bar", NULL};
-	char	*str_1[] = {"FOO", "foo", NULL};
-	char	*str_2[] = {"BAR", "bar", "bar", NULL};
+	const char	*str[] = {"FOO", "BAR", "foo", "bar", "bar", NULL};
+	const char	*str_1[] = {"FOO", "foo", NULL};
+	const char	*str_2[] = {"BAR", "bar", "bar", NULL};
 
 	return (test_take_one(str)
 			&& test_split_lst(str, str_1, str_2, str_0) ?

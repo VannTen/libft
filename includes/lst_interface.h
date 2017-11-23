@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/22 14:50:11 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 11:35:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,12 +145,12 @@ t_lst				*f_lstmapi(
 		t_lst const *lst,
 		void *(*f)(void const *elem, unsigned int index),
 		t_destroy del);
-t_lst	*f_lstmap_vas(
+t_lst				*f_lstmap_vas(
 		t_lst const *lst,
 		void *(*change)(void const*, va_list args),
 		t_destroy destroy,
 		va_list args);
-t_lst	*f_lstmap_va(
+t_lst				*f_lstmap_va(
 		t_lst const *lst,
 		void *(*change)(void const*, va_list args),
 		t_destroy destroy,
@@ -159,7 +159,6 @@ t_lst	*f_lstmap_va(
 /*
 ** List iterators where the passed function use multiples items in the list
 ** Implementation_file : lst_iter_multiple.c
-**
 */
 
 t_lst				*f_lst_mapinc_with_previous(

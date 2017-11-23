@@ -6,14 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 13:47:54 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/21 15:13:52 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 11:43:00 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "string_defs.h"
 #include "issomething_interface.h"
 
-static char	*copy_new(char const *src, char const *to_strip, size_t	index_dest)
+static char	*copy_new(char const *src, char const *to_strip, size_t index_dest)
 {
 	char	*dest;
 	size_t	index;

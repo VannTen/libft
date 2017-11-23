@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 18:19:05 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/16 17:40:47 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 11:41:41 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include "bool_interface.h"
 #include <stdarg.h>
 
-void	*f_fifo_every_valid(t_fifo const *fifo, t_bool (*test)(const void *content))
+void	*f_fifo_every_valid(t_fifo const *fifo,
+		t_bool (*test)(const void *content))
 {
 	return (f_lst_every_valid(fifo->begin_lst, test));
 }

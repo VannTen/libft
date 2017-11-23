@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 15:19:09 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/12 15:53:52 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 13:33:40 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static t_bool	test(void *v_let, va_list args)
 int				main(void)
 {
 	static char	tab[] = "TRTATT";
-	char		result[] = "0R0ATT";
+	const char	result[] = "0R0ATT";
 	t_lst		*lst;
 
 	lst = convert_str_to_lst(tab);

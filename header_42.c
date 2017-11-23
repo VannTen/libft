@@ -6,21 +6,21 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 15:13:59 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/07 17:39:13 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 12:23:18 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "meta_programming_defs.h"
 #include "string_interface.h"
 #include "printf.h"
+#include "useful_macros.h"
 #include <stdlib.h>
 
 void		print_header_42(int const fd, char const *file_name)
 {
-	char const	stars[] = "****************************************************"
-		"**********************";
 	char		*mail;
 	const char	*date = "2017/10/13 15:56:34";
+	const char	stars[] = REP(0, 7, 4, "*");
 
 	mail = ft_strvajoin(3, "<", getenv("MAIL42"), ">");
 	ft_dprintf(fd,
@@ -34,7 +34,7 @@ void		print_header_42(int const fd, char const *file_name)
 			"%1$-4s Created: %12$s by %8$-17s %11$-6s %11$-15s %3$s\n"
 			"%1$-4s Updated: %12$s by %8$-16s %13$-5.3s %13$-17s %3$s\n"
 			"%1$-77s %3$s\n"
-			"%1$s %2$s %3$s\n","/*", stars, "*/", "::::::::", file_name,
+			"%1$s %2$s %3$s\n", "/*", stars, "*/", "::::::::", file_name,
 			":+:", "+:+", getenv("LOGNAME"), mail, "+#+", "#+#", date,
 			"########.fr");
 	ft_strdel(&mail);

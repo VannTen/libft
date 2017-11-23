@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 11:16:35 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/18 18:51:52 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 11:33:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "bool_interface.h"
 #include <stddef.h>
 
-size_t	ft_string_array_count(char const *const *str_array)
+size_t		ft_string_array_count(char const *const *str_array)
 {
 	size_t	index;
 
@@ -44,7 +44,9 @@ static int	comp(char const *const *array_1, char const *const *array_2)
 	}
 	return (result);
 }
-int		ft_str_arraycmp(char const *const *array_1, char const *const *array_2)
+
+int			ft_str_arraycmp(char const *const *array_1,
+		char const *const *array_2)
 {
 	size_t	size_1;
 	size_t	size_2;
@@ -59,7 +61,7 @@ int		ft_str_arraycmp(char const *const *array_1, char const *const *array_2)
 		return (comp(array_1, array_2));
 }
 
-t_bool	ft_str_arr_equ(char const * const *arr_1, char const *const *arr_2)
+t_bool		ft_str_arr_equ(char const *const *arr_1, char const *const *arr_2)
 {
 	return (ft_str_arraycmp(arr_1, arr_2) == 0);
 }

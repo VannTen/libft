@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/12 17:48:09 by mgautier          #+#    #+#             */
-/*   Updated: 2017/10/12 17:54:28 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 11:39:11 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void	print_header_guard_in(int fd, const char *file_name)
 
 void	print_header_guard_out(int fd)
 {
-	ft_dprintf(fd ,"#endif");
+	ft_dprintf(fd, "#endif");
 }

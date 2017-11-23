@@ -6,14 +6,14 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 14:15:32 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/12 13:08:59 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/23 11:34:35 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst_defs.h"
 #include "custom_stddef.h"
 
-static void	*inner_loop(
+static void		*inner_loop(
 		t_lst *start,
 		t_lst *current,
 		void *(*iter)(void *i, void const *j))
@@ -29,7 +29,7 @@ static void	*inner_loop(
 	return (error_report);
 }
 
-static t_bool map_it(
+static t_bool	map_it(
 		t_lst *lst,
 		void *(*map)(void *i),
 		t_destroy destroy)
@@ -56,7 +56,7 @@ static t_bool map_it(
 	return (TRUE);
 }
 
-t_lst		*f_lst_mapinc_with_previous(
+t_lst			*f_lst_mapinc_with_previous(
 		t_lst *lst,
 		void *(*iter)(void *i, void const *j),
 		void *(*map)(void *i),
