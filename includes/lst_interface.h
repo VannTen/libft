@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/23 11:35:31 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/24 11:58:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,10 +174,10 @@ t_lst				*f_lst_mapinc_with_previous(
 
 void				*f_lstsearch(const t_lst *list, const int ref,
 		int (*match)(const void *elem));
-void				*f_lst_first_elem(const t_lst *lst);
+void const			*f_lst_first_elem(const t_lst *lst);
 t_lst				*advance_list(const t_lst *lst, size_t n_times);
 t_lst				*lst_last_link(t_lst *lst);
-void				*get_lst_elem(t_lst const *lst, size_t index);
+void const			*get_lst_elem(t_lst const *lst, size_t index);
 
 /*
 ** List array interactions

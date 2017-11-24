@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:00:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/23 11:42:12 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/24 12:27:12 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ size_t				f_fifomax(t_fifo *fifo, size_t (*get_max)(const void*));
 int					f_fifosum_content(t_fifo *fifo,
 		int (*add)(const void*));
 int					f_fifodosum(t_fifo *fifo, int (*add)(void*));
-void				*f_fifo_first_elem(const t_fifo *fifo);
+void const			*f_fifo_first_elem(const t_fifo *fifo);
 size_t				f_fifoarray_end_early(void *array, t_fifo *fifo,
 		size_t size, t_bool (*fifo_on_array)(const void *content, void *array));
 void				f_fifomaparray(const void *src, void *dst, t_fifo *fifo,
@@ -123,5 +123,12 @@ t_bool				f_fifoiterr_vas(t_fifo *fifo,
 */
 
 size_t				fifo_len(t_fifo const *fifo);
+
+/*
+** Get ref to elems inside the list, without taking them.
+** Implementation file : fifo_get_elems.c
+*/
+
+void const			*get_fifo_elem(t_fifo const *fifo, size_t index);
 
 #endif

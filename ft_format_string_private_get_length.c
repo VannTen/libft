@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 13:15:48 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/23 18:50:33 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/24 12:28:28 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int			ft_set_and_get_resulting_length(const t_format_string *fmt)
 
 int			ft_get_current_conv_text_len(t_format_string *fmt)
 {
-	t_conversion *conv;
+	t_conversion const	*conv;
 
 	conv = f_fifo_first_elem(fmt->conversion_list);
 	return (ft_get_conv_text_len(conv));

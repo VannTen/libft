@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/11/17 15:02:09 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/11/24 11:50:59 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ LIB_FIFO ?=\
 	f_fifo_iter_variadic.c\
 	f_fifo_every_valid.c\
 	fifo_take_elems.c\
+	fifo_get_elems.c\
 	fifo_get.c
 LIB_STR ?=\
 	ft_strcat.c ft_strchr.c ft_strclr.c \
@@ -227,6 +228,7 @@ TEST_IT :=\
 	lst_several.c\
 	f_lstmap.c\
 	lst_take_elems.c\
+	fifo_get_elems.c\
 	convert_array_list.c
 DONT_TEST := $(filter-out $(TEST_IT),$(SRC))
 TEST_DIR := test_bin
