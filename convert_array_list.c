@@ -6,15 +6,17 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 15:30:47 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/14 13:29:23 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/24 11:40:17 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "convert_data_struct_defs.h"
 #include "lst_defs.h"
+#include "fifo_defs.h"
 #include "misc_interface.h"
 #include "string_interface.h"
 #include <stdlib.h>
+#include <assert.h>
 
 t_lst	*str_to_lst(char const *str)
 {
@@ -56,4 +58,21 @@ char	*lst_to_str(t_lst const *lst)
 		}
 	}
 	return (new_str);
+}
+
+t_fifo	*str_to_fifo(char const *str)
+{
+	t_fifo	*fifo;
+
+	assert(str != NULL);
+	fifo = f_fifo_create();
+	if (fifo != NULL)
+	{
+		fifo->begin_lst = str_to_lst(str);
+		if (fifo->begin_lst == NULL)
+			f_fifo_destroy(&fifo, no_destroy);
+		else
+			fifo->end_lst = lst_last_link(fifo->begin_lst);
+	}
+	return (fifo);
 }
