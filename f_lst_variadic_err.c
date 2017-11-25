@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 14:58:13 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/12 15:13:14 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/25 12:35:12 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ t_bool	f_lstiterr_vas(t_lst *lst,
 		va_list args)
 {
 	va_list	copy;
+	t_bool	result;
 
 	while (lst != NULL)
 	{
 		va_copy(copy, args);
-		if (!iter(lst->content, copy))
-			return (FALSE);
+		result = iter(lst->content, copy);
 		va_end(copy);
+		if (!result)
+			return (FALSE);
 		lst = lst->next;
 	}
 	return (TRUE);
