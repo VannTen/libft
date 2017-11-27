@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:39:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/21 14:24:25 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/27 15:47:36 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,11 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 */
 
 t_lst	*f_strsplit_lst(char const *str, char c);
+t_lst	*f_strsplit_lst_mod(
+		char const *str,
+		char const *sep,
+		t_bool merge_contiguous_sep);
+
 char	**ft_strsplit(char const *s, char c);
 char	**strsplit_with_str(char const *src, char const *seps);
 char	**ft_strsplit_and(

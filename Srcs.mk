@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/11/24 11:50:59 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/11/27 11:08:43 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -229,6 +229,7 @@ TEST_IT :=\
 	f_lstmap.c\
 	lst_take_elems.c\
 	fifo_get_elems.c\
+	f_strsplit_lst.c\
 	convert_array_list.c
 DONT_TEST := $(filter-out $(TEST_IT),$(SRC))
 TEST_DIR := test_bin
