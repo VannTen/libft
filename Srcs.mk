@@ -36,6 +36,7 @@ TARGET := libft
 #LIB_PATH = $(NOTHING)
 #LIB_META_PROG = $(NOTHING)
 #LIB_CONVERT_SET = $(NOTHING)
+#LIB_FILE_IO = $(NOTHING)
 
 LIB_BTREE ?=\
 	ft_btree_ressources.c\
@@ -201,6 +202,8 @@ LIB_META_PROG ?=\
 	header_42.c
 LIB_CONVERT_SET ?=\
 	convert_array_list.c
+LIB_FILE_IO ?=\
+	file_buffer.c
 
 SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_FIFO)\
 	$(LIB_STR)\
@@ -209,7 +212,8 @@ SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_FIFO)\
 	$(LIB_CONVERT) $(LIB_IS_OF) $(LIB_MATH)\
 	$(LIB_MISCELLANEOUS) $(LIB_PRINTF) $(LIB_VARIADIC)\
 	$(LIB_UNIX_TOOLS) $(LIB_UNIX_FILES) $(LIB_BOOLEAN)\
-	$(LIB_PATH) $(LIB_META_PROG) $(LIB_CONVERT_SET)
+	$(LIB_PATH) $(LIB_META_PROG) $(LIB_CONVERT_SET)\
+	$(LIB_FILE_IO)
 
 # Directories
 
@@ -231,6 +235,7 @@ TEST_IT :=\
 	fifo_get_elems.c\
 	f_strsplit_lst.c\
 	ft_strip.c\
+	file_buffer.c\
 	convert_array_list.c
 DONT_TEST := $(filter-out $(TEST_IT),$(SRC))
 TEST_DIR := test_bin
