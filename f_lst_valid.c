@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 12:01:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/23 11:41:24 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/27 15:52:17 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	*f_lst_every_valid_vas(
 		result = valid_result ?
 			test(list->content, args_loc) : !test(list->content, args_loc);
 		va_end(args_loc);
-		if (result == FALSE)
+		if (!result)
 			return (list->content);
 		else
 			list = list->next;
