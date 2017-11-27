@@ -6,12 +6,13 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 13:47:54 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/23 11:43:00 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/27 16:49:56 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "string_defs.h"
 #include "issomething_interface.h"
+#include <assert.h>
 
 static char	*copy_new(char const *src, char const *to_strip, size_t index_dest)
 {
@@ -60,6 +61,7 @@ void		ft_strip_in_place(
 	size_t	index;
 	size_t	index_strip;
 
+//	assert(strip_from != NULL && shall != NULL);
 	index = 0;
 	index_strip = 0;
 	while (strip_from[index] != '\0')
@@ -74,6 +76,7 @@ void		ft_strip_in_place(
 			strip_from[index] = '\0';
 		index++;
 	}
+	strip_from[index_strip] = '\0';
 }
 
 char		*ft_va_strstrip(char const *str, va_list args)
