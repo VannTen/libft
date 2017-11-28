@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 14:33:27 by mgautier          #+#    #+#             */
-/*   Updated: 2017/03/31 14:37:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/28 16:10:18 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,19 @@ unsigned int	f_lst_len(const t_lst *lst)
 		len++;
 	}
 	return (len);
+}
+
+unsigned int	f_lst_len_until(const t_lst *lst, void const *content)
+{
+	unsigned int	len;
+
+	len = 0;
+	while (lst != NULL && lst->content != content)
+	{
+		lst = lst->next;
+		len++;
+	}
+	return (len + (lst != NULL ? 1 : 0));
 }
 
 int				f_lstsum_content(t_lst *list, int (*f)(const void *))

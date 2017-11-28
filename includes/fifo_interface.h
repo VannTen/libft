@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:00:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/28 12:59:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/28 16:53:36 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ t_fifo				*f_split_fifo_va(
 
 /*
 ** Iteration
+** Implementation files : f_fifo_iter.c & f_fifo_iter_variadic.c
 */
 
 void				f_fifoiter_va(t_fifo const *fifo,
@@ -139,5 +140,22 @@ void const			*get_fifo_elem(t_fifo const *fifo, size_t index);
 t_bool				fifo_are_equ(t_fifo const *fifo1, t_fifo const *fifo2,
 		t_bool (*equ)(void const*, void const*))
 		__attribute__((pure));
+
+/*
+** Iterations with a functions that need the whole list as a reference
+** parameters, to do stuff with it.
+** Implementation file : lst_iter_on_itself.c
+*/
+
+t_bool				f_fifo_insert_on_itself_va(
+		t_fifo *fifo,
+		void *(*insert)(void *content, t_lst const *itself, va_list),
+		void (*destroy)(void **content),
+		...);
+t_bool		f_fifo_insert_on_itself_vas(
+		t_fifo *fifo,
+		void *(*insert)(void *content, t_lst const *itself, va_list),
+		void (*destroy)(void **content),
+		va_list args);
 
 #endif

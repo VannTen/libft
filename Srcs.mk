@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/11/28 12:41:56 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/11/28 16:59:57 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,12 +61,14 @@ LIB_LST ?=\
 	f_strljoin.c\
 	f_strsplit_lst.c\
 	lst_iter_with_previous.c\
+	lst_iter_on_itself.c\
 	lst_take_elems.c\
 	lst_several.c
 LIB_FIFO ?=\
 	f_fifo_add_take.c\
 	f_fifo_ressources.c\
 	f_fifo_iter.c\
+	fifo_iter_on_itself.c\
 	f_fifo_lstrelay.c\
 	f_fifo_lstrelay2.c\
 	f_fifo_iter_variadic.c\
@@ -237,6 +239,7 @@ TEST_IT :=\
 	f_strsplit_lst.c\
 	ft_strip.c\
 	file_buffer.c\
+	lst_iter_on_itself.c\
 	convert_array_list.c
 DONT_TEST := $(filter-out $(TEST_IT),$(SRC))
 TEST_DIR := test_bin

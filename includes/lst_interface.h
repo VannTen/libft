@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/28 12:41:01 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/28 16:16:13 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,23 @@ t_bool				f_lstiterr_va(
 void				f_lstiter(t_lst *lst, t_iter f);
 
 /*
+** Iterations with a functions that need the whole list as a reference
+** parameters, to do stuff with it.
+** Implementation file : lst_iter_on_itself.c
+*/
+
+t_bool				f_lst_insert_on_itself_va(
+		t_lst *lst,
+		void *(*insert)(void *content, t_lst const *itself, va_list),
+		void (*destroy)(void **content),
+		...);
+t_bool		f_lst_insert_on_itself_vas(
+		t_lst *lst,
+		void *(*insert)(void *content, t_lst const *itself, va_list),
+		void (*destroy)(void **content),
+		va_list args);
+
+/*
 ** List transformation
 ** Implementation file : f_lstmap.c
 */
@@ -159,7 +176,7 @@ t_lst				*f_lstmap_va(
 
 /*
 ** List iterators where the passed function use multiples items in the list
-** Implementation_file : lst_iter_multiple.c
+** Implementation_file : lst_iter_with_previous.c
 */
 
 t_lst				*f_lst_mapinc_with_previous(
@@ -212,6 +229,7 @@ void				*f_lst_every_valid_vas(t_lst const *list,
 */
 
 unsigned int		f_lst_len(const t_lst *lst);
+unsigned int		f_lst_len_until(const t_lst *lst, void const *content);
 int					f_lstsum_content(t_lst *list, int (*f)(const void *));
 int					f_lstdosum(t_lst *list, int (*f)(void *));
 size_t				f_lstmax(t_lst *list, size_t (*get_max)(const void *));
