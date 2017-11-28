@@ -6,12 +6,19 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/26 18:01:54 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/23 12:21:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/28 11:53:19 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef USEFUL_MACROS_H
 # define USEFUL_MACROS_H
+# include <stdlib.h>
+
+/*
+** Shortcuts
+*/
+
+# define RET_TEST(X) return ((X) ? EXIT_SUCCESS : EXIT_FAILURE)
 
 /*
 ** Macros for compile-time checking
