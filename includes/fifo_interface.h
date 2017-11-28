@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:00:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/24 12:27:12 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/28 12:59:08 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,14 @@ size_t				fifo_len(t_fifo const *fifo);
 */
 
 void const			*get_fifo_elem(t_fifo const *fifo, size_t index);
+
+/*
+** Acts on several fifo in various ways.
+** Implementation file : fifo_several.c
+*/
+
+t_bool				fifo_are_equ(t_fifo const *fifo1, t_fifo const *fifo2,
+		t_bool (*equ)(void const*, void const*))
+		__attribute__((pure));
 
 #endif
