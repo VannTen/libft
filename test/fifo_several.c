@@ -5,28 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/28 12:38:39 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/30 18:27:26 by mgautier         ###   ########.fr       */
+/*   Created: 2017/11/30 18:24:08 by mgautier          #+#    #+#             */
+/*   Updated: 2017/11/30 18:26:31 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fifo_defs.h"
-#include "lst_interface.h"
-#include <assert.h>
+#include "fifo_interface.h"
+#include "convert_data_struct_interface.h"
+#include <stdlib.h>
 
-t_bool	fifo_are_equ(t_fifo const *fifo_1, t_fifo const *fifo_2,
-		t_bool (*is_equ)(void const*, void const*))
+static t_bool	test(const void *a, const void *b)
 {
-	return (lst_equ(fifo_1->begin_lst, fifo_2->begin_lst, is_equ));
+	return (*(char*)a == *(char*)b);
 }
 
-t_fifo	*join_fifo(t_fifo *fifo_1, t_fifo *fifo_2)
+int				main(void)
 {
-	t_lst	*new_end;
+	const char	str_1[] = "ABC";
+	const char	str_2[] = "DEF";
+	const char	str_3[] = "ABCDEF";
+	t_fifo		*list_1;
+	t_fifo		*list_2;
 
-	assert(fifo_1 != NULL && fifo_2 != NULL);
-	new_end = fifo_2->end_lst;
-	fifo_1->begin_lst = join_lst(fifo_1->end_lst, f_fifo_extract(&fifo_2));
-	fifo_1->end_lst = new_end;
-	return (fifo_1);
+	list_1 = str_to_fifo(str_1);
+	list_2 = str_to_fifo(str_3);
+	list_1 = join_fifo(list_1, str_to_fifo(str_2));
+	RET_TEST(fifo_equ(list_1, list_2, test));
 }
