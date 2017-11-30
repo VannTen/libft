@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 13:48:23 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/23 13:31:22 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/11/30 13:45:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include "bool_interface.h"
 #include "string_interface.h"
 #include "misc_interface.h"
+#include "printf.h"
+#include "useful_macros.h"
+#include <unistd.h>
 #include <stdlib.h>
 
 static t_lst	*convert_arr_to_struct(char const **arr)
@@ -46,6 +49,10 @@ static t_bool	cmp(const void *str1, const void *str2)
 	return (ft_strequ(str1, str2));
 }
 
+static void		iter(void *str)
+{
+	ft_dprintf(STDERR_FILENO, "%s\n", str);
+}
 int				main(void)
 {
 	char const	*str[] = {"A", "B", "D", "C", NULL};
@@ -57,8 +64,10 @@ int				main(void)
 	lst[1] = convert_arr_to_struct(str_2);
 	lst[2] = f_lstmap(lst[1], lower_case, ft_gen_strdel);
 	result = lst_equ(lst[1], lst[2], cmp);
+	if (!result)
+		f_lstiter(lst[2], iter);
 	f_lstdel(&lst[0], no_destroy);
 	f_lstdel(&lst[1], no_destroy);
 	f_lstdel(&lst[2], ft_gen_strdel);
-	return (result);
+	RET_TEST (result);
 }
