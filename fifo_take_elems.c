@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 12:59:18 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/23 11:41:08 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/04 14:22:43 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,14 @@ void	*f_fifotakeone_if_vas(
 		t_bool (*match)(void const *elem, va_list args),
 		va_list args)
 {
-	return (f_lsttakeone_if_vas(&fifo->begin_lst, truth, match, args));
+	void		*content;
+	void const	*cmp_content;
+
+	cmp_content = get_lst_elem(fifo->end_lst, 0);
+	content = f_lsttakeone_if_vas(&fifo->begin_lst, truth, match, args);
+	if (content == cmp_content)
+		fifo->end_lst = lst_last_link(fifo->begin_lst);
+	return (content);
 }
 
 void	*f_fifotakeone_if_va(
@@ -32,7 +39,7 @@ void	*f_fifotakeone_if_va(
 	void	*to_take;
 
 	va_start(args_loc, match);
-	to_take = f_lsttakeone_if_vas(&fifo->begin_lst, truth, match, args_loc);
+	to_take = f_fifotakeone_if_vas(fifo, truth, match, args_loc);
 	va_end(args_loc);
 	return (to_take);
 }

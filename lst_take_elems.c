@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 16:30:35 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/23 11:33:34 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/04 13:36:57 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,16 @@ void	*f_lsttakeone_if_vas(
 	t_lst	**current;
 	void	*to_take;
 	t_lst	*to_del;
+	t_bool	result;
 
 	current = lst;
 	to_take = NULL;
 	while (*current != NULL)
 	{
 		va_copy(args_loc, args);
-		if (truth == match((*current)->content, args_loc))
+		result = match((*current)->content, args_loc);
+		va_end(args_loc);
+		if (truth == result)
 		{
 			to_take = (*current)->content;
 			to_del = *current;
