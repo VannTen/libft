@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:38:39 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/30 18:27:26 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/04 15:51:04 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,13 @@ t_bool	fifo_are_equ(t_fifo const *fifo_1, t_fifo const *fifo_2,
 t_fifo	*join_fifo(t_fifo *fifo_1, t_fifo *fifo_2)
 {
 	t_lst	*new_end;
+	t_lst	*new_begin;
 
 	assert(fifo_1 != NULL && fifo_2 != NULL);
 	new_end = fifo_2->end_lst;
-	fifo_1->begin_lst = join_lst(fifo_1->end_lst, f_fifo_extract(&fifo_2));
+	new_begin = join_lst(fifo_1->end_lst, f_fifo_extract(&fifo_2));
 	fifo_1->end_lst = new_end;
+	if (fifo_1->begin_lst == NULL)
+		fifo_1->begin_lst = new_begin;
 	return (fifo_1);
 }
