@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 12:40:28 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/23 11:33:46 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/06 11:11:21 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,19 @@ t_bool	lst_equ(t_lst const *lst1, t_lst const *lst2,
 		lst2 = lst2->next;
 	}
 	return (lst1 == NULL && lst2 == NULL);
+}
+
+t_bool	lst_equ_to_n(t_lst const *lst1, t_lst const *lst2, size_t index,
+		t_bool (*equ)(void const*, void const*))
+{
+	while (lst1 != NULL && lst2 != NULL && index != 0)
+	{
+		if (!equ(lst1->content, lst2->content))
+			break ;
+		lst1 = lst1->next;
+		lst2 = lst2->next;
+		index--;
+	}
+	return (index == 0 ||
+			(lst1 == NULL && lst2 == NULL));
 }
