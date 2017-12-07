@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/12/13 13:29:13 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/12/13 14:31:41 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -221,7 +221,7 @@ SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_FIFO)\
 	$(LIB_MISCELLANEOUS) $(LIB_PRINTF) $(LIB_VARIADIC)\
 	$(LIB_UNIX_TOOLS) $(LIB_UNIX_FILES) $(LIB_BOOLEAN)\
 	$(LIB_PATH) $(LIB_META_PROG) $(LIB_CONVERT_SET)\
-	$(LIB_FILE_IO)
+	$(LIB_FILE_IO) $(LIB_TRIE)
 
 # Directories
 
