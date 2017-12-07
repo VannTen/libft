@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/06 17:51:39 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/07 17:00:49 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,14 @@ t_lst				*f_split_lst_va(
 		t_bool truth,
 		t_bool (*match)(void const *elem, va_list args),
 		...);
+
+/*
+** Take lst elem with index.
+** Take out the element at the given index in a list.
+** Implemenation file : lst_take_elem.c
+*/
+
+void	*take_lst_elem(t_lst **lst, size_t index);
 
 /*
 ** Variadic functions on list, with error reports.

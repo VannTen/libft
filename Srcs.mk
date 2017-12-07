@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/11/28 16:59:57 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/12/13 13:23:01 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,7 @@ LIB_LST ?=\
 	lst_iter_with_previous.c\
 	lst_iter_on_itself.c\
 	lst_take_elems.c\
+	lst_take_elem.c\
 	lst_several.c
 LIB_FIFO ?=\
 	f_fifo_add_take.c\
