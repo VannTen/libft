@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 12:49:56 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/13 13:48:33 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/13 13:53:53 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	destroy_trie(t_trie **trie, void (*del)(void**));
 
 t_bool	trie_insert(
 		t_trie *trie,
-		void const *content,
+		void *content,
 		t_bool (*equ)(
 			void const *ref,
 			void const *elem),
