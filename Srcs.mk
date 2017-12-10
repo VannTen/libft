@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/12/13 15:52:55 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/12/13 15:54:17 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -216,6 +216,8 @@ LIB_TRIE ?=\
 	trie_ressources.c\
 	trie_insert.c\
 	trie_print.c\
+	trie_list_prefix.c\
+	trie_get.c\
 	trie_test.c
 
 SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_FIFO)\
@@ -251,6 +253,7 @@ TEST_IT :=\
 	file_buffer.c\
 	lst_iter_on_itself.c\
 	trie_insert.c\
+	trie_list_prefix.c\
 	convert_array_list.c
 DONT_TEST := $(filter-out $(TEST_IT),$(SRC))
 TEST_DIR := test_bin

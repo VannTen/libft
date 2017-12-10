@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 12:49:56 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/13 13:53:53 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/13 14:07:36 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,15 @@ t_bool	trie_insert(
 		void const *(get_elem)(void const *set, size_t index));
 
 /*
-** Take out set of elements having the longest common prefix, as a list.
-** The properties of the trie will not be modified after that operation.
-** Implementation file : trie_take.c
+** Produces a list of prefix groups. A prefix groups can include another.
+** Implementation file : trie_list_prefix.c
 */
 
-size_t	take_longest_common_prefix(t_trie *trie, t_lst **push_to);
+t_lst	*list_prefix_groups(
+		t_trie const *trie,
+		void *(*summarize)(t_lst *list, size_t length),
+		void *(*copy_content)(void const *),
+		void (*destroy_content)(void **));
 
 /*
 ** Get trie characteristics
