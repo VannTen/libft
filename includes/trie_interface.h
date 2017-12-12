@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 12:49:56 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/07 13:19:43 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/13 13:48:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,15 @@ size_t	take_longest_common_prefix(t_trie *trie, t_lst **push_to);
 
 size_t	max_common_prefix(t_trie const *trie);
 size_t	trie_count_members(t_trie const *trie);
+
+/*
+** Debug print
+** Implementation file trie_print.c
+*/
+
+void	print_node(int const fd,
+		t_trie const *trie,
+		void (*print_content)(int, void const *),
+		void (*print_ref)(int, void const *));
 
 #endif

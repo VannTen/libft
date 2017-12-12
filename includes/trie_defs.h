@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 14:34:33 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/13 13:41:55 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/13 16:25:48 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ struct s_trie
 	union
 	{
 		void const	*ref;
-		void const	*data;
+		void		*data;
 	}		content;
 	t_lst	*children;
 };

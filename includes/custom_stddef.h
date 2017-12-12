@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 10:31:49 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/21 16:46:54 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/12 17:02:49 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef int		(*t_sum)(void *content);
 typedef	void	(*t_destroy)(void **where_is_content);
 typedef void	(*t_iter)(void *content);
 typedef void	(*t_iter_two)(void *content, void *param_supp);
+typedef void	(*t_print)(int fd, void const *content);
 
 /*
 ** Define some useful macros
