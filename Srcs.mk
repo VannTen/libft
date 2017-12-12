@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/12/13 13:23:01 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/12/13 13:25:50 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,6 +91,7 @@ LIB_STR ?=\
 	ft_strjoin_ifnot.c\
 	ft_substring.c\
 	ft_strip.c\
+	string_put_gen.c\
 	string_cmp_to_other.c
 LIB_STR_ARR ?=\
 	ft_string_array_dup.c\

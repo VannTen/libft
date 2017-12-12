@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:39:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/27 15:47:36 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/12 17:18:23 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,5 +174,16 @@ void	ft_putstr(const char *s);
 void	ft_putendl(const char *s);
 void	ft_putstr_fd(const char *s, int fd);
 void	ft_putendl_fd(const char *s, int fd);
+
+/*
+** Relay of display string for higher order functions (used as functions
+** pointers)
+** Implementation file : string_put_gen.c
+*/
+
+void	ft_gen_putstr(void const *s);
+void	ft_gen_putendl(void const *s);
+void	ft_gen_putstr_fd(int fd, void const *s);
+void	ft_gen_putendl_fd(int fd, void const *s);
 
 #endif
