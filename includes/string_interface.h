@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:39:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/12 17:23:58 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/12 18:24:23 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,14 @@ void	*ft_gen_strdup(const void *src);
 
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+
+/*
+** Equn
+** Implementation file : ft_strnequ.c
+*/
+
 t_bool	ft_strnequ(char const *s1, char const *s2, size_t n);
+t_bool	ft_gen_strnequ(void const *s1, va_list args);
 
 /*
 ** Is equivalent
@@ -191,5 +198,6 @@ void	ft_gen_putstr(void const *s);
 void	ft_gen_putendl(void const *s);
 void	ft_gen_putstr_fd(int fd, void const *s);
 void	ft_gen_putendl_fd(int fd, void const *s);
+void	ft_putstr_fd_sep_gen(void const *s, va_list args);
 
 #endif
