@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/12/13 13:25:50 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/12/13 13:29:13 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,10 @@ LIB_FIFO ?=\
 	fifo_several.c
 LIB_STR ?=\
 	ft_strcat.c ft_strchr.c ft_strclr.c \
-	ft_strcmp.c ft_strcpy.c ft_strdel.c ft_strdup.c ft_strequ.c ft_striter.c \
+	ft_strcmp.c ft_strcpy.c ft_strdel.c\
+	ft_strdup.c\
+	ft_gen_strdup.c\
+	ft_strequ.c ft_striter.c \
 	ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlen.c\
 	ft_strmap.c ft_strmapi.c\
 	ft_strncat.c ft_strncmp.c ft_strncpy.c ft_strnequ.c ft_strnstr.c \

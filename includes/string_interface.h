@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:39:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/12 17:18:23 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/12 17:23:58 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,12 @@ char	*ft_strcat(char *s1, const char *s2);
 char	*ft_strncat(char *s1, const char *s2, size_t n);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
+/*
+** Gen strdup
+** Implementation file : ft_gen_strdup.c
+*/
+
+void	*ft_gen_strdup(const void *src);
 /*
 ** Compare
 ** Implementation files : name of the function (except for ft_strequ_short,
