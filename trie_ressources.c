@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 17:26:39 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/12 11:19:53 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/13 11:56:54 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "lst_interface.h"
 #include <stdlib.h>
 
-t_trie	*create_node(void const *ref_elem)
+t_trie		*create_node(void const *ref_elem)
 {
 	t_trie	*new_node;
 
@@ -27,17 +27,17 @@ t_trie	*create_node(void const *ref_elem)
 	return (new_node);
 }
 
-t_trie	*create_trie(void)
+t_trie		*create_trie(void)
 {
 	return (create_node(NULL));
 }
 
-static void sub_del(void **trie, void (*del)(void**))
+static void	sub_del(void **trie, void (*del)(void**))
 {
 	destroy_trie((t_trie**)trie, del);
 }
 
-void	destroy_trie(t_trie **del_trie, void (*del)(void**))
+void		destroy_trie(t_trie **del_trie, void (*del)(void**))
 {
 	t_trie	*trie;
 

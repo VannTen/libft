@@ -6,16 +6,16 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 17:51:49 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/11 15:36:24 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/13 11:55:24 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "trie_defs.h"
 #include "trie_list_prefix_implem.h"
 
-static void *va_get_trie_content(void const *trie, va_list args)
+static void	*va_get_trie_content(void const *trie, va_list args)
 {
-	t_lst			 **add_to;
+	t_lst			**add_to;
 	t_std_ope const	*f;
 	size_t			depth;
 
@@ -65,7 +65,7 @@ static void	*resume_prefix_group(
 		return (NULL);
 }
 
-t_lst	*list_prefix_groups(
+t_lst		*list_prefix_groups(
 		t_trie const *trie,
 		void *(*summarize)(t_lst *lst, size_t index),
 		void *(*copy)(void const *),
