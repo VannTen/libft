@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 14:39:38 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/27 15:47:36 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/12 18:24:23 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ char	*ft_strncat(char *s1, const char *s2, size_t n);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 /*
+** Gen strdup
+** Implementation file : ft_gen_strdup.c
+*/
+
+void	*ft_gen_strdup(const void *src);
+/*
 ** Compare
 ** Implementation files : name of the function (except for ft_strequ_short,
 ** same as ft_strequ).
@@ -51,7 +57,14 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+
+/*
+** Equn
+** Implementation file : ft_strnequ.c
+*/
+
 t_bool	ft_strnequ(char const *s1, char const *s2, size_t n);
+t_bool	ft_gen_strnequ(void const *s1, va_list args);
 
 /*
 ** Is equivalent
@@ -174,5 +187,17 @@ void	ft_putstr(const char *s);
 void	ft_putendl(const char *s);
 void	ft_putstr_fd(const char *s, int fd);
 void	ft_putendl_fd(const char *s, int fd);
+
+/*
+** Relay of display string for higher order functions (used as functions
+** pointers)
+** Implementation file : string_put_gen.c
+*/
+
+void	ft_gen_putstr(void const *s);
+void	ft_gen_putendl(void const *s);
+void	ft_gen_putstr_fd(int fd, void const *s);
+void	ft_gen_putendl_fd(int fd, void const *s);
+void	ft_putstr_fd_sep_gen(void const *s, va_list args);
 
 #endif

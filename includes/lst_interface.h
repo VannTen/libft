@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/06 11:08:38 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/07 17:00:49 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ typedef struct s_lst	t_lst;
 t_lst				*f_lstnew(void const *content);
 void				f_lstdelone(t_lst *alst, t_destroy del);
 void				f_lstdel(t_lst **alst, t_destroy del);
+void				f_lstdel_set(
+		t_lst **lst,
+		void (*set_del)(void **set, void (*)(void**)),
+		void (*del)(void**));
 
 /*
 ** Elems insertion and removal
@@ -111,6 +115,14 @@ t_lst				*f_split_lst_va(
 		t_bool truth,
 		t_bool (*match)(void const *elem, va_list args),
 		...);
+
+/*
+** Take lst elem with index.
+** Take out the element at the given index in a list.
+** Implemenation file : lst_take_elem.c
+*/
+
+void	*take_lst_elem(t_lst **lst, size_t index);
 
 /*
 ** Variadic functions on list, with error reports.

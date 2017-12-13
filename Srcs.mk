@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/11/28 16:59:57 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/12/13 15:54:17 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,7 @@ LIB_LST ?=\
 	lst_iter_with_previous.c\
 	lst_iter_on_itself.c\
 	lst_take_elems.c\
+	lst_take_elem.c\
 	lst_several.c
 LIB_FIFO ?=\
 	f_fifo_add_take.c\
@@ -79,7 +80,10 @@ LIB_FIFO ?=\
 	fifo_several.c
 LIB_STR ?=\
 	ft_strcat.c ft_strchr.c ft_strclr.c \
-	ft_strcmp.c ft_strcpy.c ft_strdel.c ft_strdup.c ft_strequ.c ft_striter.c \
+	ft_strcmp.c ft_strcpy.c ft_strdel.c\
+	ft_strdup.c\
+	ft_gen_strdup.c\
+	ft_strequ.c ft_striter.c \
 	ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlen.c\
 	ft_strmap.c ft_strmapi.c\
 	ft_strncat.c ft_strncmp.c ft_strncpy.c ft_strnequ.c ft_strnstr.c \
@@ -90,6 +94,7 @@ LIB_STR ?=\
 	ft_strjoin_ifnot.c\
 	ft_substring.c\
 	ft_strip.c\
+	string_put_gen.c\
 	string_cmp_to_other.c
 LIB_STR_ARR ?=\
 	ft_string_array_dup.c\
@@ -207,6 +212,13 @@ LIB_CONVERT_SET ?=\
 	convert_array_list.c
 LIB_FILE_IO ?=\
 	file_buffer.c
+LIB_TRIE ?=\
+	trie_ressources.c\
+	trie_insert.c\
+	trie_print.c\
+	trie_list_prefix.c\
+	trie_get.c\
+	trie_test.c
 
 SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_FIFO)\
 	$(LIB_STR)\
@@ -216,7 +228,7 @@ SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_FIFO)\
 	$(LIB_MISCELLANEOUS) $(LIB_PRINTF) $(LIB_VARIADIC)\
 	$(LIB_UNIX_TOOLS) $(LIB_UNIX_FILES) $(LIB_BOOLEAN)\
 	$(LIB_PATH) $(LIB_META_PROG) $(LIB_CONVERT_SET)\
-	$(LIB_FILE_IO)
+	$(LIB_FILE_IO) $(LIB_TRIE)
 
 # Directories
 
@@ -240,6 +252,8 @@ TEST_IT :=\
 	ft_strip.c\
 	file_buffer.c\
 	lst_iter_on_itself.c\
+	trie_insert.c\
+	trie_list_prefix.c\
 	convert_array_list.c
 DONT_TEST := $(filter-out $(TEST_IT),$(SRC))
 TEST_DIR := test_bin

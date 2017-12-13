@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_nothing.c                                       :+:      :+:    :+:   */
+/*   lst_take_elem.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/15 12:18:08 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/11 15:44:32 by mgautier         ###   ########.fr       */
+/*   Created: 2017/12/07 16:59:06 by mgautier          #+#    #+#             */
+/*   Updated: 2017/12/07 17:07:20 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "lst_defs.h"
+#include <stdlib.h>
 
-void	do_nothing(void *precious_content)
+void	*take_lst_elem(t_lst **lst, size_t index)
 {
-	(void)precious_content;
-}
+	void	*content;
+	t_lst	*to_del;
 
-void	no_destroy(void **precious_content)
-{
-	*precious_content = NULL;
+	while (*lst != NULL && index != 0)
+	{
+		lst = &(*lst)->next;
+		index--;
+	}
+	if (*lst != NULL)
+	{
+		to_del = *lst;
+		*lst = (*lst)->next;
+		content = to_del->content;
+		to_del->next = NULL;
+		to_del->content = NULL;
+		free(to_del);
+	}
+	else
+		content = NULL;
+	return (content);
 }

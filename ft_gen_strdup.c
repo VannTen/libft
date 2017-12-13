@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_nothing.c                                       :+:      :+:    :+:   */
+/*   ft_gen_strdup.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/15 12:18:08 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/11 15:44:32 by mgautier         ###   ########.fr       */
+/*   Created: 2017/12/12 17:22:19 by mgautier          #+#    #+#             */
+/*   Updated: 2017/12/12 17:23:09 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "string_interface.h"
 
-void	do_nothing(void *precious_content)
+void	*ft_gen_strdup(void const *src)
 {
-	(void)precious_content;
-}
-
-void	no_destroy(void **precious_content)
-{
-	*precious_content = NULL;
+	return (ft_strdup(src));
 }

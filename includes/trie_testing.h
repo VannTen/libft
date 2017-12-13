@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_nothing.c                                       :+:      :+:    :+:   */
+/*   trie_testing.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/15 12:18:08 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/11 15:44:32 by mgautier         ###   ########.fr       */
+/*   Created: 2017/12/13 11:07:19 by mgautier          #+#    #+#             */
+/*   Updated: 2017/12/13 11:10:46 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#ifndef TRIE_TESTING_H
+# define TRIE_TESTING_H
+# include "lst_interface.h"
+# include <stddef.h>
 
-void	do_nothing(void *precious_content)
-{
-	(void)precious_content;
-}
+/*
+** Test function pointers for trie testing
+** Implementation file : trie_test.c
+*/
 
-void	no_destroy(void **precious_content)
-{
-	*precious_content = NULL;
-}
+t_bool		test_trie_cmp(void const *s1, void const *s_2);
+void const	*test_trie_get_elem(void const *s1, size_t index);
+void		*test_trie_summarize(t_lst *lst, size_t length);
+
+#endif
