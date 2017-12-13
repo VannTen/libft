@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/12/13 14:45:27 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/12/13 15:51:41 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -214,7 +214,8 @@ LIB_FILE_IO ?=\
 	file_buffer.c
 LIB_TRIE ?=\
 	trie_ressources.c\
-	trie_print.c
+	trie_print.c\
+	trie_test.c
 
 SRC := $(LIB_BTREE) $(LIB_LST) $(LIB_FIFO)\
 	$(LIB_STR)\
