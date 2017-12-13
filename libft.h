@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:51:07 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/27 17:48:07 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/13 17:45:54 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@
 # include "includes/quote_interface.h"
 # include "includes/meta_programming_interface.h"
 # include "includes/file_buffer_interface.h"
+# include "includes/trie_interface.h"
 #endif
