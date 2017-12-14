@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:00:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/30 18:24:51 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/14 13:40:33 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ t_bool				fifo_are_equ(t_fifo const *fifo1, t_fifo const *fifo2,
 		t_bool (*equ)(void const*, void const*))
 		__attribute__((pure));
 t_fifo				*join_fifo(t_fifo *fifo_1, t_fifo *fifo_2);
+t_fifo				*add_lst_to_fifo(t_fifo *fifo, t_lst *lst);
 
 /*
 ** Iterations with a functions that need the whole list as a reference
