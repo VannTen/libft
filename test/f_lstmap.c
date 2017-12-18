@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 13:48:23 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/30 13:45:33 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/18 19:38:57 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,22 @@ int				main(void)
 {
 	char const	*str[] = {"A", "B", "D", "C", NULL};
 	char const	*str_2[] = {"a", "b", "d", "c", NULL};
-	t_lst		*lst[3];
+	char const	*str_3[] = {NULL};
+	t_lst		*lst[5];
 	t_bool		result;
 
 	lst[0] = convert_arr_to_struct(str);
 	lst[1] = convert_arr_to_struct(str_2);
 	lst[2] = f_lstmap(lst[1], lower_case, ft_gen_strdel);
-	result = lst_equ(lst[1], lst[2], cmp);
+	lst[3] = convert_arr_to_struct(str_3);
+	lst[4] = f_lstmap(lst[3], lower_case, ft_gen_strdel);
+	result = lst_equ(lst[1], lst[2], cmp) && lst[4] == NULL;
 	if (!result)
 		f_lstiter(lst[2], iter);
 	f_lstdel(&lst[0], no_destroy);
 	f_lstdel(&lst[1], no_destroy);
 	f_lstdel(&lst[2], ft_gen_strdel);
+	f_lstdel(&lst[3], no_destroy);
+	f_lstdel(&lst[4], no_destroy);
 	RET_TEST (result);
 }

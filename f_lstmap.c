@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 13:00:04 by mgautier          #+#    #+#             */
-/*   Updated: 2017/11/30 13:39:53 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/18 19:36:25 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_lst	*f_lstmap(
 	void	*new_content;
 
 	new_lst = &final_list;
+	final_list = NULL;
 	while (lst != NULL)
 	{
 		new_content = change(lst->content);
@@ -61,6 +62,7 @@ t_lst	*f_lstmap_vas(
 	va_list	args_loc;
 
 	new_lst = &final_list;
+	final_list = NULL;
 	while (lst != NULL)
 	{
 		va_copy(args_loc, args);
@@ -105,6 +107,7 @@ t_lst	*f_lstmapi(
 
 	new_lst = &final_list;
 	index = 0;
+	final_list = NULL;
 	while (lst != NULL)
 	{
 		new_content = change(lst->content, index);
