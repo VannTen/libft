@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 15:30:47 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/18 15:48:58 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/18 17:03:13 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,31 @@ t_lst	*array_to_lst(void const *array_ptr)
 	index = 0;
 	array = array_ptr;
 	while (array[index] != NULL)
+	{
+		if (NULL == f_add_end_lst_2(&end, array[index]))
+		{
+			f_lstdel(&new_list, no_destroy);
+			break ;
+		}
+		if (index == 0)
+			new_list = end;
+		index++;
+	}
+	return (new_list);
+}
+
+t_lst	*array_to_lst_index(void const *array_ptr, size_t size)
+{
+	t_lst				*new_list;
+	t_lst				*end;
+	size_t				index;
+	void const *const 	*array;
+
+	end = NULL;
+	new_list = NULL;
+	index = 0;
+	array = array_ptr;
+	while (index != size)
 	{
 		if (NULL == f_add_end_lst_2(&end, array[index]))
 		{
