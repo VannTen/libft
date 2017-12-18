@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 17:51:49 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/13 11:55:24 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/18 11:05:57 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 static void	*va_get_trie_content(void const *trie, va_list args)
 {
 	t_lst			**add_to;
-	t_std_ope const	*f;
+	t_trie_ope const	*f;
 	size_t			depth;
 
 	add_to = va_arg(args, t_lst**);
-	f = va_arg(args, t_std_ope const*);
+	f = va_arg(args, t_trie_ope const*);
 	depth = va_arg(args, size_t);
 	return (get_trie_content(trie, add_to, f, depth));
 }
 
 static void	*get_trie_content(t_trie const *trie,
 		t_lst **add_to,
-		t_std_ope const *f,
+		t_trie_ope const *f,
 		size_t const depth)
 {
 	if (trie->children == NULL)
@@ -48,7 +48,7 @@ static void	*get_trie_content(t_trie const *trie,
 static void	*resume_prefix_group(
 		t_trie const *trie,
 		t_lst **lst,
-		t_std_ope const *f,
+		t_trie_ope const *f,
 		size_t const length)
 {
 	t_lst	*prefixes;
@@ -59,7 +59,7 @@ static void	*resume_prefix_group(
 	if (prefixes != NULL)
 	{
 		f_lstpush(prefixes, lst);
-		return (f->summarize(prefixes, length));
+		return (f->summarize(prefixes, length, f->ext_ref));
 	}
 	else
 		return (NULL);
@@ -67,18 +67,12 @@ static void	*resume_prefix_group(
 
 t_lst		*list_prefix_groups(
 		t_trie const *trie,
-		void *(*summarize)(t_lst *lst, size_t index),
-		void *(*copy)(void const *),
-		void (*del)(void **))
+		t_trie_ope const *f)
 {
 	t_lst		*prefix_group;
 	void		*content;
-	t_std_ope	f;
 
-	f.del = del;
-	f.copy = copy;
-	f.summarize = summarize;
 	prefix_group = NULL;
-	content = resume_prefix_group(trie, &prefix_group, &f, 0);
+	content = resume_prefix_group(trie, &prefix_group, f, 0);
 	return (prefix_group);
 }

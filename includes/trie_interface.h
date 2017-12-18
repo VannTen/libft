@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 12:49:56 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/13 14:07:36 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/18 12:06:29 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,18 @@ t_bool	trie_insert(
 ** Implementation file : trie_list_prefix.c
 */
 
+typedef struct	s_trie_ope
+{
+	void		*(*summarize)(t_lst *lst, size_t index, void *ext_ref);
+	void		*(*copy)(const void *content);
+	void		(*del)(void **);
+	void		*ext_ref;
+}				t_trie_ope;
+
+
 t_lst	*list_prefix_groups(
 		t_trie const *trie,
-		void *(*summarize)(t_lst *list, size_t length),
-		void *(*copy_content)(void const *),
-		void (*destroy_content)(void **));
+		t_trie_ope const *f);
 
 /*
 ** Get trie characteristics
