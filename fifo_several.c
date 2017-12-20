@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:38:39 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/14 13:40:48 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/20 14:41:43 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ t_fifo	*add_lst_to_fifo(t_fifo *fifo, t_lst *lst)
 	join_lst(fifo->end_lst, lst);
 	if (lst != NULL)
 		fifo->end_lst = lst_last_link(lst);
+	if (fifo->begin_lst == NULL)
+		fifo->begin_lst = lst;
 	return (fifo);
 }
