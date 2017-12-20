@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/07 17:00:49 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/20 16:31:26 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,14 @@ t_bool				lst_equ_to_n(t_lst const *lst1, t_lst const *lst2,
 		size_t index,
 		t_bool (*equ)(void const*, void const*))
 	__attribute__((pure));
+
+/*
+** Test list equivalence order-independently
+** Implementation file : lst_are_equivalent.c
+*/
+
+t_bool	lst_same_contents(t_lst const *lst1, t_lst const *lst2,
+		t_bool (*equ)(void const*, void const*));
 
 /*
 ** Insert or delete on tail of the list

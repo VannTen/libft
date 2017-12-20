@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/12/13 15:54:17 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/12/20 19:06:59 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,8 @@ LIB_LST ?=\
 	lst_iter_on_itself.c\
 	lst_take_elems.c\
 	lst_take_elem.c\
-	lst_several.c
+	lst_several.c\
+	lst_are_equivalent.c
 LIB_FIFO ?=\
 	f_fifo_add_take.c\
 	f_fifo_ressources.c\
@@ -77,6 +78,7 @@ LIB_FIFO ?=\
 	fifo_take_elems.c\
 	fifo_get_elems.c\
 	fifo_get.c\
+	fifo_are_equivalent.c\
 	fifo_several.c
 LIB_STR ?=\
 	ft_strcat.c ft_strchr.c ft_strclr.c \
@@ -252,6 +254,7 @@ TEST_IT :=\
 	ft_strip.c\
 	file_buffer.c\
 	lst_iter_on_itself.c\
+	lst_are_equivalent.c\
 	trie_insert.c\
 	trie_list_prefix.c\
 	convert_array_list.c

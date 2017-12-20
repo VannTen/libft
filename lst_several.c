@@ -6,22 +6,12 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 12:40:28 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/06 11:11:21 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/20 16:02:09 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst_defs.h"
 #include <stddef.h>
-
-t_lst	*last(t_lst *lst)
-{
-	if (lst != NULL)
-	{
-		while (lst->next != NULL)
-			lst = lst->next;
-	}
-	return (lst);
-}
 
 t_lst	*join_lst(t_lst *lst_1, t_lst const *to_join)
 {
@@ -31,7 +21,7 @@ t_lst	*join_lst(t_lst *lst_1, t_lst const *to_join)
 	if (lst_1 != NULL)
 	{
 		if (to_join != NULL)
-			last(lst_1)->next = join;
+			lst_last_link(lst_1)->next = join;
 		return (lst_1);
 	}
 	else
