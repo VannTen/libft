@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/12/20 19:06:59 by mgautier         ###   ########.fr       *#
+#*   Updated: 2017/12/22 13:18:37 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,8 @@ LIB_LST ?=\
 	lst_take_elems.c\
 	lst_take_elem.c\
 	lst_several.c\
-	lst_are_equivalent.c
+	lst_are_equivalent.c\
+	lst_cpy.c
 LIB_FIFO ?=\
 	f_fifo_add_take.c\
 	f_fifo_ressources.c\

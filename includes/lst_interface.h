@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/20 16:31:26 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/22 15:40:25 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -257,5 +257,12 @@ unsigned int		f_lst_len_until(const t_lst *lst, void const *content);
 int					f_lstsum_content(t_lst *list, int (*f)(const void *));
 int					f_lstdosum(t_lst *list, int (*f)(void *));
 size_t				f_lstmax(t_lst *list, size_t (*get_max)(const void *));
+
+/*
+** Put list in another list.
+** Implementation file : list_cpy.c
+*/
+
+t_lst				*lst_add_to(t_lst **add_to, t_lst const *add_from);
 
 #endif
