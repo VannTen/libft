@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/22 15:40:25 by mgautier         ###   ########.fr       */
+/*   Updated: 2017/12/22 16:57:45 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -261,8 +261,18 @@ size_t				f_lstmax(t_lst *list, size_t (*get_max)(const void *));
 /*
 ** Put list in another list.
 ** Implementation file : list_cpy.c
+**
+** These returns *add_to on success, NULL on unexpected failure.
+** (N.B. : *add_to == NULL is a possibility)
+**
+** lst_add_to_filter check before addition if the member is already in the list,
+** and does not add if it is the case.
 */
 
 t_lst				*lst_add_to(t_lst **add_to, t_lst const *add_from);
+t_lst				*lst_add_to_filter(
+		t_lst **add_to,
+		t_lst const *add_from,
+		t_bool *something_added);
 
 #endif
