@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:39:44 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/22 17:26:44 by mgautier         ###   ########.fr       */
+/*   Updated: 2018/01/03 19:07:30 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ t_lst		*lst_add_to_filter(
 		t_bool *something_added)
 {
 	assert(add_to != NULL);
-	*something_added = FALSE;
 	if (f_lstiterr_va((t_lst*)add_from,
 				add_if_not_present, add_to, something_added))
 		return (*add_to);
