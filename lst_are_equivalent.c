@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:01:46 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/20 17:32:45 by mgautier         ###   ########.fr       */
+/*   Updated: 2018/01/05 16:42:37 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 #include "misc_interface.h"
 #include <stdarg.h>
 
-t_bool	content_is_equ(void const *content, va_list arg)
+t_bool	content_is_equ(void const *content2, va_list arg)
 {
 	t_bool		(*equ)(void const*, void const*);
 	void const	*content_equ;
 
 	content_equ = va_arg(arg, void const*);
 	equ = va_arg(arg, t_bool (*)(void const*, void const*));
-	return (equ(content, content_equ));
+	return (equ(content_equ, content2));
 }
 
 t_bool	content_has_equ(void const *content, va_list arg)
 {
-	t_lst	**lst;
+	t_lst	**lst2;
 	t_bool	(*equ)(void const*, void const*);
 
-	lst = va_arg(arg, t_lst**);
+	lst2 = va_arg(arg, t_lst**);
 	equ = va_arg(arg, t_bool (*)(void const*, void const*));
 	return (NULL !=
-			f_lsttakeone_if_va(lst, TRUE, content_is_equ, content, equ));
+			f_lsttakeone_if_va(lst2, TRUE, content_is_equ, content, equ));
 }
 
 void	*copy_ref(void const *elem)
