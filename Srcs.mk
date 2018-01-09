@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2017/12/22 13:18:37 by mgautier         ###   ########.fr       *#
+#*   Updated: 2018/01/09 17:49:18 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,8 @@ LIB_FIFO ?=\
 	fifo_get_elems.c\
 	fifo_get.c\
 	fifo_are_equivalent.c\
-	fifo_several.c
+	fifo_several.c\
+	fifo_get_intern.c
 LIB_STR ?=\
 	ft_strcat.c ft_strchr.c ft_strclr.c \
 	ft_strcmp.c ft_strcpy.c ft_strdel.c\

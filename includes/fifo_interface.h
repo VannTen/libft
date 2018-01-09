@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:00:00 by mgautier          #+#    #+#             */
-/*   Updated: 2017/12/20 19:11:57 by mgautier         ###   ########.fr       */
+/*   Updated: 2018/01/09 17:50:02 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,10 +164,20 @@ t_bool				f_fifo_insert_on_itself_va(
 		void *(*insert)(void *content, t_lst const *itself, va_list),
 		void (*destroy)(void **content),
 		...);
-t_bool		f_fifo_insert_on_itself_vas(
+t_bool				f_fifo_insert_on_itself_vas(
 		t_fifo *fifo,
 		void *(*insert)(void *content, t_lst const *itself, va_list),
 		void (*destroy)(void **content),
 		va_list args);
+
+
+/*
+** Internal access
+** Should mostly be used for debug, or when a t_lst is used which need another
+** t_lst for comparison. Const to avoid internal corruption of the t_fifo object
+** Implementation file : fifo_get_intern.c
+*/
+
+t_lst const			*get_intern_lst(t_fifo const *fifo);
 
 #endif
