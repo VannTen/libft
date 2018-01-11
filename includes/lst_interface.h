@@ -6,7 +6,7 @@
 /*   By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:29:22 by mgautier          #+#    #+#             */
-/*   Updated: 2018/01/05 16:45:24 by mgautier         ###   ########.fr       */
+/*   Updated: 2018/01/11 16:36:48 by mgautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -277,5 +277,23 @@ t_lst				*lst_add_to_filter(
 		t_lst **add_to,
 		t_lst const *add_from,
 		t_bool *something_added);
+
+/*
+** Do from end
+** Iterators going through the list backwards (by recursion)
+** Useful for fonction that build data that can be reused by the leading links
+** of the list
+** Implementation file : lst_from_end.c
+** TODO: Implement tests.
+**
+** lst_do_from_end : ther iter function will first have the last elem of the
+** list has parameter content, and NULL as result on next.
+** Further calls will have the returned value of the previous as the
+** result_on_next arguments. (and the elem of the list in backward order).
+*/
+
+void	*lst_do_from_end(
+		t_lst *lst,
+		void *(*iter)(void *content, void *result_on_next));
 
 #endif

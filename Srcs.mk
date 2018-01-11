@@ -6,7 +6,7 @@
 #    By: mgautier <mgautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/19 07:58:53 by mgautier          #+#    #+#              #
-#*   Updated: 2018/01/09 17:49:18 by mgautier         ###   ########.fr       *#
+#*   Updated: 2018/01/11 17:29:19 by mgautier         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,8 @@ LIB_LST ?=\
 	lst_take_elem.c\
 	lst_several.c\
 	lst_are_equivalent.c\
-	lst_cpy.c
+	lst_cpy.c\
+	lst_from_end.c
 LIB_FIFO ?=\
 	f_fifo_add_take.c\
 	f_fifo_ressources.c\
@@ -259,7 +260,8 @@ TEST_IT :=\
 	lst_are_equivalent.c\
 	trie_insert.c\
 	trie_list_prefix.c\
-	convert_array_list.c
+	convert_array_list.c\
+	lst_from_end.c
 DONT_TEST := $(filter-out $(TEST_IT),$(SRC))
 TEST_DIR := test_bin
 TEST_SRC_DIR := test
