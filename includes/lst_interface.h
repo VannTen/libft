@@ -159,6 +159,7 @@ t_bool				f_lstiterr_va(
 */
 
 void				f_lstiter(t_lst *lst, t_iter f);
+t_bool				f_lstiterr(t_lst *lst, t_bool (*iter)(void *content));
 
 /*
 ** Iterations with a functions that need the whole list as a reference

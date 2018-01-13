@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "lst_defs.h"
+#include <stdarg.h>
 
 /*
 ** Check if the function is valid (first link is checked by the first iteration
@@ -21,7 +22,7 @@
 ** apply the function on the stocked link
 */
 
-void	f_lstiter(t_lst *lst, t_iter f)
+void			f_lstiter(t_lst *lst, t_iter f)
 {
 	t_lst	*new;
 	t_lst	*to_iter;
@@ -36,4 +37,14 @@ void	f_lstiter(t_lst *lst, t_iter f)
 			f(to_iter->content);
 		}
 	}
+}
+
+static t_bool	fake_iter(void *content, va_list args)
+{
+	return (va_arg(args, t_bool (*)(void*))(content));
+}
+
+t_bool			f_lstiterr(t_lst *lst, t_bool (*iter)(void *content))
+{
+	return (f_lstiterr_va(lst, fake_iter, iter));
 }
