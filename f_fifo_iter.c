@@ -31,3 +31,8 @@ void				f_fifoiter_vas(t_fifo const *fifo,
 {
 	f_lstiter_vas(fifo->begin_lst, iter, args);
 }
+
+t_bool				f_fifoiterr(t_fifo *fifo, t_bool (*iter)(void *elem))
+{
+	return (f_lstiterr(fifo->begin_lst, iter));
+}

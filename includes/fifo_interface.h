@@ -117,6 +117,7 @@ t_bool				f_fifoiterr_va(t_fifo *fifo,
 t_bool				f_fifoiterr_vas(t_fifo *fifo,
 		t_bool (*iter)(void *elem, va_list),
 		va_list args);
+t_bool				f_fifoiterr(t_fifo *fifo, t_bool (*iter)(void *elem));
 
 /*
 ** Getters : obtain information about object
