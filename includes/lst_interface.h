@@ -152,6 +152,14 @@ t_bool				f_lstiterr_va(
 		t_lst *lst,
 		t_bool (*iter)(void *elem, va_list),
 		...);
+t_bool				f_lstiterr_vas_const(
+		t_lst const *lst,
+		t_bool (*iter)(void const *elem, va_list),
+		va_list args);
+t_bool				f_lstiterr_va_const(
+		t_lst const *lst,
+		t_bool (*iter)(void const *elem, va_list),
+		...);
 
 /*
 ** List iterations

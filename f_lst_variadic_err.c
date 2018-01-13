@@ -45,3 +45,35 @@ t_bool	f_lstiterr_va(t_lst *lst,
 	va_end(args);
 	return (result);
 }
+
+t_bool	f_lstiterr_vas_const(t_lst const *lst,
+		t_bool (*iter)(void const *elem, va_list),
+		va_list args)
+{
+	va_list	copy;
+	t_bool	result;
+
+	while (lst != NULL)
+	{
+		va_copy(copy, args);
+		result = iter(lst->content, copy);
+		va_end(copy);
+		if (!result)
+			return (FALSE);
+		lst = lst->next;
+	}
+	return (TRUE);
+}
+
+t_bool	f_lstiterr_va_const(t_lst const *lst,
+		t_bool (*iter)(void const *elem, va_list),
+		...)
+{
+	va_list	args;
+	t_bool	result;
+
+	va_start(args, iter);
+	result = f_lstiterr_vas_const(lst, iter, args);
+	va_end(args);
+	return (result);
+}
