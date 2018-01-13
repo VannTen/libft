@@ -296,5 +296,11 @@ t_lst				*lst_add_to_filter(
 void	*lst_do_from_end(
 		t_lst *lst,
 		void *(*iter)(void *content, void *result_on_next));
+void	*lst_do_from_end_va(t_lst *lst,
+		void *(*iter)(void *content, void *result_on_next, va_list args),
+		...);
+void	*lst_do_from_end_vas(t_lst *lst,
+		void *(*iter)(void *content, void *result_on_next, va_list args),
+		va_list args);
 
 #endif

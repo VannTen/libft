@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "lst_defs.h"
+#include <stdarg.h>
 
 void	*lst_do_from_end(t_lst *lst,
 		void *(*iter)(void *content, void *result_on_next))
@@ -19,4 +20,37 @@ void	*lst_do_from_end(t_lst *lst,
 		return (NULL);
 	else
 		return (iter(lst->content, lst_do_from_end(lst->next, iter)));
+}
+
+void	*lst_do_from_end_va(t_lst *lst,
+		void *(*iter)(void *content, void *result_on_next, va_list args),
+		...)
+{
+	va_list	args;
+	void	*result;
+
+	va_start(args, iter);
+	result = lst_do_from_end_vas(lst, iter, args);
+	va_end(args);
+	return (result);
+}
+
+void	*lst_do_from_end_vas(t_lst *lst,
+		void *(*iter)(void *content, void *result_on_next, va_list args),
+		va_list args)
+{
+	va_list	copy;
+	void	*result;
+
+	if (lst == NULL)
+		return (NULL);
+	else
+	{
+		va_copy(copy, args);
+		result = iter(lst->content,
+				lst_do_from_end_vas(lst->next, iter, args),
+				copy);
+		va_end(copy);
+		return (result);
+	}
 }
