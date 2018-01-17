@@ -14,15 +14,18 @@
 #include <stdarg.h>
 
 void	*lst_do_from_end(t_lst *lst,
+		void *initial_result,
 		void *(*iter)(void *content, void *result_on_next))
 {
 	if (lst == NULL)
-		return (NULL);
+		return (initial_result);
 	else
-		return (iter(lst->content, lst_do_from_end(lst->next, iter)));
+		return (iter(lst->content,
+					lst_do_from_end(lst->next, initial_result, iter)));
 }
 
 void	*lst_do_from_end_va(t_lst *lst,
+		void *initial_result,
 		void *(*iter)(void *content, void *result_on_next, va_list args),
 		...)
 {
@@ -30,12 +33,13 @@ void	*lst_do_from_end_va(t_lst *lst,
 	void	*result;
 
 	va_start(args, iter);
-	result = lst_do_from_end_vas(lst, iter, args);
+	result = lst_do_from_end_vas(lst, initial_result, iter, args);
 	va_end(args);
 	return (result);
 }
 
 void	*lst_do_from_end_vas(t_lst *lst,
+		void *initial_result,
 		void *(*iter)(void *content, void *result_on_next, va_list args),
 		va_list args)
 {
@@ -43,12 +47,12 @@ void	*lst_do_from_end_vas(t_lst *lst,
 	void	*result;
 
 	if (lst == NULL)
-		return (NULL);
+		return (initial_result);
 	else
 	{
 		va_copy(copy, args);
 		result = iter(lst->content,
-				lst_do_from_end_vas(lst->next, iter, args),
+				lst_do_from_end_vas(lst->next, initial_result, iter, args),
 				copy);
 		va_end(copy);
 		return (result);

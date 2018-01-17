@@ -46,7 +46,7 @@ int	main(void)
 	lst_numbers[0] = array_to_lst(tab);
 	lst_numbers[2] = f_lstmap(lst_numbers[0], ft_gen_strdup, ft_gen_strdel);
 	lst_numbers[1] = array_to_lst(tab2);
-	free(lst_do_from_end(lst_numbers[2], iter));
+	free(lst_do_from_end(lst_numbers[2], NULL, iter));
 	result = lst_equ(lst_numbers[2], lst_numbers[1], ft_gen_strequ);
 	f_lstdel(&lst_numbers[0], no_destroy);
 	f_lstdel(&lst_numbers[1], no_destroy);

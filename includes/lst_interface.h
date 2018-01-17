@@ -295,19 +295,25 @@ t_lst				*lst_add_to_filter(
 ** Implementation file : lst_from_end.c
 ** TODO: Implement tests.
 **
-** lst_do_from_end : ther iter function will first have the last elem of the
-** list has parameter content, and NULL as result on next.
-** Further calls will have the returned value of the previous as the
-** result_on_next arguments. (and the elem of the list in backward order).
+** Call the iter function on all the elem of the list, starting from the end.
+**
+** iter :
+** - content is the content of that list link.
+** - result_on_next will be equal to initial_result for the last link (and the
+** first call to iter), then it will be equal to the return of the previous iter
+** call.
 */
 
 void	*lst_do_from_end(
 		t_lst *lst,
+		void *initial_result,
 		void *(*iter)(void *content, void *result_on_next));
 void	*lst_do_from_end_va(t_lst *lst,
+		void *initial_result,
 		void *(*iter)(void *content, void *result_on_next, va_list args),
 		...);
 void	*lst_do_from_end_vas(t_lst *lst,
+		void *initial_result,
 		void *(*iter)(void *content, void *result_on_next, va_list args),
 		va_list args);
 
