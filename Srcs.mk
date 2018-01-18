@@ -47,7 +47,8 @@ SYMBOL :=\
 	sym_left_factor_compute.c\
 	sym_left_factor_trie_insert_prods.c\
 	sym_compute_first.c\
-	sym_compute_follow.c
+	sym_compute_follow.c\
+	sym_parse_table.c
 GRAMMAR :=\
 	grammar_parse.c\
 	grammar_get.c\
