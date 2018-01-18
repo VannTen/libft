@@ -58,7 +58,8 @@ GRAMMAR :=\
 	grammar_left_factor.c\
 	grammar_compute_first.c\
 	grammar_compute_follow.c\
-	grammar_print.c
+	grammar_print.c\
+	grammar_parsing_table.c
 TEST_TOOLS :=\
 	test_prods_syms.c\
 	sym_compute_first_test_tools.c\
@@ -120,6 +121,7 @@ DONT_TEST := \
 	grammar_test.c\
 	grammar_print.c\
 	generate_grammar.c\
+	grammar_parsing_table.c\
 	$(TEST_TOOLS)
 
 ## Function tests

@@ -119,4 +119,11 @@ t_bool			compute_first_grammar(t_grammar *grammar);
 
 t_bool			compute_follow_grammar(t_grammar *grammar);
 
+/*
+** Setup the an equivalent of a parsing table.
+** Implementation file : grammar_parsing_table.c
+*/
+
+t_bool	compute_parsing_table(t_grammar *gram, char const **tokens_names);
+
 #endif
