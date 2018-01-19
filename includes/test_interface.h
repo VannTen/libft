@@ -49,6 +49,10 @@ void	print_first_set_comp(t_lst const *first_set, int fd);
 void	print_symbol_first_set(t_symbol const *sym, int const fd);
 t_bool	check_first_sets(
 		t_symbol **syms, t_lst **first_sets, size_t nb_sym);
+t_bool	compute_first_sets(t_symbol **syms, size_t nb_sym);
+t_bool	check_first_sets(
+		t_symbol **syms, t_lst **first_sets, size_t nb_sym);
+
 
 /*
 ** Grammar compute first_tools test
