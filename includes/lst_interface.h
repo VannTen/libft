@@ -317,4 +317,21 @@ void	*lst_do_from_end_vas(t_lst *lst,
 		void *(*iter)(void *content, void *result_on_next, va_list args),
 		va_list args);
 
+/*
+** lst while
+** Kind of a do_while loop, for lists
+** Implementation file : lst_while.c
+*/
+
+t_bool	lst_do_while_err_vas(
+		t_lst *lst,
+		t_bool (*loop_body)(void *, va_list),
+		t_bool (*loop_condition)(void const *, va_list),
+		va_list args);
+t_bool	lst_do_while_err_va(
+		t_lst *lst,
+		t_bool (*loop_body)(void *, va_list),
+		t_bool (*loop_condition)(void const *, va_list),
+		...);
+
 #endif

@@ -67,7 +67,8 @@ LIB_LST ?=\
 	lst_several.c\
 	lst_are_equivalent.c\
 	lst_cpy.c\
-	lst_from_end.c
+	lst_from_end.c\
+	lst_while.c
 LIB_FIFO ?=\
 	f_fifo_add_take.c\
 	f_fifo_ressources.c\
@@ -261,7 +262,8 @@ TEST_IT :=\
 	trie_insert.c\
 	trie_list_prefix.c\
 	convert_array_list.c\
-	lst_from_end.c
+	lst_from_end.c\
+	lst_while.c
 DONT_TEST := $(filter-out $(TEST_IT),$(SRC))
 TEST_DIR := test_bin
 TEST_SRC_DIR := test
