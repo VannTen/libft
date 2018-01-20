@@ -36,9 +36,11 @@ void	ft_gen_putendl_fd(int const fd, void const *s)
 void	ft_putstr_fd_sep_gen(void const *s, va_list args)
 {
 	int			fd;
-	char const *sep;
+	char const	*sep;
+	char const	*str;
 
+	str = s;
 	fd = va_arg(args, int);
 	sep = va_arg(args, char const*);
-	ft_dprintf(fd, "%s%s", s, sep);
+	ft_dprintf(fd, "%s%s", str, sep);
 }

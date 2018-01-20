@@ -18,7 +18,7 @@ size_t	is_substring_up_to(const char *to_search, const char *to_be_searched)
 	size_t	index;
 
 	index = 0;
-	while (to_search[index] == to_be_searched[index] && to_search != '\0')
+	while (to_search[index] == to_be_searched[index] && to_search[index] != '\0')
 		index++;
 	return (index);
 }

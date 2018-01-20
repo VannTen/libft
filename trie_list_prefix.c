@@ -74,5 +74,7 @@ t_lst		*list_prefix_groups(
 
 	prefix_group = NULL;
 	content = resume_prefix_group(trie, &prefix_group, f, 0);
+	if (content == NULL)
+		f_lstdel(&prefix_group, f->del);
 	return (prefix_group);
 }
