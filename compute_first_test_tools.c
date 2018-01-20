@@ -34,7 +34,10 @@ t_lst	*str_to_first_set_lst(char const **array, size_t nb_sym)
 
 static void		print_sym_comp(void const *str, va_list args)
 {
-	ft_dprintf(va_arg(args, int), "%s ", str);
+	char const	*s;
+
+	s = str;
+	ft_dprintf(va_arg(args, int), "%s ", s);
 }
 
 static void		print_set_comp(void const *first_set, va_list args)
