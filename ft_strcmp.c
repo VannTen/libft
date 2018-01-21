@@ -21,15 +21,10 @@
 
 int	ft_strcmp(char const *s1, char const *s2)
 {
-	int		diff;
 	size_t	cursor;
 
-	diff = 0;
 	cursor = 0;
-	while ((diff == 0) && (s1[cursor] != '\0' || s2[cursor] != '\0'))
-	{
-		diff = (unsigned char)s1[cursor] - (unsigned char)s2[cursor];
+	while (s1[cursor] == s2[cursor] && s1[cursor] != '\0')
 		cursor++;
-	}
-	return (diff);
+	return (s1[cursor] - s2[cursor]);
 }
