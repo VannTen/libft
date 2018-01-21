@@ -21,7 +21,7 @@ t_bool	fill_syms_parse_table(t_symbol **syms, size_t nb_syms,
 	size_t	nb_tokens;
 
 	index = 0;
-	nb_tokens = ft_string_array_count(tokens);
+	nb_tokens = ft_string_array_count(tokens) + 1;
 	while (index < nb_syms && init_sym_parse_table(syms[index], nb_tokens))
 		index++;
 	if (index < nb_syms)
