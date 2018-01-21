@@ -31,6 +31,28 @@ t_bool			init_sym_parse_table(t_symbol *sym, size_t nb_tokens)
 	return (sym->parse_row != NULL);
 }
 
+static void		fill_from_follow_set(void const *token, va_list args)
+{
+	t_symbol	*sym;
+	char const	**token_names;
+	size_t		index;
+
+	sym = va_arg(args, t_symbol*);
+	token_names = va_arg(args, char const**);
+	if (token == END_OF_INPUT_SYMBOL)
+		index = ft_string_array_count(token_names);
+	else
+	{
+		index = 0;
+		while (token_names[index] != NULL
+				&& !ft_strequ(get_name(token), token_names[index]))
+			index++;
+		assert(token_names[index] != NULL);
+	}
+	assert(sym->parse_row[index] == NULL);
+	sym->parse_row[index] = va_arg(args, t_prod*);
+}
+
 static void		fill_parse_row(void const *token, va_list args)
 {
 	t_symbol	*sym;
@@ -41,14 +63,8 @@ static void		fill_parse_row(void const *token, va_list args)
 	token_names = va_arg(args, char const**);
 	index = 0;
 	if (token == EMPTY_SYMBOL)
-	{
-		if (has_symbol_in_set(sym->follow, END_OF_INPUT_SYMBOL))
-		{
-			index = ft_string_array_count(token_names);
-			assert(sym->parse_row[index] == NULL);
-			sym->parse_row[index] = va_arg(args, t_prod*);
-		}
-	}
+		f_lstiter_va(sym->follow,
+				fill_from_follow_set, sym, token_names, va_arg(args, t_prod*));
 	else
 	{
 		while (token_names[index] != NULL
