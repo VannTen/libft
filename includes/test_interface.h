@@ -64,6 +64,12 @@ t_bool	compute_first_sets(t_symbol **syms, size_t nb_sym);
 t_bool	check_first_sets(
 		t_symbol **syms, t_lst **first_sets, size_t nb_sym);
 
+/*
+** Compute follow test tools on sym
+** Implementation file : sym_compute_follow_test_tools.c
+*/
+
+t_bool	compute_follow_sets(t_symbol **syms, size_t nb_sym);
 
 /*
 ** Grammar compute first_tools test
