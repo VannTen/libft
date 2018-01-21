@@ -70,11 +70,17 @@ t_lst		*list_prefix_groups(
 		t_trie_ope const *f)
 {
 	t_lst		*prefix_group;
-	void		*content;
 
 	prefix_group = NULL;
-	content = resume_prefix_group(trie, &prefix_group, f, 0);
-	if (content == NULL)
-		f_lstdel(&prefix_group, f->del);
+	(void)resume_prefix_group(trie, &prefix_group, f, 0);
 	return (prefix_group);
 }
+
+/*
+** TODO:
+**
+** Fix the unclear exception of case index = 0.
+** This should be handed by the caller using summarize.
+** Doing it this way, an address returned by summarize if index = 0 is lost.
+** Potential leaks.
+*/
