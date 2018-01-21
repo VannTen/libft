@@ -109,4 +109,12 @@ t_bool	gram_check_first_sets(
 t_bool	gram_check_follow_sets(
 		t_grammar const *gram, t_lst const *first_sets);
 
+/*
+** Parse table test
+** Implementation file : sym_parse_table_test.c
+*/
+
+t_bool	fill_syms_parse_table(t_symbol **syms, size_t nb_syms,
+		char const **tokens);
+
 #endif

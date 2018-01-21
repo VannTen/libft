@@ -66,6 +66,7 @@ TEST_TOOLS :=\
 	prod_get_test.c\
 	sym_get_test.c\
 	test_prods_syms.c\
+	sym_parse_table_test.c\
 	sym_compute_first_test_tools.c\
 	sym_compute_follow_test_tools.c\
 	grammar_compute_first_test_tools.c\
