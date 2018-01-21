@@ -116,5 +116,6 @@ t_bool	gram_check_follow_sets(
 
 t_bool	fill_syms_parse_table(t_symbol **syms, size_t nb_syms,
 		char const **tokens);
+t_bool	compute_sets_all_syms(t_fifo *tokens, t_fifo *sym_list);
 
 #endif
