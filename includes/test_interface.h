@@ -42,6 +42,17 @@ t_lst	*str_to_first_set_lst(char const **array, size_t nb_sym);
 void	print_first_set_comp(t_lst const *first_set, int fd);
 
 /*
+** Compute sets test tools
+** Implementation file : compute_set_test_tools.c
+*/
+
+t_bool	check_sets(
+		void *set_cmp,
+		void *item_array,
+		size_t nb_item,
+		t_bool (*check)(void const *cmp, void const *item));
+
+/*
 ** Compute first test tools on sym
 ** Implementation file : sym_compute_first_test_tools.c
 */
