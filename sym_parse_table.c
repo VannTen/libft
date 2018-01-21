@@ -40,21 +40,24 @@ static void		fill_parse_row(void const *token, va_list args)
 	sym = va_arg(args, t_symbol*);
 	token_names = va_arg(args, char const**);
 	index = 0;
-	if (ft_strequ(get_name(token), "EMPTY_SYMBOL"))
+	if (token == EMPTY_SYMBOL)
 	{
 		if (has_symbol_in_set(sym->follow, END_OF_INPUT_SYMBOL))
+		{
 			index = ft_string_array_count(token_names);
+			assert(sym->parse_row[index] == NULL);
+			sym->parse_row[index] = va_arg(args, t_prod*);
+		}
 	}
 	else
 	{
 		while (token_names[index] != NULL
 				&& !ft_strequ(get_name(token), token_names[index]))
 			index++;
+		assert(token_names[index] != NULL);
+		assert(sym->parse_row[index] == NULL);
+		sym->parse_row[index] = va_arg(args, t_prod*);
 	}
-	assert(sym->parse_row[index] == NULL);
-	assert(token_names[index] != NULL
-			|| ft_strequ(get_name(token), "EMPTY_SYMBOL"));
-	sym->parse_row[index] = va_arg(args, t_prod*);
 }
 
 static t_bool	add_to_parse_row(void *prod, va_list arg)
@@ -69,7 +72,7 @@ static t_bool	add_to_parse_row(void *prod, va_list arg)
 	if (prod_first != NULL)
 	{
 		f_lstiter_va(prod_first,
-				fill_parse_row, sym->parse_row, token_names, prod);
+				fill_parse_row, sym, token_names, prod);
 		f_lstdel(&prod_first, no_destroy);
 		return (TRUE);
 	}
