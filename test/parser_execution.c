@@ -12,6 +12,7 @@
 
 #include "parser_defs.h"
 #include "test_interface.h"
+#include <unistd.h>
 
 static char const	grammar[] =
 "EXPR: EXPR PLUS TERM | TERM;"
@@ -22,12 +23,7 @@ t_bool		test(t_parser const *parser)
 {
 	t_bool			result[] = {TRUE, FALSE, TRUE, FALSE, FALSE};
 	char 			*input[] = {
-		"1 + 2 * 3 * (4 + 5)",
-		"1 1 +",
-		"1 + 3 + 4 * 4",
-		"*",
-		"4 * * 4"
-	};
+		"1 + 2 * 3 * (4 + 5)", "1 1 +", "1 + 3 + 4 * 4", "*", "4 * * 4"};
 	size_t	index;
 	void	*ret;
 	char	*input_copy;
@@ -38,7 +34,11 @@ t_bool		test(t_parser const *parser)
 		input_copy = input[index];
 		ret = execute_construct(parser, "EXPR", &input_copy, get_token);
 		if (result[index] != (ret != NULL))
+		{
+			ft_dprintf(STDERR_FILENO, "\"%s\" should %s have syntax error\n",
+					input[index], result[index] ? "not" : "");
 			break ;
+		}
 		index++;
 	}
 	return (index == ARRAY_LENGTH(result));
