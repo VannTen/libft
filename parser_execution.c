@@ -43,7 +43,7 @@ static t_bool		one_symbol_transition(
 }
 
 void		*execute_construct(
-		t_parser *parser,
+		t_parser const *parser,
 		char const *construct,
 		void *input,
 		void *(get_token)(void *input))

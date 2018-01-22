@@ -44,7 +44,7 @@ void		destroy_parser(t_parser **parser);
 */
 
 void		*execute_construct(
-		t_parser *parser,
+		t_parser const *parser,
 		char const *construct,
 		void *input,
 		void *(get_token)(void *input));
