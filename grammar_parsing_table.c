@@ -32,3 +32,30 @@ t_bool			compute_parsing_table(
 			&& f_fifoiterr_va(gram->sym_list,
 				fill_parse_row, tokens_names));
 }
+
+void const	**create_tokens_table(
+		char const **tokens_name,
+		t_grammar const *gram)
+{
+	size_t		index;
+	void const	**tokens_table;
+
+	index = ft_string_array_count(tokens_name) + 1;
+	tokens_table = malloc(sizeof(*tokens_table) * index);
+	if (tokens_table != NULL)
+	{
+		while (tokens_name[index] != NULL)
+		{
+			tokens_table[index] = find_sym_by_name(gram, tokens_name[index]);
+			if (tokens_table[index] == NULL)
+			{
+				free(tokens_table);
+				tokens_table = NULL;
+				break ;
+			}
+			index++;
+		}
+		tokens_table[index] = END_OF_INPUT_SYMBOL;
+	}
+	return (tokens_table);
+}

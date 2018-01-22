@@ -128,5 +128,8 @@ t_bool			compute_follow_grammar(t_grammar *grammar);
 t_bool			compute_parsing_table(
 		t_grammar *gram,
 		char const **tokens_names);
+void const		**create_tokens_table(
+		char const **tokens_name,
+		t_grammar const *gram);
 
 #endif
