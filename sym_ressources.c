@@ -25,6 +25,7 @@ t_symbol	*create_symbol(char const *name)
 		new->follow = NULL;
 		new->parse_row = NULL;
 		new->name = ft_strdup(name);
+		new->token_id = 0;
 		if (new->name == NULL)
 			destroy_symbol(&new);
 	}
@@ -44,6 +45,7 @@ void		destroy_symbol(t_symbol **to_destroy)
 		f_lstdel(&sym->follow, no_destroy);
 		free(sym->parse_row);
 		sym->parse_row = NULL;
+		sym->token_id = 0;
 		free(sym);
 		*to_destroy = NULL;
 	}
