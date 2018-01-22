@@ -56,6 +56,7 @@ void		*execute_construct(
 	token = NULL;
 	symbol = find_sym_by_name(parser->grammar, construct);
 	if (symbol != NULL
+			&& NULL != f_lstpush(END_OF_INPUT_SYMBOL, &parse_stack)
 			&& NULL != f_lstpush(symbol, &parse_stack))
 	{
 		while (parse_stack != NULL)
@@ -67,9 +68,29 @@ void		*execute_construct(
 						parser->get_token_id(token)))
 			{
 				ft_dprintf(STDERR_FILENO, "Syntax error\n");
-				break ;
+				f_lstdel(&parse_stack, no_destroy);
+				return (NULL);
 			}
 		}
 	}
-	return (f_lstpop(&parse_stack));
+	return (input); // Dummy value, to be changed.
 }
+
+/*
+** Debug
+*/
+
+static void	print_sym(void *sym)
+{
+	ft_dprintf(STDERR_FILENO, "%s\n", get_name(sym));
+}
+
+void	print_token(void const *token, t_parser const *parser)
+{
+	ft_dprintf(STDERR_FILENO, "%zu\n", parser->get_token_id(token));
+}
+void	print_stack(t_lst *stack)
+{
+	f_lstiter(stack, print_sym);
+}
+
