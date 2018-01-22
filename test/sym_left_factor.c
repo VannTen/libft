@@ -31,10 +31,18 @@ static char const	*g_str_symbol[] = {
 	"SYM_0_LFAC_: | E | W"
 };
 
+static char const	*g_str_sym_no_op[] = {
+	"EXPR: TERM EXPR_LREC",
+	"TERM: FACTOR TERM_LREC",
+	"FACTOR: INTEGER | LEFT_PAR EXPR RIGHT_PAR",
+	"EXPR_LREC: PLUS TERM EXPR_LREC |",
+	"TERM_LREC: MULT FACTOR TERM_LREC"
+};
+
 static t_bool		test_left_factor(
-		__attribute__((unused))t_prod **prods,
-		t_symbol **syms,
-		...)
+			__attribute__((unused))t_prod **prods,
+			t_symbol **syms,
+			...)
 {
 	t_fifo	*new_syms;
 	t_bool	result;
@@ -63,8 +71,42 @@ static t_bool		test_left_factor(
 	return (result);
 }
 
+static t_bool		test_no_op(
+			__attribute__((unused))t_prod **prods,
+			t_symbol **syms,
+			...)
+{
+	size_t		index;
+	t_fifo		*new_syms;
+	t_fifo		*sym_list[2];
+	t_symbol	*sym;
+
+	new_syms = f_fifo_create();
+	sym_list[0] = f_fifo_create();
+	sym_list[1] = f_fifo_create();
+	index = 0;
+	while (index < ARRAY_LENGTH(g_str_sym_no_op))
+	{
+		sym = parse_symbol(g_str_sym_no_op[index], sym_list[0], sym_list[1]);
+		;
+		if (!left_factor_sym(sym, new_syms) || !sym_are_equ(sym, syms[index])
+				|| fifo_len(new_syms) != 0)
+		{
+			print_sym_back(sym, STDERR_FILENO);
+			ft_putstr_fd("\n", STDERR_FILENO);
+			destroy_symbol(&sym);
+			break ;
+		}
+		destroy_symbol(&sym);
+		index++;
+	}
+	return (index == ARRAY_LENGTH(g_str_sym_no_op));
+}
+
 int					main(void)
 {
 	RET_TEST(test_sym_prod(g_str_symbol, 0, ARRAY_LENGTH(g_str_symbol),
-				test_left_factor));
+				test_left_factor)
+			&& test_sym_prod(
+				g_str_sym_no_op, 0, ARRAY_LENGTH(g_str_sym_no_op), test_no_op));
 }
