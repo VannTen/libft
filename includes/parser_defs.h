@@ -18,8 +18,7 @@
 struct	s_parser
 {
 	t_grammar	*grammar;
-	t_lst		*parse_stack;
-	void		*lookahead_token;
+	void const	**tokens;
 	size_t		(*get_token_id)(void const *token);
 };
 

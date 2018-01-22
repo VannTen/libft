@@ -64,6 +64,9 @@ GRAMMAR :=\
 	grammar_compute_follow.c\
 	grammar_print.c\
 	grammar_parsing_table.c
+PARSER :=\
+	parser_generation.c\
+	parser_execution.c
 TEST_TOOLS :=\
 	prod_get_test.c\
 	sym_get_test.c\
@@ -83,6 +86,7 @@ SRC :=\
 	$(PRODUCTION)\
 	$(SYMBOL)\
 	$(GRAMMAR)\
+	$(PARSER)\
 	$(TEST_TOOLS)
 
 #	grammar_print_init.c\
@@ -135,6 +139,7 @@ DONT_TEST := \
 	grammar_print.c\
 	generate_grammar.c\
 	grammar_parsing_table.c\
+	parser_generation.c\
 	$(TEST_TOOLS)
 
 ## Function tests
