@@ -118,4 +118,14 @@ t_bool	fill_syms_parse_table(t_symbol **syms, size_t nb_syms,
 		char const **tokens);
 t_bool	compute_sets_all_syms(t_fifo *tokens, t_fifo *sym_list);
 
+/*
+** Parse table gen test
+** Implementation file : parse_table_test.c
+*/
+
+t_bool			parse_row_is_correct(
+		t_symbol const *sym,
+		char const **cmp,
+		size_t nb_tokens);
+
 #endif

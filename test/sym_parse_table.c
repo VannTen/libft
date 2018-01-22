@@ -27,42 +27,6 @@ static char const	*g_parse_row[][ARRAY_LENGTH(g_tokens)] = {
 	{NULL, NULL, "", "X Y", NULL, "N M", NULL, NULL}
 };
 
-static t_bool		equ(void const *sym, void const *str)
-{
-	return (ft_strequ(get_name(sym), str));
-}
-
-t_bool				one_prod_parse_correct(
-		t_prod const *prod,
-		char const *prod_str)
-{
-	t_lst	*prod_cmp;
-	t_bool	result;
-
-	if (prod == NULL || prod_str == NULL)
-		return (prod == NULL && prod_str == NULL);
-	if (ft_strequ(prod_str, "") && get_prod_len(prod) == 0)
-		return (TRUE);
-	prod_cmp = f_strsplit_lst(prod_str, ' ');
-	result = lst_equ(get_prod_lst(prod), prod_cmp, equ);
-	f_lstdel(&prod_cmp, ft_gen_strdel);
-	return (result);
-}
-
-t_bool				parse_row_is_correct(t_symbol *sym, char const **cmp)
-{
-	size_t				index;
-	t_prod const *const	*parse_row;
-
-	index = 0;
-	parse_row = get_sym_parse_row(sym);
-	while (index < ARRAY_LENGTH(g_tokens)
-			&& one_prod_parse_correct(parse_row[index], cmp[index]))
-		index++;
-	return (index == ARRAY_LENGTH(g_tokens));
-
-}
-
 t_bool				test_sym_parse_table(
 		__attribute__((unused))t_prod **prod, t_symbol **sym, ...)
 {
@@ -73,7 +37,8 @@ t_bool				test_sym_parse_table(
 	(void)fill_syms_parse_table(sym, NB_SYM, g_tokens);
 	index = 0;
 	while (index < ARRAY_LENGTH(g_sym)
-			&& parse_row_is_correct(sym[index], g_parse_row[index]))
+			&& parse_row_is_correct(
+				sym[index], g_parse_row[index], ARRAY_LENGTH(g_tokens)))
 		index++;
 	return (index == ARRAY_LENGTH(g_sym));
 }
