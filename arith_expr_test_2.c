@@ -78,6 +78,8 @@ void	*get_token(void	*input)
 			new_token->type = END_OF_INPUT;
 		else
 			destroy_token(&new_token);
+		if (new_token != NULL && new_token->type != INTEGER)
+			(*str)++;
 	}
 	return (new_token);
 }
