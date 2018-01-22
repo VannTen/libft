@@ -133,6 +133,14 @@ t_bool			parse_row_is_correct(
 ** Implementation file : arith_expr_test_1.c && arith_expr_test_2.c
 */
 
+enum
+{
+	INTEGER,
+	LEFT_PAR,
+	RIGHT_PAR,
+	END_OF_INPUT
+};
+
 typedef struct	s_token t_token;
 
 struct s_token
