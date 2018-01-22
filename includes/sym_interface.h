@@ -227,4 +227,11 @@ t_bool			add_set_to_follow_set(
 t_bool			init_sym_parse_table(t_symbol *sym, size_t nb_tokens);
 t_bool			fill_sym_parse_table(t_symbol *sym, char const **token_name);
 
+/*
+** Get parse table
+** Implementation file : sym_parse_table_get.c
+*/
+
+t_prod const	*get_prod_for_token(t_symbol const *sym, size_t token_id);
+
 #endif
