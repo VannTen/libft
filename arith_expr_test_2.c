@@ -70,6 +70,10 @@ void	*get_token(void	*input)
 			new_token->type = LEFT_PAR;
 		else if ((**str) == ')')
 			new_token->type = RIGHT_PAR;
+		else if ((**str) == '+')
+			new_token->type = PLUS;
+		else if ((**str) == '*')
+			new_token->type = MULT;
 		else if ((**str) == '\0')
 			new_token->type = END_OF_INPUT;
 		else

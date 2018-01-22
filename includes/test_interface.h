@@ -136,6 +136,8 @@ t_bool			parse_row_is_correct(
 enum
 {
 	INTEGER,
+	PLUS,
+	MULT,
 	LEFT_PAR,
 	RIGHT_PAR,
 	END_OF_INPUT
