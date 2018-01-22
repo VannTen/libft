@@ -128,4 +128,28 @@ t_bool			parse_row_is_correct(
 		char const **cmp,
 		size_t nb_tokens);
 
+/*
+** Parser generation test (use case : arithmetic expression)
+** Implementation file : arith_expr_test_1.c && arith_expr_test_2.c
+*/
+
+typedef struct	s_token t_token;
+
+struct s_token
+{
+	size_t	type;
+	char	*start;
+};
+
+void	*create_expr(void *no_val);
+void	give_expr(void *v_expr, void *to_give);
+void	*create_term(void *no_val);
+void	give_term(void *v_term, void *to_give);
+void	*create_factor(void *no_val);
+void	give_factor(void *v_factor, void *to_give);
+void	*create_integer(void *v_integer);
+void	destroy_token(t_token **token);
+void	*get_token(void	*input);
+size_t	get_token_index(void const *v_token);
+
 #endif
