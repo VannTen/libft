@@ -124,6 +124,8 @@ t_bool			compute_follow_grammar(t_grammar *grammar);
 ** Implementation file : grammar_parsing_table.c
 */
 
-t_bool	compute_parsing_table(t_grammar *gram, char const **tokens_names);
+t_bool			compute_parsing_table(
+		t_grammar *gram,
+		char const **tokens_names);
 
 #endif
