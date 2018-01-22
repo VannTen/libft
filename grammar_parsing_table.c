@@ -44,6 +44,7 @@ void const	**create_tokens_table(
 	tokens_table = malloc(sizeof(*tokens_table) * index);
 	if (tokens_table != NULL)
 	{
+		index = 0;
 		while (tokens_name[index] != NULL)
 		{
 			tokens_table[index] = find_sym_by_name(gram, tokens_name[index]);
