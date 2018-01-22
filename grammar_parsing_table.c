@@ -53,6 +53,8 @@ void const	**create_tokens_table(
 				tokens_table = NULL;
 				break ;
 			}
+			else
+				set_token_id((void*)tokens_table[index], index);
 			index++;
 		}
 		tokens_table[index] = END_OF_INPUT_SYMBOL;
