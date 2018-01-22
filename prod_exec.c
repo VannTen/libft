@@ -23,7 +23,7 @@ t_bool		add_prod_to_stack(t_prod const *prod, t_lst **stack)
 	t_lst	*new_stack;
 
 	prod_dup = f_lstmap(prod->sym_list, copy, no_destroy);
-	new_stack = join_lst(*stack, prod_dup);
+	new_stack = join_lst(prod_dup, *stack);
 	if (new_stack != NULL
 			|| (prod->sym_list == NULL
 				&& *stack == NULL))
