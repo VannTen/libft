@@ -24,13 +24,17 @@ t_bool			left_factor_sym(t_symbol *sym, t_fifo *new_syms)
 	new_prods = sym_left_factor_compute(sym, &derived_syms);
 	if (new_prods != NULL)
 	{
-		f_lstdel(&sym->prods, iter_del_prod);
-		sym->prods = f_lstpop(&new_prods);
 		if (derived_syms != NULL)
+		{
+			f_lstdel(&sym->prods, iter_del_prod);
+			sym->prods = f_lstpop(&new_prods);
 			add_lst_to_fifo(new_syms, derived_syms);
+		}
 		f_lstdel(&new_prods, no_destroy);
+		return (TRUE);
 	}
-	return (derived_syms != NULL);
+	else
+		return (FALSE);
 }
 
 t_bool			is_result_of_left_factor(t_symbol const *sym)

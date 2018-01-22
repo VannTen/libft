@@ -77,29 +77,28 @@ static t_bool		test_no_op(
 			...)
 {
 	size_t		index;
-	t_fifo		*new_syms;
-	t_fifo		*sym_list[2];
+	t_fifo		*sym_list[3];
 	t_symbol	*sym;
 
-	new_syms = f_fifo_create();
-	sym_list[0] = f_fifo_create();
-	sym_list[1] = f_fifo_create();
+	sym_list[2] = f_fifo_create();
 	index = 0;
 	while (index < ARRAY_LENGTH(g_str_sym_no_op))
 	{
+		sym_list[0] = f_fifo_create();
+		sym_list[1] = f_fifo_create();
 		sym = parse_symbol(g_str_sym_no_op[index], sym_list[0], sym_list[1]);
-		;
-		if (!left_factor_sym(sym, new_syms) || !sym_are_equ(sym, syms[index])
-				|| fifo_len(new_syms) != 0)
+		if (!left_factor_sym(sym, sym_list[2]) || !sym_are_equ(sym, syms[index])
+				|| fifo_len(sym_list[2]) != 0)
 		{
 			print_sym_back(sym, STDERR_FILENO);
 			ft_putstr_fd("\n", STDERR_FILENO);
-			destroy_symbol(&sym);
+			f_fifo_destroy(&sym_list[0], iter_del_sym);
+			f_fifo_destroy(&sym_list[1], iter_del_sym);
 			break ;
 		}
-		destroy_symbol(&sym);
 		index++;
 	}
+	f_fifo_destroy(&sym_list[2], iter_del_sym);
 	return (index == ARRAY_LENGTH(g_str_sym_no_op));
 }
 
