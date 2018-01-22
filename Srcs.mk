@@ -138,7 +138,6 @@ DONT_TEST := \
 	grammar_test.c\
 	grammar_print.c\
 	generate_grammar.c\
-	grammar_parsing_table.c\
 	parser_generation.c\
 	$(TEST_TOOLS)
 

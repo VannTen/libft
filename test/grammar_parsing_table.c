@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "grammar_interface.h"
+#include "test_interface.h"
 
 static char const	*g_tokens[] = {"C", "D", "E", "F", "A", "B", NULL};
 static char const	*g_parse_row_check[][ARRAY_LENGTH(g_tokens)] = {
@@ -26,6 +27,20 @@ static char const	g_grammar[] =
 
 t_bool	test_parse_table(t_grammar const *gram)
 {
+	size_t			index;
+	t_symbol const	*sym;
+	char const		*sym_str[] = {"SYM_1", "SYM_2", "SYM_3"};
+
+	index = 0;
+	while (index < ARRAY_LENGTH(sym_str))
+	{
+		sym = find_sym_by_name(gram, sym_str[index]);
+		if (!parse_row_is_correct(sym, g_parse_row_check[index],
+					ARRAY_LENGTH(g_tokens)))
+			break ;
+		index++;
+	}
+	return (index == ARRAY_LENGTH(sym_str));
 }
 
 int	main(void)
