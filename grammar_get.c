@@ -38,9 +38,9 @@ static t_bool	same_name(void const *sym, va_list arg)
 	return (ft_strequ(get_name(sym), va_arg(arg, char const*)));
 }
 
-void const		*find_sym_by_name(t_grammar const *gram, char const *sym_name)
+t_symbol		*find_sym_by_name(t_grammar const *gram, char const *sym_name)
 {
-	t_symbol const	*sym;
+	t_symbol	*sym;
 
 	sym = f_fifo_every_valid_va(gram->tokens_list, FALSE, same_name, sym_name);
 	if (sym == NULL)
