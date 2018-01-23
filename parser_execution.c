@@ -15,6 +15,7 @@
 #include "sym_interface.h"
 #include "prods_interface.h"
 #include <unistd.h>
+#include <assert.h>
 
 static t_bool		one_symbol_transition(
 		t_lst **parse_stack,
@@ -55,8 +56,11 @@ void		*execute_construct(
 	parse_stack = NULL;
 	token = NULL;
 	symbol = find_sym_by_name(parser->grammar, construct);
+	assert(find_sym_by_name(parser->grammar, "END_OF_INPUT") != NULL);
 	if (symbol != NULL
-			&& NULL != f_lstpush(END_OF_INPUT_SYMBOL, &parse_stack)
+			&& NULL != f_lstpush(
+				find_sym_by_name(parser->grammar, "END_OF_INPUT"),
+				&parse_stack)
 			&& NULL != f_lstpush(symbol, &parse_stack))
 	{
 		while (parse_stack != NULL)

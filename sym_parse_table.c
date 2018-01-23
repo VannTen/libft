@@ -39,7 +39,7 @@ static void		fill_from_follow_set(void const *token, va_list args)
 
 	sym = va_arg(args, t_symbol*);
 	token_names = va_arg(args, char const**);
-	if (token == END_OF_INPUT_SYMBOL)
+	if (ft_strequ(get_name(token), "END_OF_INPUT"))
 		index = ft_string_array_count(token_names);
 	else
 	{

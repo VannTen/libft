@@ -30,7 +30,6 @@ typedef struct s_symbol	t_symbol;
 */
 
 extern t_symbol const	g_empty_symbol;
-extern t_symbol const	g_end_of_input_symbol;
 
 /*
 ** Ressources management

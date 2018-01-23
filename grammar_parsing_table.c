@@ -58,7 +58,7 @@ void const	**create_tokens_table(
 				set_token_id((void*)tokens_table[index], index);
 			index++;
 		}
-		tokens_table[index] = END_OF_INPUT_SYMBOL;
+		tokens_table[index] = find_sym_by_name(gram, "END_OF_INPUT");
 	}
 	return (tokens_table);
 }
