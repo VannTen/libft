@@ -57,15 +57,15 @@ int	main(void)
 		"RIGHT_PAR",
 		NULL
 	};
-	t_associate	const	sym[] = {
+	t_exec	const		sym[] = {
 		{.name = "EXPR", .create = create_expr, .give = give_expr},
 		{.name = "TERM", .create = create_term, .give = give_term},
 		{.name = "FACTOR", .create = create_factor, .give = give_factor},
 		{.name = "INTEGER", .create = create_integer, .give = NULL},
 		{.name = NULL, .create = NULL, .give = NULL},
 	};
-	t_bool	result;
-	void	*expr_result;
+	t_bool				result;
+	void				*expr_result;
 
 	expr_result = NULL;
 	parser = generate_parser(
