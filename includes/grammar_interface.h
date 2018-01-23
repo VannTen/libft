@@ -133,4 +133,13 @@ void const		**create_tokens_table(
 		char const **tokens_name,
 		t_grammar const *gram);
 
+/*
+** Grammar symbol association
+** Implementation file : sym_associate_functions.c
+*/
+
+t_bool			associate_exec_functions(
+		t_grammar const *grammar,
+		t_exec const *rules);
+
 #endif

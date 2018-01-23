@@ -233,4 +233,12 @@ t_bool			fill_sym_parse_table(t_symbol *sym, char const **token_name);
 
 t_prod const	*get_prod_for_token(t_symbol const *sym, size_t token_id);
 
+/*
+** Sym exec related stuff
+** Implementation file : sym_associate_functions.c
+*/
+
+t_exec const	*get_exec_functions(t_symbol const *sym);
+t_bool			is_exec_construct(t_symbol const *sym);
+
 #endif

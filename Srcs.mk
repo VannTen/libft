@@ -51,7 +51,8 @@ SYMBOL :=\
 	sym_compute_first.c\
 	sym_compute_follow.c\
 	sym_parse_table.c\
-	sym_parse_table_get.c
+	sym_parse_table_get.c\
+	sym_associate_functions.c
 GRAMMAR :=\
 	grammar_parse.c\
 	grammar_get.c\
