@@ -43,25 +43,36 @@ static t_bool		one_symbol_transition(
 	return (TRUE);
 }
 
+static t_bool	init(
+		t_lst **parse_stack,
+		void const **token,
+		char const *construct,
+		t_grammar const *gram)
+{
+	t_symbol const	*end_of_input;
+	t_symbol const	*initial_symbol;
+
+	*parse_stack = NULL;
+	*token = NULL;
+	initial_symbol = find_sym_by_name(gram, construct);
+	end_of_input = find_sym_by_name(gram, "END_OF_INPUT");
+	assert(initial_symbol != NULL && end_of_input != NULL);
+	if (NULL == f_lstpush(end_of_input, parse_stack)
+			|| NULL == f_lstpush(initial_symbol, parse_stack))
+		f_lstdel(parse_stack, no_destroy);
+	return (*parse_stack != NULL);
+}
+
 void		*execute_construct(
 		t_parser const *parser,
 		char const *construct,
 		void *input,
 		void *(get_token)(void *input))
 {
-	void const	*symbol;
 	void const	*token;
 	t_lst		*parse_stack;
 
-	parse_stack = NULL;
-	token = NULL;
-	symbol = find_sym_by_name(parser->grammar, construct);
-	assert(find_sym_by_name(parser->grammar, "END_OF_INPUT") != NULL);
-	if (symbol != NULL
-			&& NULL != f_lstpush(
-				find_sym_by_name(parser->grammar, "END_OF_INPUT"),
-				&parse_stack)
-			&& NULL != f_lstpush(symbol, &parse_stack))
+	if (init(&parse_stack, &token, construct, parser->grammar))
 	{
 		while (parse_stack != NULL)
 		{
