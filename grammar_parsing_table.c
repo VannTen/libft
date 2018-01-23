@@ -59,6 +59,7 @@ void const	**create_tokens_table(
 			index++;
 		}
 		tokens_table[index] = find_sym_by_name(gram, "END_OF_INPUT");
+		set_token_id((void*)tokens_table[index], index);
 	}
 	return (tokens_table);
 }
