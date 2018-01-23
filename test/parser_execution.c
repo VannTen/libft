@@ -21,9 +21,10 @@ static char const	grammar[] =
 
 t_bool		test(t_parser const *parser)
 {
-	t_bool			result[] = {TRUE, FALSE, TRUE, FALSE, FALSE};
+	t_bool			result[] = {TRUE, FALSE, TRUE, FALSE, FALSE, TRUE};
 	char 			*input[] = {
-		"1 + 2 * 3 * (4 + 5)", "1 1 +", "1 + 3 + 4 * 4", "*", "4 * * 4"};
+		"1 + 2 * 3 * (4 + 5)", "1 1 +", "1 + 3 + 4 * 4", "*", "4 * * 4",
+	"(((4 + 1) + 1) + 1 * 4)"};
 	size_t	index;
 	void	*ret;
 	char	*input_copy;
