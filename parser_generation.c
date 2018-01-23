@@ -30,7 +30,8 @@ t_parser	*generate_parser(
 				|| !left_factor_grammar(new_parser->grammar)
 				|| !compute_first_grammar(new_parser->grammar)
 				|| !compute_follow_grammar(new_parser->grammar)
-				|| !compute_parsing_table(new_parser->grammar, tokens_names))
+				|| !compute_parsing_table(new_parser->grammar, tokens_names)
+				|| !associate_exec_functions(new_parser->grammar, rules))
 			destroy_parser(&new_parser);
 		else
 		{
