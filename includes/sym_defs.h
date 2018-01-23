@@ -14,7 +14,7 @@
 # define GRAM_GEN_SYM_DEFS_H
 # include "sym_interface.h"
 # include "prods_interface.h"
-# include "parser_interface.h"
+# include "exec_interface.h"
 # include <stddef.h>
 # define DERIVATION_SIGN ':'
 # define PROD_SEP_SIGN '|'

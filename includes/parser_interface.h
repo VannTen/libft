@@ -12,21 +12,10 @@
 
 #ifndef PARSER_INTERFACE_H
 # define PARSER_INTERFACE_H
+# include "exec_interface.h"
 # include <stddef.h>
 
 typedef struct s_parser	t_parser;
-
-typedef	void *(*t_create_construct)(void *lex_value);
-typedef	void (*t_give_construct)(void *construct, void *sub_construct);
-
-typedef struct s_exec	t_exec;
-
-struct	s_exec
-{
-	char const			*name;
-	t_create_construct	create;
-	t_give_construct	give;
-};
 
 /*
 ** Parser generation
