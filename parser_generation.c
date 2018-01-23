@@ -15,7 +15,7 @@
 t_parser	*generate_parser(
 		char const *grammar,
 		char const **tokens_names,
-		t_associate const *rules,
+		t_exec const *rules,
 		size_t (*get_token_id)(void const *token))
 {
 	t_parser	*new_parser;
@@ -36,7 +36,7 @@ t_parser	*generate_parser(
 		{
 			new_parser->get_token_id = get_token_id;
 			(void)rules;
-			//associate_exec(rules, new_parser->grammar);
+			//exec_exec(rules, new_parser->grammar);
 		}
 
 	}

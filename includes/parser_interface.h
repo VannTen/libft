@@ -19,9 +19,9 @@ typedef struct s_parser	t_parser;
 typedef	void *(*t_create_construct)(void *lex_value);
 typedef	void (*t_give_construct)(void *construct, void *sub_construct);
 
-typedef struct s_associate	t_associate;
+typedef struct s_exec	t_exec;
 
-struct	s_associate
+struct	s_exec
 {
 	char const			*name;
 	t_create_construct	create;
@@ -35,7 +35,7 @@ struct	s_associate
 t_parser	*generate_parser(
 		char const *grammar,
 		char const **tokens_names,
-		t_associate const *rules,
+		t_exec const *rules,
 		size_t (*get_token_id)(void const *token));
 void		destroy_parser(t_parser **parser);
 
