@@ -15,6 +15,8 @@
 # include "prods_interface.h"
 # include "sym_interface.h"
 # include "grammar_interface.h"
+# include "exec_interface.h"
+# include "exec_construct_interface.h"
 
 /*
 ** Header for test functions used by many test. Having them as part of the
@@ -167,7 +169,7 @@ size_t	get_token_index(void const *v_token);
 ** Implementation file : exec_stack_test.c
 */
 
-t_exec const	*get_exec_functions(t_exec_construct const *interface);
+t_exec const	*get_construct_functions(t_exec_construct const *interface);
 size_t			get_remaining_symbols(t_exec_construct const *construct);
 
 #endif

@@ -12,7 +12,7 @@
 
 #include "exec_construct_defs.h"
 
-t_exec const	*get_exec_functions(t_exec_construct const *construct)
+t_exec const	*get_construct_functions(t_exec_construct const *construct)
 {
 	return (construct->functions);
 }
