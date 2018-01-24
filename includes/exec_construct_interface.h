@@ -24,7 +24,5 @@ typedef struct s_exec_construct	t_exec_construct;
 */
 
 
-void				destroy_construct(t_exec_construct **to_destroy);
-t_exec_construct	*create_construct(t_exec const *exec_functions);
 
 #endif
