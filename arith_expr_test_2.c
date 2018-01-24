@@ -25,10 +25,10 @@ t_bool	give_factor(void *v_factor, void *to_give)
 	return (TRUE);
 }
 
-void	*create_integer(void *v_integer)
+void	*create_integer(void const *v_integer)
 {
-	int	*integer;
-	t_token	*integer_tok;
+	int				*integer;
+	t_token	const 	*integer_tok;
 
 	integer_tok = v_integer;
 	integer = malloc(sizeof(*integer));

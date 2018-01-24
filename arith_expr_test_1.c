@@ -14,7 +14,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-void	*create_expr(__attribute__((unused))void *no_val)
+void	*create_expr(__attribute__((unused))void const *no_val)
 {
 	int	*expr;
 
@@ -36,7 +36,7 @@ t_bool	give_expr(void *v_expr, void *to_give)
 	return (TRUE);
 }
 
-void	*create_term(__attribute__((unused))void *no_val)
+void	*create_term(__attribute__((unused))void const *no_val)
 {
 	int	*term;
 
@@ -58,7 +58,7 @@ t_bool	give_term(void *v_term, void *to_give)
 	return (TRUE);
 }
 
-void	*create_factor(__attribute__((unused))void *no_val)
+void	*create_factor(__attribute__((unused))void const *no_val)
 {
 	int	*factor;
 
