@@ -162,4 +162,12 @@ void	destroy_token(t_token **token);
 void	*get_token(void	*input);
 size_t	get_token_index(void const *v_token);
 
+/*
+** Exec stack test interface.h
+** Implementation file : exec_stack_test.c
+*/
+
+t_exec const	*get_exec_functions(t_exec_construct const *interface);
+size_t			get_remaining_symbols(t_exec_construct const *construct);
+
 #endif

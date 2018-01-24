@@ -84,7 +84,8 @@ TEST_TOOLS :=\
 	compute_first_test_tools.c\
 	compute_set_test_tools.c\
 	arith_expr_test_1.c\
-	arith_expr_test_2.c
+	arith_expr_test_2.c\
+	exec_stack_test.c\
 
 SRC :=\
 	$(PRODUCTION)\
@@ -144,6 +145,7 @@ DONT_TEST := \
 	grammar_print.c\
 	generate_grammar.c\
 	parser_generation.c\
+	exec_stack_ressources.c\
 	$(TEST_TOOLS)
 
 ## Function tests
