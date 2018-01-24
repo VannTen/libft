@@ -11,69 +11,39 @@
 /* ************************************************************************** */
 
 #include "exec_construct_defs.h"
+#include "libft.h"
 #include <assert.h>
 
-void				destroy_construct(t_exec_construct **to_destroy)
+t_bool			give_to_parent(t_exec_construct **child,
+		t_exec_construct const *parent)
 {
-	t_exec_construct	*construct;
+	t_bool	result;
 
-	assert(to_destroy != NULL);
-	construct = *to_destroy;
-	if (construct != NULL)
-	{
-		construct->symbol = NULL;
-		new_construct->derived_length = 0;
-		new_construct->real = NULL;
-		free(construct);
-		*to_destroy = NULL;
-	}
+	assert(child != NULL && *child != NULL);
+	result = parent->functions->give(parent->real, (*child)->real);
+	destroy_construct(child);
+	return (result);
 }
 
-t_exec_construct	*create_construct(t_symbol const *sym)
-{
-	t_exec_construct	*new_construct;
-
-	assert(is_exec_consruct(sym));
-	new_construct = malloc(sizeof(*new_construct));
-	if (new_construct != NULL)
-	{
-		new_construct->functions = get_exec_functions(sym);
-		new_construct->derived_length = 0;
-		new_construct->real = NULL;
-		if (new_construct->real == NULL)
-			destroy_construct(&new_construct);
-	}
-	return (new_construct)
-}
-
-t_symbol const	*take_one_symbol(t_lst **parse_stack, t_lst **exec_stack)
+t_bool				one_less_symbol(t_lst **exec_stack)
 {
 	t_exec_construct	*current_construct;
+	t_exec_construct	*parent_construct;
 
-	current_construct = get_lst_elem(*exec_stack, 0);
+	current_construct = (void*)get_lst_elem(*exec_stack, 0);
 	assert(current_construct != NULL);
-	current_construct->remaining_symbol--;
-}
-
-void			one_less_symbol(t_lst **exec_stack)
-{
-	t_exec_construct	*current_construct;
-
-	current_construct = get_lst_elem(*exec_stack, 0);
-	assert(current_construct != NULL);
-	current_construct->remaining_symbol--;
+	current_construct->remaining_symbols--;
 	if (current_construct->remaining_symbols == 0)
 	{
 		(void)f_lstpop(exec_stack);
-		destroy_construct(&current_construct);
+		parent_construct = (void*)get_lst_elem(*exec_stack, 0);
+		return (give_to_parent(&current_construct, parent_construct));
 	}
+	else
+		return (TRUE);
 }
 
-void			give_symbol(t_lst **exec_stack)
-{
-}
-
-void			give_token(void const *token_value,
+void			give_token(void *token_value,
 		t_lst **exec_stack,
 		t_exec const *functions_token)
 {
@@ -83,8 +53,29 @@ void			give_token(void const *token_value,
 	if (functions_token != NULL)
 	{
 		final_token = functions_token->create(token_value);
-		parent = get_lst_elem(*exec_stack, 0);
+		parent = (void*)get_lst_elem(*exec_stack, 0);
 		parent->functions->give(parent->real, final_token);
 	}
 	one_less_symbol(exec_stack);
+}
+
+t_bool			one_more_prod(t_lst **exec_stack, t_exec const *functions,
+		size_t const prod_len)
+{
+	t_exec_construct	*new_symbol;
+
+	if (functions != NULL)
+	{
+		new_symbol = create_construct(functions);
+		if (new_symbol != NULL)
+		{
+			new_symbol->real = new_symbol->functions->create(NULL);
+			if (new_symbol->real == NULL
+					|| NULL == f_lstpush(new_symbol, exec_stack))
+				destroy_construct(&new_symbol);
+			else
+				new_symbol->remaining_symbols = prod_len;
+		}
+	}
+	return (functions == NULL || new_symbol != NULL);
 }
