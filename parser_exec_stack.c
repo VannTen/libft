@@ -14,75 +14,55 @@
 #include "libft.h"
 #include <assert.h>
 
-static t_bool				one_less_symbol(t_lst **exec_stack)
-{
-	t_exec_construct	*current;
-	t_exec_construct	*parent;
-	t_bool				result;
-
-	current= (void*)get_lst_elem(*exec_stack, 0);
-	assert(current!= NULL);
-	current->remaining_symbols--;
-	if (current->remaining_symbols == 0)
-	{
-		(void)f_lstpop(exec_stack);
-		parent= (void*)get_lst_elem(*exec_stack, 0);
-		result = parent->functions->give(
-				parent->real, current->real);
-		destroy_construct(&current);
-		return (result);
-	}
-	else
-		return (TRUE);
-}
-
-/*
-** Zero length prod are tokens (consummed, so expand to 0 symbol) and empty
-** productions
-*/
-
-static t_bool			zero_length_prod(void const *token_from_lexer,
-		t_lst **exec_stack,
-		t_exec const *functions_token)
-{
-	t_exec_construct	*parent;
-	void				*final_token;
-
-	if (functions_token != NULL)
-	{
-		final_token = functions_token->create(token_from_lexer);
-		if (final_token != NULL)
-		{
-			parent = (void*)get_lst_elem(*exec_stack, 0);
-			parent->functions->give(parent->real, final_token);
-		}
-		else
-			return (FALSE);
-	}
-	return (TRUE);
-}
-
-static void		*concrete_construct(
+static t_bool			put_on_stack(
 		void const *value,
 		t_lst **exec_stack,
 		t_exec const *functions,
 		size_t const prod_len)
 {
-	t_exec_construct	*current_construct;
+	t_exec_construct	*current;
+	t_exec_construct	*new_child;
 
-	if (prod_len == 0)
-		return (zero_length_prod(value, exec_stack, functions) ?
-				(void*)get_lst_elem(*exec_stack, 0) : NULL);
-	else
+	if (functions == NULL)
 	{
-		current_construct = create_construct(functions);
-		current_construct->real =
-			current_construct->functions->create(NULL);
-		if (current_construct->real == NULL
-				|| NULL == f_lstpush(current_construct, exec_stack))
-			destroy_construct(&current_construct);
+		new_child = create_construct(functions);
+		if (new_child != NULL)
+		{
+			new_child->real = functions->create(value);
+			if (new_child->real == NULL
+					|| NULL == f_lstpush(new_child, exec_stack))
+			{
+				//functions->destroy(&new_child->real);
+				//TODO: add member destroy.
+				destroy_construct(&new_child);
+			}
+		}
+		current = new_child;
 	}
-	return (current_construct);
+	else
+		current = (void*)get_lst_elem(*exec_stack, 0);
+	if (current != NULL)
+		current->remaining_symbols += prod_len;
+	return (current != NULL);
+}
+
+static t_bool			consume_stack(t_lst **exec_stack)
+{
+	t_exec_construct	*child;
+	t_exec_construct	*parent;
+
+	child = (void*)get_lst_elem(*exec_stack, 0);
+	parent = (void*)get_lst_elem(*exec_stack, 1);
+	while (child->remaining_symbols == 0)
+	{
+		if (!parent->functions->give(parent->real, child->real))
+			break ;
+		destroy_construct(&child);
+		(void)f_lstpop(exec_stack);
+		child = parent;
+		parent = (void*)get_lst_elem(*exec_stack, 0);
+	}
+	return (child->remaining_symbols != 0);
 }
 
 static t_bool			put_one_prod_in_stack(
@@ -91,20 +71,12 @@ static t_bool			put_one_prod_in_stack(
 		t_exec const *functions,
 		size_t const prod_len)
 {
-	t_exec_construct	*current_construct;
+	t_exec_construct	*current;
 
-	if (functions != NULL)
-		current_construct = concrete_construct(value,
-				exec_stack, functions, prod_len);
-	else
-		current_construct = (void*)get_lst_elem(*exec_stack, 0);
-	if (current_construct != NULL)
-	{
-		current_construct->remaining_symbols += prod_len;
-		return (one_less_symbol(exec_stack));
-	}
-	else
-		return (FALSE);
+	current = (void*)get_lst_elem(*exec_stack, 0);
+	current->remaining_symbols--;
+	return (put_on_stack(value, exec_stack, functions, prod_len)
+			&& consume_stack(exec_stack));
 }
 
 t_bool		put_token_in_stack(
