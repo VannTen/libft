@@ -13,7 +13,7 @@
 #include "exec_construct_defs.h"
 #include "sym_interface.h"
 #include <assert.h>
-#include <stddef.h>
+#include <stdlib.h>
 
 void				destroy_construct(t_exec_construct **to_destroy)
 {
@@ -35,7 +35,7 @@ t_exec_construct	*create_construct(t_exec const *exec_functions)
 {
 	t_exec_construct	*new_construct;
 
-	assert(exec_functions == NULL);
+	assert(exec_functions != NULL);
 	new_construct = malloc(sizeof(*new_construct));
 	if (new_construct != NULL)
 	{
