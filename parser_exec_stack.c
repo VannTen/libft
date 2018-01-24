@@ -36,7 +36,7 @@ t_bool				one_less_symbol(t_lst **exec_stack)
 		return (TRUE);
 }
 
-t_bool			consume_token(void *token_value,
+t_bool			consume_token(void *token_from_lexer,
 		t_lst **exec_stack,
 		t_exec const *functions_token)
 {
@@ -45,7 +45,7 @@ t_bool			consume_token(void *token_value,
 
 	if (functions_token != NULL)
 	{
-		final_token = functions_token->create(token_value);
+		final_token = functions_token->create(token_from_lexer);
 		if (final_token != NULL)
 		{
 			parent = (void*)get_lst_elem(*exec_stack, 0);
