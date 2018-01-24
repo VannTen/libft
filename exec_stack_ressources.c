@@ -42,8 +42,6 @@ t_exec_construct	*create_construct(t_exec const *exec_functions)
 		new_construct->functions = exec_functions;
 		new_construct->remaining_symbols = 0;
 		new_construct->real = NULL;
-		if (new_construct->real == NULL)
-			destroy_construct(&new_construct);
 	}
 	return (new_construct);
 }
