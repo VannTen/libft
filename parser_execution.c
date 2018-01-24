@@ -31,7 +31,8 @@ static t_bool		one_symbol_transition(
 	if (is_terminal(sym))
 	{
 		if (get_token_id(sym) == token_id(*token)
-				&& consume_token(*token, exec_stack, get_exec_functions(sym)))
+				&& put_token_in_stack(*token, exec_stack,
+					get_exec_functions(sym)))
 			*token = NULL;
 		else
 			return (FALSE);
@@ -41,7 +42,7 @@ static t_bool		one_symbol_transition(
 		derivation = get_prod_for_token(sym, token_id(*token));
 		if (!(derivation != NULL
 					&& add_prod_to_stack(derivation, parse_stack)
-					&& put_one_prod_in_stack(exec_stack,
+					&& put_sym_in_stack(exec_stack,
 						get_exec_functions(sym), get_prod_len(derivation))
 			 ))
 			return (FALSE);
