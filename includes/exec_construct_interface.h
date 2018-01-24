@@ -23,14 +23,13 @@ typedef struct s_exec_construct	t_exec_construct;
 ** Implemenation file : parser_exec_stack.c
 */
 
-t_bool	one_less_symbol(t_lst **exec_stack);
-t_bool	consume_token(
-		void *token_from_lexer,
+t_bool		put_token_in_stack(
+		void const *value,
 		t_lst **exec_stack,
-		t_exec const *token_functions);
-t_bool	put_one_prod_in_stack(
+		t_exec const *functions);
+t_bool		put_sym_in_stack(
 		t_lst **exec_stack,
 		t_exec const *functions,
-		size_t prod_len);
+		size_t const prod_len);
 
 #endif
