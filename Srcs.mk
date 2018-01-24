@@ -65,6 +65,9 @@ GRAMMAR :=\
 	grammar_compute_follow.c\
 	grammar_print.c\
 	grammar_parsing_table.c
+EXEC_STACK :=\
+	exec_stack_ressources.c\
+	parser_exec_stack.c
 PARSER :=\
 	parser_generation.c\
 	parser_execution.c
@@ -87,6 +90,7 @@ SRC :=\
 	$(PRODUCTION)\
 	$(SYMBOL)\
 	$(GRAMMAR)\
+	$(EXEC_STACK)\
 	$(PARSER)\
 	$(TEST_TOOLS)
 

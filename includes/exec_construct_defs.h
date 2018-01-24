@@ -14,6 +14,7 @@
 # define EXEC_CONSTRUCT_DEFS_H
 # include "exec_construct_interface.h"
 # include "exec_interface.h"
+# include <stddef.h>
 
 struct	s_exec_construct
 {

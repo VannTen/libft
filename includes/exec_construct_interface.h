@@ -12,6 +12,7 @@
 
 #ifndef EXEC_CONSTRUCT_INTERFACE_H
 # define EXEC_CONSTRUCT_INTERFACE_H
+# include "exec_interface.h"
 
 typedef struct s_exec_construct	t_exec_construct;
 
@@ -22,7 +23,8 @@ typedef struct s_exec_construct	t_exec_construct;
 ** Implemenation file : parser_exec_stack.c
 */
 
-t_symbol const	*take_one_symbol(t_lst **parse_stack, t_lst **exec_stack);
 
+void				destroy_construct(t_exec_construct **to_destroy);
+t_exec_construct	*create_construct(t_exec const *exec_functions);
 
 #endif
