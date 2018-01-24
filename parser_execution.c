@@ -14,32 +14,14 @@
 #include "grammar_interface.h"
 #include "sym_interface.h"
 #include "prods_interface.h"
+#include "exec_construct_interface.h"
 #include <unistd.h>
 #include <assert.h>
-
-static t_bool		consume_token(void const *token_value, t_lst **exec_stack,
-		t_exec const *functions)
-{
-	void				*exec_token;
-	t_exec_construct	*parent;
-
-	if (functions != NULL)
-	{
-		exec_token = functions->create(token_value);
-		if (exec_token != NULL)
-			return (FALSE);
-		parent = get_lst_elem(*exec_stack, 0);
-		assert(parent != NULL);
-		// TODO: check for success
-		give_to_parent(parent, exec_token);
-		one_less_symbol(exec_stack);
-	}
-}
 
 static t_bool		one_symbol_transition(
 		t_lst **parse_stack,
 		t_lst **exec_stack,
-		void const **token,
+		void **token,
 		size_t (*token_id)(void const *token))
 {
 	void const		*sym;
@@ -48,8 +30,9 @@ static t_bool		one_symbol_transition(
 	sym = f_lstpop(parse_stack);
 	if (is_terminal(sym))
 	{
-		if (get_token_id(sym) == token_id(*token))
-			return (consume_token(token, exec_stack, get_exec_functions(sym)));
+		if (get_token_id(sym) == token_id(*token)
+				&& consume_token(*token, exec_stack, get_exec_functions(sym)))
+			*token = NULL;
 		else
 			return (FALSE);
 	}
@@ -57,7 +40,10 @@ static t_bool		one_symbol_transition(
 	{
 		derivation = get_prod_for_token(sym, token_id(*token));
 		if (!(derivation != NULL
-					&& add_prod_to_stack(derivation, parse_stack)))
+					&& add_prod_to_stack(derivation, parse_stack)
+					&& put_one_prod_in_stack(exec_stack,
+						get_exec_functions(sym), get_prod_len(derivation))
+			 ))
 			return (FALSE);
 	}
 	return (TRUE);
@@ -86,7 +72,7 @@ void		*execute_construct(
 		void *input,
 		void *(get_token)(void *input))
 {
-	void const	*token;
+	void		*token;
 	t_lst		*parse_stack;
 	t_lst		*exec_stack;
 
