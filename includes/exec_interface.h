@@ -12,9 +12,10 @@
 
 #ifndef EXEC_INTERFACE_H
 # define EXEC_INTERFACE_H
+# include "libft.h"
 
 typedef	void *(*t_create_construct)(void *lex_value);
-typedef	void (*t_give_construct)(void *construct, void *sub_construct);
+typedef	t_bool (*t_give_construct)(void *construct, void *sub_construct);
 
 typedef struct s_exec	t_exec;
 
