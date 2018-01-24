@@ -13,7 +13,7 @@
 #include "test_interface.h"
 #include <stdlib.h>
 
-void	give_factor(void *v_factor, void *to_give)
+t_bool	give_factor(void *v_factor, void *to_give)
 {
 	int	*factor;
 	int	*expr_or_integer;
@@ -22,6 +22,7 @@ void	give_factor(void *v_factor, void *to_give)
 	expr_or_integer = to_give;
 	*factor = *expr_or_integer;
 	free(expr_or_integer);
+	return (TRUE);
 }
 
 void	*create_integer(void *v_integer)

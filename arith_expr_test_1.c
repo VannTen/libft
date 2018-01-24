@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "test_interface.h"
+#include "libft.h"
 #include <stdlib.h>
 
 void	*create_expr(__attribute__((unused))void *no_val)
@@ -23,7 +24,7 @@ void	*create_expr(__attribute__((unused))void *no_val)
 	return (expr);
 }
 
-void	give_expr(void *v_expr, void *to_give)
+t_bool	give_expr(void *v_expr, void *to_give)
 {
 	int *expr;
 	int	*term;
@@ -32,6 +33,7 @@ void	give_expr(void *v_expr, void *to_give)
 	term = to_give;
 	*expr = *expr + *term;
 	free(term);
+	return (TRUE);
 }
 
 void	*create_term(__attribute__((unused))void *no_val)
@@ -44,7 +46,7 @@ void	*create_term(__attribute__((unused))void *no_val)
 	return (term);
 }
 
-void	give_term(void *v_term, void *to_give)
+t_bool	give_term(void *v_term, void *to_give)
 {
 	int	*term;
 	int	*factor;
@@ -53,6 +55,7 @@ void	give_term(void *v_term, void *to_give)
 	factor = to_give;
 	*term = *term * *factor;
 	free(factor);
+	return (TRUE);
 }
 
 void	*create_factor(__attribute__((unused))void *no_val)
