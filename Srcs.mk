@@ -67,6 +67,7 @@ GRAMMAR :=\
 	grammar_parsing_table.c
 EXEC_STACK :=\
 	exec_stack_ressources.c\
+	exec_stack_meta_construct.c\
 	parser_exec_stack.c
 PARSER :=\
 	parser_generation.c\
@@ -85,7 +86,7 @@ TEST_TOOLS :=\
 	compute_set_test_tools.c\
 	arith_expr_test_1.c\
 	arith_expr_test_2.c\
-	exec_stack_test.c\
+	exec_stack_test.c
 
 SRC :=\
 	$(PRODUCTION)\
@@ -146,6 +147,7 @@ DONT_TEST := \
 	generate_grammar.c\
 	parser_generation.c\
 	exec_stack_ressources.c\
+	exec_stack_meta_construct.c\
 	$(TEST_TOOLS)
 
 ## Function tests
