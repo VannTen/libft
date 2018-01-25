@@ -169,6 +169,12 @@ size_t	get_token_index(void const *v_token);
 ** Implementation file : exec_stack_test.c
 */
 
+enum
+{
+	STACK_SIZE,
+	TERMINATED_CONSTRUCT
+};
+
 t_exec const	*get_construct_functions(t_exec_construct const *interface);
 size_t			get_remaining_symbols(t_exec_construct const *construct);
 
