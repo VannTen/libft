@@ -178,4 +178,25 @@ enum
 t_exec const	*get_construct_functions(t_exec_construct const *interface);
 size_t			get_remaining_symbols(t_exec_construct const *construct);
 
+/*
+** test of the transition function for parser exec stack
+** Implementation file : parser_exec_stack_transition_test.c
+*/
+
+
+t_bool			test_one_construct_transition(
+		t_lst **stack,
+		t_exec const *functions,
+		size_t const prod_len,
+		void const *value);
+
+/*
+** debug printing
+** Implementation file : exec_construct_debug.c
+*/
+
+void	print_exec_stack(t_lst *stack)
+	__attribute__((used));
+void	print_exec_construct(t_exec_construct const *construct);
+
 #endif
