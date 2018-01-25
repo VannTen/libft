@@ -23,7 +23,7 @@ static t_bool			put_on_stack(
 	t_exec_construct	*current;
 	t_exec_construct	*new_child;
 
-	if (functions == NULL)
+	if (functions != NULL)
 	{
 		new_child = create_construct(functions);
 		if (new_child != NULL)
