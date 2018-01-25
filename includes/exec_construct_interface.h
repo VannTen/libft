@@ -45,5 +45,6 @@ t_bool		put_sym_in_stack(
 */
 
 t_exec_construct	*create_init_meta_construct(void **ref);
+void				destroy_meta_construct(t_exec_construct **meta);
 
 #endif

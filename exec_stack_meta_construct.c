@@ -49,3 +49,8 @@ t_exec_construct		*create_init_meta_construct(void **ref)
 	}
 	return (meta_construct);
 }
+
+void					destroy_meta_construct(t_exec_construct **meta)
+{
+	destroy_construct(meta);
+}
