@@ -52,15 +52,14 @@ static t_bool			consume_stack(t_lst **exec_stack)
 	t_exec_construct	*parent;
 
 	child = (void*)get_lst_elem(*exec_stack, 0);
-	parent = (void*)get_lst_elem(*exec_stack, 1);
 	while (child->remaining_symbols == 0)
 	{
+		parent = (void*)get_lst_elem(*exec_stack, 1);
 		if (!parent->functions->give(parent->real, child->real))
 			break ;
 		destroy_construct(&child);
 		(void)f_lstpop(exec_stack);
 		child = parent;
-		parent = (void*)get_lst_elem(*exec_stack, 0);
 	}
 	return (child->remaining_symbols != 0);
 }
