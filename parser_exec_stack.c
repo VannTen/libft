@@ -51,17 +51,18 @@ static t_bool			consume_stack(t_lst **exec_stack)
 	t_exec_construct	*child;
 	t_exec_construct	*parent;
 
-	child = (void*)get_lst_elem(*exec_stack, 0);
-	while (child->remaining_symbols == 0)
+	assert(*exec_stack != NULL);
+	while (get_remaining_symbols(get_lst_elem(*exec_stack, 0)) == 0)
 	{
-		parent = (void*)get_lst_elem(*exec_stack, 1);
-		if (!parent->functions->give(parent->real, child->real))
+		child = f_lstpop(exec_stack);
+		parent = (void*)get_lst_elem(*exec_stack, 0);
+		if (*exec_stack == NULL
+				|| !parent->functions->give(parent->real, child->real))
 			break ;
 		destroy_construct(&child);
-		(void)f_lstpop(exec_stack);
-		child = parent;
 	}
-	return (child->remaining_symbols != 0);
+	return (*exec_stack == NULL
+			|| get_remaining_symbols(get_lst_elem(*exec_stack, 0)) != 0);
 }
 
 static t_bool			put_one_prod_in_stack(
