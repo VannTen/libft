@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "exec_construct_defs.h"
+#include <assert.h>
 
 t_exec const	*get_construct_functions(t_exec_construct const *construct)
 {
@@ -20,4 +21,15 @@ t_exec const	*get_construct_functions(t_exec_construct const *construct)
 size_t			get_remaining_symbols(t_exec_construct const *construct)
 {
 	return (construct->remaining_symbols);
+}
+
+t_give_construct	get_give(t_exec_construct const *construct)
+{
+	assert(get_construct_functions(construct) != NULL);
+	return (get_construct_functions(construct)->give);
+}
+
+void				*get_value(t_exec_construct const *construct)
+{
+	return (construct->real);
 }

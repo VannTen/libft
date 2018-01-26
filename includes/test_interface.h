@@ -165,8 +165,8 @@ void	*get_token(void	*input);
 size_t	get_token_index(void const *v_token);
 
 /*
-** Exec stack test interface.h
-** Implementation file : exec_stack_test.c
+** test of the transition function for parser exec stack
+** Implementation file : parser_exec_stack_transition_test.c
 */
 
 enum
@@ -174,15 +174,6 @@ enum
 	STACK_SIZE,
 	TERMINATED_CONSTRUCT
 };
-
-t_exec const	*get_construct_functions(t_exec_construct const *interface);
-size_t			get_remaining_symbols(t_exec_construct const *construct);
-
-/*
-** test of the transition function for parser exec stack
-** Implementation file : parser_exec_stack_transition_test.c
-*/
-
 
 t_bool			test_one_construct_transition(
 		t_lst **stack,

@@ -33,6 +33,16 @@ t_bool		put_sym_in_stack(
 		size_t const prod_len);
 
 /*
+** Getters
+** Implementation file : exec_stack_test.c
+*/
+
+t_exec const		*get_construct_functions(t_exec_construct const *interface);
+size_t				get_remaining_symbols(t_exec_construct const *construct);
+t_give_construct	get_give(t_exec_construct const *construct);
+void				*get_value(t_exec_construct const *construct);
+
+/*
 ** Meta construct
 **
 ** The meta construct is to be created at the initialization of the parsing
