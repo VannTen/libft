@@ -53,8 +53,13 @@ t_exec_construct		*create_init_meta_construct(void)
 void					*extract_top_symbol_value(t_exec_construct **meta)
 {
 	void	*value;
+	void	*result;
 
 	value = (*meta)->real;
+	if (value != *meta)
+		result = value;
+	else
+		result = NULL;
 	destroy_construct(meta);
-	return (value);
+	return (result);
 }
