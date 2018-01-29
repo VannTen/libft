@@ -24,7 +24,7 @@ static t_bool		one_symbol_transition(
 		void **token,
 		size_t (*token_id)(void const *token))
 {
-	void const		*sym;
+	t_symbol const	*sym;
 	t_prod const	*derivation;
 
 	sym = f_lstpop(parse_stack);
@@ -73,13 +73,16 @@ void		*execute_construct(
 		void *input,
 		void *(get_token)(void *input))
 {
-	void		*token;
-	t_lst		*parse_stack;
-	t_lst		*exec_stack;
+	void				*token;
+	t_lst				*parse_stack;
+	t_lst				*exec_stack;
+	t_exec_construct	*meta_construct;
 
 	token = NULL;
 	parse_stack = NULL;
 	exec_stack = NULL;
+	meta_construct = create_init_meta_construct();
+	f_lstpush(meta_construct, &exec_stack);
 	if (init(&parse_stack, construct, parser->grammar))
 	{
 		while (parse_stack != NULL)
@@ -97,7 +100,7 @@ void		*execute_construct(
 			}
 		}
 	}
-	return (input); // Dummy value, to be changed.
+	return (extract_top_symbol_value(&meta_construct));
 }
 
 /*
