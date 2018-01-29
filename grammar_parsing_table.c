@@ -52,7 +52,7 @@ void const	**create_tokens_table(
 			{
 				free(tokens_table);
 				tokens_table = NULL;
-				break ;
+				return (tokens_table);
 			}
 			else
 				set_token_id((void*)tokens_table[index], index);
