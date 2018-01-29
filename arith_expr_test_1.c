@@ -42,7 +42,7 @@ void	*create_term(__attribute__((unused))void const *no_val)
 
 	term = malloc(sizeof(*term));
 	if (term != NULL)
-		*term = 0;
+		*term = 1;
 	return (term);
 }
 
