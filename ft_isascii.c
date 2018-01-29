@@ -39,3 +39,8 @@ t_bool		is_unix_constants(int c)
 	return ((c <= 'Z' && c >= 'A')
 			|| c == '_');
 }
+
+t_bool		ft_isspace(int const c)
+{
+	return (is_among(" ", c));
+}

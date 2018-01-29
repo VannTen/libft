@@ -21,6 +21,7 @@
 
 t_bool		ft_isalpha(int c);
 t_bool		is_among(char const *ref, int c);
+t_bool		ft_isspace(int c);
 t_bool		is_unix_constants(int c);
 
 /*
