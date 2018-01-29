@@ -54,7 +54,7 @@ void				*get_value(t_exec_construct const *construct);
 ** Implementation file : exec_stack_meta_construct.c
 */
 
-t_exec_construct	*create_init_meta_construct(void **ref);
-void				destroy_meta_construct(t_exec_construct **meta);
+t_exec_construct	*create_init_meta_construct(void);
+void				*extract_top_symbol_value(t_exec_construct **meta);
 
 #endif

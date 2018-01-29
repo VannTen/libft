@@ -28,14 +28,14 @@
 static t_bool		give_to_meta_construct(
 		void *meta_construct_ref, void *start_symbol)
 {
-	void	**ref;
+	t_exec_construct *meta_construct;
 
-	ref = meta_construct_ref;
-	*ref = start_symbol;
+	meta_construct = meta_construct_ref;
+	meta_construct->real = start_symbol;
 	return (TRUE);
 }
 
-t_exec_construct		*create_init_meta_construct(void **ref)
+t_exec_construct		*create_init_meta_construct(void)
 {
 	t_exec_construct	*meta_construct;
 	t_exec const		meta_functions = {.give = give_to_meta_construct};
@@ -45,12 +45,16 @@ t_exec_construct		*create_init_meta_construct(void **ref)
 	if (meta_construct != NULL)
 	{
 		meta_construct->remaining_symbols = start_symbol_plus_end_of_input;
-		meta_construct->real = ref;
+		meta_construct->real = meta_construct;
 	}
 	return (meta_construct);
 }
 
-void					destroy_meta_construct(t_exec_construct **meta)
+void					*extract_top_symbol_value(t_exec_construct **meta)
 {
+	void	*value;
+
+	value = (*meta)->real;
 	destroy_construct(meta);
+	return (value);
 }
