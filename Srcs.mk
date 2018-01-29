@@ -147,7 +147,6 @@ DONT_TEST := \
 	grammar_test.c\
 	grammar_print.c\
 	generate_grammar.c\
-	parser_generation.c\
 	exec_stack_ressources.c\
 	exec_stack_meta_construct.c\
 	$(TEST_TOOLS)
