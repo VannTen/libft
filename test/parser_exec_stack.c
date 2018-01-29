@@ -62,7 +62,7 @@ static t_bool	test_put_one_prod_in_stack(
 
 	stack = NULL;
 	index = 0;
-	meta_construct = create_init_meta_construct((void**)&final_result);
+	meta_construct = create_init_meta_construct();
 	f_lstpush(meta_construct, &stack);
 	while (test_one_construct_transition(&stack,
 			 	functions[index].create != NULL ? &functions[index] : NULL,
@@ -70,7 +70,7 @@ static t_bool	test_put_one_prod_in_stack(
 				functions[index].create == tok_create ? &i : NULL)
 			&& get_lst_elem(stack, 0) != meta_construct)
 		index++;
-	destroy_meta_construct(&meta_construct);
+	final_result = extract_top_symbol_value(&meta_construct);
 	(void)f_lstpop(&stack);
 	return (final_result != NULL && *final_result == 8);
 }
