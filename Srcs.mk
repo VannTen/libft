@@ -67,6 +67,7 @@ LIB_LST ?=\
 	lst_several.c\
 	lst_are_equivalent.c\
 	lst_cpy.c\
+	lst_cpy_ref.c\
 	lst_from_end.c\
 	lst_while.c
 LIB_FIFO ?=\

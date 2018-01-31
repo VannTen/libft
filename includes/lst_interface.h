@@ -50,6 +50,7 @@ t_bool				f_lstremoveif_one(t_lst **lst, int ref,
 */
 
 t_lst				*join_lst(t_lst *lst_1, t_lst const *to_join);
+t_lst				*lst_join(t_lst const *lst_1, t_lst const *to_join);
 t_bool				lst_equ(t_lst const *lst1, t_lst const *lst2,
 		t_bool (*equ)(void const*, void const*))
 	__attribute__((pure));
@@ -286,6 +287,13 @@ t_lst				*lst_add_to_filter(
 		t_lst **add_to,
 		t_lst const *add_from,
 		t_bool *something_added);
+
+/*
+** Allocates a copy of a list, duplicating the references it holds
+** Implementation file : lst_cpy_ref.c
+*/
+
+t_lst				*lst_cpy(t_lst const *lst);
 
 /*
 ** Do from end

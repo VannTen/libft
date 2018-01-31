@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "lst_defs.h"
+#include "misc_interface.h"
 #include <stddef.h>
 
 t_lst	*join_lst(t_lst *lst_1, t_lst const *to_join)
@@ -26,6 +27,23 @@ t_lst	*join_lst(t_lst *lst_1, t_lst const *to_join)
 	}
 	else
 		return (join);
+}
+
+t_lst	*lst_join(t_lst const *lst_1, t_lst const *lst_2)
+{
+	t_lst	*copy[2];
+
+	copy[0] = lst_cpy(lst_1);
+	copy[1] = lst_cpy(lst_2);
+	if ((copy[0] == NULL && lst_1 != NULL)
+			|| (copy[1] == NULL && lst_2 != NULL))
+	{
+		f_lstdel(&copy[0], no_destroy);
+		f_lstdel(&copy[1], no_destroy);
+		return (NULL);
+	}
+	else
+		return (join_lst(copy[0], copy[1]));
 }
 
 t_bool	lst_equ(t_lst const *lst1, t_lst const *lst2,
