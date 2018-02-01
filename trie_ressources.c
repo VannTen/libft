@@ -52,6 +52,7 @@ void		destroy_trie(t_trie **del_trie, void (*del)(void**))
 			trie->content.ref = NULL;
 			trie->children = NULL;
 		}
+		free(trie);
 		*del_trie = NULL;
 	}
 }
